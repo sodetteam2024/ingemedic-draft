@@ -37,7 +37,7 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
 .nav-item.active .ni,.nav-item:hover .ni{opacity:1}
 .nav-badge{margin-left:auto;background:var(--rojo);color:#fff;font-size:10px;font-weight:700;padding:1px 6px;border-radius:99px;min-width:18px;text-align:center}
 .nav-badge.cian{background:var(--cian)}
-.sidebar-user{margin-top:auto;padding:14px 18px;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:10px}
+.sidebar-user{padding:14px 18px;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:10px}
 .user-avatar{width:32px;height:32px;border-radius:50%;background:var(--cian);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0}
 .user-name{font-size:12.5px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .user-role{font-size:10.5px;color:rgba(255,255,255,.4)}
@@ -161,12 +161,115 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
 ::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-thumb{background:#CBD5E1;border-radius:99px}
 
-.content{flex:1;overflow-y:auto;padding:24px 28px;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.coming-card{background:var(--blanco);border-radius:16px;border:1px solid var(--borde);padding:48px 40px;text-align:center;max-width:480px;box-shadow:0 1px 4px rgba(0,0,0,.04)}
-.coming-icon{width:64px;height:64px;border-radius:16px;background:var(--cian-suave);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:var(--cian)}
-.coming-title{font-size:22px;font-weight:700;color:var(--azul);margin-bottom:8px}
-.coming-sub{font-size:14px;color:var(--texto-suave);line-height:1.6;margin-bottom:24px}
-.coming-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:99px;background:var(--amarillo-suave);color:var(--amarillo);font-size:12px;font-weight:600}
+.content{flex:1;overflow-y:auto;padding:20px 24px;display:flex;flex-direction:column;gap:14px}
+
+/* FILTROS */
+.filters-bar{display:flex;align-items:center;gap:10px;flex-shrink:0;flex-wrap:wrap}
+.search-wrap{position:relative;flex:1;max-width:320px}
+.search-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--texto-suave);display:flex;pointer-events:none}
+.search-input{width:100%;padding:9px 12px 9px 34px;border:1.5px solid var(--borde);border-radius:9px;font-family:"Inter",sans-serif;font-size:13px;color:var(--texto);background:var(--blanco);outline:none;transition:border-color .15s}
+.search-input:focus{border-color:var(--cian)}
+.search-input::placeholder{color:var(--texto-suave)}
+.filter-btn{padding:8px 14px;border:1.5px solid var(--borde);border-radius:9px;background:var(--blanco);font-family:"Inter",sans-serif;font-size:12.5px;font-weight:500;color:var(--texto-med);cursor:pointer;transition:all .15s}
+.filter-btn:hover{border-color:var(--cian);color:var(--cian)}
+.filter-btn.active{background:var(--azul);color:#fff;border-color:var(--azul)}
+
+/* STATS */
+.stats-row{display:flex;gap:10px;flex-shrink:0}
+.stat-chip{background:var(--blanco);border:1px solid var(--borde);border-radius:10px;padding:12px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 1px 3px rgba(0,0,0,.04);cursor:pointer;transition:all .15s}
+.stat-chip:hover{border-color:var(--cian);box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.sc-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.sc-val{font-size:24px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.sc-label{font-size:11.5px;color:var(--texto-suave);margin-top:2px}
+.sc-rojo    .sc-icon{background:var(--rojo-suave)} .sc-rojo    .sc-val{color:var(--rojo)}
+.sc-amarillo .sc-icon{background:var(--amarillo-suave)} .sc-amarillo .sc-val{color:var(--amarillo)}
+.sc-cian    .sc-icon{background:var(--cian-suave)} .sc-cian    .sc-val{color:var(--cian)}
+.sc-verde   .sc-icon{background:var(--verde-suave)} .sc-verde   .sc-val{color:var(--verde)}
+
+/* FILA MANTENIMIENTO */
+.mant-row{background:var(--blanco);border-radius:12px;border:1px solid var(--borde);border-left:4px solid var(--borde);display:flex;align-items:center;gap:0;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.04);transition:all .18s;cursor:pointer;margin-bottom:8px}
+.mant-row:hover{box-shadow:0 4px 16px rgba(27,58,107,.1);border-color:var(--cian);border-left-color:inherit}
+.mant-row.preventivo{border-left-color:var(--cian)}
+.mant-row.correctivo{border-left-color:var(--rojo)}
+.mant-row.correctivo.activo{animation:rowGlow 3s ease-in-out infinite}
+@keyframes rowGlow{0%,100%{box-shadow:0 1px 3px rgba(0,0,0,.04)}50%{box-shadow:0 0 0 3px rgba(192,57,43,.1)}}
+
+.mant-tipo-icon{width:56px;display:flex;align-items:center;justify-content:center;flex-shrink:0;align-self:stretch;background:var(--fondo)}
+.mti-prev{color:var(--cian)}
+.mti-corr{color:var(--rojo)}
+
+.mant-info{flex:1;padding:14px 16px;min-width:0}
+.mant-codigo{font-size:10.5px;font-family:monospace;font-weight:700;color:var(--texto-suave);margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.mant-nombre{font-size:14px;font-weight:700;color:var(--azul);margin-bottom:3px}
+.mant-meta{font-size:12px;color:var(--texto-suave);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.mant-serial{font-family:monospace;font-size:11.5px;font-weight:600;background:#F1F5F9;color:var(--azul);padding:1px 6px;border-radius:4px}
+
+.mant-tecnico{min-width:180px;padding:14px 16px;border-left:1px solid #F8FAFC}
+.mt-label{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--texto-suave);margin-bottom:4px}
+.mt-val{font-size:13px;font-weight:500;color:var(--texto);display:flex;align-items:center;gap:6px}
+.mt-dot{width:8px;height:8px;border-radius:50%;background:var(--cian);flex-shrink:0}
+.mt-sin{font-size:12.5px;color:var(--texto-suave);font-style:italic}
+
+.mant-fechas{min-width:160px;padding:14px 16px;border-left:1px solid #F8FAFC}
+
+.mant-estado{min-width:130px;padding:14px 16px;border-left:1px solid #F8FAFC;display:flex;flex-direction:column;justify-content:center;gap:8px}
+
+/* BADGES ESTADO */
+.est-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:99px;font-size:11.5px;font-weight:700}
+.eb-abierto  {background:#F1F5F9;color:var(--gris)}
+.eb-proceso  {background:var(--amarillo-suave);color:var(--amarillo)}
+.eb-proceso .eb-dot{animation:ping 1s ease-in-out infinite}
+.eb-cerrado  {background:var(--verde-suave);color:var(--verde)}
+.eb-dot{width:7px;height:7px;border-radius:50%;background:currentColor;flex-shrink:0}
+@keyframes ping{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* BTN ACCIÓN */
+.mant-accion{padding:14px 16px;border-left:1px solid #F8FAFC;display:flex;align-items:center}
+.btn-acc{padding:7px 14px;border-radius:8px;font-family:"Inter",sans-serif;font-size:12px;font-weight:700;border:none;cursor:pointer;transition:all .15s;white-space:nowrap}
+.ba-iniciar  {background:var(--cian);color:#fff}
+.ba-iniciar:hover{background:#0E86A0}
+.ba-cerrar   {background:var(--azul);color:#fff}
+.ba-cerrar:hover{background:var(--azul-med)}
+.ba-critico  {background:var(--rojo);color:#fff;animation:btnPing 1.5s ease-in-out infinite}
+.ba-critico:hover{background:#922B21}
+@keyframes btnPing{0%,100%{box-shadow:0 0 0 0 rgba(192,57,43,0)}50%{box-shadow:0 0 0 5px rgba(192,57,43,.2)}}
+.ba-reporte  {background:#F1F5F9;color:var(--gris)}
+.ba-reporte:hover{background:#E2E8F0;color:var(--texto)}
+
+/* DRAWER */
+.drawer-bloque{padding:16px 22px;border-bottom:1px solid #F1F5F9}
+.drawer-bloque:last-child{border-bottom:none}
+.drawer-bloque-title{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--texto-suave);margin-bottom:12px}
+
+/* MODAL CIERRE */
+.modal-overlay{position:fixed;inset:0;background:rgba(15,36,72,.5);z-index:300;display:none;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.modal-overlay.open{display:flex}
+.modal{background:var(--blanco);border-radius:18px;width:100%;max-width:520px;max-height:92vh;display:flex;flex-direction:column;box-shadow:0 28px 64px rgba(0,0,0,.22);overflow:hidden;border:1px solid var(--borde)}
+.modal-head{padding:18px 24px;border-bottom:1px solid var(--borde);display:flex;align-items:center;gap:12px;flex-shrink:0}
+.modal-head-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.modal-head h3{font-size:15px;font-weight:700;color:var(--azul)}
+.modal-head p{font-size:11px;font-family:monospace;color:var(--texto-suave);margin-top:2px}
+.modal-close{background:none;border:none;cursor:pointer;color:var(--texto-suave);width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;margin-left:auto}
+.modal-close:hover{background:#F1F5F9}
+.modal-body{padding:22px 24px;overflow-y:auto;flex:1}
+.modal-foot{padding:14px 24px;border-top:1px solid var(--borde);display:flex;justify-content:flex-end;gap:10px;flex-shrink:0}
+.form-group{display:flex;flex-direction:column;gap:5px;margin-bottom:16px}
+.form-group label{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--texto-med)}
+.form-group input,.form-group textarea{padding:10px 12px;border:1.5px solid var(--borde);border-radius:9px;font-family:"Inter",sans-serif;font-size:13.5px;color:var(--texto);background:var(--blanco);outline:none;transition:border-color .15s,box-shadow .15s}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--cian);box-shadow:0 0 0 3px rgba(46,181,212,.12)}
+.form-group textarea{resize:vertical;min-height:90px}
+
+/* RADIO DESTINO */
+.radio-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.radio-card{border:1.5px solid var(--borde);border-radius:11px;padding:12px 14px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:10px;background:var(--blanco)}
+.radio-card:hover{border-color:var(--cian)}
+.radio-card.selected-verde{border-color:var(--verde);box-shadow:0 0 0 3px rgba(15,123,85,.1)}
+.radio-card.selected-rojo {border-color:var(--rojo); box-shadow:0 0 0 3px rgba(192,57,43,.1)}
+.radio-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+.radio-card-text .rc-title{font-size:12.5px;font-weight:700;color:var(--texto)}
+.radio-card-text .rc-sub{font-size:10.5px;color:var(--texto-suave);margin-top:1px}
+
+.empty-state{text-align:center;padding:56px 24px;color:var(--texto-suave)}
 </style>
 </head>
 <body>
@@ -194,6 +297,9 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
     <a class="nav-item" href="ordenes.html">
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>Órdenes de servicio
     </a>
+    <a class="nav-item" href="servicios.html">
+      <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></span>Servicios
+    </a>
     <a class="nav-item" href="clientes.html">
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>Clientes
     </a>
@@ -212,6 +318,11 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></span>Configuración
     </a>
   </div>
+  <div style="padding:8px 12px;border-top:1px solid rgba(255,255,255,.08);margin-top:0">
+    <a class="nav-item" href="manual_usuario.html" target="_blank">
+      <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M8 7h8M8 11h8M8 15h8"/></svg></span>Manual de usuario
+    </a>
+  </div>
   <div class="sidebar-user">
     <div class="user-avatar" id="user-avatar">L</div>
     <div style="flex:1;min-width:0">
@@ -224,42 +335,553 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
 <main class="main">
   <div class="topbar">
     <div>
-      <div class="topbar-title">Mantenimientos</div>
-      <div class="topbar-sub">Seguimiento de equipos en mantenimiento</div>
+      <div class="topbar-title">Mantenimientos biomédicos</div>
+      <div class="topbar-sub">Control de calibración, fallas y salud preventiva de equipos</div>
+    </div>
+    <div class="topbar-right">
+      <button class="btn-primary" onclick="abrirModalNuevo()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Registrar mantenimiento
+      </button>
     </div>
   </div>
+
   <div class="content">
-    <div class="coming-card">
-      <div class="coming-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-chip sc-rojo"    onclick="setFiltro('correctivo',null)">
+        <div class="sc-icon">⚠️</div>
+        <div><div class="sc-val" id="cnt-corr">0</div><div class="sc-label">Correctivos activos</div></div>
       </div>
-      <div class="coming-title">Mantenimientos</div>
-      <div class="coming-sub">Seguimiento de equipos en mantenimiento.<br>Este módulo está en construcción y estará disponible próximamente.</div>
-      <span class="coming-badge">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        En desarrollo
-      </span>
+      <div class="stat-chip sc-amarillo" onclick="setFiltro('proceso',null)">
+        <div class="sc-icon">⏳</div>
+        <div><div class="sc-val" id="cnt-proc">0</div><div class="sc-label">En proceso</div></div>
+      </div>
+      <div class="stat-chip sc-cian"    onclick="setFiltro('preventivo',null)">
+        <div class="sc-icon">🔵</div>
+        <div><div class="sc-val" id="cnt-prev">0</div><div class="sc-label">Preventivos activos</div></div>
+      </div>
+      <div class="stat-chip sc-verde"   onclick="setFiltro('cerrado',null)">
+        <div class="sc-icon">✅</div>
+        <div><div class="sc-val" id="cnt-cerr">0</div><div class="sc-label">Completados</div></div>
+      </div>
     </div>
+
+    <!-- Filtros -->
+    <div class="filters-bar">
+      <div class="search-wrap">
+        <span class="search-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
+        <input class="search-input" id="search" placeholder="Equipo, serial, técnico o tipo..." oninput="render()">
+      </div>
+      <button class="filter-btn active" onclick="setFiltro('todos',this)">Todos</button>
+      <button class="filter-btn"        onclick="setFiltro('abierto',this)">📋 Abiertos</button>
+      <button class="filter-btn"        onclick="setFiltro('proceso',this)">⏳ En proceso</button>
+      <button class="filter-btn"        onclick="setFiltro('correctivo',this)">⚠️ Correctivos</button>
+      <button class="filter-btn"        onclick="setFiltro('cerrado',this)">✅ Cerrados</button>
+    </div>
+
+    <div id="mant-list"></div>
   </div>
 </main>
 </div>
+
+<!-- DRAWER -->
+<div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-head">
+    <div>
+      <div class="drawer-title" id="drawer-title">Mantenimiento</div>
+      <div class="drawer-sub"  id="drawer-sub">—</div>
+    </div>
+    <button class="drawer-close" onclick="closeDrawer()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="drawer-body" id="drawer-body"></div>
+  <div class="drawer-foot" id="drawer-foot"></div>
+</div>
+
+<!-- MODAL CIERRE -->
+<div class="modal-overlay" id="modal-cierre">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-head">
+      <div class="modal-head-icon" style="background:var(--rojo-suave);color:var(--rojo)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </div>
+      <div>
+        <h3>Finalizar protocolo de mantenimiento</h3>
+        <p id="modal-cierre-id" style="font-size:11px;font-family:monospace;color:var(--texto-suave)">—</p>
+      </div>
+      <button class="modal-close" onclick="cerrarModalCierre()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label>Técnico responsable <span style="font-size:10px;font-weight:400;text-transform:none;color:var(--texto-suave)">(opcional)</span></label>
+        <input id="c-tecnico" placeholder="ej. Ing. Andrés Silva">
+      </div>
+      <div class="form-group">
+        <label>Actividades realizadas y repuestos utilizados</label>
+        <textarea id="c-actividades" placeholder="Detalla qué se hizo. Si se usaron repuestos, lístelos aquí..."></textarea>
+      </div>
+      <div class="form-group">
+        <label>Destino final del equipo biomédico</label>
+        <div class="radio-grid" id="radio-destino">
+          <div class="radio-card selected-verde" id="rc-disp" onclick="selRadio('disponible')">
+            <div class="radio-dot" style="background:var(--verde)"></div>
+            <div class="radio-card-text">
+              <div class="rc-title">Volver a disponible</div>
+              <div class="rc-sub">Apto para alquiler</div>
+            </div>
+          </div>
+          <div class="radio-card" id="rc-baja" onclick="selRadio('baja')">
+            <div class="radio-dot" style="background:var(--texto)"></div>
+            <div class="radio-card-text">
+              <div class="rc-title">Dar de baja</div>
+              <div class="rc-sub">Inoperativo / desecho</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn-outline" onclick="cerrarModalCierre()">Cancelar</button>
+      <button class="btn-primary" style="background:var(--rojo)" onclick="confirmarCierre()">Confirmar y cerrar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL NUEVO -->
+<div class="modal-overlay" id="modal-nuevo">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-head">
+      <div class="modal-head-icon" style="background:var(--cian-suave);color:var(--cian)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      </div>
+      <div><h3>Registrar mantenimiento</h3></div>
+      <button class="modal-close" onclick="cerrarModalNuevo()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px">
+        <div class="form-group" style="margin:0">
+          <label>Tipo</label>
+          <select id="n-tipo" style="padding:10px 12px;border:1.5px solid var(--borde);border-radius:9px;font-family:'Inter',sans-serif;font-size:13.5px;outline:none">
+            <option value="Preventivo">Preventivo</option>
+            <option value="Correctivo">Correctivo</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin:0">
+          <label>Fecha apertura</label>
+          <input type="date" id="n-fecha" style="padding:10px 12px;border:1.5px solid var(--borde);border-radius:9px;font-family:'Inter',sans-serif;font-size:13.5px;outline:none">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Equipo</label>
+        <select id="n-equipo" style="padding:10px 12px;border:1.5px solid var(--borde);border-radius:9px;font-family:'Inter',sans-serif;font-size:13px;outline:none"></select>
+      </div>
+      <div class="form-group">
+        <label>Técnico responsable <span style="font-size:10px;font-weight:400;text-transform:none;color:var(--texto-suave)">(opcional)</span></label>
+        <input id="n-tecnico" placeholder="Nombre del técnico">
+      </div>
+      <div class="form-group">
+        <label>Observaciones del cliente / motivo</label>
+        <textarea id="n-obs" placeholder="Describe la razón del mantenimiento..." style="padding:10px 12px;border:1.5px solid var(--borde);border-radius:9px;font-family:'Inter',sans-serif;font-size:13.5px;outline:none;resize:vertical;min-height:80px"></textarea>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn-outline" onclick="cerrarModalNuevo()">Cancelar</button>
+      <button class="btn-primary" onclick="guardarMant()">Registrar</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
+
 <script>
 
 const _s = JSON.parse(localStorage.getItem("ing_session")||"null");
-if(!_s) window.location.href="index.html";
+if(!_s) window.location.href="login.html";
 else {
   document.getElementById("user-name").textContent   = _s.nombre;
   document.getElementById("user-role").textContent   = _s.rol==="admin"?"Administrador":"Repartidor";
   document.getElementById("user-avatar").textContent = _s.nombre.charAt(0).toUpperCase();
 }
-function logout(){ localStorage.removeItem("ing_session"); window.location.href="index.html"; }
+function logout(){ localStorage.removeItem("ing_session"); window.location.href="login.html"; }
 function toast(msg,tipo){
   const t=document.getElementById("toast");
   t.textContent=msg; t.className="toast show"+(tipo?" "+tipo:"");
   setTimeout(()=>t.className="toast",3000);
 }
 
+
+let filtroActivo   = "todos";
+let mantParaCerrar = null;
+let destinoActual  = "disponible";
+
+// ── DATOS ───────────────────────────────────────────────────
+function initData(){
+  if(localStorage.getItem("ing_mant_v3")) return;
+  const data = [
+    {
+      id:"MAN-2024-001",tipo:"Correctivo",estado:"proceso",
+      eqId:"EQ-0009",eqCodigo:"EQ-0009",eqNombre:"Concentrador Invacare Platinum 10",
+      eqCat:"Concentrador de oxígeno",eqSerial:"PT10-98234",eqMarca:"Invacare",eqModelo:"Platinum 10",eqInvima:"2012DM-009001",
+      tecnico:"Lina Orozco",fechaApertura:"2024-11-10",fechaCierre:null,
+      obsCliente:"Daño en manguera reportado por repartidor en campo",actividades:"",
+      historial:[
+        {estado:"Abierto",    fecha:"2024-11-10 09:00",usuario:"Linda Flórez",   obs:"Mantenimiento correctivo creado"},
+        {estado:"En proceso", fecha:"2024-11-11 08:30",usuario:"Lina Orozco",    obs:"Equipo recibido en taller, diagnóstico iniciado"},
+      ]
+    },
+    {
+      id:"MAN-2024-002",tipo:"Preventivo",estado:"abierto",
+      eqId:"EQ-0005",eqCodigo:"EQ-0005",eqNombre:"CPAP ResMed AirSense 10",
+      eqCat:"CPAP / BPAP",eqSerial:"23191012345",eqMarca:"ResMed",eqModelo:"AirSense 10",eqInvima:"2018DM-011234",
+      tecnico:"",fechaApertura:"2024-11-15",fechaCierre:null,
+      obsCliente:"Revisión preventiva anual programada",actividades:"",
+      historial:[
+        {estado:"Abierto",fecha:"2024-11-15 10:00",usuario:"Linda Flórez",obs:"Mantenimiento preventivo programado"},
+      ]
+    },
+    {
+      id:"MAN-2023-018",tipo:"Preventivo",estado:"cerrado",
+      eqId:"EQ-0002",eqCodigo:"EQ-0002",eqNombre:"Concentrador DeVilbiss 525KS",
+      eqCat:"Concentrador de oxígeno",eqSerial:"F2201445",eqMarca:"DeVilbiss",eqModelo:"525KS",eqInvima:"2010DM-008012",
+      tecnico:"Lina Orozco",fechaApertura:"2024-01-05",fechaCierre:"2024-01-20",
+      obsCliente:"Mantenimiento preventivo bimestral",
+      actividades:"Limpieza de filtros de entrada y salida. Verificación de flujo (95% pureza). Lubricación de partes móviles. Calibración de alarmas.",
+      historial:[
+        {estado:"Abierto",    fecha:"2024-01-05",usuario:"Linda Flórez",obs:"Mantenimiento preventivo abierto"},
+        {estado:"En proceso", fecha:"2024-01-06",usuario:"Lina Orozco", obs:"Equipo recibido en taller"},
+        {estado:"Cerrado",    fecha:"2024-01-20",usuario:"Lina Orozco", obs:"Equipo devuelto a disponible tras calibración exitosa"},
+      ]
+    },
+    {
+      id:"MAN-2023-015",tipo:"Correctivo",estado:"cerrado",
+      eqId:"EQ-0001",eqCodigo:"EQ-0001",eqNombre:"Concentrador Respironics EverFlo",
+      eqCat:"Concentrador de oxígeno",eqSerial:"0141535",eqMarca:"Respironics",eqModelo:"EverFlo",eqInvima:"2010DM-007934",
+      tecnico:"Andrés Silva",fechaApertura:"2023-08-12",fechaCierre:"2023-08-25",
+      obsCliente:"Falla en compresor interno — el equipo hacía ruidos intermitentes",
+      actividades:"Reemplazo de compresor interno. Prueba de flujo y pureza de oxígeno (98% pureza). Verificación del sistema eléctrico. Sellado de mangueras.",
+      historial:[
+        {estado:"Abierto",    fecha:"2023-08-12",usuario:"Linda Flórez",obs:"Correctivo abierto por falla técnica"},
+        {estado:"En proceso", fecha:"2023-08-13",usuario:"Andrés Silva", obs:"Diagnóstico confirmó falla en compresor principal"},
+        {estado:"Cerrado",    fecha:"2023-08-25",usuario:"Andrés Silva", obs:"Compresor reemplazado — equipo operativo al 100%"},
+      ]
+    },
+  ];
+  localStorage.setItem("ing_mantenimientos", JSON.stringify(data));
+  localStorage.setItem("ing_mant_v3","1");
+}
+
+const getMant = () => JSON.parse(localStorage.getItem("ing_mantenimientos")||"[]");
+const setMant = v  => localStorage.setItem("ing_mantenimientos", JSON.stringify(v));
+
+const CAT_EMOJI = {"Concentrador":"🫁","Cilindro":"🔵","Regulador":"⚙️","CPAP":"😮","Aspirador":"💨","Colchón":"🛏","Cama":"🏥","Ventilador":"🌬","Nebulizador":"💧"};
+function getEmoji(cat){ for(const[k,v] of Object.entries(CAT_EMOJI)){ if(cat&&cat.toLowerCase().includes(k.toLowerCase())) return v; } return "📦"; }
+
+function setFiltro(f, el){
+  filtroActivo = f;
+  document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
+  if(el) el.classList.add("active");
+  render();
+}
+
+// ── RENDER ──────────────────────────────────────────────────
+function render(){
+  const mant = getMant();
+  const q    = document.getElementById("search").value.toLowerCase();
+
+  // Stats
+  document.getElementById("cnt-corr").textContent = mant.filter(m=>m.tipo==="Correctivo"&&m.estado!=="cerrado").length;
+  document.getElementById("cnt-proc").textContent = mant.filter(m=>m.estado==="proceso").length;
+  document.getElementById("cnt-prev").textContent = mant.filter(m=>m.tipo==="Preventivo"&&m.estado!=="cerrado").length;
+  document.getElementById("cnt-cerr").textContent = mant.filter(m=>m.estado==="cerrado").length;
+
+  const filtros = {
+    "todos":      ()=>true,
+    "abierto":    m=>m.estado==="abierto",
+    "proceso":    m=>m.estado==="proceso",
+    "correctivo": m=>m.tipo==="Correctivo"&&m.estado!=="cerrado",
+    "preventivo": m=>m.tipo==="Preventivo"&&m.estado!=="cerrado",
+    "cerrado":    m=>m.estado==="cerrado",
+  };
+
+  let filtered = mant.filter(m=>{
+    const mf = filtros[filtroActivo]?.(m)??true;
+    const mq = !q||[m.eqNombre,m.eqSerial,m.id,m.tecnico,m.tipo].some(v=>(v||"").toLowerCase().includes(q));
+    return mf&&mq;
+  });
+
+  const list = document.getElementById("mant-list");
+  if(!filtered.length){list.innerHTML=`<div class="empty-state"><p>No se encontraron mantenimientos</p></div>`;return;}
+
+  list.innerHTML = filtered.map(m=>{
+    const esCorr   = m.tipo==="Correctivo";
+    const activo   = m.estado!=="cerrado";
+    const emoji    = getEmoji(m.eqCat);
+    const tipoColor = esCorr?"var(--rojo)":"var(--cian)";
+    const tipoCls   = esCorr?"correctivo":"preventivo";
+    const corrActivo = esCorr&&activo?"activo":"";
+
+    // Estado badge
+    let estBadge = "";
+    if(m.estado==="abierto")  estBadge=`<span class="est-badge eb-abierto"><span class="eb-dot"></span>Abierto</span>`;
+    if(m.estado==="proceso")  estBadge=`<span class="est-badge eb-proceso"><span class="eb-dot"></span>En proceso</span>`;
+    if(m.estado==="cerrado")  estBadge=`<span class="est-badge eb-cerrado"><span class="eb-dot"></span>Cerrado</span>`;
+
+    // Botón dinámico
+    let btnHtml = "";
+    if(m.estado==="abierto")  btnHtml=`<button class="btn-acc ba-iniciar"  onclick="event.stopPropagation();avanzar('${m.id}','proceso')">🚀 Iniciar proceso</button>`;
+    if(m.estado==="proceso")  btnHtml=`<button class="btn-acc ${esCorr?"ba-critico":"ba-cerrar"}" onclick="event.stopPropagation();abrirCierre('${m.id}')">🛠️ Cerrar mantenimiento</button>`;
+    if(m.estado==="cerrado")  btnHtml=`<button class="btn-acc ba-reporte"  onclick="event.stopPropagation();window.open('10_reporte_mantenimiento.html','_blank')">📄 Ver reporte</button>`;
+
+    return `<div class="mant-row ${tipoCls} ${corrActivo}" onclick="abrirDrawer('${m.id}')">
+      <div class="mant-tipo-icon ${esCorr?"mti-corr":"mti-prev"}">
+        ${esCorr
+          ?`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`
+          :`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`
+        }
+      </div>
+      <div class="mant-info">
+        <div class="mant-codigo">
+          <span style="font-family:monospace">${m.id}</span>
+          ${estBadge}
+          <span style="font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:99px;background:${esCorr?"var(--rojo-suave)":"var(--cian-suave)"};color:${tipoColor}">${m.tipo}</span>
+        </div>
+        <div class="mant-nombre">${m.eqNombre}</div>
+        <div class="mant-meta">
+          <span style="display:flex;align-items:center;gap:4px;font-size:12px">
+            <span style="font-size:14px">${emoji}</span>
+            <span class="mant-serial">${m.eqCodigo}</span>
+            <span style="color:var(--texto-suave)">·</span>
+            <span style="font-family:monospace;font-size:11px">${m.eqSerial}</span>
+          </span>
+        </div>
+      </div>
+      <div class="mant-tecnico">
+        <div class="mt-label">Técnico</div>
+        ${m.tecnico
+          ?`<div class="mt-val"><span class="mt-dot"></span>${m.tecnico}</div>`
+          :`<div class="mt-sin">Sin técnico asignado</div>`
+        }
+      </div>
+      <div class="mant-fechas">
+        <div class="mt-label">Apertura</div>
+        <div style="font-size:12.5px;font-weight:600;font-family:monospace;color:var(--texto);margin-bottom:6px">${m.fechaApertura}</div>
+        <div class="mt-label">Cierre</div>
+        <div style="font-size:12.5px;font-family:monospace;color:${m.fechaCierre?"var(--texto)":"var(--texto-suave)"}">${m.fechaCierre||"—"}</div>
+      </div>
+      <div class="mant-accion">${btnHtml}</div>
+    </div>`;
+  }).join("");
+}
+
+// ── DRAWER ──────────────────────────────────────────────────
+function abrirDrawer(id){
+  const m = getMant().find(x=>x.id===id); if(!m) return;
+  const emoji  = getEmoji(m.eqCat);
+  const esCorr = m.tipo==="Correctivo";
+
+  document.getElementById("drawer-title").textContent = m.eqNombre;
+  document.getElementById("drawer-sub").textContent   = `${m.id} · ${m.tipo}`;
+
+  // Timeline historial — más reciente arriba
+  const tlHTML = [...m.historial].reverse().map((h,i,arr)=>{
+    const isLast = i===arr.length-1;
+    const colorMap = {"Abierto":"gris","En proceso":"cian","Cerrado":"verde"};
+    const bc = colorMap[h.estado]||"gris";
+    const isActual = i===0 && m.estado!=="cerrado";
+    return `<div class="tl-v-item">
+      <div class="tl-v-left">
+        <div class="tl-v-dot ${bc}" style="${isActual?"animation:blink 1.5s ease-in-out infinite":""}"</div>
+        ${!isLast?`<div class="tl-v-line ${bc}"></div>`:""}
+      </div>
+      <div class="tl-v-content">
+        <div class="tl-v-badge ${bc}">${h.estado.toUpperCase()}</div>
+        <div class="tl-v-event">${h.obs||h.estado}</div>
+        <div class="tl-v-meta">${h.fecha} · ${h.usuario}</div>
+      </div>
+    </div>`;
+  }).join("");
+
+  document.getElementById("drawer-body").innerHTML = `
+    <div class="drawer-bloque">
+      <div class="drawer-bloque-title">Equipo biomédico vinculado</div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <div style="width:44px;height:44px;border-radius:11px;background:${esCorr?"var(--rojo-suave)":"var(--cian-suave)"};display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0">${emoji}</div>
+        <div>
+          <div style="font-size:14px;font-weight:700;color:var(--azul)">${m.eqNombre}</div>
+          <div style="font-size:12px;color:var(--texto-suave);margin-top:2px">${m.eqCat}</div>
+        </div>
+      </div>
+      <div class="d-grid">
+        <div class="d-field"><label>Código</label><span class="mono">${m.eqCodigo}</span></div>
+        <div class="d-field"><label>Serial</label><span class="mono">${m.eqSerial}</span></div>
+        <div class="d-field"><label>Marca</label><span>${m.eqMarca||"—"}</span></div>
+        <div class="d-field"><label>Modelo</label><span>${m.eqModelo||"—"}</span></div>
+        <div class="d-field" style="grid-column:1/-1"><label>INVIMA</label><span class="mono" style="font-size:12px">${m.eqInvima||"—"}</span></div>
+      </div>
+    </div>
+    <div class="drawer-bloque">
+      <div class="drawer-bloque-title">Observaciones del cliente / motivo</div>
+      <p style="font-size:13px;color:var(--texto-med);line-height:1.55;font-style:italic">"${m.obsCliente||"Sin observaciones registradas"}"</p>
+    </div>
+    <div class="drawer-bloque">
+      <div class="drawer-bloque-title">Actividades realizadas</div>
+      ${m.actividades
+        ?`<p style="font-size:13px;color:var(--texto-med);line-height:1.55">${m.actividades}</p>`
+        :`<p style="font-size:13px;color:var(--texto-suave);font-style:italic">No se han registrado actividades técnicas todavía.</p>`
+      }
+    </div>
+    <div class="drawer-bloque">
+      <div class="drawer-bloque-title">Línea de tiempo del historial de estados</div>
+      <div class="tl-v">${tlHTML}</div>
+    </div>`;
+
+  let foot = "";
+  if(m.estado==="abierto")  foot=`<button class="btn-primary" style="flex:1;justify-content:center;background:var(--cian)" onclick="avanzar('${m.id}','proceso');closeDrawer()">🚀 Iniciar proceso</button>`;
+  if(m.estado==="proceso")  foot=`<button class="btn-primary" style="flex:1;justify-content:center;${esCorr?"background:var(--rojo)":""}" onclick="abrirCierre('${m.id}');closeDrawer()">🛠️ Cerrar mantenimiento</button>`;
+  if(m.estado==="cerrado")  foot=`<button class="btn-outline" style="flex:1;justify-content:center" onclick="window.open('10_reporte_mantenimiento.html','_blank')">📄 Ver reporte técnico</button>`;
+  foot += `<button class="btn-outline" onclick="closeDrawer()">Cerrar</button>`;
+  document.getElementById("drawer-foot").innerHTML = foot;
+
+  document.getElementById("drawer-overlay").classList.add("open");
+  document.getElementById("drawer").classList.add("open");
+}
+
+function closeDrawer(){
+  document.getElementById("drawer-overlay").classList.remove("open");
+  document.getElementById("drawer").classList.remove("open");
+}
+
+// ── AVANZAR ESTADO ──────────────────────────────────────────
+function avanzar(id, nuevoEstado){
+  const mant = getMant(), i = mant.findIndex(x=>x.id===id);
+  mant[i].estado = nuevoEstado;
+  mant[i].historial.push({
+    estado:  nuevoEstado==="proceso"?"En proceso":"Cerrado",
+    fecha:   new Date().toLocaleString("es-CO"),
+    usuario: _s?.nombre||"—",
+    obs:     nuevoEstado==="proceso"?"Proceso de mantenimiento iniciado":"—"
+  });
+  setMant(mant);
+  toast("Estado actualizado","success");
+  render();
+}
+
+// ── MODAL CIERRE ────────────────────────────────────────────
+function selRadio(dest){
+  destinoActual = dest;
+  document.getElementById("rc-disp").className = "radio-card"+(dest==="disponible"?" selected-verde":"");
+  document.getElementById("rc-baja").className = "radio-card"+(dest==="baja"?" selected-rojo":"");
+}
+
+function abrirCierre(id){
+  mantParaCerrar = id;
+  const m = getMant().find(x=>x.id===id);
+  document.getElementById("modal-cierre-id").textContent = m.id;
+  document.getElementById("c-tecnico").value    = m.tecnico||"";
+  document.getElementById("c-actividades").value = "";
+  destinoActual = "disponible";
+  selRadio("disponible");
+  document.getElementById("modal-cierre").classList.add("open");
+}
+function cerrarModalCierre(){
+  document.getElementById("modal-cierre").classList.remove("open");
+  mantParaCerrar = null;
+}
+document.getElementById("modal-cierre").addEventListener("click",e=>{if(e.target.id==="modal-cierre")cerrarModalCierre();});
+
+function confirmarCierre(){
+  if(!mantParaCerrar) return;
+  const mant = getMant(), i = mant.findIndex(x=>x.id===mantParaCerrar);
+  const act  = document.getElementById("c-actividades").value.trim();
+  if(!act){toast("Las actividades son requeridas para cerrar","error");return;}
+  mant[i].estado      = "cerrado";
+  mant[i].fechaCierre = new Date().toISOString().split("T")[0];
+  mant[i].actividades = act;
+  mant[i].tecnico     = document.getElementById("c-tecnico").value || mant[i].tecnico;
+  mant[i].historial.push({
+    estado:  "Cerrado",
+    fecha:   new Date().toLocaleString("es-CO"),
+    usuario: _s?.nombre||"—",
+    obs:     destinoActual==="disponible"?"Equipo devuelto a disponible tras mantenimiento exitoso":"Equipo dado de baja"
+  });
+  // Actualizar inventario
+  const inv = JSON.parse(localStorage.getItem("ing_inventario")||"[]");
+  const ie  = inv.findIndex(x=>x.id===mant[i].eqId);
+  if(ie>=0){
+    inv[ie].estado = destinoActual==="disponible"?"Disponible":"Baja";
+    inv[ie].historial.push({
+      evento: destinoActual==="disponible"?"Mantenimiento cerrado — equipo devuelto a disponible":"Equipo dado de baja tras mantenimiento",
+      fecha:  new Date().toISOString().split("T")[0],
+      tipo:   destinoActual==="disponible"?"verde":"rojo",
+      badge:  destinoActual==="disponible"?"ALTA":"BAJA"
+    });
+    localStorage.setItem("ing_inventario", JSON.stringify(inv));
+  }
+  setMant(mant);
+  toast(destinoActual==="disponible"?"Mantenimiento cerrado — equipo disponible":"Equipo dado de baja","success");
+  cerrarModalCierre();
+  render();
+}
+
+// ── NUEVO MANTENIMIENTO ─────────────────────────────────────
+function abrirModalNuevo(){
+  const inv = JSON.parse(localStorage.getItem("ing_inventario")||"[]");
+  document.getElementById("n-equipo").innerHTML = inv.map(e=>`<option value="${e.id}|${e.cat} ${e.marca} ${e.modelo}|${e.serial}|${e.cat}|${e.marca}|${e.modelo}|${e.invima||""}">
+    ${e.id} — ${e.cat} ${e.marca} ${e.modelo} (${e.serial})
+  </option>`).join("");
+  document.getElementById("n-fecha").value = new Date().toISOString().split("T")[0];
+  ["n-tecnico","n-obs"].forEach(id=>document.getElementById(id).value="");
+  document.getElementById("modal-nuevo").classList.add("open");
+}
+function cerrarModalNuevo(){document.getElementById("modal-nuevo").classList.remove("open");}
+document.getElementById("modal-nuevo").addEventListener("click",e=>{if(e.target.id==="modal-nuevo")cerrarModalNuevo();});
+
+function guardarMant(){
+  const parts = document.getElementById("n-equipo").value.split("|");
+  const mant  = getMant();
+  const nuevo = {
+    id: `MAN-${new Date().getFullYear()}-${String(mant.length+1).padStart(3,"0")}`,
+    tipo:  document.getElementById("n-tipo").value,
+    estado:"abierto",
+    eqId:  parts[0], eqCodigo:parts[0],
+    eqNombre:parts[1]||"—", eqCat:parts[3]||"Otro",
+    eqSerial:parts[2]||"—", eqMarca:parts[4]||"—",
+    eqModelo:parts[5]||"—", eqInvima:parts[6]||"—",
+    tecnico: document.getElementById("n-tecnico").value||"",
+    fechaApertura: document.getElementById("n-fecha").value,
+    fechaCierre:null,
+    obsCliente: document.getElementById("n-obs").value||"",
+    actividades:"",
+    historial:[{
+      estado:"Abierto",
+      fecha: document.getElementById("n-fecha").value+" "+new Date().toLocaleTimeString("es-CO",{hour:"2-digit",minute:"2-digit"}),
+      usuario: _s?.nombre||"—",
+      obs: `Mantenimiento ${document.getElementById("n-tipo").value.toLowerCase()} registrado`
+    }]
+  };
+  // Marcar equipo en mantenimiento
+  const inv = JSON.parse(localStorage.getItem("ing_inventario")||"[]");
+  const ie  = inv.findIndex(x=>x.id===parts[0]);
+  if(ie>=0){
+    inv[ie].estado="En mantenimiento";
+    inv[ie].historial.push({evento:"Ingresado a mantenimiento",fecha:nuevo.fechaApertura,tipo:"amarillo",badge:"MANTENIMIENTO"});
+    localStorage.setItem("ing_inventario",JSON.stringify(inv));
+  }
+  mant.unshift(nuevo);
+  setMant(mant);
+  toast("Mantenimiento registrado","success");
+  cerrarModalNuevo();
+  render();
+}
+
+initData(); render();
 </script>
 </body>
 </html>

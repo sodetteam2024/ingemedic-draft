@@ -37,7 +37,7 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
 .nav-item.active .ni,.nav-item:hover .ni{opacity:1}
 .nav-badge{margin-left:auto;background:var(--rojo);color:#fff;font-size:10px;font-weight:700;padding:1px 6px;border-radius:99px;min-width:18px;text-align:center}
 .nav-badge.cian{background:var(--cian)}
-.sidebar-user{margin-top:auto;padding:14px 18px;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:10px}
+.sidebar-user{padding:14px 18px;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:10px}
 .user-avatar{width:32px;height:32px;border-radius:50%;background:var(--cian);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0}
 .user-name{font-size:12.5px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .user-role{font-size:10.5px;color:rgba(255,255,255,.4)}
@@ -161,12 +161,54 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
 ::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-thumb{background:#CBD5E1;border-radius:99px}
 
-.content{flex:1;overflow-y:auto;padding:24px 28px;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.coming-card{background:var(--blanco);border-radius:16px;border:1px solid var(--borde);padding:48px 40px;text-align:center;max-width:480px;box-shadow:0 1px 4px rgba(0,0,0,.04)}
-.coming-icon{width:64px;height:64px;border-radius:16px;background:var(--cian-suave);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:var(--cian)}
-.coming-title{font-size:22px;font-weight:700;color:var(--azul);margin-bottom:8px}
-.coming-sub{font-size:14px;color:var(--texto-suave);line-height:1.6;margin-bottom:24px}
-.coming-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:99px;background:var(--amarillo-suave);color:var(--amarillo);font-size:12px;font-weight:600}
+.content{flex:1;overflow:hidden;display:flex;flex-direction:column;padding:20px 24px;gap:14px}
+
+/* FILTROS */
+.filters-bar{display:flex;align-items:center;gap:10px;flex-shrink:0;flex-wrap:wrap}
+.search-wrap{position:relative;flex:1;max-width:320px}
+.search-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--texto-suave);display:flex;pointer-events:none}
+.search-input{width:100%;padding:9px 12px 9px 34px;border:1.5px solid var(--borde);border-radius:9px;font-family:"Inter",sans-serif;font-size:13px;color:var(--texto);background:var(--blanco);outline:none;transition:border-color .15s}
+.search-input:focus{border-color:var(--cian)}
+.search-input::placeholder{color:var(--texto-suave)}
+.filter-btn{padding:8px 14px;border:1.5px solid var(--borde);border-radius:9px;background:var(--blanco);font-family:"Inter",sans-serif;font-size:12.5px;font-weight:500;color:var(--texto-med);cursor:pointer;transition:all .15s}
+.filter-btn:hover{border-color:var(--cian);color:var(--cian)}
+.filter-btn.active{background:var(--azul);color:#fff;border-color:var(--azul)}
+.filter-select{padding:9px 12px;border:1.5px solid var(--borde);border-radius:9px;font-family:"Inter",sans-serif;font-size:13px;color:var(--texto-med);background:var(--blanco);outline:none;cursor:pointer;transition:border-color .15s}
+.filter-select:focus{border-color:var(--cian)}
+
+/* TABLA */
+.table-wrap{flex:1;overflow-y:auto;background:var(--blanco);border-radius:12px;border:1px solid var(--borde);box-shadow:0 1px 4px rgba(0,0,0,.04)}
+table{width:100%;border-collapse:collapse}
+thead{position:sticky;top:0;z-index:10;background:var(--blanco)}
+thead tr{border-bottom:1px solid var(--borde)}
+th{padding:11px 16px;text-align:left;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--texto-suave);white-space:nowrap;background:var(--blanco)}
+td{padding:11px 16px;font-size:13px;color:var(--texto);border-bottom:1px solid #F8FAFC;vertical-align:middle}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:#F8FAFC}
+
+/* ACCIÓN BADGE */
+.accion-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:99px;font-size:11px;font-weight:700;white-space:nowrap}
+.ab-crear   {background:var(--verde-suave);color:var(--verde)}
+.ab-editar  {background:var(--cian-suave);color:#0E86A0}
+.ab-eliminar{background:var(--rojo-suave);color:var(--rojo)}
+.ab-estado  {background:var(--amarillo-suave);color:var(--amarillo)}
+.ab-login   {background:var(--purpura-suave,#F5F3FF);color:#6D28D9}
+.ab-otro    {background:#F1F5F9;color:var(--gris)}
+
+/* MODULO BADGE */
+.mod-badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:6px;font-size:11px;font-weight:600;background:#F1F5F9;color:var(--texto-med);white-space:nowrap}
+
+/* USUARIO */
+.usuario-cell{display:flex;align-items:center;gap:8px}
+.user-av-sm{width:26px;height:26px;border-radius:50%;background:var(--azul);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;flex-shrink:0}
+
+/* DETALLE */
+.detalle-cell{font-size:12.5px;color:var(--texto-med);max-width:280px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* TIMESTAMP */
+.ts{font-size:11.5px;font-family:monospace;color:var(--texto-suave);white-space:nowrap}
+
+.empty-state{text-align:center;padding:56px 24px;color:var(--texto-suave)}
 </style>
 </head>
 <body>
@@ -194,6 +236,9 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
     <a class="nav-item" href="ordenes.html">
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>Órdenes de servicio
     </a>
+    <a class="nav-item" href="servicios.html">
+      <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></span>Servicios
+    </a>
     <a class="nav-item" href="clientes.html">
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>Clientes
     </a>
@@ -212,6 +257,11 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></span>Configuración
     </a>
   </div>
+  <div style="padding:8px 12px;border-top:1px solid rgba(255,255,255,.08);margin-top:0">
+    <a class="nav-item" href="manual_usuario.html" target="_blank">
+      <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M8 7h8M8 11h8M8 15h8"/></svg></span>Manual de usuario
+    </a>
+  </div>
   <div class="sidebar-user">
     <div class="user-avatar" id="user-avatar">L</div>
     <div style="flex:1;min-width:0">
@@ -224,42 +274,218 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
 <main class="main">
   <div class="topbar">
     <div>
-      <div class="topbar-title">Bitácora</div>
-      <div class="topbar-sub">Registro completo de todas las acciones del sistema</div>
+      <div class="topbar-title">Bitácora del sistema</div>
+      <div class="topbar-sub" id="bit-count">Registro completo de todas las acciones</div>
+    </div>
+    <div class="topbar-right">
+      <button class="btn-outline" onclick="exportar()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Exportar
+      </button>
     </div>
   </div>
+
   <div class="content">
-    <div class="coming-card">
-      <div class="coming-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <div class="filters-bar">
+      <div class="search-wrap">
+        <span class="search-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
+        <input class="search-input" id="search" placeholder="Buscar por usuario, módulo o acción..." oninput="render()">
       </div>
-      <div class="coming-title">Bitácora</div>
-      <div class="coming-sub">Registro completo de todas las acciones del sistema.<br>Este módulo está en construcción y estará disponible próximamente.</div>
-      <span class="coming-badge">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        En desarrollo
-      </span>
+      <select class="filter-select" id="filter-modulo" onchange="render()">
+        <option value="">Todos los módulos</option>
+        <option>inventario</option>
+        <option>clientes</option>
+        <option>entregas</option>
+        <option>ordenes_servicio</option>
+        <option>mantenimientos</option>
+        <option>solicitudes</option>
+        <option>bitacora</option>
+        <option>configuracion</option>
+        <option>sesion</option>
+      </select>
+      <select class="filter-select" id="filter-accion" onchange="render()">
+        <option value="">Todas las acciones</option>
+        <option value="crear">Crear</option>
+        <option value="editar">Editar</option>
+        <option value="eliminar">Eliminar</option>
+        <option value="cambiar_estado">Cambiar estado</option>
+        <option value="login">Inicio de sesión</option>
+      </select>
+      <button class="filter-btn active" id="fb-hoy"  onclick="setFecha('hoy',this)">Hoy</button>
+      <button class="filter-btn"        id="fb-sem"  onclick="setFecha('semana',this)">Esta semana</button>
+      <button class="filter-btn"        id="fb-todo" onclick="setFecha('todo',this)">Todo</button>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha y hora</th>
+            <th>Usuario</th>
+            <th>Módulo</th>
+            <th>Acción</th>
+            <th>Qué pasó</th>
+            <th>Entidad / ID</th>
+          </tr>
+        </thead>
+        <tbody id="bit-body"></tbody>
+      </table>
     </div>
   </div>
 </main>
 </div>
+
 <div class="toast" id="toast"></div>
+
 <script>
 
 const _s = JSON.parse(localStorage.getItem("ing_session")||"null");
-if(!_s) window.location.href="index.html";
+if(!_s) window.location.href="login.html";
 else {
   document.getElementById("user-name").textContent   = _s.nombre;
   document.getElementById("user-role").textContent   = _s.rol==="admin"?"Administrador":"Repartidor";
   document.getElementById("user-avatar").textContent = _s.nombre.charAt(0).toUpperCase();
 }
-function logout(){ localStorage.removeItem("ing_session"); window.location.href="index.html"; }
+function logout(){ localStorage.removeItem("ing_session"); window.location.href="login.html"; }
 function toast(msg,tipo){
   const t=document.getElementById("toast");
   t.textContent=msg; t.className="toast show"+(tipo?" "+tipo:"");
   setTimeout(()=>t.className="toast",3000);
 }
 
+
+let fechaFiltro = "hoy";
+
+// ── DATOS ───────────────────────────────────────────────────
+function initData(){
+  if(localStorage.getItem("ing_bit_v1")) return;
+  const hoy = new Date();
+  const f = (d,h) => {
+    const dt = new Date(hoy);
+    dt.setDate(dt.getDate()-d);
+    const [hora,min] = h.split(":");
+    dt.setHours(parseInt(hora),parseInt(min),0);
+    return dt.toLocaleString("es-CO");
+  };
+
+  const registros = [
+    // HOY
+    {id:1,  fecha:f(0,"09:32"), usuario:"Carlos Díaz",    rol:"repartidor", modulo:"entregas",        accion:"cambiar_estado", entidad:"entrega",     entidad_id:"ENT-001", detalle:"Entrega marcada como completada — recibió Carlos García"},
+    {id:2,  fecha:f(0,"09:15"), usuario:"Linda Flórez",   rol:"admin",      modulo:"ordenes_servicio",accion:"cambiar_estado", entidad:"orden",        entidad_id:"OS-2024-003", detalle:"Orden despachada a ruta — repartidor Miguel Torres asignado"},
+    {id:3,  fecha:f(0,"08:50"), usuario:"Linda Flórez",   rol:"admin",      modulo:"inventario",      accion:"cambiar_estado", entidad:"equipo",       entidad_id:"EQ-0009", detalle:"Estado del equipo cambiado a 'Con novedad'"},
+    {id:4,  fecha:f(0,"08:30"), usuario:"Yesid Romero",   rol:"repartidor", modulo:"solicitudes",     accion:"crear",          entidad:"solicitud",    entidad_id:"SOL-2024-002", detalle:"Nueva solicitud de tipo Anomalía creada para equipo EQ-0005"},
+    {id:5,  fecha:f(0,"08:00"), usuario:"Linda Flórez",   rol:"admin",      modulo:"sesion",          accion:"login",          entidad:"usuario",      entidad_id:"linda@ingemedic.co", detalle:"Inicio de sesión exitoso desde 192.168.1.10"},
+    // AYER
+    {id:6,  fecha:f(1,"17:45"), usuario:"Linda Flórez",   rol:"admin",      modulo:"clientes",        accion:"crear",          entidad:"cliente",      entidad_id:"CL-005", detalle:"Nuevo cliente registrado: Rosa Martínez López (Persona natural)"},
+    {id:7,  fecha:f(1,"16:30"), usuario:"Linda Flórez",   rol:"admin",      modulo:"mantenimientos",  accion:"cambiar_estado", entidad:"mantenimiento",entidad_id:"MAN-2024-001", detalle:"Mantenimiento pasado a 'En proceso' — técnico Lina Orozco asignado"},
+    {id:8,  fecha:f(1,"15:00"), usuario:"Linda Flórez",   rol:"admin",      modulo:"ordenes_servicio",accion:"crear",          entidad:"orden",        entidad_id:"OS-2024-004", detalle:"Nueva orden de servicio creada para Clínica Valledupar — Ventilador Dräger"},
+    {id:9,  fecha:f(1,"11:20"), usuario:"Carlos Díaz",    rol:"repartidor", modulo:"entregas",        accion:"cambiar_estado", entidad:"entrega",      entidad_id:"ENT-002", detalle:"Entrega ENT-002 marcada como completada"},
+    {id:10, fecha:f(1,"09:00"), usuario:"Carlos Díaz",    rol:"repartidor", modulo:"sesion",          accion:"login",          entidad:"usuario",      entidad_id:"carlos@ingemedic.co", detalle:"Inicio de sesión exitoso"},
+    // ESTA SEMANA
+    {id:11, fecha:f(3,"14:00"), usuario:"Linda Flórez",   rol:"admin",      modulo:"solicitudes",     accion:"cambiar_estado", entidad:"solicitud",    entidad_id:"SOL-2024-001", detalle:"Solicitud aprobada — se deriva a mantenimiento MAN-2024-001"},
+    {id:12, fecha:f(3,"11:30"), usuario:"Linda Flórez",   rol:"admin",      modulo:"inventario",      accion:"crear",          entidad:"equipo",       entidad_id:"EQ-0010", detalle:"Nuevo equipo registrado: Ventilador Dräger Evita V300 (serial EVT-00341)"},
+    {id:13, fecha:f(4,"16:00"), usuario:"Miguel Torres",  rol:"repartidor", modulo:"solicitudes",     accion:"crear",          entidad:"solicitud",    entidad_id:"SOL-2024-001", detalle:"Solicitud de daño creada para equipo EQ-0009 — fuga en válvula"},
+    {id:14, fecha:f(5,"10:00"), usuario:"Linda Flórez",   rol:"admin",      modulo:"mantenimientos",  accion:"crear",          entidad:"mantenimiento",entidad_id:"MAN-2024-002", detalle:"Mantenimiento preventivo abierto para CPAP ResMed AirSense 10"},
+    {id:15, fecha:f(6,"09:00"), usuario:"Linda Flórez",   rol:"admin",      modulo:"clientes",        accion:"editar",         entidad:"cliente",      entidad_id:"CL-003", detalle:"Datos de CAJACOPI actualizados — email de contacto modificado"},
+  ];
+  localStorage.setItem("ing_bitacora", JSON.stringify(registros));
+  localStorage.setItem("ing_bit_v1","1");
+}
+
+const getBit = () => JSON.parse(localStorage.getItem("ing_bitacora")||"[]");
+
+function setFecha(f, el){
+  fechaFiltro = f;
+  document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
+  if(el) el.classList.add("active");
+  render();
+}
+
+// ── HELPERS ─────────────────────────────────────────────────
+const MODULO_LABEL = {
+  "inventario":"Inventario","clientes":"Clientes","entregas":"Entregas",
+  "ordenes_servicio":"Órdenes","mantenimientos":"Mantenimientos",
+  "solicitudes":"Solicitudes","bitacora":"Bitácora","configuracion":"Configuración","sesion":"Sesión"
+};
+
+const ACCION_CONFIG = {
+  "crear":         ["ab-crear",    "✚ Crear"],
+  "editar":        ["ab-editar",   "✎ Editar"],
+  "eliminar":      ["ab-eliminar", "✕ Eliminar"],
+  "cambiar_estado":["ab-estado",   "⇄ Estado"],
+  "login":         ["ab-login",    "⏻ Sesión"],
+};
+
+function accionBadge(accion){
+  const[cls,label]=ACCION_CONFIG[accion]||["ab-otro",accion];
+  return `<span class="accion-badge ${cls}">${label}</span>`;
+}
+
+const ROL_COLORS = {"admin":"#1B3A6B","repartidor":"#0F7B55","tecnico":"#B45309"};
+
+function filtrarPorFecha(registros){
+  const hoy  = new Date(); hoy.setHours(0,0,0,0);
+  const sem  = new Date(hoy); sem.setDate(sem.getDate()-7);
+  return registros.filter(r=>{
+    const d = new Date(r.fecha.replace(",",""));
+    if(fechaFiltro==="hoy")    return d >= hoy;
+    if(fechaFiltro==="semana") return d >= sem;
+    return true;
+  });
+}
+
+// ── RENDER ──────────────────────────────────────────────────
+function render(){
+  const bit    = getBit();
+  const q      = document.getElementById("search").value.toLowerCase();
+  const modulo = document.getElementById("filter-modulo").value;
+  const accion = document.getElementById("filter-accion").value;
+
+  let filtered = filtrarPorFecha(bit).filter(r=>{
+    const mq = !q || [r.usuario,r.modulo,r.accion,r.detalle,r.entidad_id].some(v=>(v||"").toLowerCase().includes(q));
+    const mm = !modulo || r.modulo===modulo;
+    const ma = !accion || r.accion===accion;
+    return mq&&mm&&ma;
+  });
+
+  document.getElementById("bit-count").textContent = `${filtered.length} registro${filtered.length!==1?"s":""} encontrado${filtered.length!==1?"s":""}`;
+
+  const tbody = document.getElementById("bit-body");
+  if(!filtered.length){
+    tbody.innerHTML=`<tr><td colspan="6"><div class="empty-state"><p>No hay registros que coincidan</p></div></td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = filtered.map(r=>{
+    const avColor = ROL_COLORS[r.rol]||"#64748B";
+    const avLet   = r.usuario.charAt(0).toUpperCase();
+    const modLabel = MODULO_LABEL[r.modulo]||r.modulo;
+
+    return `<tr>
+      <td><span class="ts">${r.fecha}</span></td>
+      <td>
+        <div class="usuario-cell">
+          <div class="user-av-sm" style="background:${avColor}">${avLet}</div>
+          <div>
+            <div style="font-size:13px;font-weight:600;color:var(--texto)">${r.usuario}</div>
+            <div style="font-size:11px;color:var(--texto-suave);text-transform:capitalize">${r.rol}</div>
+          </div>
+        </div>
+      </td>
+      <td><span class="mod-badge">${modLabel}</span></td>
+      <td>${accionBadge(r.accion)}</td>
+      <td><div class="detalle-cell" title="${r.detalle}">${r.detalle}</div></td>
+      <td>
+        <div style="font-size:11.5px;font-family:monospace;color:var(--azul);font-weight:600">${r.entidad_id}</div>
+        <div style="font-size:10.5px;color:var(--texto-suave);text-transform:capitalize">${r.entidad}</div>
+      </td>
+    </tr>`;
+  }).join("");
+}
+
+function exportar(){ toast("Exportación en desarrollo",""); }
+
+initData(); render();
 </script>
 </body>
 </html>

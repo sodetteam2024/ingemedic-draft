@@ -37,7 +37,7 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
 .nav-item.active .ni,.nav-item:hover .ni{opacity:1}
 .nav-badge{margin-left:auto;background:var(--rojo);color:#fff;font-size:10px;font-weight:700;padding:1px 6px;border-radius:99px;min-width:18px;text-align:center}
 .nav-badge.cian{background:var(--cian)}
-.sidebar-user{margin-top:auto;padding:14px 18px;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:10px}
+.sidebar-user{padding:14px 18px;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:10px}
 .user-avatar{width:32px;height:32px;border-radius:50%;background:var(--cian);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0}
 .user-name{font-size:12.5px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .user-role{font-size:10.5px;color:rgba(255,255,255,.4)}
@@ -161,12 +161,112 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
 ::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-thumb{background:#CBD5E1;border-radius:99px}
 
-.content{flex:1;overflow-y:auto;padding:24px 28px;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.coming-card{background:var(--blanco);border-radius:16px;border:1px solid var(--borde);padding:48px 40px;text-align:center;max-width:480px;box-shadow:0 1px 4px rgba(0,0,0,.04)}
-.coming-icon{width:64px;height:64px;border-radius:16px;background:var(--cian-suave);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:var(--cian)}
-.coming-title{font-size:22px;font-weight:700;color:var(--azul);margin-bottom:8px}
-.coming-sub{font-size:14px;color:var(--texto-suave);line-height:1.6;margin-bottom:24px}
-.coming-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:99px;background:var(--amarillo-suave);color:var(--amarillo);font-size:12px;font-weight:600}
+.content{flex:1;overflow-y:auto;padding:20px 24px;display:flex;flex-direction:column;gap:14px}
+
+/* FILTROS */
+.filters-bar{display:flex;align-items:center;gap:10px;flex-shrink:0;flex-wrap:wrap}
+.search-wrap{position:relative;flex:1;max-width:320px}
+.search-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--texto-suave);display:flex;pointer-events:none}
+.search-input{width:100%;padding:9px 12px 9px 34px;border:1.5px solid var(--borde);border-radius:9px;font-family:"Inter",sans-serif;font-size:13px;color:var(--texto);background:var(--blanco);outline:none;transition:border-color .15s}
+.search-input:focus{border-color:var(--cian)}
+.search-input::placeholder{color:var(--texto-suave)}
+.filter-btn{padding:8px 14px;border:1.5px solid var(--borde);border-radius:9px;background:var(--blanco);font-family:"Inter",sans-serif;font-size:12.5px;font-weight:500;color:var(--texto-med);cursor:pointer;transition:all .15s}
+.filter-btn:hover{border-color:var(--cian);color:var(--cian)}
+.filter-btn.active{background:var(--azul);color:#fff;border-color:var(--azul)}
+
+/* STATS */
+.stats-row{display:flex;gap:10px;flex-shrink:0}
+.stat-chip{background:var(--blanco);border:1px solid var(--borde);border-radius:10px;padding:10px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 1px 3px rgba(0,0,0,.04);cursor:pointer;transition:all .15s;flex:1}
+.stat-chip:hover{border-color:var(--cian);box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.sc-num{font-size:22px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1}
+.sc-lbl{font-size:11px;color:var(--texto-suave);margin-top:2px}
+
+/* FILA SOLICITUD */
+.sol-row{background:var(--blanco);border-radius:12px;border:1px solid var(--borde);border-left:4px solid var(--borde);display:flex;align-items:center;gap:0;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.04);transition:all .18s;cursor:pointer;margin-bottom:8px}
+.sol-row:hover{box-shadow:0 4px 16px rgba(27,58,107,.1);border-color:var(--cian)}
+.sol-row.urgente{border-left-color:var(--rojo);animation:rowGlow 3s ease-in-out infinite}
+.sol-row.normal{border-left-color:var(--cian)}
+.sol-row.resuelta{opacity:.65;border-left-color:#CBD5E1}
+.sol-row.resuelta:hover{opacity:1}
+@keyframes rowGlow{0%,100%{box-shadow:0 1px 3px rgba(0,0,0,.04)}50%{box-shadow:0 0 0 3px rgba(192,57,43,.1)}}
+
+/* Icono tipo */
+.sol-tipo-icon{width:56px;display:flex;align-items:center;justify-content:center;flex-shrink:0;align-self:stretch;background:var(--fondo)}
+
+/* Info */
+.sol-info{flex:1;padding:14px 16px;min-width:0}
+.sol-codigo{font-size:10.5px;font-family:monospace;font-weight:700;color:var(--texto-suave);display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:5px}
+.sol-titulo{font-size:14px;font-weight:700;color:var(--azul);margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sol-equipo{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;color:var(--texto-suave)}
+.eq-code{font-family:monospace;font-size:11px;font-weight:700;background:#F1F5F9;color:var(--azul);padding:1px 6px;border-radius:4px}
+
+/* Meta */
+.sol-meta{min-width:180px;padding:14px 16px;border-left:1px solid #F8FAFC}
+.sm-label{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--texto-suave);margin-bottom:3px}
+.sm-val{font-size:12.5px;font-weight:500;color:var(--texto)}
+
+/* Estado badge */
+.est-sol{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:99px;font-size:11px;font-weight:700}
+.es-pendiente{background:var(--amarillo-suave);color:var(--amarillo)}
+.es-revision {background:var(--cian-suave);color:#0E86A0}
+.es-aprobada {background:var(--verde-suave);color:var(--verde)}
+.es-rechazada{background:#F1F5F9;color:var(--gris)}
+.es-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+.es-pendiente .es-dot{animation:ping .8s ease-in-out infinite}
+@keyframes ping{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* Tipo badge */
+.tipo-sol{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:99px;font-size:10.5px;font-weight:700}
+.ts-dano    {background:var(--rojo-suave);color:var(--rojo)}
+.ts-baja    {background:var(--rojo-suave);color:var(--rojo)}
+.ts-anomalia{background:var(--amarillo-suave);color:var(--amarillo)}
+.ts-ingreso {background:var(--verde-suave);color:var(--verde)}
+
+/* Acción */
+.sol-accion{padding:14px 16px;border-left:1px solid #F8FAFC;display:flex;align-items:center}
+.btn-sol{padding:7px 14px;border-radius:8px;font-family:"Inter",sans-serif;font-size:12px;font-weight:700;border:none;cursor:pointer;transition:all .15s;white-space:nowrap}
+.bs-revisar{background:var(--azul);color:#fff}
+.bs-revisar:hover{background:var(--azul-med)}
+.bs-resolver{background:var(--cian);color:#fff}
+.bs-resolver:hover{background:#0E86A0}
+.bs-ver{background:#F1F5F9;color:var(--gris)}
+.bs-ver:hover{background:#E2E8F0;color:var(--texto)}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(15,36,72,.5);z-index:300;display:none;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.modal-overlay.open{display:flex}
+.modal{background:var(--blanco);border-radius:18px;width:100%;max-width:540px;max-height:92vh;display:flex;flex-direction:column;box-shadow:0 28px 64px rgba(0,0,0,.22);overflow:hidden;border:1px solid var(--borde)}
+.modal-head{padding:18px 24px;border-bottom:1px solid var(--borde);display:flex;align-items:center;gap:12px;flex-shrink:0}
+.modal-head-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:#F1F5F9;color:var(--azul)}
+.modal-head h3{font-size:15px;font-weight:700;color:var(--azul)}
+.modal-head p{font-size:11px;font-family:monospace;color:var(--texto-suave);margin-top:2px}
+.modal-close{background:none;border:none;cursor:pointer;color:var(--texto-suave);width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;margin-left:auto}
+.modal-close:hover{background:#F1F5F9}
+.modal-body{padding:22px 24px;overflow-y:auto;flex:1}
+.modal-foot{padding:14px 24px;border-top:1px solid var(--borde);display:flex;justify-content:flex-end;gap:10px;flex-shrink:0}
+
+/* OPCIONES RESOLUCIÓN */
+.opciones-grid{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.opcion-card{border:1.5px solid var(--borde);border-radius:11px;padding:12px 14px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:12px;background:var(--blanco)}
+.opcion-card:hover{border-color:var(--cian)}
+.opcion-card.sel-cian  {border-color:var(--cian);box-shadow:0 0 0 3px rgba(46,181,212,.12)}
+.opcion-card.sel-rojo  {border-color:var(--rojo);box-shadow:0 0 0 3px rgba(192,57,43,.1)}
+.opcion-card.sel-gris  {border-color:#94A3B8;box-shadow:0 0 0 3px rgba(148,163,184,.12)}
+.opcion-icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.opcion-title{font-size:13px;font-weight:700;color:var(--texto)}
+.opcion-sub{font-size:11px;color:var(--texto-suave);margin-top:2px}
+
+.form-group{display:flex;flex-direction:column;gap:5px;margin-bottom:14px}
+.form-group label{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--texto-med)}
+.form-group input,.form-group textarea{padding:10px 12px;border:1.5px solid var(--borde);border-radius:9px;font-family:"Inter",sans-serif;font-size:13.5px;color:var(--texto);background:var(--blanco);outline:none;transition:border-color .15s,box-shadow .15s}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--cian);box-shadow:0 0 0 3px rgba(46,181,212,.12)}
+.form-group textarea{resize:vertical;min-height:72px}
+
+/* MODAL NUEVA */
+.modal-nueva .form-group select{padding:10px 12px;border:1.5px solid var(--borde);border-radius:9px;font-family:"Inter",sans-serif;font-size:13px;outline:none;transition:border-color .15s}
+.modal-nueva .form-group select:focus{border-color:var(--cian)}
+
+.empty-state{text-align:center;padding:56px 24px;color:var(--texto-suave)}
 </style>
 </head>
 <body>
@@ -194,6 +294,9 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
     <a class="nav-item" href="ordenes.html">
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>Órdenes de servicio
     </a>
+    <a class="nav-item" href="servicios.html">
+      <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></span>Servicios
+    </a>
     <a class="nav-item" href="clientes.html">
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>Clientes
     </a>
@@ -212,6 +315,11 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></span>Configuración
     </a>
   </div>
+  <div style="padding:8px 12px;border-top:1px solid rgba(255,255,255,.08);margin-top:0">
+    <a class="nav-item" href="manual_usuario.html" target="_blank">
+      <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M8 7h8M8 11h8M8 15h8"/></svg></span>Manual de usuario
+    </a>
+  </div>
   <div class="sidebar-user">
     <div class="user-avatar" id="user-avatar">L</div>
     <div style="flex:1;min-width:0">
@@ -224,42 +332,545 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
 <main class="main">
   <div class="topbar">
     <div>
-      <div class="topbar-title">Solicitudes</div>
-      <div class="topbar-sub">Tickets de novedades e incidencias del inventario</div>
+      <div class="topbar-title">Solicitudes y tickets</div>
+      <div class="topbar-sub">Novedades e incidencias reportadas sobre equipos</div>
+    </div>
+    <div class="topbar-right">
+      <button class="btn-primary" onclick="abrirModalNueva()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Nueva solicitud
+      </button>
     </div>
   </div>
+
   <div class="content">
-    <div class="coming-card">
-      <div class="coming-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-chip" onclick="setFiltro('pendiente',null)" style="border-left:3px solid var(--amarillo)">
+        <div style="font-size:22px">⏳</div>
+        <div><div class="sc-num" style="color:var(--amarillo)" id="cnt-pend">0</div><div class="sc-lbl">Pendientes</div></div>
       </div>
-      <div class="coming-title">Solicitudes</div>
-      <div class="coming-sub">Tickets de novedades e incidencias del inventario.<br>Este módulo está en construcción y estará disponible próximamente.</div>
-      <span class="coming-badge">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        En desarrollo
-      </span>
+      <div class="stat-chip" onclick="setFiltro('revision',null)" style="border-left:3px solid var(--cian)">
+        <div style="font-size:22px">🔍</div>
+        <div><div class="sc-num" style="color:var(--cian)" id="cnt-rev">0</div><div class="sc-lbl">En revisión</div></div>
+      </div>
+      <div class="stat-chip" onclick="setFiltro('urgente',null)" style="border-left:3px solid var(--rojo)">
+        <div style="font-size:22px">🚨</div>
+        <div><div class="sc-num" style="color:var(--rojo)" id="cnt-urg">0</div><div class="sc-lbl">Críticos (Daño/Baja)</div></div>
+      </div>
+      <div class="stat-chip" onclick="setFiltro('resuelta',null)" style="border-left:3px solid var(--verde)">
+        <div style="font-size:22px">✅</div>
+        <div><div class="sc-num" style="color:var(--verde)" id="cnt-res">0</div><div class="sc-lbl">Resueltos</div></div>
+      </div>
     </div>
+
+    <!-- Filtros -->
+    <div class="filters-bar">
+      <div class="search-wrap">
+        <span class="search-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
+        <input class="search-input" id="search" placeholder="Buscar por ticket, equipo o descripción..." oninput="render()">
+      </div>
+      <button class="filter-btn active" onclick="setFiltro('todos',this)">Todos</button>
+      <button class="filter-btn"        onclick="setFiltro('pendiente',this)">⏳ Pendientes</button>
+      <button class="filter-btn"        onclick="setFiltro('revision',this)">🔍 En revisión</button>
+      <button class="filter-btn"        onclick="setFiltro('urgente',this)">🚨 Urgentes</button>
+      <button class="filter-btn"        onclick="setFiltro('resuelta',this)">✅ Resueltos</button>
+    </div>
+
+    <div id="sol-list"></div>
   </div>
 </main>
 </div>
+
+<!-- DRAWER -->
+<div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-head">
+    <div>
+      <div class="drawer-title" id="drawer-title">Solicitud</div>
+      <div class="drawer-sub"  id="drawer-sub">—</div>
+    </div>
+    <button class="drawer-close" onclick="closeDrawer()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="drawer-body" id="drawer-body"></div>
+  <div class="drawer-foot" id="drawer-foot"></div>
+</div>
+
+<!-- MODAL RESOLUCIÓN -->
+<div class="modal-overlay" id="modal-resolucion">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-head">
+      <div class="modal-head-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"/></svg>
+      </div>
+      <div>
+        <h3>Resolución de ticket</h3>
+        <p id="modal-res-id">—</p>
+      </div>
+      <button class="modal-close" onclick="cerrarModalRes()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group" style="margin-bottom:16px">
+        <label>Seleccione la acción operativa</label>
+        <div class="opciones-grid" id="opciones-grid">
+          <div class="opcion-card sel-cian" id="op-mant" onclick="selOpcion('mantenimiento')">
+            <div class="opcion-icon" style="background:var(--cian-suave)">🛠️</div>
+            <div>
+              <div class="opcion-title">Aprobar y crear mantenimiento</div>
+              <div class="opcion-sub">Vincula un registro en mantenimientos y cambia estado del equipo</div>
+            </div>
+          </div>
+          <div class="opcion-card" id="op-baja" onclick="selOpcion('baja')">
+            <div class="opcion-icon" style="background:var(--rojo-suave)">🚨</div>
+            <div>
+              <div class="opcion-title">Aprobar y dar de baja el equipo</div>
+              <div class="opcion-sub">El dispositivo se retira permanentemente del inventario</div>
+            </div>
+          </div>
+          <div class="opcion-card" id="op-des" onclick="selOpcion('desestimar')">
+            <div class="opcion-icon" style="background:#F1F5F9">❌</div>
+            <div>
+              <div class="opcion-title">Rechazar / Desestimar</div>
+              <div class="opcion-sub">Se cierra sin alterar el inventario — falsa alarma</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Acción tomada <span style="font-size:10px;font-weight:400;text-transform:none;color:var(--texto-suave)">(obligatorio)</span></label>
+        <input id="r-accion" placeholder="ej. Se autoriza traslado inmediato a taller técnico">
+      </div>
+      <div class="form-group">
+        <label>Observaciones del administrador <span style="font-size:10px;font-weight:400;text-transform:none;color:var(--texto-suave)">(opcional)</span></label>
+        <textarea id="r-obs" placeholder="Notas internas, contacto con proveedor, repuestos requeridos..."></textarea>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn-outline" onclick="cerrarModalRes()">Cancelar</button>
+      <button class="btn-primary" onclick="procesarDictamen()">Procesar dictamen</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL NUEVA SOLICITUD -->
+<div class="modal-overlay modal-nueva" id="modal-nueva">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-head">
+      <div class="modal-head-icon" style="background:var(--cian-suave);color:var(--cian)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </div>
+      <div><h3>Nueva solicitud</h3></div>
+      <button class="modal-close" onclick="cerrarModalNueva()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
+        <div class="form-group" style="margin:0">
+          <label>Tipo de novedad</label>
+          <select id="n-tipo" style="padding:10px 12px;border:1.5px solid var(--borde);border-radius:9px;font-family:'Inter',sans-serif;font-size:13px;outline:none">
+            <option value="Daño">⚠️ Daño</option>
+            <option value="Baja">🚨 Baja</option>
+            <option value="Anomalía">🔍 Anomalía</option>
+            <option value="Ingreso de equipo">📦 Ingreso de equipo</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin:0">
+          <label>Equipo afectado</label>
+          <select id="n-equipo" style="padding:10px 12px;border:1.5px solid var(--borde);border-radius:9px;font-family:'Inter',sans-serif;font-size:13px;outline:none"></select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Descripción de la novedad</label>
+        <textarea id="n-desc" style="padding:10px 12px;border:1.5px solid var(--borde);border-radius:9px;font-family:'Inter',sans-serif;font-size:13.5px;outline:none;resize:vertical;min-height:90px" placeholder="Describe con detalle qué está ocurriendo con el equipo..."></textarea>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn-outline" onclick="cerrarModalNueva()">Cancelar</button>
+      <button class="btn-primary" onclick="guardarSolicitud()">Crear solicitud</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
+
 <script>
 
 const _s = JSON.parse(localStorage.getItem("ing_session")||"null");
-if(!_s) window.location.href="index.html";
+if(!_s) window.location.href="login.html";
 else {
   document.getElementById("user-name").textContent   = _s.nombre;
   document.getElementById("user-role").textContent   = _s.rol==="admin"?"Administrador":"Repartidor";
   document.getElementById("user-avatar").textContent = _s.nombre.charAt(0).toUpperCase();
 }
-function logout(){ localStorage.removeItem("ing_session"); window.location.href="index.html"; }
+function logout(){ localStorage.removeItem("ing_session"); window.location.href="login.html"; }
 function toast(msg,tipo){
   const t=document.getElementById("toast");
   t.textContent=msg; t.className="toast show"+(tipo?" "+tipo:"");
   setTimeout(()=>t.className="toast",3000);
 }
 
+
+let filtroActivo  = "todos";
+let solParaRes    = null;
+let opcionActual  = "mantenimiento";
+
+// ── DATOS ───────────────────────────────────────────────────
+function initData(){
+  if(localStorage.getItem("ing_sol_v2")) return;
+  const sol = [
+    {
+      id:"SOL-2024-001",tipo:"Daño",estado:"revision",
+      eqId:"EQ-0009",eqCodigo:"EQ-0009",eqNombre:"Concentrador Invacare Platinum 10",eqSerial:"PT10-98234",
+      descripcion:"El paciente reporta alarma sonora encendida y se evidencia fuga en la válvula trasera. El compresor genera ruido intermitente.",
+      reportadoPor:"Carlos Díaz",rolReportador:"Repartidor",
+      resueltoPor:null,accionTomada:null,obsAdmin:null,
+      mantenimientoId:"MAN-2024-001",
+      fechaCreacion:"2024-11-10 09:00",fechaResolucion:null,
+      historial:[
+        {estado:"Pendiente",  fecha:"2024-11-10 09:00",usuario:"Carlos Díaz",   obs:"Ticket creado desde terminal del repartidor"},
+        {estado:"En revisión",fecha:"2024-11-10 10:30",usuario:"Linda Flórez",  obs:"Tomado en revisión — se evalúa el equipo"},
+      ]
+    },
+    {
+      id:"SOL-2024-002",tipo:"Anomalía",estado:"pendiente",
+      eqId:"EQ-0005",eqCodigo:"EQ-0005",eqNombre:"CPAP ResMed AirSense 10",eqSerial:"23191012345",
+      descripcion:"El paciente reporta que el equipo genera ruido diferente al habitual al iniciar. No hay alarmas activas pero se nota vibración.",
+      reportadoPor:"Yesid Romero",rolReportador:"Repartidor",
+      resueltoPor:null,accionTomada:null,obsAdmin:null,mantenimientoId:null,
+      fechaCreacion:"2024-11-14 14:20",fechaResolucion:null,
+      historial:[
+        {estado:"Pendiente",fecha:"2024-11-14 14:20",usuario:"Yesid Romero",obs:"Ticket creado desde terminal del repartidor"},
+      ]
+    },
+    {
+      id:"SOL-2024-003",tipo:"Ingreso de equipo",estado:"aprobada",
+      eqId:"EQ-0010",eqCodigo:"EQ-0010",eqNombre:"Ventilador Dräger Evita V300",eqSerial:"EVT-00341",
+      descripcion:"Ingreso de equipo nuevo — Ventilador mecánico Dräger Evita V300. Requiere registro en inventario y calibración inicial.",
+      reportadoPor:"Linda Flórez",rolReportador:"Administrador",
+      resueltoPor:"Linda Flórez",accionTomada:"Equipo registrado en inventario con código EQ-0010. Calibración inicial programada.",
+      obsAdmin:"Adquirido a proveedor MedTech Colombia. Factura #2024-890.",
+      mantenimientoId:null,
+      fechaCreacion:"2024-01-08 11:00",fechaResolucion:"2024-01-10 09:00",
+      historial:[
+        {estado:"Pendiente",  fecha:"2024-01-08 11:00",usuario:"Linda Flórez",obs:"Solicitud de ingreso de nuevo equipo"},
+        {estado:"En revisión",fecha:"2024-01-09 08:00",usuario:"Linda Flórez",obs:"Verificación de documentos del proveedor"},
+        {estado:"Aprobada",   fecha:"2024-01-10 09:00",usuario:"Linda Flórez",obs:"Equipo registrado exitosamente en inventario"},
+      ]
+    },
+    {
+      id:"SOL-2023-018",tipo:"Baja",estado:"aprobada",
+      eqId:"EQ-0001",eqCodigo:"EQ-0001",eqNombre:"Concentrador Respironics EverFlo",eqSerial:"0141535",
+      descripcion:"Falla irreparable en compresor interno después de mantenimiento correctivo. El técnico certifica que el equipo no es reparable.",
+      reportadoPor:"Andrés Silva",rolReportador:"Técnico",
+      resueltoPor:"Linda Flórez",accionTomada:"Equipo dado de baja y retirado del inventario activo.",
+      obsAdmin:"El técnico Andrés Silva firmó certificado de irreparabilidad. Se procede con disposición final según normativa.",
+      mantenimientoId:"MAN-2023-015",
+      fechaCreacion:"2023-08-25 16:00",fechaResolucion:"2023-08-26 09:00",
+      historial:[
+        {estado:"Pendiente",  fecha:"2023-08-25 16:00",usuario:"Andrés Silva", obs:"Reporta equipo irreparable tras mantenimiento"},
+        {estado:"En revisión",fecha:"2023-08-25 17:00",usuario:"Linda Flórez", obs:"Revisión de certificado técnico"},
+        {estado:"Aprobada",   fecha:"2023-08-26 09:00",usuario:"Linda Flórez", obs:"Baja aprobada — equipo retirado del inventario"},
+      ]
+    },
+  ];
+  localStorage.setItem("ing_solicitudes", JSON.stringify(sol));
+  localStorage.setItem("ing_sol_v2","1");
+}
+
+const getSol = () => JSON.parse(localStorage.getItem("ing_solicitudes")||"[]");
+const setSol = v  => localStorage.setItem("ing_solicitudes", JSON.stringify(v));
+
+function setFiltro(f,el){
+  filtroActivo = f;
+  document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
+  if(el) el.classList.add("active");
+  render();
+}
+
+// ── HELPERS ─────────────────────────────────────────────────
+function tipoBadge(tipo){
+  const m = {
+    "Daño":             ["ts-dano",    "⚠️ Daño"],
+    "Baja":             ["ts-baja",    "🚨 Baja"],
+    "Anomalía":         ["ts-anomalia","🔍 Anomalía"],
+    "Ingreso de equipo":["ts-ingreso", "📦 Ingreso"],
+  };
+  const[cls,label]=m[tipo]||["ts-anomalia",tipo];
+  return `<span class="tipo-sol ${cls}">${label}</span>`;
+}
+
+function estBadge(estado){
+  const m = {
+    "pendiente":  ["es-pendiente","⏳ Pendiente"],
+    "revision":   ["es-revision", "🔍 En revisión"],
+    "aprobada":   ["es-aprobada", "✅ Aprobada"],
+    "rechazada":  ["es-rechazada","❌ Rechazada"],
+  };
+  const[cls,label]=m[estado]||["es-pendiente",estado];
+  return `<span class="est-sol ${cls}"><span class="es-dot"></span>${label}</span>`;
+}
+
+function esUrgente(s){ return ["Daño","Baja"].includes(s.tipo) && ["pendiente","revision"].includes(s.estado); }
+function esResuelta(s){ return ["aprobada","rechazada"].includes(s.estado); }
+
+// ── RENDER ──────────────────────────────────────────────────
+function render(){
+  const sol = getSol();
+  const q   = document.getElementById("search").value.toLowerCase();
+
+  document.getElementById("cnt-pend").textContent = sol.filter(s=>s.estado==="pendiente").length;
+  document.getElementById("cnt-rev").textContent  = sol.filter(s=>s.estado==="revision").length;
+  document.getElementById("cnt-urg").textContent  = sol.filter(s=>esUrgente(s)).length;
+  document.getElementById("cnt-res").textContent  = sol.filter(s=>esResuelta(s)).length;
+
+  document.getElementById("nb-sol")?.setAttribute("textContent", sol.filter(s=>!esResuelta(s)).length);
+  const nb = document.getElementById("nb-sol");
+  if(nb) nb.textContent = sol.filter(s=>!esResuelta(s)).length;
+
+  const filtros = {
+    "todos":    ()=>true,
+    "pendiente":s=>s.estado==="pendiente",
+    "revision": s=>s.estado==="revision",
+    "urgente":  s=>esUrgente(s),
+    "resuelta": s=>esResuelta(s),
+  };
+  let filtered = sol.filter(s=>{
+    const mf = filtros[filtroActivo]?.(s)??true;
+    const mq = !q||[s.id,s.tipo,s.eqNombre,s.eqSerial,s.descripcion,s.reportadoPor].some(v=>(v||"").toLowerCase().includes(q));
+    return mf&&mq;
+  });
+
+  // Ordenar: urgentes primero, resueltos al final
+  filtered.sort((a,b)=>{
+    if(esUrgente(a)&&!esUrgente(b)) return -1;
+    if(!esUrgente(a)&&esUrgente(b)) return 1;
+    if(!esResuelta(a)&&esResuelta(b)) return -1;
+    if(esResuelta(a)&&!esResuelta(b)) return 1;
+    return 0;
+  });
+
+  const list = document.getElementById("sol-list");
+  if(!filtered.length){list.innerHTML=`<div class="empty-state"><p>No se encontraron solicitudes</p></div>`;return;}
+
+  list.innerHTML = filtered.map(s=>{
+    const urg  = esUrgente(s);
+    const res  = esResuelta(s);
+    const rowCls = urg?"urgente":res?"resuelta":"normal";
+    const iconBg  = urg?"var(--rojo-suave)":res?"#F1F5F9":"var(--cian-suave)";
+    const iconColor = urg?"var(--rojo)":res?"var(--gris)":"var(--cian)";
+    const iconSvg = urg
+      ?`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`
+      :`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>`;
+
+    // Botón
+    let btn="";
+    if(s.estado==="pendiente") btn=`<button class="btn-sol bs-revisar" onclick="event.stopPropagation();avanzar('${s.id}','revision')">Tomar en revisión</button>`;
+    if(s.estado==="revision")  btn=`<button class="btn-sol bs-resolver" onclick="event.stopPropagation();abrirModalRes('${s.id}')">Resolver solicitud</button>`;
+    if(esResuelta(s))          btn=`<button class="btn-sol bs-ver"      onclick="event.stopPropagation();abrirDrawer('${s.id}')">Ver resultado</button>`;
+
+    return `<div class="sol-row ${rowCls}" onclick="abrirDrawer('${s.id}')">
+      <div class="sol-tipo-icon" style="color:${iconColor}">
+        <div style="background:${iconBg};border-radius:9px;padding:8px">${iconSvg}</div>
+      </div>
+      <div class="sol-info">
+        <div class="sol-codigo">
+          <span>${s.id}</span>
+          ${tipoBadge(s.tipo)}
+          ${estBadge(s.estado)}
+        </div>
+        <div class="sol-titulo">${s.descripcion}</div>
+        <div class="sol-equipo">
+          Equipo: <span class="eq-code">${s.eqCodigo}</span>
+          <span style="color:var(--texto-suave)">·</span>
+          <span style="font-family:monospace;font-size:11px">${s.eqSerial}</span>
+        </div>
+      </div>
+      <div class="sol-meta">
+        <div class="sm-label">Reportado por</div>
+        <div class="sm-val">👤 ${s.reportadoPor}</div>
+        <div class="sm-label" style="margin-top:6px">${esResuelta(s)?"Resuelto":"Creado"}</div>
+        <div class="sm-val" style="font-size:11.5px;font-family:monospace">${esResuelta(s)?s.fechaResolucion||"—":s.fechaCreacion}</div>
+      </div>
+      <div class="sol-accion">${btn}</div>
+    </div>`;
+  }).join("");
+}
+
+// ── DRAWER ──────────────────────────────────────────────────
+function abrirDrawer(id){
+  const s = getSol().find(x=>x.id===id); if(!s) return;
+  document.getElementById("drawer-title").textContent = `${s.tipo} — ${s.eqNombre}`;
+  document.getElementById("drawer-sub").textContent   = `${s.id} · Reportado por ${s.reportadoPor}`;
+
+  const tlHTML = [...s.historial].reverse().map((h,i,arr)=>{
+    const isLast=i===arr.length-1;
+    const colorMap={"Pendiente":"gris","En revisión":"cian","Aprobada":"verde","Rechazada":"rojo"};
+    const bc=colorMap[h.estado]||"gris";
+    const isActual=i===0&&!esResuelta(s);
+    return `<div class="tl-v-item">
+      <div class="tl-v-left">
+        <div class="tl-v-dot ${bc}" ${isActual?'style="animation:blink 1.5s ease-in-out infinite"':""}></div>
+        ${!isLast?`<div class="tl-v-line ${bc}"></div>`:""}
+      </div>
+      <div class="tl-v-content">
+        <div class="tl-v-badge ${bc}">${h.estado.toUpperCase()}</div>
+        <div class="tl-v-event">${h.obs}</div>
+        <div class="tl-v-meta">${h.fecha} · ${h.usuario}</div>
+      </div>
+    </div>`;
+  }).join("");
+
+  const resolucionHTML = esResuelta(s) ? `
+    <div class="d-section" style="background:var(--verde-suave);border:1px solid rgba(15,123,85,.2)">
+      <div class="d-section-title" style="color:var(--verde)">✅ Resolución del administrador</div>
+      <div class="d-grid" style="margin-bottom:10px">
+        <div class="d-field" style="grid-column:1/-1"><label>Acción tomada</label><span style="font-size:13px;color:var(--texto-med)">${s.accionTomada||"—"}</span></div>
+        ${s.obsAdmin?`<div class="d-field" style="grid-column:1/-1"><label>Observaciones</label><span style="font-size:13px;color:var(--texto-med)">${s.obsAdmin}</span></div>`:""}
+        <div class="d-field"><label>Resuelto por</label><span>${s.resueltoPor||"—"}</span></div>
+        <div class="d-field"><label>Fecha</label><span style="font-family:monospace;font-size:12px">${s.fechaResolucion||"—"}</span></div>
+      </div>
+      ${s.mantenimientoId?`
+        <div style="border-top:1px solid rgba(15,123,85,.2);padding-top:10px;display:flex;align-items:center;justify-content:space-between">
+          <span style="font-size:12px;font-weight:600;color:var(--verde)">Mantenimiento vinculado</span>
+          <a style="font-size:12px;font-family:monospace;font-weight:700;color:var(--cian);cursor:pointer;display:flex;align-items:center;gap:4px" onclick="window.location.href='mantenimientos.html'">
+            ${s.mantenimientoId} 🛠️
+          </a>
+        </div>`:""}
+    </div>` : "";
+
+  document.getElementById("drawer-body").innerHTML = `
+    <div class="d-section">
+      <div class="d-section-title">Equipo y origen</div>
+      <div class="d-grid">
+        <div class="d-field"><label>Código equipo</label><span class="mono">${s.eqCodigo}</span></div>
+        <div class="d-field"><label>Serial</label><span class="mono">${s.eqSerial}</span></div>
+        <div class="d-field" style="grid-column:1/-1"><label>Equipo</label><span>${s.eqNombre}</span></div>
+        <div class="d-field"><label>Reportado por</label><span>👤 ${s.reportadoPor} (${s.rolReportador})</span></div>
+        <div class="d-field"><label>Creado</label><span style="font-family:monospace;font-size:12px">${s.fechaCreacion}</span></div>
+      </div>
+    </div>
+    <div class="d-section">
+      <div class="d-section-title">Descripción de la novedad</div>
+      <p style="font-size:13.5px;color:var(--texto-med);line-height:1.6">${s.descripcion}</p>
+    </div>
+    ${resolucionHTML}
+    <div class="d-section">
+      <div class="d-section-title">Línea de vida del ticket</div>
+      <div class="tl-v">${tlHTML}</div>
+    </div>`;
+
+  let foot="";
+  if(s.estado==="pendiente") foot=`<button class="btn-primary" style="flex:1;justify-content:center" onclick="avanzar('${s.id}','revision');closeDrawer()">Tomar en revisión</button>`;
+  if(s.estado==="revision")  foot=`<button class="btn-primary" style="flex:1;justify-content:center;background:var(--cian)" onclick="abrirModalRes('${s.id}');closeDrawer()">Resolver solicitud</button>`;
+  foot+=`<button class="btn-outline" onclick="closeDrawer()">Cerrar</button>`;
+  document.getElementById("drawer-foot").innerHTML=foot;
+
+  document.getElementById("drawer-overlay").classList.add("open");
+  document.getElementById("drawer").classList.add("open");
+}
+
+function closeDrawer(){
+  document.getElementById("drawer-overlay").classList.remove("open");
+  document.getElementById("drawer").classList.remove("open");
+}
+
+// ── AVANZAR ─────────────────────────────────────────────────
+function avanzar(id, estado){
+  const sol=getSol(),i=sol.findIndex(x=>x.id===id);
+  sol[i].estado=estado;
+  sol[i].historial.push({
+    estado:estado==="revision"?"En revisión":"—",
+    fecha:new Date().toLocaleString("es-CO"),
+    usuario:_s?.nombre||"—",
+    obs:estado==="revision"?"Ticket tomado en revisión por el administrador":"—"
+  });
+  setSol(sol);toast("Estado actualizado","success");render();
+}
+
+// ── MODAL RESOLUCIÓN ─────────────────────────────────────────
+function selOpcion(op){
+  opcionActual=op;
+  document.getElementById("op-mant").className="opcion-card"+(op==="mantenimiento"?" sel-cian":"");
+  document.getElementById("op-baja").className="opcion-card"+(op==="baja"?" sel-rojo":"");
+  document.getElementById("op-des" ).className="opcion-card"+(op==="desestimar"?" sel-gris":"");
+}
+
+function abrirModalRes(id){
+  solParaRes=id;
+  const s=getSol().find(x=>x.id===id);
+  document.getElementById("modal-res-id").textContent=`Decisión técnica para ${s.id}`;
+  document.getElementById("r-accion").value="";
+  document.getElementById("r-obs").value="";
+  opcionActual="mantenimiento";
+  selOpcion("mantenimiento");
+  document.getElementById("modal-resolucion").classList.add("open");
+}
+function cerrarModalRes(){document.getElementById("modal-resolucion").classList.remove("open");solParaRes=null;}
+document.getElementById("modal-resolucion").addEventListener("click",e=>{if(e.target.id==="modal-resolucion")cerrarModalRes();});
+
+function procesarDictamen(){
+  if(!solParaRes) return;
+  const accion=document.getElementById("r-accion").value.trim();
+  if(!accion){toast("La acción tomada es obligatoria","error");return;}
+  const sol=getSol(),i=sol.findIndex(x=>x.id===solParaRes);
+  const nuevoEstado=opcionActual==="desestimar"?"rechazada":"aprobada";
+  sol[i].estado=nuevoEstado;
+  sol[i].resueltoPor=_s?.nombre||"—";
+  sol[i].accionTomada=accion;
+  sol[i].obsAdmin=document.getElementById("r-obs").value||null;
+  sol[i].fechaResolucion=new Date().toLocaleString("es-CO");
+  sol[i].historial.push({
+    estado:nuevoEstado==="aprobada"?"Aprobada":"Rechazada",
+    fecha:sol[i].fechaResolucion,
+    usuario:_s?.nombre||"—",
+    obs:`${opcionActual==="mantenimiento"?"Aprobada — se crea mantenimiento":opcionActual==="baja"?"Aprobada — equipo dado de baja":"Rechazada — ticket desestimado"}`
+  });
+  // Acciones sobre inventario
+  if(opcionActual==="baja"){
+    const inv=JSON.parse(localStorage.getItem("ing_inventario")||"[]");
+    const ie=inv.findIndex(x=>x.id===sol[i].eqId);
+    if(ie>=0){inv[ie].estado="Baja";inv[ie].historial.push({evento:"Equipo dado de baja por solicitud "+sol[i].id,fecha:new Date().toISOString().split("T")[0],tipo:"rojo",badge:"BAJA"});localStorage.setItem("ing_inventario",JSON.stringify(inv));}
+  }
+  setSol(sol);
+  toast(nuevoEstado==="aprobada"?"Solicitud aprobada":"Solicitud rechazada","success");
+  cerrarModalRes();render();
+}
+
+// ── NUEVA SOLICITUD ──────────────────────────────────────────
+function abrirModalNueva(){
+  const inv=JSON.parse(localStorage.getItem("ing_inventario")||"[]");
+  document.getElementById("n-equipo").innerHTML=inv.map(e=>`<option value="${e.id}|${e.cat} ${e.marca} ${e.modelo}|${e.serial}">${e.id} — ${e.marca} ${e.modelo} (${e.serial})</option>`).join("");
+  document.getElementById("n-desc").value="";
+  document.getElementById("modal-nueva").classList.add("open");
+}
+function cerrarModalNueva(){document.getElementById("modal-nueva").classList.remove("open");}
+document.getElementById("modal-nueva").addEventListener("click",e=>{if(e.target.id==="modal-nueva")cerrarModalNueva();});
+
+function guardarSolicitud(){
+  const desc=document.getElementById("n-desc").value.trim();
+  if(!desc){toast("La descripción es obligatoria","error");return;}
+  const parts=document.getElementById("n-equipo").value.split("|");
+  const sol=getSol();
+  sol.unshift({
+    id:`SOL-${new Date().getFullYear()}-${String(sol.length+1).padStart(3,"0")}`,
+    tipo:document.getElementById("n-tipo").value,
+    estado:"pendiente",
+    eqId:parts[0],eqCodigo:parts[0],eqNombre:parts[1]||"—",eqSerial:parts[2]||"—",
+    descripcion:desc,
+    reportadoPor:_s?.nombre||"—",rolReportador:_s?.rol==="admin"?"Administrador":"Repartidor",
+    resueltoPor:null,accionTomada:null,obsAdmin:null,mantenimientoId:null,
+    fechaCreacion:new Date().toLocaleString("es-CO"),fechaResolucion:null,
+    historial:[{estado:"Pendiente",fecha:new Date().toLocaleString("es-CO"),usuario:_s?.nombre||"—",obs:"Ticket creado"}]
+  });
+  setSol(sol);toast("Solicitud creada","success");cerrarModalNueva();render();
+}
+
+initData();render();
 </script>
 </body>
 </html>

@@ -37,7 +37,7 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
 .nav-item.active .ni,.nav-item:hover .ni{opacity:1}
 .nav-badge{margin-left:auto;background:var(--rojo);color:#fff;font-size:10px;font-weight:700;padding:1px 6px;border-radius:99px;min-width:18px;text-align:center}
 .nav-badge.cian{background:var(--cian)}
-.sidebar-user{margin-top:auto;padding:14px 18px;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:10px}
+.sidebar-user{padding:14px 18px;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:10px}
 .user-avatar{width:32px;height:32px;border-radius:50%;background:var(--cian);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0}
 .user-name{font-size:12.5px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .user-role{font-size:10.5px;color:rgba(255,255,255,.4)}
@@ -161,12 +161,113 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
 ::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-thumb{background:#CBD5E1;border-radius:99px}
 
-.content{flex:1;overflow-y:auto;padding:24px 28px;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.coming-card{background:var(--blanco);border-radius:16px;border:1px solid var(--borde);padding:48px 40px;text-align:center;max-width:480px;box-shadow:0 1px 4px rgba(0,0,0,.04)}
-.coming-icon{width:64px;height:64px;border-radius:16px;background:var(--cian-suave);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:var(--cian)}
-.coming-title{font-size:22px;font-weight:700;color:var(--azul);margin-bottom:8px}
-.coming-sub{font-size:14px;color:var(--texto-suave);line-height:1.6;margin-bottom:24px}
-.coming-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:99px;background:var(--amarillo-suave);color:var(--amarillo);font-size:12px;font-weight:600}
+.content{flex:1;overflow-y:auto;padding:20px 24px;display:flex;flex-direction:column;gap:14px}
+
+/* FILTROS */
+.filters-bar{display:flex;align-items:center;gap:10px;flex-shrink:0;flex-wrap:wrap}
+.search-wrap{position:relative;flex:1;max-width:340px}
+.search-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--texto-suave);display:flex;pointer-events:none}
+.search-input{width:100%;padding:9px 12px 9px 34px;border:1.5px solid var(--borde);border-radius:9px;font-family:"Inter",sans-serif;font-size:13px;color:var(--texto);background:var(--blanco);outline:none;transition:border-color .15s}
+.search-input:focus{border-color:var(--cian)}
+.search-input::placeholder{color:var(--texto-suave)}
+.filter-btn{padding:8px 14px;border:1.5px solid var(--borde);border-radius:9px;background:var(--blanco);font-family:"Inter",sans-serif;font-size:12.5px;font-weight:500;color:var(--texto-med);cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;gap:5px}
+.filter-btn:hover{border-color:var(--cian);color:var(--cian)}
+.filter-btn.active{background:var(--azul);color:#fff;border-color:var(--azul)}
+
+/* ORDEN ROW */
+.orden-row{background:var(--blanco);border-radius:12px;border:1px solid var(--borde);overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.04);transition:all .18s;cursor:pointer;position:relative}
+.orden-row:hover{border-color:var(--cian);box-shadow:0 4px 14px rgba(27,58,107,.08)}
+.orden-row.alerta{border-left:3px solid var(--rojo)}
+.orden-row.alerta .orden-header{background:linear-gradient(90deg,#FFF5F5 0%,var(--blanco) 100%)}
+
+.orden-header{padding:12px 18px;display:flex;align-items:center;gap:14px;border-bottom:1px solid #F8FAFC}
+.os-id{font-size:11px;font-family:monospace;font-weight:700;color:var(--texto-suave);background:#F1F5F9;padding:2px 8px;border-radius:5px;white-space:nowrap}
+.os-tipo{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:99px;font-size:10.5px;font-weight:700}
+.os-tipo.t1{background:var(--cian-suave);color:#0E86A0}
+.os-tipo.t2{background:var(--purpura-suave,#F5F3FF);color:#6D28D9}
+.os-cliente{font-size:14px;font-weight:700;color:var(--azul);flex:1}
+.os-zona{font-size:12px;color:var(--texto-suave);display:flex;align-items:center;gap:4px}
+.os-fecha{font-size:11.5px;color:var(--texto-suave);font-family:monospace;white-space:nowrap}
+
+.orden-tl{padding:14px 20px 16px}
+
+/* TIMELINE HORIZONTAL ÓRDENES */
+.os-track{display:flex;align-items:flex-start;gap:0}
+.os-step{flex:1;display:flex;flex-direction:column;align-items:center;position:relative}
+.os-step:not(:first-child)::before{content:"";position:absolute;top:18px;right:50%;width:100%;height:2px;z-index:0}
+.os-step.done:not(:first-child)::before{background:var(--cian)}
+.os-step.current:not(:first-child)::before{background:var(--cian)}
+.os-step.pending:not(:first-child)::before{background:#E2E8F0}
+.os-step.alerta:not(:first-child)::before{background:var(--rojo)}
+
+.os-dot{width:36px;height:36px;border-radius:50%;z-index:1;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
+.os-step.done    .os-dot{background:var(--cian);box-shadow:0 0 0 3px rgba(46,181,212,.15)}
+.os-step.current .os-dot{background:var(--blanco);border:3px solid var(--cian);box-shadow:0 0 0 4px rgba(46,181,212,.15);animation:osPulse 2s ease-in-out infinite}
+.os-step.pending .os-dot{background:var(--blanco);border:2px solid #CBD5E1}
+.os-step.alerta  .os-dot{background:var(--rojo);box-shadow:0 0 0 4px rgba(192,57,43,.15);animation:osShake .5s ease infinite}
+@keyframes osPulse{0%,100%{box-shadow:0 0 0 4px rgba(46,181,212,.15)}50%{box-shadow:0 0 0 8px rgba(46,181,212,.06)}};
+@keyframes osShake{0%,100%{transform:translateX(0)}25%{transform:translateX(-2px)}75%{transform:translateX(2px)}};
+
+.os-dot-inner{font-size:13px}
+.os-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-top:6px;text-align:center;line-height:1.2}
+.os-step.done    .os-label{color:var(--cian)}
+.os-step.current .os-label{color:var(--azul);font-weight:700}
+.os-step.pending .os-label{color:var(--texto-suave)}
+.os-step.alerta  .os-label{color:var(--rojo);font-weight:700}
+.os-time{font-size:10px;color:var(--texto-suave);margin-top:2px;text-align:center;font-family:monospace}
+.os-step.alerta .os-time{color:var(--rojo);font-weight:600}
+.os-step.current .os-time{color:var(--azul);font-weight:600}
+
+/* BTN ACCION DINÁMICO */
+.btn-os-accion{padding:7px 16px;border-radius:9px;font-family:"Inter",sans-serif;font-size:12.5px;font-weight:700;border:none;cursor:pointer;transition:all .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
+.ba-despachar{background:var(--azul);color:#fff}
+.ba-despachar:hover{background:var(--azul-med);box-shadow:0 4px 12px rgba(27,58,107,.2)}
+.ba-facturar{background:var(--cian);color:#fff}
+.ba-facturar:hover{background:#0E86A0;box-shadow:0 4px 12px rgba(46,181,212,.2)}
+.ba-firma{background:var(--amarillo-suave);color:var(--amarillo);border:1.5px solid rgba(180,83,9,.2)}
+.ba-firma:hover{background:var(--amarillo);color:#fff}
+.ba-ver{background:#F1F5F9;color:var(--gris)}
+.ba-ver:hover{background:#E2E8F0;color:var(--texto)}
+
+/* DRAWER — BLOQUES */
+.drawer-bloque{padding:16px 22px;border-bottom:1px solid #F1F5F9}
+.drawer-bloque:last-child{border-bottom:none}
+.drawer-bloque-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--texto-suave);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+
+/* DOCS */
+.doc-btn{display:flex;align-items:center;gap:10px;padding:10px 13px;border:1.5px solid var(--borde);border-radius:9px;background:var(--blanco);cursor:pointer;transition:all .15s;font-family:"Inter",sans-serif;margin-bottom:7px;width:100%;text-align:left}
+.doc-btn:hover{border-color:var(--cian);background:var(--cian-suave)}
+.doc-btn .doc-icon{width:32px;height:32px;border-radius:8px;background:var(--azul-suave);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--azul)}
+.doc-btn .doc-name{font-size:13px;font-weight:600;color:var(--azul)}
+.doc-btn .doc-sub{font-size:11px;color:var(--texto-suave);margin-top:1px}
+.doc-btn.pendiente{border-color:rgba(180,83,9,.25);background:var(--amarillo-suave)}
+.doc-btn.pendiente .doc-icon{background:rgba(180,83,9,.1);color:var(--amarillo)}
+.doc-btn.pendiente .doc-name{color:var(--amarillo)}
+
+/* FIRMA DISPLAY */
+.firma-box{border:2px dashed var(--borde);border-radius:10px;padding:18px;text-align:center;background:var(--fondo);min-height:80px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
+.firma-box.firmado{border-color:var(--verde);background:var(--verde-suave)}
+.firma-box.pendiente{border-color:var(--amarillo);background:var(--amarillo-suave)}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(15,36,72,.4);z-index:300;display:none;align-items:center;justify-content:center;backdrop-filter:blur(3px)}
+.modal-overlay.open{display:flex}
+.modal{background:var(--blanco);border-radius:16px;width:100%;max-width:560px;max-height:90vh;display:flex;flex-direction:column;box-shadow:0 24px 64px rgba(0,0,0,.2);overflow:hidden}
+.modal-head{padding:18px 24px;border-bottom:1px solid var(--borde);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.modal-head h3{font-size:15px;font-weight:700;color:var(--azul)}
+.modal-close{background:none;border:none;cursor:pointer;color:var(--texto-suave);width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center}
+.modal-close:hover{background:#F1F5F9}
+.modal-body{padding:22px 24px;overflow-y:auto;flex:1}
+.modal-foot{padding:14px 24px;border-top:1px solid var(--borde);display:flex;justify-content:flex-end;gap:10px;flex-shrink:0}
+.form-row{display:grid;gap:14px;margin-bottom:14px}
+.form-row.c2{grid-template-columns:1fr 1fr}
+.form-group{display:flex;flex-direction:column;gap:5px}
+.form-group label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--texto-med)}
+.form-group input,.form-group select,.form-group textarea{padding:9px 12px;border:1.5px solid var(--borde);border-radius:9px;font-family:"Inter",sans-serif;font-size:13.5px;color:var(--texto);background:var(--blanco);outline:none;transition:border-color .15s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--cian)}
+.form-group textarea{resize:vertical;min-height:72px}
+
+.empty-state{text-align:center;padding:56px 24px;color:var(--texto-suave)}
 </style>
 </head>
 <body>
@@ -194,6 +295,9 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
     <a class="nav-item active" href="ordenes.html">
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>Órdenes de servicio
     </a>
+    <a class="nav-item" href="servicios.html">
+      <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></span>Servicios
+    </a>
     <a class="nav-item" href="clientes.html">
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>Clientes
     </a>
@@ -212,6 +316,11 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></span>Configuración
     </a>
   </div>
+  <div style="padding:8px 12px;border-top:1px solid rgba(255,255,255,.08);margin-top:0">
+    <a class="nav-item" href="manual_usuario.html" target="_blank">
+      <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M8 7h8M8 11h8M8 15h8"/></svg></span>Manual de usuario
+    </a>
+  </div>
   <div class="sidebar-user">
     <div class="user-avatar" id="user-avatar">L</div>
     <div style="flex:1;min-width:0">
@@ -225,41 +334,523 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
   <div class="topbar">
     <div>
       <div class="topbar-title">Órdenes de servicio</div>
-      <div class="topbar-sub">Gestión de órdenes y contratos de alquiler</div>
+      <div class="topbar-sub" id="os-count">Cargando...</div>
+    </div>
+    <div class="topbar-right">
+      <div class="live-pill"><span class="live-dot"></span>En tiempo real</div>
+      <button class="btn-primary" onclick="abrirModalNueva()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Nueva O.S.
+      </button>
     </div>
   </div>
+
   <div class="content">
-    <div class="coming-card">
-      <div class="coming-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <div class="filters-bar">
+      <div class="search-wrap">
+        <span class="search-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
+        <input class="search-input" id="search" placeholder="Buscar por O.S., cliente o serial..." oninput="render()">
       </div>
-      <div class="coming-title">Órdenes de servicio</div>
-      <div class="coming-sub">Gestión de órdenes y contratos de alquiler.<br>Este módulo está en construcción y estará disponible próximamente.</div>
-      <span class="coming-badge">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        En desarrollo
-      </span>
+      <button class="filter-btn active" onclick="setFiltro('todos',this)">Todas</button>
+      <button class="filter-btn"        onclick="setFiltro('activas',this)">⏰ Activas</button>
+      <button class="filter-btn"        onclick="setFiltro('alerta',this)">🚨 Alertas</button>
+      <button class="filter-btn"        onclick="setFiltro('cerrada',this)">✅ Cerradas</button>
     </div>
+    <div id="ordenes-list"></div>
   </div>
 </main>
 </div>
+
+<!-- DRAWER -->
+<div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-head">
+    <div>
+      <div class="drawer-title" id="drawer-title">Orden de servicio</div>
+      <div class="drawer-sub"  id="drawer-sub">—</div>
+    </div>
+    <button class="drawer-close" onclick="closeDrawer()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="drawer-body" id="drawer-body"></div>
+  <div class="drawer-foot" id="drawer-foot"></div>
+</div>
+
+<!-- MODAL NUEVA OS -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-head">
+      <h3>Nueva orden de servicio</h3>
+      <button class="modal-close" onclick="cerrarModal()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="form-row c2">
+        <div class="form-group"><label>Tipo de orden</label>
+          <select id="f-tipo">
+            <option value="Tipo 1">Arriendo O₂ domiciliario</option>
+            <option value="Tipo 2">Arrendamiento equipo biomédico</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Fecha</label>
+          <input type="date" id="f-fecha">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Cliente</label>
+          <select id="f-cliente"></select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Equipo</label>
+          <select id="f-equipo"></select>
+        </div>
+      </div>
+      <div class="form-row c2">
+        <div class="form-group"><label>Repartidor asignado</label>
+          <select id="f-rep">
+            <option>Carlos Díaz</option>
+            <option>Yesid Romero</option>
+            <option>Miguel Torres</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Hora promesa</label>
+          <input type="time" id="f-hora" value="10:00">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Observaciones</label>
+          <textarea id="f-obs" placeholder="Opcional..."></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn-outline" onclick="cerrarModal()">Cancelar</button>
+      <button class="btn-primary" onclick="guardarOS()">Crear orden</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
+
 <script>
 
 const _s = JSON.parse(localStorage.getItem("ing_session")||"null");
-if(!_s) window.location.href="index.html";
+if(!_s) window.location.href="login.html";
 else {
   document.getElementById("user-name").textContent   = _s.nombre;
   document.getElementById("user-role").textContent   = _s.rol==="admin"?"Administrador":"Repartidor";
   document.getElementById("user-avatar").textContent = _s.nombre.charAt(0).toUpperCase();
 }
-function logout(){ localStorage.removeItem("ing_session"); window.location.href="index.html"; }
+function logout(){ localStorage.removeItem("ing_session"); window.location.href="login.html"; }
 function toast(msg,tipo){
   const t=document.getElementById("toast");
   t.textContent=msg; t.className="toast show"+(tipo?" "+tipo:"");
   setTimeout(()=>t.className="toast",3000);
 }
 
+
+let filtroActivo = "todos";
+const ESTADOS_OS = ["creada","cotizada","en-ruta","entregada","cerrada"];
+
+// ── DATOS ──────────────────────────────────────────────────
+function initData(){
+  if(localStorage.getItem("ing_os_v1")) return;
+  const hoy = new Date().toISOString().split("T")[0];
+  const ordenes = [
+    {
+      id:"OS-2024-001", tipo:"Tipo 1", estado:"entregada",
+      cliente:"María García Pérez", zona:"La Paz",
+      equipo:"Concentrador Respironics EverFlo", serial:"EQ-0001",
+      serial_equipo:"0141535", repartidor:"Carlos Díaz",
+      horaPromesa:"11:00", fechaCreacion:"2024-02-08",
+      recibidoPor:"Carlos García", firmado:true,
+      obs:"Entrega sin novedad",
+      historial:[
+        {estado:"creada",    fecha:"2024-02-08 16:00",usuario:"Linda Flórez"},
+        {estado:"cotizada",  fecha:"2024-02-09 09:00",usuario:"Linda Flórez"},
+        {estado:"en-ruta",   fecha:"2024-02-10 08:45",usuario:"Carlos Díaz"},
+        {estado:"entregada", fecha:"2024-02-10 09:32",usuario:"Carlos Díaz"},
+      ],
+      docs:[
+        {nombre:"Contrato de arriendo",  archivo:"01_contrato_oxigeno.html",  disponible:true},
+        {nombre:"Acta de entrega",       archivo:"02_acta_entrega_oxigeno.html",disponible:true},
+        {nombre:"Declaración de capacitación",archivo:"04_declaracion_capacitacion.html",disponible:true},
+        {nombre:"Pagaré",               archivo:"05_pagare.html",             disponible:true},
+      ]
+    },
+    {
+      id:"OS-2024-002", tipo:"Tipo 1", estado:"en-ruta",
+      cliente:"CAJACOPI ATLÁNTICO", zona:"Centro",
+      equipo:"3x Concentrador de Oxígeno", serial:"EQ-0003,EQ-0004,EQ-0006",
+      serial_equipo:"Varios", repartidor:"Carlos Díaz",
+      horaPromesa:"11:30", fechaCreacion:"2025-01-06",
+      recibidoPor:"", firmado:false,
+      obs:"Entrega institucional — múltiples equipos",
+      historial:[
+        {estado:"creada",   fecha:"2025-01-06 10:00",usuario:"Linda Flórez"},
+        {estado:"cotizada", fecha:"2025-01-07 09:00",usuario:"Linda Flórez"},
+        {estado:"en-ruta",  fecha:"2025-01-08 11:00",usuario:"Carlos Díaz"},
+      ],
+      docs:[
+        {nombre:"Contrato arrendamiento equipo", archivo:"07_contrato_ips.html",   disponible:true},
+        {nombre:"Acta de entrega IPS",           archivo:"08_acta_entrega_ips.html",disponible:false},
+      ]
+    },
+    {
+      id:"OS-2024-003", tipo:"Tipo 1", estado:"alerta",
+      cliente:"Rosa Martínez López", zona:"El Recreo",
+      equipo:"Concentrador DeVilbiss 525KS", serial:"EQ-0002",
+      serial_equipo:"F2201445", repartidor:"Miguel Torres",
+      horaPromesa:"10:00", fechaCreacion:"2025-03-01",
+      recibidoPor:"", firmado:false,
+      obs:"Pendiente autorización EPS",
+      historial:[
+        {estado:"creada",  fecha:"2025-03-01 09:00",usuario:"Linda Flórez"},
+        {estado:"cotizada",fecha:"2025-03-01 10:00",usuario:"Linda Flórez"},
+        {estado:"en-ruta", fecha:"2025-03-02 09:30",usuario:"Miguel Torres"},
+        {estado:"alerta",  fecha:"2025-03-02 11:00",usuario:"Sistema"},
+      ],
+      docs:[
+        {nombre:"Contrato de arriendo",archivo:"01_contrato_oxigeno.html",disponible:true},
+        {nombre:"Acta de entrega",     archivo:"02_acta_entrega_oxigeno.html",disponible:false},
+      ]
+    },
+    {
+      id:"OS-2024-004", tipo:"Tipo 2", estado:"creada",
+      cliente:"Clínica Valledupar S.A.", zona:"Simón Bolívar",
+      equipo:"Ventilador Dräger Evita V300", serial:"EQ-0010",
+      serial_equipo:"EVT-00341", repartidor:"Yesid Romero",
+      horaPromesa:"15:00", fechaCreacion:hoy,
+      recibidoPor:"", firmado:false,
+      obs:"",
+      historial:[
+        {estado:"creada",fecha:hoy+" 10:00",usuario:"Linda Flórez"},
+      ],
+      docs:[
+        {nombre:"Contrato arrendamiento equipo",archivo:"07_contrato_ips.html",disponible:true},
+      ]
+    },
+    {
+      id:"OS-2023-089", tipo:"Tipo 1", estado:"cerrada",
+      cliente:"Pedro Álvarez Suárez", zona:"Centro",
+      equipo:"Colchón Lumex APP300", serial:"EQ-0007",
+      serial_equipo:"L330021", repartidor:"Yesid Romero",
+      horaPromesa:"10:00", fechaCreacion:"2024-05-20",
+      recibidoPor:"Ana Álvarez", firmado:true,
+      obs:"Ciclo completado sin novedades",
+      historial:[
+        {estado:"creada",   fecha:"2024-05-20 09:00",usuario:"Linda Flórez"},
+        {estado:"cotizada", fecha:"2024-05-20 10:00",usuario:"Linda Flórez"},
+        {estado:"en-ruta",  fecha:"2024-05-22 09:50",usuario:"Yesid Romero"},
+        {estado:"entregada",fecha:"2024-05-22 10:28",usuario:"Yesid Romero"},
+        {estado:"cerrada",  fecha:"2024-06-01 00:00",usuario:"Sistema"},
+      ],
+      docs:[
+        {nombre:"Contrato de arriendo",  archivo:"01_contrato_oxigeno.html",  disponible:true},
+        {nombre:"Acta de entrega",       archivo:"02_acta_entrega_oxigeno.html",disponible:true},
+        {nombre:"Acta de devolución",    archivo:"03_acta_devolucion_oxigeno.html",disponible:true},
+        {nombre:"Declaración capacitación",archivo:"04_declaracion_capacitacion.html",disponible:true},
+        {nombre:"Pagaré",               archivo:"05_pagare.html",             disponible:true},
+      ]
+    },
+  ];
+  localStorage.setItem("ing_ordenes", JSON.stringify(ordenes));
+  localStorage.setItem("ing_os_v1","1");
+}
+
+const getOS  = () => JSON.parse(localStorage.getItem("ing_ordenes")||"[]");
+const setOS  = v  => localStorage.setItem("ing_ordenes", JSON.stringify(v));
+
+// ── HELPERS ───────────────────────────────────────────────
+function setFiltro(f, el){
+  filtroActivo = f;
+  document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
+  el.classList.add("active");
+  render();
+}
+
+function estadoLabel(e){
+  const m = {
+    "creada":"Creada","cotizada":"Cotizada","en-ruta":"En ruta",
+    "entregada":"Entregada","cerrada":"Cerrada","alerta":"Alerta"
+  };
+  return m[e]||e;
+}
+
+function tipoLabel(t){
+  return t==="Tipo 1"?"Arriendo O₂ domiciliario":"Arrendamiento equipo";
+}
+
+// TIMELINE HORIZONTAL por orden
+function osTrack(orden){
+  const pasos = [
+    {key:"creada",    label:"Creada",    icon:"📋"},
+    {key:"cotizada",  label:"Cotizada",  icon:"✓"},
+    {key:"en-ruta",   label:"En ruta",   icon:"🚚"},
+    {key:"entregada", label:"Instalada", icon:"✓"},
+    {key:"cerrada",   label:"Cerrada",   icon:"🏁"},
+  ];
+  const idx = ESTADOS_OS.indexOf(orden.estado==="alerta"?"en-ruta":orden.estado);
+
+  return `<div class="os-track">
+    ${pasos.map((p,i)=>{
+      let st;
+      if(orden.estado==="alerta" && i===2) st="alerta";
+      else if(i<idx) st="done";
+      else if(i===idx) st="current";
+      else st="pending";
+
+      const h = orden.historial.find(h=>h.estado===p.key);
+      const timeStr = h ? h.fecha.split(" ")[1]||h.fecha : (i===idx&&orden.horaPromesa?`Prog: ${orden.horaPromesa}`:"—");
+
+      return `<div class="os-step ${st}">
+        <div class="os-dot">
+          ${st==="done"
+            ?`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>`
+            :st==="alerta"
+              ?`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`
+              :st==="current"
+                ?`<div style="width:10px;height:10px;border-radius:50%;background:var(--cian)"></div>`
+                :`<div style="width:8px;height:8px;border-radius:50%;background:#E2E8F0"></div>`
+          }
+        </div>
+        <div class="os-label">${p.label}</div>
+        <div class="os-time">${timeStr}</div>
+      </div>`;
+    }).join("")}
+  </div>`;
+}
+
+// Botón de acción dinámica
+function btnAccion(o){
+  if(o.estado==="creada")    return `<button class="btn-os-accion ba-despachar" onclick="event.stopPropagation();avanzarOS('${o.id}','cotizada')">✓ Aprobar O.S.</button>`;
+  if(o.estado==="cotizada")  return `<button class="btn-os-accion ba-despachar" onclick="event.stopPropagation();avanzarOS('${o.id}','en-ruta')">🚀 Despachar a ruta</button>`;
+  if(o.estado==="en-ruta")   return `<button class="btn-os-accion ba-firma"     onclick="event.stopPropagation();avanzarOS('${o.id}','entregada')">✍ Registrar entrega</button>`;
+  if(o.estado==="alerta")    return `<button class="btn-os-accion ba-firma"     onclick="event.stopPropagation();avanzarOS('${o.id}','entregada')">✓ Resolver alerta</button>`;
+  if(o.estado==="entregada") return `<button class="btn-os-accion ba-facturar"  onclick="event.stopPropagation();avanzarOS('${o.id}','cerrada')">💵 Cerrar y facturar</button>`;
+  return `<button class="btn-os-accion ba-ver" onclick="event.stopPropagation();abrirDrawer('${o.id}')">Ver detalle</button>`;
+}
+
+// ── RENDER ─────────────────────────────────────────────────
+function render(){
+  const os  = getOS();
+  const q   = document.getElementById("search").value.toLowerCase();
+  const filtros = {
+    "todos":   ()=>true,
+    "activas": o=>!["cerrada"].includes(o.estado),
+    "alerta":  o=>o.estado==="alerta",
+    "cerrada": o=>o.estado==="cerrada",
+  };
+  let filtered = os.filter(o=>{
+    const mf = filtros[filtroActivo](o);
+    const mq = !q||[o.id,o.cliente,o.serial_equipo,o.equipo].some(v=>v.toLowerCase().includes(q));
+    return mf&&mq;
+  });
+  document.getElementById("os-count").textContent = `${filtered.length} de ${os.length} órdenes`;
+
+  const list = document.getElementById("ordenes-list");
+  if(!filtered.length){list.innerHTML=`<div class="empty-state"><p>No se encontraron órdenes</p></div>`;return;}
+
+  list.innerHTML = filtered.map(o=>{
+    const isAlerta = o.estado==="alerta";
+    return `<div class="orden-row ${isAlerta?"alerta":""}" onclick="abrirDrawer('${o.id}')">
+      <div class="orden-header">
+        <span class="os-id">${o.id}</span>
+        <span class="os-tipo ${o.tipo==="Tipo 1"?"t1":"t2"}">${tipoLabel(o.tipo)}</span>
+        <span class="os-cliente">${o.cliente}</span>
+        <span class="os-zona">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          ${o.zona}
+        </span>
+        <span class="os-fecha">${o.fechaCreacion}</span>
+        ${btnAccion(o)}
+      </div>
+      <div class="orden-tl">
+        ${osTrack(o)}
+        ${isAlerta?`<div style="font-size:11.5px;font-weight:600;color:var(--rojo);margin-top:8px;display:flex;align-items:center;gap:5px">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+          Falla técnica detectada — requiere atención inmediata
+        </div>`:""}
+      </div>
+    </div>`;
+  }).join("");
+}
+
+// ── DRAWER ─────────────────────────────────────────────────
+function abrirDrawer(id){
+  const o = getOS().find(x=>x.id===id); if(!o) return;
+  document.getElementById("drawer-title").textContent = `${o.id} — ${o.cliente}`;
+  document.getElementById("drawer-sub").textContent   = tipoLabel(o.tipo);
+
+  // Timeline vertical historial
+  const tlHTML = [...o.historial].reverse().map((h,i,arr)=>{
+    const isLast = i===arr.length-1;
+    const colorMap = {
+      "creada":"gris","cotizada":"cian","en-ruta":"cian",
+      "entregada":"verde","cerrada":"gris","alerta":"rojo"
+    };
+    const bc = colorMap[h.estado]||"gris";
+    return `<div class="tl-v-item">
+      <div class="tl-v-left">
+        <div class="tl-v-dot ${bc}"></div>
+        ${!isLast?`<div class="tl-v-line ${bc}"></div>`:""}
+      </div>
+      <div class="tl-v-content">
+        <div class="tl-v-badge ${bc}">${estadoLabel(h.estado).toUpperCase()}</div>
+        <div class="tl-v-event">${{"creada":"Orden de servicio creada","cotizada":"Aprobada y lista para despacho","en-ruta":"Equipo despachado al cliente","entregada":"Equipo entregado e instalado","cerrada":"Orden cerrada y facturada","alerta":"Alerta técnica detectada"}[h.estado]||h.estado}</div>
+        <div class="tl-v-meta">${h.fecha} · ${h.usuario}</div>
+      </div>
+    </div>`;
+  }).join("");
+
+  // Documentos
+  const docsHTML = o.docs.map(d=>`
+    <button class="doc-btn ${d.disponible?"":"pendiente"}" onclick="window.open('${d.archivo}','_blank')">
+      <div class="doc-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      </div>
+      <div>
+        <div class="doc-name">${d.disponible?d.nombre:"⚠️ "+d.nombre}</div>
+        <div class="doc-sub">${d.disponible?"Listo para imprimir o descargar":"Disponible al completar la entrega"}</div>
+      </div>
+      ${d.disponible?`<svg style="margin-left:auto;color:var(--texto-suave);flex-shrink:0" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`:""}
+    </button>`).join("");
+
+  // Firma
+  const firmaHTML = o.firmado
+    ? `<div class="firma-box firmado">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--verde)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        <div style="font-size:13px;font-weight:600;color:var(--verde)">Firma recibida</div>
+        <div style="font-size:12px;color:var(--verde)">Recibido por: ${o.recibidoPor}</div>
+      </div>`
+    : `<div class="firma-box pendiente">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--amarillo)" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+        <div style="font-size:13px;font-weight:600;color:var(--amarillo)">⚠️ Firma pendiente</div>
+        <div style="font-size:12px;color:var(--amarillo)">Se recolecta al momento de la entrega</div>
+      </div>`;
+
+  document.getElementById("drawer-body").innerHTML = `
+    <div class="drawer-bloque">
+      <div style="margin-bottom:12px">${osTrack(o)}</div>
+    </div>
+    <div class="drawer-bloque">
+      <div class="drawer-bloque-title">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        Paciente y dispositivo
+      </div>
+      <div class="d-grid">
+        <div class="d-field"><label>Cliente</label><span>${o.cliente}</span></div>
+        <div class="d-field"><label>Zona</label><span>${o.zona}</span></div>
+        <div class="d-field" style="grid-column:1/-1"><label>Equipo asignado</label><span>${o.equipo}</span></div>
+        <div class="d-field"><label>Código equipo</label><span class="mono">${o.serial}</span></div>
+        <div class="d-field"><label>Serial</label><span class="mono">${o.serial_equipo}</span></div>
+        <div class="d-field"><label>Repartidor</label><span>${o.repartidor}</span></div>
+        <div class="d-field"><label>Hora promesa</label><span>${o.horaPromesa||"—"}</span></div>
+      </div>
+      ${o.obs?`<div style="margin-top:10px"><div class="d-field"><label>Observaciones</label><span style="font-size:13px;color:var(--texto-med)">${o.obs}</span></div></div>`:""}
+    </div>
+    <div class="drawer-bloque">
+      <div class="drawer-bloque-title">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Bóveda de documentos
+      </div>
+      ${docsHTML}
+    </div>
+    <div class="drawer-bloque">
+      <div class="drawer-bloque-title">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        Constancia de firma
+      </div>
+      ${firmaHTML}
+    </div>
+    <div class="drawer-bloque">
+      <div class="drawer-bloque-title">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Historial de la orden
+      </div>
+      <div class="tl-v">${tlHTML}</div>
+    </div>`;
+
+  // Footer dinámico
+  let foot = "";
+  if(o.estado==="creada")    foot=`<button class="btn-primary" style="flex:1;justify-content:center" onclick="avanzarOS('${o.id}','cotizada');closeDrawer()">✓ Aprobar O.S.</button>`;
+  if(o.estado==="cotizada")  foot=`<button class="btn-primary" style="flex:1;justify-content:center" onclick="avanzarOS('${o.id}','en-ruta');closeDrawer()">🚀 Despachar a ruta</button>`;
+  if(o.estado==="en-ruta")   foot=`<button class="btn-primary" style="flex:1;justify-content:center" onclick="avanzarOS('${o.id}','entregada');closeDrawer()">✍ Registrar entrega</button>`;
+  if(o.estado==="alerta")    foot=`<button class="btn-outline" style="flex:1;justify-content:center;border-color:var(--rojo);color:var(--rojo)" onclick="avanzarOS('${o.id}','entregada');closeDrawer()">✓ Resolver alerta</button>`;
+  if(o.estado==="entregada") foot=`<button class="btn-primary" style="flex:1;justify-content:center;background:var(--cian)" onclick="avanzarOS('${o.id}','cerrada');closeDrawer()">💵 Cerrar y facturar</button>`;
+  foot += `<button class="btn-outline" onclick="closeDrawer()">Cerrar</button>`;
+  document.getElementById("drawer-foot").innerHTML = foot;
+
+  document.getElementById("drawer-overlay").classList.add("open");
+  document.getElementById("drawer").classList.add("open");
+}
+
+function closeDrawer(){
+  document.getElementById("drawer-overlay").classList.remove("open");
+  document.getElementById("drawer").classList.remove("open");
+}
+
+function avanzarOS(id, nuevoEstado){
+  const os = getOS(), i = os.findIndex(x=>x.id===id);
+  os[i].estado = nuevoEstado;
+  os[i].historial.push({
+    estado:   nuevoEstado,
+    fecha:    new Date().toLocaleString("es-CO"),
+    usuario:  _s?.nombre||"—"
+  });
+  if(nuevoEstado==="entregada") os[i].firmado=true;
+  setOS(os);
+  toast(`Orden actualizada → ${estadoLabel(nuevoEstado)}`,"success");
+  render();
+}
+
+// ── MODAL NUEVA OS ──────────────────────────────────────────
+function abrirModalNueva(){
+  // Cargar clientes y equipos
+  const cli = JSON.parse(localStorage.getItem("ing_clientes")||"[]");
+  const inv = JSON.parse(localStorage.getItem("ing_inventario")||"[]").filter(e=>e.estado==="Disponible");
+  document.getElementById("f-cliente").innerHTML = cli.map(c=>`<option value="${c.nombre}">${c.nombre} (${c.tipo})</option>`).join("");
+  document.getElementById("f-equipo").innerHTML  = inv.length
+    ? inv.map(e=>`<option value="${e.cat} ${e.modelo} ${e.serial}">${e.id} — ${e.cat} ${e.marca} ${e.modelo}</option>`).join("")
+    : `<option>Sin equipos disponibles</option>`;
+  document.getElementById("f-fecha").value = new Date().toISOString().split("T")[0];
+  document.getElementById("f-obs").value = "";
+  document.getElementById("modal-overlay").classList.add("open");
+}
+function cerrarModal(){document.getElementById("modal-overlay").classList.remove("open");}
+document.getElementById("modal-overlay").addEventListener("click",e=>{if(e.target.id==="modal-overlay")cerrarModal();});
+
+function guardarOS(){
+  const cliente = document.getElementById("f-cliente").value;
+  if(!cliente){toast("El cliente es requerido","error");return;}
+  const os = getOS();
+  const eq = document.getElementById("f-equipo").value;
+  const tipo = document.getElementById("f-tipo").value;
+  const n = String(os.length+1).padStart(3,"0");
+  const hoy = new Date().toISOString().split("T")[0];
+  os.push({
+    id:`OS-${new Date().getFullYear()}-${n}`,
+    tipo, estado:"creada",
+    cliente, zona:"—",
+    equipo:eq, serial:"—", serial_equipo:"—",
+    repartidor:document.getElementById("f-rep").value,
+    horaPromesa:document.getElementById("f-hora").value,
+    fechaCreacion:hoy, recibidoPor:"", firmado:false,
+    obs:document.getElementById("f-obs").value||"",
+    historial:[{estado:"creada",fecha:hoy+" "+new Date().toLocaleTimeString("es-CO",{hour:"2-digit",minute:"2-digit"}),usuario:_s?.nombre||"—"}],
+    docs:[
+      {nombre:"Contrato",archivo:tipo==="Tipo 1"?"01_contrato_oxigeno.html":"07_contrato_ips.html",disponible:true},
+      {nombre:"Acta de entrega",archivo:tipo==="Tipo 1"?"02_acta_entrega_oxigeno.html":"08_acta_entrega_ips.html",disponible:false},
+    ]
+  });
+  setOS(os);toast("Orden de servicio creada","success");cerrarModal();render();
+}
+
+initData();render();
+setInterval(()=>render(),5000);
 </script>
 </body>
 </html>

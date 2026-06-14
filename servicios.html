@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ingemedic — Configuración</title>
+<title>Ingemedic — Servicios Prestados</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 
@@ -161,118 +161,77 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
 ::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-thumb{background:#CBD5E1;border-radius:99px}
 
+.content{flex:1;overflow-y:auto;padding:20px 24px;display:flex;flex-direction:column;gap:16px}
 
-/* LAYOUT CONFIG */
-.config-layout{flex:1;overflow:hidden;display:flex}
+/* MÉTRICAS */
+.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;flex-shrink:0}
+.metric-card{background:var(--blanco);border:1px solid var(--borde);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.metric-label{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--texto-suave);display:flex;align-items:center;gap:7px}
+.metric-val{font-size:28px;font-weight:800;color:var(--azul);line-height:1;font-variant-numeric:tabular-nums}
+.metric-sub{font-size:12px;color:var(--texto-suave)}
+.pulse-dot{width:8px;height:8px;border-radius:50%;background:var(--cian);animation:mdPulse 2s ease-in-out infinite;flex-shrink:0}
+@keyframes mdPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
 
-/* SIDEBAR SECUNDARIO */
-.config-nav{width:220px;min-width:220px;background:var(--blanco);border-right:1px solid var(--borde);padding:20px 12px;display:flex;flex-direction:column;gap:2px;overflow-y:auto;flex-shrink:0}
-.config-nav-label{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--texto-suave);padding:0 10px;margin:16px 0 6px}
-.config-nav-label:first-child{margin-top:0}
-.config-nav-item{display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:9px;font-size:13px;font-weight:500;color:var(--texto-med);cursor:pointer;transition:all .15s;user-select:none}
-.config-nav-item:hover{background:#F1F5F9;color:var(--azul)}
-.config-nav-item.active{background:var(--azul);color:#fff;font-weight:600}
-.config-nav-item .cni{width:16px;flex-shrink:0;display:flex;align-items:center;justify-content:center;opacity:.7}
-.config-nav-item.active .cni,.config-nav-item:hover .cni{opacity:1}
+/* CONTROLES */
+.controls-bar{background:var(--blanco);border:1px solid var(--borde);border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;flex-shrink:0;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.search-wrap{position:relative;flex:1;min-width:220px;max-width:280px}
+.search-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--texto-suave);display:flex;pointer-events:none}
+.search-input{width:100%;padding:8px 12px 8px 34px;border:1.5px solid var(--borde);border-radius:9px;font-family:"Inter",sans-serif;font-size:13px;color:var(--texto);background:var(--fondo);outline:none;transition:border-color .15s}
+.search-input:focus{border-color:var(--cian);background:var(--blanco)}
+.search-input::placeholder{color:var(--texto-suave)}
 
-/* CONTENT CONFIG */
-.config-content{flex:1;overflow-y:auto;padding:28px 32px}
-.config-section{display:none;max-width:820px}
-.config-section.active{display:block}
+/* SEGMENTED CONTROL */
+.seg-ctrl{display:flex;background:#F1F5F9;border-radius:8px;padding:3px;gap:2px}
+.seg-btn{padding:6px 14px;border-radius:6px;font-family:"Inter",sans-serif;font-size:12.5px;font-weight:500;color:var(--texto-med);cursor:pointer;transition:all .15s;border:none;background:none}
+.seg-btn.active{background:var(--azul);color:#fff;font-weight:600}
+.seg-btn:not(.active):hover{color:var(--azul)}
 
-/* HEADER SECCIÓN */
-.sec-header{margin-bottom:24px}
-.sec-title{font-size:22px;font-weight:800;color:var(--azul)}
-.sec-sub{font-size:13.5px;color:var(--texto-suave);margin-top:4px}
+.period-select{padding:8px 12px;border:1.5px solid var(--borde);border-radius:9px;font-family:"Inter",sans-serif;font-size:13px;color:var(--texto-med);background:var(--blanco);outline:none;cursor:pointer;transition:border-color .15s}
+.period-select:focus{border-color:var(--cian)}
 
-/* CARD */
-.cfg-card{background:var(--blanco);border-radius:12px;border:1px solid var(--borde);box-shadow:0 1px 4px rgba(0,0,0,.04);overflow:hidden;margin-bottom:20px}
-.cfg-card-head{padding:16px 20px;border-bottom:1px solid var(--borde);display:flex;align-items:center;justify-content:space-between}
-.cfg-card-title{font-size:14px;font-weight:700;color:var(--texto)}
-.cfg-card-sub{font-size:12px;color:var(--texto-suave);margin-top:2px}
+/* TOGGLE AGRUPACIÓN */
+.toggle-wrap{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--texto-med);cursor:pointer;user-select:none}
+.toggle{width:36px;height:20px;border-radius:99px;background:#E2E8F0;position:relative;transition:background .2s;flex-shrink:0}
+.toggle.on{background:var(--cian)}
+.toggle::after{content:"";position:absolute;top:3px;left:3px;width:14px;height:14px;border-radius:50%;background:#fff;transition:transform .2s;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.toggle.on::after{transform:translateX(16px)}
 
-/* TABLA USUARIOS */
-.cfg-table{width:100%;border-collapse:collapse}
-.cfg-table th{padding:10px 16px;text-align:left;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--texto-suave);background:var(--fondo);border-bottom:1px solid var(--borde)}
-.cfg-table td{padding:12px 16px;font-size:13px;color:var(--texto);border-bottom:1px solid #F8FAFC;vertical-align:middle}
-.cfg-table tbody tr:last-child td{border-bottom:none}
-.cfg-table tbody tr:hover td{background:#FAFBFC}
+/* BTN EXPORTAR */
+.btn-export{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:#059669;color:#fff;border:none;border-radius:9px;font-family:"Inter",sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .15s;margin-left:auto}
+.btn-export:hover{background:#047857;box-shadow:0 4px 12px rgba(5,150,105,.25)}
 
-/* USUARIO CELL */
-.u-cell{display:flex;align-items:center;gap:10px}
-.u-av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0}
+/* TABLA */
+.table-wrap{flex:1;background:var(--blanco);border-radius:12px;border:1px solid var(--borde);box-shadow:0 1px 4px rgba(0,0,0,.04);overflow:hidden}
+.table-scroll{overflow:auto;max-height:calc(100vh - 340px)}
+table{width:100%;border-collapse:collapse;min-width:780px}
+thead{position:sticky;top:0;z-index:10;background:var(--fondo)}
+thead tr{border-bottom:1px solid var(--borde)}
+th{padding:10px 14px;text-align:left;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--texto-suave);white-space:nowrap}
+th.right{text-align:right}
 
-/* ROL BADGE */
-.rol-badge{display:inline-flex;align-items:center;padding:3px 9px;border-radius:99px;font-size:11px;font-weight:700}
-.rb-admin{background:var(--cian-suave);color:#0E86A0}
-.rb-repartidor{background:var(--verde-suave);color:var(--verde)}
+/* FILA ACTIVA */
+.row-activa td{background:rgba(46,181,212,.04)}
+.row-activa{border-left:3px solid var(--cian)}
+.row-activa:hover td{background:rgba(46,181,212,.08)}
+.row-finalizada{border-left:3px solid transparent}
+tbody tr:hover td{background:#F8FAFC}
 
-/* ESTADO */
-.est-activo{color:var(--verde);font-size:12px;font-weight:600;display:flex;align-items:center;gap:5px}
-.est-inactivo{color:var(--texto-suave);font-size:12px;font-weight:600}
-.est-dot{width:7px;height:7px;border-radius:50%;background:currentColor}
+td{padding:10px 14px;font-size:13px;color:var(--texto);border-bottom:1px solid #F8FAFC;vertical-align:middle}
+tbody tr:last-child td{border-bottom:none}
 
-/* PERMISOS TABLE */
-.perm-table{width:100%;border-collapse:collapse}
-.perm-table th{padding:10px 14px;text-align:center;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--texto-suave);background:var(--fondo);border-bottom:1px solid var(--borde)}
-.perm-table th:first-child{text-align:left}
-.perm-table td{padding:10px 14px;font-size:13px;color:var(--texto);border-bottom:1px solid #F8FAFC;text-align:center;vertical-align:middle}
-.perm-table td:first-child{text-align:left;font-weight:600}
-.perm-table tbody tr:last-child td{border-bottom:none}
-.perm-table tbody tr:hover td{background:#FAFBFC}
+/* BADGE EN CLINICA */
+.badge-activo{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:99px;font-size:11px;font-weight:700;background:var(--cian-suave);color:#0E86A0;white-space:nowrap}
+.badge-activo-dot{width:6px;height:6px;border-radius:50%;background:var(--cian);animation:mdPulse 2s ease-in-out infinite}
 
-/* CHECKBOX */
-.perm-check{width:16px;height:16px;border-radius:4px;border:1.5px solid var(--borde);background:var(--blanco);cursor:pointer;appearance:none;transition:all .15s;display:inline-block;vertical-align:middle;position:relative}
-.perm-check:checked{background:var(--azul);border-color:var(--azul)}
-.perm-check:checked::after{content:"✓";position:absolute;top:-1px;left:2px;font-size:11px;color:#fff;font-weight:700}
+/* DIAS ACTIVOS */
+.dias-activo{font-family:monospace;font-weight:800;color:var(--azul);font-size:14px}
+.dias-final{font-family:monospace;color:var(--texto-suave);font-size:13px}
 
-/* CATALOGO */
-.cat-list{padding:0}
-.cat-item{display:flex;align-items:center;gap:12px;padding:11px 20px;border-bottom:1px solid #F8FAFC;transition:background .1s}
-.cat-item:last-child{border-bottom:none}
-.cat-item:hover{background:#FAFBFC}
-.cat-color{width:10px;height:10px;border-radius:50%;flex-shrink:0}
-.cat-nombre{font-size:13px;font-weight:500;color:var(--texto);flex:1}
-.cat-actions{display:flex;gap:6px}
-.cat-btn{padding:4px 10px;border-radius:7px;font-family:"Inter",sans-serif;font-size:11.5px;font-weight:600;border:1.5px solid var(--borde);background:var(--blanco);color:var(--texto-med);cursor:pointer;transition:all .15s}
-.cat-btn:hover{border-color:var(--cian);color:var(--cian)}
-.cat-btn.danger:hover{border-color:var(--rojo);color:var(--rojo)}
+/* GRUPO CLIENTE */
+.grupo-header td{background:#F1F5F9;padding:9px 14px;font-size:11.5px;font-weight:700;color:var(--azul);border-bottom:1px solid var(--borde)}
 
-/* PLANTILLAS */
-.plantilla-card{display:flex;align-items:center;gap:14px;padding:14px 20px;border-bottom:1px solid #F8FAFC;transition:background .1s}
-.plantilla-card:last-child{border-bottom:none}
-.plantilla-card:hover{background:#FAFBFC}
-.plantilla-icon{width:38px;height:38px;border-radius:9px;background:var(--azul-suave,#EEF2FF);display:flex;align-items:center;justify-content:center;color:var(--azul);flex-shrink:0}
-.plantilla-nombre{font-size:13.5px;font-weight:600;color:var(--texto)}
-.plantilla-sub{font-size:11.5px;color:var(--texto-suave);margin-top:2px}
-
-/* EMPRESA FORM */
-.emp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:20px}
-.emp-field{display:flex;flex-direction:column;gap:5px}
-.emp-field.full{grid-column:1/-1}
-.emp-field label{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--texto-med)}
-.emp-field input{padding:9px 12px;border:1.5px solid var(--borde);border-radius:9px;font-family:"Inter",sans-serif;font-size:13.5px;color:var(--texto);background:var(--blanco);outline:none;transition:border-color .15s}
-.emp-field input:focus{border-color:var(--cian);box-shadow:0 0 0 3px rgba(46,181,212,.1)}
-
-/* MODAL */
-.modal-overlay{position:fixed;inset:0;background:rgba(15,36,72,.4);z-index:300;display:none;align-items:center;justify-content:center;backdrop-filter:blur(3px)}
-.modal-overlay.open{display:flex}
-.modal{background:var(--blanco);border-radius:16px;width:100%;max-width:460px;display:flex;flex-direction:column;box-shadow:0 24px 64px rgba(0,0,0,.2);overflow:hidden;border:1px solid var(--borde)}
-.modal-head{padding:18px 24px;border-bottom:1px solid var(--borde);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
-.modal-head h3{font-size:15px;font-weight:700;color:var(--azul)}
-.modal-close{background:none;border:none;cursor:pointer;color:var(--texto-suave);width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center}
-.modal-close:hover{background:#F1F5F9}
-.modal-body{padding:22px 24px}
-.modal-foot{padding:14px 24px;border-top:1px solid var(--borde);display:flex;justify-content:flex-end;gap:10px}
-.form-group{display:flex;flex-direction:column;gap:5px;margin-bottom:14px}
-.form-group label{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--texto-med)}
-.form-group input,.form-group select{padding:10px 12px;border:1.5px solid var(--borde);border-radius:9px;font-family:"Inter",sans-serif;font-size:13.5px;color:var(--texto);background:var(--blanco);outline:none;transition:border-color .15s}
-.form-group input:focus,.form-group select:focus{border-color:var(--cian)}
-
-/* COLOR PICKER ROW */
-.color-row{display:flex;align-items:center;gap:10px}
-.color-row input[type="color"]{width:36px;height:36px;border-radius:8px;border:1.5px solid var(--borde);cursor:pointer;padding:2px}
-.color-preview{font-size:12px;color:var(--texto-suave)}
+/* EMPTY */
+.empty-state{text-align:center;padding:56px 24px;color:var(--texto-suave)}
 </style>
 </head>
 <body>
@@ -300,7 +259,7 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
     <a class="nav-item" href="ordenes.html">
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>Órdenes de servicio
     </a>
-    <a class="nav-item" href="servicios.html">
+    <a class="nav-item active" href="servicios.html">
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></span>Servicios
     </a>
     <a class="nav-item" href="clientes.html">
@@ -317,7 +276,7 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
     <a class="nav-item" href="bitacora.html">
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>Bitácora
     </a>
-    <a class="nav-item active" href="configuracion.html">
+    <a class="nav-item" href="configuracion.html">
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></span>Configuración
     </a>
   </div>
@@ -338,241 +297,92 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
 <main class="main">
   <div class="topbar">
     <div>
-      <div class="topbar-title">Configuración</div>
-      <div class="topbar-sub">Panel de control del sistema</div>
+      <div class="topbar-title">Servicios prestados</div>
+      <div class="topbar-sub">Datos de equipos en campo para facturación y análisis</div>
     </div>
   </div>
 
-  <div class="config-layout">
-    <!-- Sidebar secundario -->
-    <aside class="config-nav">
-      <div class="config-nav-label">Acceso</div>
-      <div class="config-nav-item active" onclick="setSeccion('usuarios',this)">
-        <span class="cni"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-        Usuarios
+  <div class="content">
+    <!-- Métricas -->
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-label"><span class="pulse-dot"></span>Servicios activos</div>
+        <div class="metric-val" id="m-activos">—</div>
+        <div class="metric-sub">Equipos en campo ahora</div>
       </div>
-      <div class="config-nav-item" onclick="setSeccion('roles',this)">
-        <span class="cni"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
-        Roles y permisos
+      <div class="metric-card">
+        <div class="metric-label">Clientes activos</div>
+        <div class="metric-val" id="m-clientes">—</div>
+        <div class="metric-sub">Con equipos activos</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Mayor permanencia</div>
+        <div class="metric-val" id="m-max-dias" style="font-size:20px">—</div>
+        <div class="metric-sub" id="m-max-eq">—</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Período consultado</div>
+        <div class="metric-val" id="m-periodo" style="font-size:16px;color:var(--texto-med)">Todos</div>
+        <div class="metric-sub" id="m-total-registros">— registros</div>
+      </div>
+    </div>
+
+    <!-- Controles -->
+    <div class="controls-bar">
+      <div class="search-wrap">
+        <span class="search-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
+        <input class="search-input" id="search" placeholder="Buscar por cliente o código EQ..." oninput="render()">
       </div>
 
-      <div class="config-nav-label">Catálogos</div>
-      <div class="config-nav-item" onclick="setSeccion('cat-estados-equipo',this)">
-        <span class="cni"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
-        Estados de equipo
-      </div>
-      <div class="config-nav-item" onclick="setSeccion('cat-tipos-cliente',this)">
-        <span class="cni"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span>
-        Tipos de cliente
-      </div>
-      <div class="config-nav-item" onclick="setSeccion('cat-tipos-solicitud',this)">
-        <span class="cni"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg></span>
-        Tipos de solicitud
-      </div>
-      <div class="config-nav-item" onclick="setSeccion('cat-estados-mant',this)">
-        <span class="cni"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
-        Estados de mantenimiento
+      <div class="seg-ctrl">
+        <button class="seg-btn active" onclick="setEstado('todos',this)">Todos</button>
+        <button class="seg-btn"        onclick="setEstado('activo',this)">⏱ Activos</button>
+        <button class="seg-btn"        onclick="setEstado('finalizado',this)">✅ Finalizados</button>
       </div>
 
-      <div class="config-nav-label">Sistema</div>
-      <div class="config-nav-item" onclick="setSeccion('empresa',this)">
-        <span class="cni"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
-        Datos de la empresa
-      </div>
-      <div class="config-nav-item" onclick="setSeccion('plantillas',this)">
-        <span class="cni"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
-        Plantillas de documentos
-      </div>
-    </aside>
+      <select class="period-select" id="period-select" onchange="render()">
+        <option value="">Todos los períodos</option>
+        <option value="2026-06">Junio 2026</option>
+        <option value="2026-05">Mayo 2026</option>
+        <option value="2026-04">Abril 2026</option>
+        <option value="2026-01">Enero 2026</option>
+        <option value="2025-11">Noviembre 2025</option>
+        <option value="2024-02">Febrero 2024</option>
+        <option value="2024-05">Mayo 2024</option>
+      </select>
 
-    <!-- Contenido -->
-    <div class="config-content">
+      <label class="toggle-wrap" onclick="toggleAgrup()">
+        <div class="toggle" id="toggle-agrup"></div>
+        <span>Agrupar por cliente</span>
+      </label>
 
-      <!-- USUARIOS -->
-      <div class="config-section active" id="sec-usuarios">
-        <div class="sec-header">
-          <div class="sec-title">Usuarios</div>
-          <div class="sec-sub">Gestiona quién tiene acceso al sistema y con qué rol.</div>
-        </div>
-        <div class="cfg-card">
-          <div class="cfg-card-head">
-            <div>
-              <div class="cfg-card-title">Usuarios del sistema</div>
-              <div class="cfg-card-sub" id="usr-count">—</div>
-            </div>
-            <button class="btn-primary" onclick="abrirModalUsuario()">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              Invitar usuario
-            </button>
-          </div>
-          <table class="cfg-table">
-            <thead><tr>
-              <th>Nombre</th><th>Correo</th><th>Rol</th><th>Estado</th><th>Acciones</th>
-            </tr></thead>
-            <tbody id="usr-body"></tbody>
-          </table>
-        </div>
+      <button class="btn-export" id="btn-export" onclick="exportarCSV()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Exportar CSV
+      </button>
+    </div>
+
+    <!-- Tabla -->
+    <div class="table-wrap">
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Orden</th>
+              <th>Cliente</th>
+              <th>Equipo</th>
+              <th>Código</th>
+              <th>Fecha entrega</th>
+              <th>Devolución</th>
+              <th class="right">Días activos</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-body"></tbody>
+        </table>
       </div>
-
-      <!-- ROLES Y PERMISOS -->
-      <div class="config-section" id="sec-roles">
-        <div class="sec-header">
-          <div class="sec-title">Roles y permisos</div>
-          <div class="sec-sub">Define qué puede hacer cada rol en cada módulo del sistema.</div>
-        </div>
-        <div class="cfg-card">
-          <div class="cfg-card-head">
-            <div class="cfg-card-title">Permisos por módulo</div>
-          </div>
-          <div style="overflow-x:auto">
-            <table class="perm-table">
-              <thead><tr>
-                <th style="text-align:left">Módulo</th>
-                <th colspan="4" style="color:var(--azul)">Administrador</th>
-                <th colspan="4" style="color:var(--verde)">Repartidor</th>
-              </tr>
-              <tr>
-                <th style="text-align:left">—</th>
-                <th>Ver</th><th>Crear</th><th>Editar</th><th>Eliminar</th>
-                <th>Ver</th><th>Crear</th><th>Editar</th><th>Eliminar</th>
-              </tr></thead>
-              <tbody id="perm-body"></tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <!-- CATÁLOGOS (template genérico) -->
-      <div class="config-section" id="sec-cat-estados-equipo">
-        <div class="sec-header">
-          <div class="sec-title">Estados de equipo</div>
-          <div class="sec-sub">Los estados que puede tener un equipo en el inventario.</div>
-        </div>
-        <div class="cfg-card" id="cat-estados-equipo-card"></div>
-      </div>
-
-      <div class="config-section" id="sec-cat-tipos-cliente">
-        <div class="sec-header">
-          <div class="sec-title">Tipos de cliente</div>
-          <div class="sec-sub">Categorías de clientes configurables desde aquí.</div>
-        </div>
-        <div class="cfg-card" id="cat-tipos-cliente-card"></div>
-      </div>
-
-      <div class="config-section" id="sec-cat-tipos-solicitud">
-        <div class="sec-header">
-          <div class="sec-title">Tipos de solicitud</div>
-          <div class="sec-sub">Tipos de novedades que se pueden reportar en el módulo de solicitudes.</div>
-        </div>
-        <div class="cfg-card" id="cat-tipos-solicitud-card"></div>
-      </div>
-
-      <div class="config-section" id="sec-cat-estados-mant">
-        <div class="sec-header">
-          <div class="sec-title">Estados de mantenimiento</div>
-          <div class="sec-sub">Los estados por los que pasa un mantenimiento.</div>
-        </div>
-        <div class="cfg-card" id="cat-estados-mant-card"></div>
-      </div>
-
-      <!-- EMPRESA -->
-      <div class="config-section" id="sec-empresa">
-        <div class="sec-header">
-          <div class="sec-title">Datos de la empresa</div>
-          <div class="sec-sub">Información que aparece en los documentos generados por el sistema.</div>
-        </div>
-        <div class="cfg-card">
-          <div class="cfg-card-head">
-            <div class="cfg-card-title">Ingemedic de Colombia S.A.S.</div>
-          </div>
-          <div class="emp-grid">
-            <div class="emp-field"><label>Razón social</label><input value="Ingemedic de Colombia S.A.S."></div>
-            <div class="emp-field"><label>NIT</label><input value="900.123.456-7"></div>
-            <div class="emp-field"><label>Teléfono</label><input value="605 580 1234"></div>
-            <div class="emp-field"><label>Email</label><input value="info@ingemedic.com.co"></div>
-            <div class="emp-field full"><label>Dirección</label><input value="Calle 15 #8-32, Valledupar, Cesar"></div>
-            <div class="emp-field"><label>Ciudad</label><input value="Valledupar"></div>
-            <div class="emp-field"><label>Departamento</label><input value="Cesar"></div>
-          </div>
-          <div style="padding:0 20px 20px;display:flex;justify-content:flex-end">
-            <button class="btn-primary" onclick="toast('Datos guardados','success')">Guardar cambios</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- PLANTILLAS -->
-      <div class="config-section" id="sec-plantillas">
-        <div class="sec-header">
-          <div class="sec-title">Plantillas de documentos</div>
-          <div class="sec-sub">Documentos legales que el sistema genera automáticamente para cada tipo de orden de servicio.</div>
-        </div>
-        <div class="cfg-card">
-          <div class="cfg-card-head">
-            <div class="cfg-card-title">Documentos configurados</div>
-            <div class="cfg-card-sub">Haz clic en "Previsualizar" para ver el documento base</div>
-          </div>
-          <div id="plantillas-list"></div>
-        </div>
-      </div>
-
     </div>
   </div>
 </main>
-</div>
-
-<!-- MODAL USUARIO -->
-<div class="modal-overlay" id="modal-usuario">
-  <div class="modal" onclick="event.stopPropagation()">
-    <div class="modal-head">
-      <h3 id="modal-usr-title">Nuevo usuario</h3>
-      <button class="modal-close" onclick="cerrarModalUsuario()">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-    </div>
-    <div class="modal-body">
-      <div class="form-group"><label>Nombre completo</label><input id="u-nombre" placeholder="Nombre del usuario"></div>
-      <div class="form-group"><label>Correo electrónico</label><input id="u-email" type="email" placeholder="correo@ingemedic.co"></div>
-      <div class="form-group"><label>Rol</label>
-        <select id="u-rol">
-          <option value="admin">Administrador</option>
-          <option value="repartidor">Repartidor</option>
-        </select>
-      </div>
-    </div>
-    <div class="modal-foot">
-      <button class="btn-outline" onclick="cerrarModalUsuario()">Cancelar</button>
-      <button class="btn-primary" onclick="guardarUsuario()">Guardar</button>
-    </div>
-  </div>
-</div>
-
-<!-- MODAL CATÁLOGO -->
-<div class="modal-overlay" id="modal-catalogo">
-  <div class="modal" onclick="event.stopPropagation()">
-    <div class="modal-head">
-      <h3 id="modal-cat-title">Nuevo elemento</h3>
-      <button class="modal-close" onclick="cerrarModalCat()">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-    </div>
-    <div class="modal-body">
-      <div class="form-group"><label>Nombre</label><input id="cat-nombre" placeholder="Nombre del elemento"></div>
-      <div class="form-group"><label>Descripción <span style="font-size:10px;font-weight:400;text-transform:none;color:var(--texto-suave)">(opcional)</span></label>
-        <input id="cat-desc" placeholder="Descripción breve">
-      </div>
-      <div class="form-group">
-        <label>Color de etiqueta</label>
-        <div class="color-row">
-          <input type="color" id="cat-color" value="#2EB5D4">
-          <span class="color-preview">Se usa para identificar visualmente este estado en el sistema</span>
-        </div>
-      </div>
-    </div>
-    <div class="modal-foot">
-      <button class="btn-outline" onclick="cerrarModalCat()">Cancelar</button>
-      <button class="btn-primary" onclick="guardarCat()">Guardar</button>
-    </div>
-  </div>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -594,289 +404,170 @@ function toast(msg,tipo){
 }
 
 
-let catActual = null;
+let estadoFiltro = "todos";
+let agrupado     = false;
 
-// ── DATOS ───────────────────────────────────────────────────
+// ── DATOS SIMULADOS (espejo de la vista servicios_prestados) ─
 function initData(){
-  if(!localStorage.getItem("ing_cfg_usuarios")){
-    localStorage.setItem("ing_cfg_usuarios", JSON.stringify([
-      {id:1,nombre:"Linda Flórez",  email:"linda@ingemedic.co",  rol:"admin",      activo:true},
-      {id:2,nombre:"Carlos Díaz",   email:"carlos@ingemedic.co", rol:"repartidor", activo:true},
-      {id:3,nombre:"Yesid Romero",  email:"yesid@ingemedic.co",  rol:"repartidor", activo:true},
-      {id:4,nombre:"Miguel Torres", email:"miguel@ingemedic.co", rol:"repartidor", activo:true},
-    ]));
-  }
-  if(!localStorage.getItem("ing_cfg_cat_estados_equipo")){
-    localStorage.setItem("ing_cfg_cat_estados_equipo", JSON.stringify([
-      {id:1,nombre:"Disponible",       desc:"Listo para alquiler",       color:"#0F7B55",activo:true},
-      {id:2,nombre:"En préstamo",      desc:"En casa del cliente",       color:"#2EB5D4",activo:true},
-      {id:3,nombre:"En mantenimiento", desc:"En taller técnico",         color:"#F59E0B",activo:true},
-      {id:4,nombre:"Con novedad",      desc:"Reportó falla en campo",    color:"#C0392B",activo:true},
-      {id:5,nombre:"Baja",             desc:"Retirado del inventario",   color:"#64748B",activo:true},
-    ]));
-  }
-  if(!localStorage.getItem("ing_cfg_cat_tipos_cliente")){
-    localStorage.setItem("ing_cfg_cat_tipos_cliente", JSON.stringify([
-      {id:1,nombre:"IPS",             desc:"Institución Prestadora de Salud",color:"#1B3A6B",activo:true},
-      {id:2,nombre:"Persona natural", desc:"Paciente domiciliario",          color:"#2EB5D4",activo:true},
-      {id:3,nombre:"Empresa",         desc:"Empresa o corporación",          color:"#6D28D9",activo:true},
-    ]));
-  }
-  if(!localStorage.getItem("ing_cfg_cat_tipos_solicitud")){
-    localStorage.setItem("ing_cfg_cat_tipos_solicitud", JSON.stringify([
-      {id:1,nombre:"Daño",             desc:"Falla o daño físico en el equipo",  color:"#C0392B",activo:true},
-      {id:2,nombre:"Baja",             desc:"Solicitud de retiro definitivo",     color:"#7F1D1D",activo:true},
-      {id:3,nombre:"Anomalía",         desc:"Comportamiento inusual sin falla",   color:"#F59E0B",activo:true},
-      {id:4,nombre:"Ingreso de equipo",desc:"Registro de equipo nuevo en sistema",color:"#0F7B55",activo:true},
-    ]));
-  }
-  if(!localStorage.getItem("ing_cfg_cat_estados_mant")){
-    localStorage.setItem("ing_cfg_cat_estados_mant", JSON.stringify([
-      {id:1,nombre:"Abierto",    desc:"Mantenimiento registrado, sin iniciar", color:"#64748B",activo:true},
-      {id:2,nombre:"En proceso", desc:"Técnico trabajando en el equipo",       color:"#2EB5D4",activo:true},
-      {id:3,nombre:"Cerrado",    desc:"Mantenimiento finalizado",              color:"#0F7B55",activo:true},
-    ]));
-  }
-}
-
-// ── NAVEGACIÓN ───────────────────────────────────────────────
-function setSeccion(id, el){
-  document.querySelectorAll(".config-section").forEach(s=>s.classList.remove("active"));
-  document.querySelectorAll(".config-nav-item").forEach(i=>i.classList.remove("active"));
-  document.getElementById("sec-"+id).classList.add("active");
-  if(el) el.classList.add("active");
-  renderSeccion(id);
-}
-
-function renderSeccion(id){
-  if(id==="usuarios")         renderUsuarios();
-  if(id==="roles")            renderPermisos();
-  if(id==="plantillas")       renderPlantillas();
-  if(id.startsWith("cat-"))   renderCatalogo(id.replace("cat-",""));
-}
-
-// ── USUARIOS ─────────────────────────────────────────────────
-const ROL_COLORS = {"admin":"#1B3A6B","repartidor":"#0F7B55"};
-
-function renderUsuarios(){
-  const usr = JSON.parse(localStorage.getItem("ing_cfg_usuarios")||"[]");
-  document.getElementById("usr-count").textContent = `${usr.length} usuario${usr.length!==1?"s":""} registrado${usr.length!==1?"s":""}`;
-  document.getElementById("usr-body").innerHTML = usr.map(u=>{
-    const rc  = ROL_COLORS[u.rol]||"#64748B";
-    const rl  = u.rol==="admin"?"Admin":"Repartidor";
-    const rcl = u.rol==="admin"?"rb-admin":"rb-repartidor";
-    return `<tr>
-      <td><div class="u-cell">
-        <div class="u-av" style="background:${rc}">${u.nombre.charAt(0)}</div>
-        <span style="font-weight:600">${u.nombre}</span>
-      </div></td>
-      <td style="font-size:12.5px;color:var(--texto-suave)">${u.email}</td>
-      <td><span class="rol-badge ${rcl}">${rl}</span></td>
-      <td><span class="${u.activo?"est-activo":"est-inactivo"}">
-        ${u.activo?'<span class="est-dot"></span>Activo':'Inactivo'}
-      </span></td>
-      <td>
-        <button class="cat-btn" onclick="editarUsuario(${u.id})">Editar</button>
-        <button class="cat-btn danger" onclick="toggleUsuario(${u.id})">
-          ${u.activo?"Desactivar":"Activar"}
-        </button>
-      </td>
-    </tr>`;
-  }).join("");
-}
-
-let editandoUsrId = null;
-function abrirModalUsuario(){
-  editandoUsrId=null;
-  document.getElementById("modal-usr-title").textContent="Nuevo usuario";
-  ["u-nombre","u-email"].forEach(id=>document.getElementById(id).value="");
-  document.getElementById("u-rol").value="repartidor";
-  document.getElementById("modal-usuario").classList.add("open");
-}
-function editarUsuario(id){
-  const usr=JSON.parse(localStorage.getItem("ing_cfg_usuarios")||"[]").find(u=>u.id===id);
-  if(!usr) return;
-  editandoUsrId=id;
-  document.getElementById("modal-usr-title").textContent="Editar usuario";
-  document.getElementById("u-nombre").value=usr.nombre;
-  document.getElementById("u-email").value=usr.email;
-  document.getElementById("u-rol").value=usr.rol;
-  document.getElementById("modal-usuario").classList.add("open");
-}
-function cerrarModalUsuario(){document.getElementById("modal-usuario").classList.remove("open");}
-document.getElementById("modal-usuario").addEventListener("click",e=>{if(e.target.id==="modal-usuario")cerrarModalUsuario();});
-
-function guardarUsuario(){
-  const nombre=document.getElementById("u-nombre").value.trim();
-  const email =document.getElementById("u-email").value.trim();
-  if(!nombre||!email){toast("Nombre y correo son requeridos","error");return;}
-  const usr=JSON.parse(localStorage.getItem("ing_cfg_usuarios")||"[]");
-  if(editandoUsrId){
-    const i=usr.findIndex(u=>u.id===editandoUsrId);
-    usr[i]={...usr[i],nombre,email,rol:document.getElementById("u-rol").value};
-  } else {
-    usr.push({id:usr.length+1,nombre,email,rol:document.getElementById("u-rol").value,activo:true});
-  }
-  localStorage.setItem("ing_cfg_usuarios",JSON.stringify(usr));
-  toast(editandoUsrId?"Usuario actualizado":"Usuario creado","success");
-  cerrarModalUsuario();renderUsuarios();
-}
-
-function toggleUsuario(id){
-  const usr=JSON.parse(localStorage.getItem("ing_cfg_usuarios")||"[]");
-  const i=usr.findIndex(u=>u.id===id);
-  usr[i].activo=!usr[i].activo;
-  localStorage.setItem("ing_cfg_usuarios",JSON.stringify(usr));
-  toast(`Usuario ${usr[i].activo?"activado":"desactivado"}`,"success");
-  renderUsuarios();
-}
-
-// ── PERMISOS ─────────────────────────────────────────────────
-const MODULOS_PERM = [
-  "inventario","clientes","entregas","ordenes_servicio",
-  "mantenimientos","solicitudes","bitacora","configuracion"
-];
-const PERM_LABELS = {
-  "inventario":"Inventario","clientes":"Clientes","entregas":"Entregas",
-  "ordenes_servicio":"Órdenes de servicio","mantenimientos":"Mantenimientos",
-  "solicitudes":"Solicitudes","bitacora":"Bitácora","configuracion":"Configuración"
-};
-const PERM_ADMIN = {inventario:[1,1,1,1],clientes:[1,1,1,1],entregas:[1,1,1,1],ordenes_servicio:[1,1,1,1],mantenimientos:[1,1,1,1],solicitudes:[1,1,1,1],bitacora:[1,0,0,0],configuracion:[1,1,1,1]};
-const PERM_REP   = {inventario:[1,0,0,0],clientes:[1,0,0,0],entregas:[1,1,1,0],ordenes_servicio:[1,0,0,0],mantenimientos:[0,0,0,0],solicitudes:[1,1,0,0],bitacora:[0,0,0,0],configuracion:[0,0,0,0]};
-
-function renderPermisos(){
-  document.getElementById("perm-body").innerHTML = MODULOS_PERM.map(m=>{
-    const pa=PERM_ADMIN[m]||[0,0,0,0];
-    const pr=PERM_REP[m]||[0,0,0,0];
-    const cb=(checked,disabled) => `<input type="checkbox" class="perm-check" ${checked?"checked":""} ${disabled?"disabled":""} onchange="toast('Permisos actualizados','success')">`;
-    return `<tr>
-      <td>${PERM_LABELS[m]||m}</td>
-      ${pa.map((v,i)=>`<td style="background:rgba(27,58,107,.03)">${cb(v,false)}</td>`).join("")}
-      ${pr.map((v,i)=>`<td>${cb(v,false)}</td>`).join("")}
-    </tr>`;
-  }).join("");
-}
-
-// ── CATÁLOGOS ─────────────────────────────────────────────────
-const CAT_KEYS = {
-  "estados-equipo":    "ing_cfg_cat_estados_equipo",
-  "tipos-cliente":     "ing_cfg_cat_tipos_cliente",
-  "tipos-solicitud":   "ing_cfg_cat_tipos_solicitud",
-  "estados-mant":      "ing_cfg_cat_estados_mant",
-};
-
-function renderCatalogo(catId){
-  const key  = CAT_KEYS[catId];
-  if(!key) return;
-  const items = JSON.parse(localStorage.getItem(key)||"[]");
-  const card  = document.getElementById("cat-"+catId+"-card");
-  if(!card) return;
-
-  card.innerHTML = `
-    <div class="cfg-card-head">
-      <div class="cfg-card-title">${items.length} elemento${items.length!==1?"s":""} configurado${items.length!==1?"s":""}</div>
-      <button class="btn-primary" onclick="abrirModalCat('${catId}',null)">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-        Nuevo
-      </button>
-    </div>
-    <div class="cat-list">
-      ${items.map(item=>`
-        <div class="cat-item">
-          <div class="cat-color" style="background:${item.color||"#94A3B8"}"></div>
-          <div class="cat-nombre">${item.nombre}</div>
-          ${item.desc?`<div style="font-size:12px;color:var(--texto-suave);margin-right:8px">${item.desc}</div>`:""}
-          <div class="cat-actions">
-            <button class="cat-btn" onclick="abrirModalCat('${catId}',${item.id})">Editar</button>
-            <button class="cat-btn danger" onclick="eliminarCat('${catId}',${item.id})">Eliminar</button>
-          </div>
-        </div>`).join("")}
-    </div>`;
-}
-
-let editandoCatId = null;
-function abrirModalCat(catId, itemId){
-  catActual=catId;
-  editandoCatId=itemId;
-  const key=CAT_KEYS[catId];
-  document.getElementById("modal-cat-title").textContent = itemId?"Editar elemento":"Nuevo elemento";
-  if(itemId){
-    const items=JSON.parse(localStorage.getItem(key)||"[]");
-    const item=items.find(i=>i.id===itemId);
-    document.getElementById("cat-nombre").value=item?.nombre||"";
-    document.getElementById("cat-desc").value=item?.desc||"";
-    document.getElementById("cat-color").value=item?.color||"#2EB5D4";
-  } else {
-    document.getElementById("cat-nombre").value="";
-    document.getElementById("cat-desc").value="";
-    document.getElementById("cat-color").value="#2EB5D4";
-  }
-  document.getElementById("modal-catalogo").classList.add("open");
-}
-function cerrarModalCat(){document.getElementById("modal-catalogo").classList.remove("open");catActual=null;editandoCatId=null;}
-document.getElementById("modal-catalogo").addEventListener("click",e=>{if(e.target.id==="modal-catalogo")cerrarModalCat();});
-
-function guardarCat(){
-  const nombre=document.getElementById("cat-nombre").value.trim();
-  if(!nombre){toast("El nombre es requerido","error");return;}
-  const key=CAT_KEYS[catActual];
-  const items=JSON.parse(localStorage.getItem(key)||"[]");
-  if(editandoCatId){
-    const i=items.findIndex(x=>x.id===editandoCatId);
-    items[i]={...items[i],nombre,desc:document.getElementById("cat-desc").value,color:document.getElementById("cat-color").value};
-  } else {
-    items.push({id:items.length+1,nombre,desc:document.getElementById("cat-desc").value,color:document.getElementById("cat-color").value,activo:true});
-  }
-  localStorage.setItem(key,JSON.stringify(items));
-  toast(editandoCatId?"Elemento actualizado":"Elemento creado","success");
-  cerrarModalCat();
-  renderCatalogo(catActual);
-}
-
-function eliminarCat(catId,itemId){
-  if(!confirm("¿Eliminar este elemento?")) return;
-  const key=CAT_KEYS[catId];
-  const items=JSON.parse(localStorage.getItem(key)||"[]").filter(i=>i.id!==itemId);
-  localStorage.setItem(key,JSON.stringify(items));
-  toast("Elemento eliminado","success");
-  renderCatalogo(catId);
-}
-
-// ── PLANTILLAS ────────────────────────────────────────────────
-function renderPlantillas(){
-  const plantillas = [
-    {nombre:"Contrato de arriendo O₂ domiciliario",    archivo:"01_contrato_oxigeno.html",     tipo:"Tipo 1"},
-    {nombre:"Acta de entrega — O₂ domiciliario",       archivo:"02_acta_entrega_oxigeno.html",  tipo:"Tipo 1"},
-    {nombre:"Acta de devolución — O₂ domiciliario",    archivo:"03_acta_devolucion_oxigeno.html",tipo:"Tipo 1"},
-    {nombre:"Declaración de capacitación",             archivo:"04_declaracion_capacitacion.html",tipo:"Tipo 1"},
-    {nombre:"Pagaré",                                  archivo:"05_pagare.html",                tipo:"Tipo 1"},
-    {nombre:"Carta de instrucciones",                  archivo:"06_carta_instrucciones.html",   tipo:"Tipo 1"},
-    {nombre:"Contrato arrendamiento equipo biomédico",  archivo:"07_contrato_ips.html",          tipo:"Tipo 2"},
-    {nombre:"Acta de entrega — equipo biomédico",       archivo:"08_acta_entrega_ips.html",      tipo:"Tipo 2"},
-    {nombre:"Acta de devolución — equipo biomédico",    archivo:"09_acta_devolucion_ips.html",   tipo:"Tipo 2"},
-    {nombre:"Reporte técnico de mantenimiento",         archivo:"10_reporte_mantenimiento.html", tipo:"Mantenimiento"},
+  if(localStorage.getItem("ing_srv_v1")) return;
+  const servicios = [
+    {orden:"ORD-2024-001",cliente:"María García Pérez",    equipo:"Concentrador Respironics EverFlo", codigo:"EQ-0001",serial:"0141535",   fechaEntrega:"2024-02-10",fechaDevolucion:null},
+    {orden:"ORD-2024-001",cliente:"María García Pérez",    equipo:"Cilindro de Oxígeno 6.5 M³",      codigo:"EQ-0003",serial:"B241433042",fechaEntrega:"2024-02-10",fechaDevolucion:null},
+    {orden:"ORD-2024-002",cliente:"CAJACOPI ATLÁNTICO",    equipo:"Concentrador Invacare Platinum 10",codigo:"EQ-0009",serial:"PT10-98234",fechaEntrega:"2023-08-10",fechaDevolucion:null},
+    {orden:"ORD-2024-003",cliente:"Pedro Álvarez Suárez",  equipo:"Colchón Lumex APP300",            codigo:"EQ-0007",serial:"L330021",   fechaEntrega:"2024-05-22",fechaDevolucion:null},
+    {orden:"ORD-2023-089",cliente:"Pedro Álvarez Suárez",  equipo:"Concentrador DeVilbiss 525KS",    codigo:"EQ-0002",serial:"F2201445",  fechaEntrega:"2023-03-10",fechaDevolucion:"2024-01-20"},
+    {orden:"ORD-2022-034",cliente:"Clínica Valledupar S.A.",equipo:"Concentrador Respironics EverFlo",codigo:"EQ-0001",serial:"0141535",  fechaEntrega:"2022-07-01",fechaDevolucion:"2024-09-30"},
+    {orden:"ORD-2024-004",cliente:"IPS Saludcoop",         equipo:"Ventilador Dräger Evita V300",    codigo:"EQ-0010",serial:"EVT-00341", fechaEntrega:"2024-01-15",fechaDevolucion:"2024-06-30"},
   ];
-  document.getElementById("plantillas-list").innerHTML = plantillas.map(p=>{
-    const tipoCls = p.tipo==="Tipo 1"?"background:var(--cian-suave);color:#0E86A0":p.tipo==="Tipo 2"?"background:var(--purpura-suave,#F5F3FF);color:#6D28D9":"background:var(--amarillo-suave);color:var(--amarillo)";
-    return `<div class="plantilla-card">
-      <div class="plantilla-icon">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-      </div>
-      <div style="flex:1">
-        <div class="plantilla-nombre">${p.nombre}</div>
-        <div class="plantilla-sub" style="display:flex;align-items:center;gap:8px;margin-top:3px">
-          <span style="display:inline-flex;padding:1px 7px;border-radius:99px;font-size:10.5px;font-weight:700;${tipoCls}">${p.tipo}</span>
-          <span style="font-family:monospace;font-size:11px">${p.archivo}</span>
-        </div>
-      </div>
-      <button class="cat-btn" onclick="window.open('${p.archivo}','_blank')">Previsualizar</button>
-    </div>`;
-  }).join("");
+  localStorage.setItem("ing_servicios", JSON.stringify(servicios));
+  localStorage.setItem("ing_srv_v1","1");
 }
 
-// ── INIT ─────────────────────────────────────────────────────
-initData();
-renderUsuarios();
+const getSrv = () => JSON.parse(localStorage.getItem("ing_servicios")||"[]");
+
+// ── CALCULAR DÍAS ────────────────────────────────────────────
+function calcDias(srv){
+  const inicio = new Date(srv.fechaEntrega);
+  const fin    = srv.fechaDevolucion ? new Date(srv.fechaDevolucion) : new Date();
+  return Math.max(0, Math.round((fin - inicio) / (1000*60*60*24)));
+}
+
+function fmtFecha(f){
+  if(!f) return null;
+  const[y,m,d]=f.split("-");
+  return `${d}/${m}/${y}`;
+}
+
+// ── FILTROS ──────────────────────────────────────────────────
+function setEstado(e, el){
+  estadoFiltro=e;
+  document.querySelectorAll(".seg-btn").forEach(b=>b.classList.remove("active"));
+  el.classList.add("active");
+  render();
+}
+
+function toggleAgrup(){
+  agrupado=!agrupado;
+  document.getElementById("toggle-agrup").classList.toggle("on",agrupado);
+  render();
+}
+
+// ── RENDER ───────────────────────────────────────────────────
+function render(){
+  const srv    = getSrv();
+  const q      = document.getElementById("search").value.toLowerCase();
+  const period = document.getElementById("period-select").value;
+
+  let filtered = srv.filter(s=>{
+    const mq = !q || [s.cliente,s.codigo,s.equipo,s.orden].some(v=>v.toLowerCase().includes(q));
+    const me = estadoFiltro==="todos" || (estadoFiltro==="activo"&&!s.fechaDevolucion) || (estadoFiltro==="finalizado"&&s.fechaDevolucion);
+    const mp = !period || s.fechaEntrega.startsWith(period) || (s.fechaDevolucion&&s.fechaDevolucion.startsWith(period));
+    return mq&&me&&mp;
+  });
+
+  // Métricas
+  const activos   = filtered.filter(s=>!s.fechaDevolucion);
+  const cliActivos= [...new Set(activos.map(s=>s.cliente))];
+  const maxSrv    = activos.reduce((max,s)=>calcDias(s)>calcDias(max)?s:max, activos[0]||{fechaEntrega:new Date().toISOString().split("T")[0]});
+
+  document.getElementById("m-activos").textContent   = activos.length;
+  document.getElementById("m-clientes").textContent  = cliActivos.length;
+  document.getElementById("m-max-dias").textContent  = activos.length ? calcDias(maxSrv)+" días" : "—";
+  document.getElementById("m-max-eq").textContent    = activos.length ? maxSrv.codigo+" · "+maxSrv.cliente : "Sin servicios activos";
+  document.getElementById("m-periodo").textContent   = period ? period.split("-").reverse().join("/") : "Todos";
+  document.getElementById("m-total-registros").textContent = `${filtered.length} registro${filtered.length!==1?"s":""}`;
+
+  const tbody = document.getElementById("tabla-body");
+  if(!filtered.length){
+    tbody.innerHTML=`<tr><td colspan="7"><div class="empty-state"><p>No hay servicios que coincidan</p></div></td></tr>`;
+    return;
+  }
+
+  if(agrupado){
+    // Agrupar por cliente
+    const grupos = {};
+    filtered.forEach(s=>{
+      if(!grupos[s.cliente]) grupos[s.cliente]=[];
+      grupos[s.cliente].push(s);
+    });
+    tbody.innerHTML = Object.entries(grupos).map(([cliente,items])=>{
+      const actCli = items.filter(s=>!s.fechaDevolucion).length;
+      const header = `<tr class="grupo-header">
+        <td colspan="7">
+          👤 ${cliente}
+          <span style="font-weight:400;color:var(--texto-med);margin-left:8px">— ${items.length} servicio${items.length!==1?"s":""}${actCli?` · <span style="color:var(--cian)">${actCli} activo${actCli!==1?"s":""}</span>`:""}</span>
+        </td>
+      </tr>`;
+      const rows = items.map(s=>buildRow(s,true)).join("");
+      return header+rows;
+    }).join("");
+  } else {
+    tbody.innerHTML = filtered.map(s=>buildRow(s,false)).join("");
+  }
+}
+
+function buildRow(s, indent){
+  const activo = !s.fechaDevolucion;
+  const dias   = calcDias(s);
+  const rowCls = activo?"row-activa":"row-finalizada";
+  const devHTML = activo
+    ? `<td><span class="badge-activo"><span class="badge-activo-dot"></span>En campo</span></td>`
+    : `<td><span style="font-family:monospace;font-size:12.5px;color:var(--texto-suave)">${fmtFecha(s.fechaDevolucion)}</span></td>`;
+  const diasHTML = activo
+    ? `<td style="text-align:right"><span class="dias-activo">${dias}</span> <span style="font-size:11px;color:var(--texto-suave)">días</span></td>`
+    : `<td style="text-align:right"><span class="dias-final">${dias} días</span></td>`;
+  const pl = indent?"padding-left:24px":"";
+  return `<tr class="${rowCls}">
+    <td style="${pl}"><span style="font-family:monospace;font-size:12px;font-weight:700;color:${activo?"var(--azul)":"var(--texto-suave)"}">${s.orden}</span></td>
+    <td style="font-weight:${activo?"600":"400"};color:${activo?"var(--texto)":"var(--texto-med)"}">${activo?s.cliente:`<span style="color:var(--texto-suave)">${s.cliente}</span>`}</td>
+    <td>
+      <div style="font-size:13px;font-weight:${activo?"600":"400"};color:${activo?"var(--texto)":"var(--texto-med)"}">${s.equipo}</div>
+      <div style="font-size:11px;font-family:monospace;color:var(--texto-suave);margin-top:1px">${s.serial}</div>
+    </td>
+    <td><span style="font-family:monospace;font-size:12px;font-weight:700;background:#F1F5F9;color:var(--azul);padding:2px 7px;border-radius:5px">${s.codigo}</span></td>
+    <td><span style="font-family:monospace;font-size:12.5px;color:${activo?"var(--texto-med)":"var(--texto-suave)"}">${fmtFecha(s.fechaEntrega)}</span></td>
+    ${devHTML}
+    ${diasHTML}
+  </tr>`;
+}
+
+// ── EXPORTAR CSV ─────────────────────────────────────────────
+function exportarCSV(){
+  const btn = document.getElementById("btn-export");
+  btn.textContent = "Generando...";
+  btn.disabled    = true;
+
+  setTimeout(()=>{
+    const srv    = getSrv();
+    const q      = document.getElementById("search").value.toLowerCase();
+    const period = document.getElementById("period-select").value;
+    let filtered = srv.filter(s=>{
+      const mq = !q || [s.cliente,s.codigo,s.equipo,s.orden].some(v=>v.toLowerCase().includes(q));
+      const me = estadoFiltro==="todos"||(estadoFiltro==="activo"&&!s.fechaDevolucion)||(estadoFiltro==="finalizado"&&s.fechaDevolucion);
+      const mp = !period||s.fechaEntrega.startsWith(period)||(s.fechaDevolucion&&s.fechaDevolucion.startsWith(period));
+      return mq&&me&&mp;
+    });
+
+    const header = ["Orden","Cliente","Equipo","Código","Serial","Fecha Entrega","Fecha Devolución","Días Activos","Estado"];
+    const rows   = filtered.map(s=>[
+      s.orden, s.cliente, s.equipo, s.codigo, s.serial,
+      s.fechaEntrega, s.fechaDevolucion||"", calcDias(s),
+      s.fechaDevolucion?"Finalizado":"Activo"
+    ]);
+    const csv    = [header,...rows].map(r=>r.map(v=>`"${v}"`).join(",")).join("\n");
+    const blob   = new Blob([csv],{type:"text/csv;charset=utf-8;"});
+    const url    = URL.createObjectURL(blob);
+    const a      = document.createElement("a");
+    a.href=url; a.download=`servicios_prestados_${new Date().toISOString().split("T")[0]}.csv`;
+    a.click(); URL.revokeObjectURL(url);
+
+    btn.innerHTML=`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Exportar CSV`;
+    btn.disabled=false;
+    toast("CSV descargado","success");
+  },600);
+}
+
+initData(); render();
 </script>
 </body>
 </html>
