@@ -37,7 +37,7 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
 .nav-item.active .ni,.nav-item:hover .ni{opacity:1}
 .nav-badge{margin-left:auto;background:var(--rojo);color:#fff;font-size:10px;font-weight:700;padding:1px 6px;border-radius:99px;min-width:18px;text-align:center}
 .nav-badge.cian{background:var(--cian)}
-.sidebar-user{padding:14px 18px;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:10px}
+.sidebar-user{margin-top:auto;padding:14px 18px;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:10px}
 .user-avatar{width:32px;height:32px;border-radius:50%;background:var(--cian);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0}
 .user-name{font-size:12.5px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .user-role{font-size:10.5px;color:rgba(255,255,255,.4)}
@@ -161,73 +161,62 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
 ::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-thumb{background:#CBD5E1;border-radius:99px}
 
-.content{flex:1;overflow:hidden;display:flex;flex-direction:column;padding:20px 24px;gap:14px}
+.content{flex:1;overflow-y:auto;padding:20px 24px;display:flex;flex-direction:column;gap:14px}
 
-/* TABS */
-.tabs-bar{display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
-.tabs{display:flex;gap:4px;background:#F1F5F9;border-radius:10px;padding:4px}
-.tab{padding:8px 20px;border-radius:7px;font-size:13px;font-weight:500;cursor:pointer;transition:all .15s;color:var(--texto-med);border:none;background:none;font-family:"Inter",sans-serif;display:flex;align-items:center;gap:7px}
-.tab.active{background:var(--blanco);color:var(--azul);font-weight:700;box-shadow:0 1px 4px rgba(0,0,0,.08)}
-.tab-count{font-size:10.5px;font-weight:700;padding:1px 7px;border-radius:99px;background:#E2E8F0;color:var(--gris)}
-.tab.active .tab-count{background:var(--azul-suave);color:var(--azul)}
+/* STATS */
+.stats-row{display:flex;gap:10px;flex-shrink:0}
+.stat-chip{background:var(--blanco);border:1px solid var(--borde);border-radius:10px;padding:11px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 1px 3px rgba(0,0,0,.04);cursor:pointer;transition:all .15s}
+.stat-chip:hover{border-color:var(--cian);box-shadow:0 3px 10px rgba(0,0,0,.08)}
+.sc-num{font-size:22px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1}
+.sc-lbl{font-size:11px;color:var(--texto-suave);margin-top:2px}
 
 /* FILTROS */
-.filters-bar{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.search-wrap{position:relative;flex:1;max-width:340px}
+.filters-bar{display:flex;align-items:center;gap:10px;flex-shrink:0;flex-wrap:wrap}
+.search-wrap{position:relative;flex:1;max-width:280px}
 .search-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--texto-suave);display:flex;pointer-events:none}
 .search-input{width:100%;padding:9px 12px 9px 34px;border:1.5px solid var(--borde);border-radius:9px;font-family:"Inter",sans-serif;font-size:13px;color:var(--texto);background:var(--blanco);outline:none;transition:border-color .15s}
 .search-input:focus{border-color:var(--cian)}
 .search-input::placeholder{color:var(--texto-suave)}
-.filter-btn{padding:8px 14px;border:1.5px solid var(--borde);border-radius:9px;background:var(--blanco);font-family:"Inter",sans-serif;font-size:12.5px;font-weight:500;color:var(--texto-med);cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;gap:5px}
+.filter-select{padding:8px 12px;border:1.5px solid var(--borde);border-radius:9px;font-family:"Inter",sans-serif;font-size:13px;color:var(--texto-med);background:var(--blanco);outline:none;cursor:pointer;transition:border-color .15s}
+.filter-select:focus{border-color:var(--cian)}
+.filter-btn{padding:8px 14px;border:1.5px solid var(--borde);border-radius:9px;background:var(--blanco);font-family:"Inter",sans-serif;font-size:12.5px;font-weight:500;color:var(--texto-med);cursor:pointer;transition:all .15s}
 .filter-btn:hover{border-color:var(--cian);color:var(--cian)}
 .filter-btn.active{background:var(--azul);color:#fff;border-color:var(--azul)}
 
-/* LISTA CLIENTES */
-.clients-list{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:8px}
+/* GRID CLIENTES */
+.clientes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
 
 /* TARJETA CLIENTE */
-.client-card{background:var(--blanco);border-radius:12px;border:1px solid var(--borde);padding:16px 20px;display:flex;align-items:center;gap:16px;cursor:pointer;transition:all .18s;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.client-card:hover{border-color:var(--cian);box-shadow:0 4px 14px rgba(27,58,107,.08);transform:translateY(-1px)}
-.client-card.saldo-pend{border-left:3px solid var(--rojo)}
-
-/* Avatar */
-.client-av{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:800;color:#fff;flex-shrink:0}
-.av-persona{background:linear-gradient(135deg,var(--azul) 0%,var(--azul-claro) 100%)}
-.av-ips{background:linear-gradient(135deg,#0F7B55 0%,#2EB5D4 100%)}
-
-/* Info principal */
-.client-info{flex:1;min-width:0}
-.client-name{font-size:15px;font-weight:700;color:var(--azul);margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.client-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.client-meta-item{font-size:12px;color:var(--texto-suave);display:flex;align-items:center;gap:4px}
-.client-doc{font-size:12px;font-family:monospace;font-weight:600;color:var(--texto-med);background:#F1F5F9;padding:2px 7px;border-radius:5px}
-
-/* Equipos activos */
-.client-equipos{min-width:200px;max-width:240px;flex-shrink:0}
-.eq-activo{font-size:12.5px;font-weight:600;color:var(--texto);display:flex;align-items:center;gap:6px;margin-bottom:3px}
-.eq-serial{font-size:11px;color:var(--texto-suave);font-family:monospace}
-.no-equipos{font-size:12px;color:var(--texto-suave);display:flex;align-items:center;gap:5px}
-
-/* Estado financiero */
-.client-estado{min-width:120px;flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
-.fin-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:99px;font-size:11.5px;font-weight:700}
-.fin-ok{background:var(--verde-suave);color:var(--verde)}
-.fin-saldo{background:var(--rojo-suave);color:var(--rojo)}
-.fin-sin{background:#F1F5F9;color:var(--gris)}
-.btn-perfil{padding:6px 14px;border:1.5px solid var(--borde);border-radius:8px;background:var(--blanco);font-family:"Inter",sans-serif;font-size:12px;font-weight:600;color:var(--azul);cursor:pointer;transition:all .15s;white-space:nowrap}
-.btn-perfil:hover{border-color:var(--cian);color:var(--cian)}
+.cli-card{background:var(--blanco);border:1px solid var(--borde);border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.04);transition:all .18s;cursor:pointer}
+.cli-card:hover{border-color:var(--cian);box-shadow:0 4px 16px rgba(27,58,107,.1);transform:translateY(-1px)}
+.cli-card.inactivo{opacity:.6}
+.cli-card-head{padding:14px 16px;display:flex;align-items:flex-start;gap:12px;border-bottom:1px solid #F8FAFC}
+.cli-avatar{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:#fff;flex-shrink:0}
+.av-natural{background:var(--cian)}
+.av-juridica{background:var(--azul)}
+.cli-nombre{font-size:14px;font-weight:700;color:var(--azul);line-height:1.3}
+.cli-doc{font-size:12px;font-family:monospace;color:var(--texto-suave);margin-top:2px}
+.cli-tipo{display:inline-flex;align-items:center;padding:2px 8px;border-radius:99px;font-size:10.5px;font-weight:700;margin-top:4px}
+.ct-natural{background:var(--cian-suave);color:#0E86A0}
+.ct-juridica{background:var(--purpura-suave,#F5F3FF);color:#6D28D9}
+.cli-card-body{padding:12px 16px;display:flex;flex-direction:column;gap:6px}
+.cli-info-row{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--texto-med)}
+.cli-info-icon{color:var(--texto-suave);flex-shrink:0;display:flex}
+.cli-card-foot{padding:10px 16px;border-top:1px solid #F8FAFC;display:flex;align-items:center;justify-content:space-between}
+.activo-badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600}
+.ab-activo{color:var(--verde)}
+.ab-inactivo{color:var(--gris)}
+.ab-dot{width:6px;height:6px;border-radius:50%;background:currentColor}
 
 /* DRAWER */
-.drawer-actions{display:flex;gap:8px;padding:14px 22px;border-bottom:1px solid var(--borde);flex-shrink:0}
-.dra-btn{flex:1;padding:9px 10px;border-radius:9px;font-family:"Inter",sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s;border:1.5px solid var(--borde);background:var(--blanco);color:var(--azul);display:flex;flex-direction:column;align-items:center;gap:3px;text-align:center}
-.dra-btn:hover{border-color:var(--cian);background:var(--cian-suave);color:#0E86A0}
-.dra-btn svg{flex-shrink:0}
-.dra-btn span{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.drawer-bloque{padding:16px 22px;border-bottom:1px solid #F1F5F9}
+.drawer-bloque:last-child{border-bottom:none}
+.drawer-bloque-title{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--texto-suave);margin-bottom:12px}
 
-/* MODAL NUEVO CLIENTE */
+/* MODAL */
 .modal-overlay{position:fixed;inset:0;background:rgba(15,36,72,.4);z-index:300;display:none;align-items:center;justify-content:center;backdrop-filter:blur(3px)}
 .modal-overlay.open{display:flex}
-.modal{background:var(--blanco);border-radius:16px;width:100%;max-width:520px;max-height:90vh;display:flex;flex-direction:column;box-shadow:0 24px 64px rgba(0,0,0,.2);overflow:hidden}
+.modal{background:var(--blanco);border-radius:16px;width:100%;max-width:520px;max-height:92vh;display:flex;flex-direction:column;box-shadow:0 24px 64px rgba(0,0,0,.2);overflow:hidden}
 .modal-head{padding:18px 24px;border-bottom:1px solid var(--borde);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
 .modal-head h3{font-size:15px;font-weight:700;color:var(--azul)}
 .modal-close{background:none;border:none;cursor:pointer;color:var(--texto-suave);width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center}
@@ -238,10 +227,18 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
 .form-row.c2{grid-template-columns:1fr 1fr}
 .form-group{display:flex;flex-direction:column;gap:5px}
 .form-group label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--texto-med)}
-.form-group input,.form-group select,.form-group textarea{padding:9px 12px;border:1.5px solid var(--borde);border-radius:9px;font-family:"Inter",sans-serif;font-size:13.5px;color:var(--texto);background:var(--blanco);outline:none;transition:border-color .15s}
-.form-group input:focus,.form-group select:focus{border-color:var(--cian)}
+.form-group input,.form-group select,.form-group textarea{padding:10px 12px;border:1.5px solid var(--borde);border-radius:9px;font-family:"Inter",sans-serif;font-size:13.5px;color:var(--texto);background:var(--blanco);outline:none;transition:border-color .15s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--cian)}
 
-.empty-state{text-align:center;padding:56px 24px;color:var(--texto-suave)}
+/* TIPO TOGGLE */
+.tipo-toggle{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+.tipo-opt{padding:10px 14px;border:1.5px solid var(--borde);border-radius:10px;cursor:pointer;transition:all .15s;text-align:center}
+.tipo-opt.sel-natural{border-color:var(--cian);background:var(--cian-suave)}
+.tipo-opt.sel-juridica{border-color:var(--purpura,#6D28D9);background:var(--purpura-suave,#F5F3FF)}
+.tipo-opt-label{font-size:13px;font-weight:700;color:var(--texto)}
+.tipo-opt-sub{font-size:11px;color:var(--texto-suave);margin-top:2px}
+
+.empty-state{text-align:center;padding:48px 24px;color:var(--texto-suave)}
 </style>
 </head>
 <body>
@@ -269,9 +266,6 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
     <a class="nav-item" href="ordenes.html">
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>Órdenes de servicio
     </a>
-    <a class="nav-item" href="servicios.html">
-      <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></span>Servicios
-    </a>
     <a class="nav-item active" href="clientes.html">
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>Clientes
     </a>
@@ -281,6 +275,9 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
     <a class="nav-item" href="solicitudes.html">
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>Solicitudes<span class="nav-badge">2</span>
     </a>
+    <a class="nav-item" href="servicios.html">
+      <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>Servicios prestados
+    </a>
   </div>
   <div class="nav-group"><div class="nav-group-label">Sistema</div>
     <a class="nav-item" href="bitacora.html">
@@ -288,11 +285,6 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
     </a>
     <a class="nav-item" href="configuracion.html">
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></span>Configuración
-    </a>
-  </div>
-  <div style="padding:8px 12px;border-top:1px solid rgba(255,255,255,.08);margin-top:0">
-    <a class="nav-item" href="manual_usuario.html" target="_blank">
-      <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M8 7h8M8 11h8M8 15h8"/></svg></span>Manual de usuario
     </a>
   </div>
   <div class="sidebar-user">
@@ -308,7 +300,7 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
   <div class="topbar">
     <div>
       <div class="topbar-title">Clientes</div>
-      <div class="topbar-sub" id="cli-count">Cargando...</div>
+      <div class="topbar-sub" id="cli-sub">Directorio de clientes</div>
     </div>
     <div class="topbar-right">
       <button class="btn-primary" onclick="abrirModalNuevo()">
@@ -319,35 +311,79 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
   </div>
 
   <div class="content">
-    <!-- Tabs + búsqueda -->
-    <div class="tabs-bar">
-      <div class="tabs">
-        <button class="tab active" id="tab-todos"     onclick="setTab('todos',this)">
-          Todos <span class="tab-count" id="tc-todos">0</span>
-        </button>
-        <button class="tab" id="tab-persona"  onclick="setTab('Persona natural',this)">
-          Pacientes <span class="tab-count" id="tc-persona">0</span>
-        </button>
-        <button class="tab" id="tab-ips"      onclick="setTab('IPS',this)">
-          Clínicas / IPS <span class="tab-count" id="tc-ips">0</span>
-        </button>
-        <button class="tab" id="tab-empresa"  onclick="setTab('Empresa',this)">
-          Empresas <span class="tab-count" id="tc-empresa">0</span>
-        </button>
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-chip" onclick="setFiltro('todos',null)" style="flex:1">
+        <div style="font-size:20px">👥</div>
+        <div><div class="sc-num" id="cnt-total" style="color:var(--azul)">0</div><div class="sc-lbl">Total</div></div>
+      </div>
+      <div class="stat-chip" onclick="setFiltro('natural',null)" style="flex:1">
+        <div style="font-size:20px">👤</div>
+        <div><div class="sc-num" id="cnt-natural" style="color:var(--cian)">0</div><div class="sc-lbl">Personas naturales</div></div>
+      </div>
+      <div class="stat-chip" onclick="setFiltro('juridica',null)" style="flex:1">
+        <div style="font-size:20px">🏥</div>
+        <div><div class="sc-num" id="cnt-juridica" style="color:#6D28D9">0</div><div class="sc-lbl">Personas jurídicas</div></div>
+      </div>
+      <div class="stat-chip" onclick="setFiltro('activo',null)" style="flex:1">
+        <div style="font-size:20px">✅</div>
+        <div><div class="sc-num" id="cnt-activo" style="color:var(--verde)">0</div><div class="sc-lbl">Activos</div></div>
       </div>
     </div>
 
+    <!-- Filtros -->
     <div class="filters-bar">
       <div class="search-wrap">
         <span class="search-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
-        <input class="search-input" id="search" placeholder="Buscar por nombre, cédula, NIT o zona..." oninput="render()">
+        <input class="search-input" id="search" placeholder="Buscar por nombre o documento..." oninput="render()">
       </div>
-      <button class="filter-btn active" id="fb-activos" onclick="setFin('todos',this)">Todos</button>
-      <button class="filter-btn" onclick="setFin('ok',this)">🟢 Al día</button>
-      <button class="filter-btn" onclick="setFin('saldo',this)">🔴 Saldo pendiente</button>
+      <select class="filter-select" id="f-dep" onchange="filtrarMunicipios();render()">
+        <option value="">Todos los departamentos</option>
+        <option value="05">Antioquia</option>
+<option value="08">Atlántico</option>
+<option value="11">Bogotá D.C.</option>
+<option value="13">Bolívar</option>
+<option value="15">Boyacá</option>
+<option value="17">Caldas</option>
+<option value="18">Caquetá</option>
+<option value="19">Cauca</option>
+<option value="20">Cesar</option>
+<option value="23">Córdoba</option>
+<option value="25">Cundinamarca</option>
+<option value="27">Chocó</option>
+<option value="41">Huila</option>
+<option value="44">La Guajira</option>
+<option value="47">Magdalena</option>
+<option value="50">Meta</option>
+<option value="52">Nariño</option>
+<option value="54">Norte de Santander</option>
+<option value="63">Quindío</option>
+<option value="66">Risaralda</option>
+<option value="68">Santander</option>
+<option value="70">Sucre</option>
+<option value="73">Tolima</option>
+<option value="76">Valle del Cauca</option>
+<option value="81">Arauca</option>
+<option value="85">Casanare</option>
+<option value="86">Putumayo</option>
+<option value="88">San Andrés y Providencia</option>
+<option value="91">Amazonas</option>
+<option value="94">Guainía</option>
+<option value="95">Guaviare</option>
+<option value="97">Vaupés</option>
+<option value="99">Vichada</option>
+      </select>
+      <select class="filter-select" id="f-mun" onchange="render()">
+        <option value="">Todos los municipios</option>
+      </select>
+      <button class="filter-btn active" onclick="setFiltro('todos',this)">Todos</button>
+      <button class="filter-btn"        onclick="setFiltro('natural',this)">👤 Natural</button>
+      <button class="filter-btn"        onclick="setFiltro('juridica',this)">🏥 Jurídica</button>
+      <button class="filter-btn"        onclick="setFiltro('activo',this)">✅ Activos</button>
+      <button class="filter-btn"        onclick="setFiltro('inactivo',this)">⛔ Inactivos</button>
     </div>
 
-    <div class="clients-list" id="clients-list"></div>
+    <div class="clientes-grid" id="clientes-grid"></div>
   </div>
 </main>
 </div>
@@ -364,86 +400,97 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
   </div>
-  <!-- Acciones rápidas -->
-  <div class="drawer-actions">
-    <button class="dra-btn" onclick="toast('Redirigiendo a nueva orden...','success');closeDrawer();window.location.href='ordenes.html'">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-      <span>Rentar equipo</span>
-    </button>
-    <button class="dra-btn" onclick="toast('Programando retiro...','success')">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.14"/></svg>
-      <span>Programar retiro</span>
-    </button>
-    <button class="dra-btn" onclick="toast('Registrando pago...','success')">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-      <span>Registrar pago</span>
-    </button>
-  </div>
   <div class="drawer-body" id="drawer-body"></div>
   <div class="drawer-foot" id="drawer-foot"></div>
 </div>
 
-<!-- MODAL -->
-<div class="modal-overlay" id="modal-overlay">
+<!-- MODAL NUEVO/EDITAR -->
+<div class="modal-overlay" id="modal-cli">
   <div class="modal" onclick="event.stopPropagation()">
     <div class="modal-head">
-      <h3 id="modal-title">Nuevo cliente</h3>
+      <h3 id="modal-cli-title">Nuevo cliente</h3>
       <button class="modal-close" onclick="cerrarModal()">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
     <div class="modal-body">
+      <!-- Tipo -->
+      <div style="margin-bottom:16px">
+        <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--texto-med);margin-bottom:8px">Tipo de persona</div>
+        <div class="tipo-toggle">
+          <div class="tipo-opt sel-natural" id="opt-natural" onclick="selTipo('natural')">
+            <div class="tipo-opt-label">👤 Persona natural</div>
+            <div class="tipo-opt-sub">Paciente domiciliario</div>
+          </div>
+          <div class="tipo-opt" id="opt-juridica" onclick="selTipo('juridica')">
+            <div class="tipo-opt-label">🏥 Persona jurídica</div>
+            <div class="tipo-opt-sub">IPS, empresa, corporación</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Campos comunes -->
+      <div class="form-row">
+        <div class="form-group"><label>Nombre completo / Razón social</label><input id="c-nombre" placeholder="Nombre del cliente"></div>
+      </div>
       <div class="form-row c2">
-        <div class="form-group"><label>Tipo</label>
-          <select id="f-tipo">
-            <option>Persona natural</option>
-            <option>IPS</option>
-            <option>Empresa</option>
+        <div class="form-group"><label id="c-doc-label">Número de documento (C.C.)</label><input id="c-doc" placeholder="ej. 1065432198"></div>
+        <div class="form-group" id="c-dv-wrap" style="display:none"><label>Dígito de verificación</label><input id="c-dv" placeholder="ej. 5" maxlength="1"></div>
+      </div>
+      <div class="form-row c2">
+        <div class="form-group"><label>Departamento</label>
+          <select id="c-dep" onchange="actualizarMunicipiosModal()">
+            <option value="">Seleccionar...</option>
+            <option value="05">Antioquia</option>
+<option value="08">Atlántico</option>
+<option value="11">Bogotá D.C.</option>
+<option value="13">Bolívar</option>
+<option value="15">Boyacá</option>
+<option value="17">Caldas</option>
+<option value="18">Caquetá</option>
+<option value="19">Cauca</option>
+<option value="20">Cesar</option>
+<option value="23">Córdoba</option>
+<option value="25">Cundinamarca</option>
+<option value="27">Chocó</option>
+<option value="41">Huila</option>
+<option value="44">La Guajira</option>
+<option value="47">Magdalena</option>
+<option value="50">Meta</option>
+<option value="52">Nariño</option>
+<option value="54">Norte de Santander</option>
+<option value="63">Quindío</option>
+<option value="66">Risaralda</option>
+<option value="68">Santander</option>
+<option value="70">Sucre</option>
+<option value="73">Tolima</option>
+<option value="76">Valle del Cauca</option>
+<option value="81">Arauca</option>
+<option value="85">Casanare</option>
+<option value="86">Putumayo</option>
+<option value="88">San Andrés y Providencia</option>
+<option value="91">Amazonas</option>
+<option value="94">Guainía</option>
+<option value="95">Guaviare</option>
+<option value="97">Vaupés</option>
+<option value="99">Vichada</option>
           </select>
         </div>
-        <div class="form-group"><label>Estado de pago</label>
-          <select id="f-pago">
-            <option value="ok">Al día</option>
-            <option value="saldo">Saldo pendiente</option>
-            <option value="sin">Sin historial</option>
-          </select>
+        <div class="form-group"><label>Municipio</label>
+          <select id="c-mun"><option value="">Seleccionar departamento</option></select>
         </div>
       </div>
       <div class="form-row">
-        <div class="form-group"><label>Nombre completo / Razón social</label>
-          <input id="f-nombre" placeholder="Nombre del cliente o empresa">
-        </div>
+        <div class="form-group"><label>Dirección</label><input id="c-dir" placeholder="Calle, carrera, barrio..."></div>
       </div>
       <div class="form-row c2">
-        <div class="form-group"><label>Cédula / NIT</label>
-          <input id="f-doc" placeholder="Número de documento">
-        </div>
-        <div class="form-group"><label>Teléfono</label>
-          <input id="f-tel" placeholder="Número de contacto">
-        </div>
-      </div>
-      <div class="form-row c2">
-        <div class="form-group"><label>Zona / Sector</label>
-          <input id="f-zona" placeholder="ej. Cañaveral, La Paz...">
-        </div>
-        <div class="form-group"><label>Ciudad</label>
-          <input id="f-ciudad" value="Valledupar">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group"><label>Dirección completa</label>
-          <input id="f-dir" placeholder="Dirección de domicilio o sede">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group"><label>Email</label>
-          <input id="f-email" type="email" placeholder="correo@ejemplo.com">
-        </div>
+        <div class="form-group"><label>Teléfono</label><input id="c-tel" placeholder="ej. 300 1234567"></div>
+        <div class="form-group"><label>Email</label><input id="c-email" type="email" placeholder="correo@ejemplo.com"></div>
       </div>
     </div>
     <div class="modal-foot">
       <button class="btn-outline" onclick="cerrarModal()">Cancelar</button>
-      <button class="btn-primary" onclick="guardarCliente()">Guardar cliente</button>
+      <button class="btn-primary" onclick="guardarCliente()">Guardar</button>
     </div>
   </div>
 </div>
@@ -453,13 +500,13 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
 <script>
 
 const _s = JSON.parse(localStorage.getItem("ing_session")||"null");
-if(!_s) window.location.href="index.html";
+if(!_s) window.location.href="login.html";
 else {
   document.getElementById("user-name").textContent   = _s.nombre;
   document.getElementById("user-role").textContent   = _s.rol==="admin"?"Administrador":"Repartidor";
   document.getElementById("user-avatar").textContent = _s.nombre.charAt(0).toUpperCase();
 }
-function logout(){ localStorage.removeItem("ing_session"); window.location.href="index.html"; }
+function logout(){ localStorage.removeItem("ing_session"); window.location.href="login.html"; }
 function toast(msg,tipo){
   const t=document.getElementById("toast");
   t.textContent=msg; t.className="toast show"+(tipo?" "+tipo:"");
@@ -467,165 +514,129 @@ function toast(msg,tipo){
 }
 
 
-let tabActivo  = "todos";
-let finActivo  = "todos";
+// ── DATOS GEO ─────────────────────────────────────────────────
+const DEPARTAMENTOS = [{"codigo": "05", "nombre": "Antioquia"}, {"codigo": "08", "nombre": "Atlántico"}, {"codigo": "11", "nombre": "Bogotá D.C."}, {"codigo": "13", "nombre": "Bolívar"}, {"codigo": "15", "nombre": "Boyacá"}, {"codigo": "17", "nombre": "Caldas"}, {"codigo": "18", "nombre": "Caquetá"}, {"codigo": "19", "nombre": "Cauca"}, {"codigo": "20", "nombre": "Cesar"}, {"codigo": "23", "nombre": "Córdoba"}, {"codigo": "25", "nombre": "Cundinamarca"}, {"codigo": "27", "nombre": "Chocó"}, {"codigo": "41", "nombre": "Huila"}, {"codigo": "44", "nombre": "La Guajira"}, {"codigo": "47", "nombre": "Magdalena"}, {"codigo": "50", "nombre": "Meta"}, {"codigo": "52", "nombre": "Nariño"}, {"codigo": "54", "nombre": "Norte de Santander"}, {"codigo": "63", "nombre": "Quindío"}, {"codigo": "66", "nombre": "Risaralda"}, {"codigo": "68", "nombre": "Santander"}, {"codigo": "70", "nombre": "Sucre"}, {"codigo": "73", "nombre": "Tolima"}, {"codigo": "76", "nombre": "Valle del Cauca"}, {"codigo": "81", "nombre": "Arauca"}, {"codigo": "85", "nombre": "Casanare"}, {"codigo": "86", "nombre": "Putumayo"}, {"codigo": "88", "nombre": "San Andrés y Providencia"}, {"codigo": "91", "nombre": "Amazonas"}, {"codigo": "94", "nombre": "Guainía"}, {"codigo": "95", "nombre": "Guaviare"}, {"codigo": "97", "nombre": "Vaupés"}, {"codigo": "99", "nombre": "Vichada"}];
+const MUNICIPIOS    = [{"codigo": "20001", "nombre": "Valledupar", "dep": "20"}, {"codigo": "20011", "nombre": "Aguachica", "dep": "20"}, {"codigo": "20013", "nombre": "Agustín Codazzi", "dep": "20"}, {"codigo": "20060", "nombre": "Bosconia", "dep": "20"}, {"codigo": "20175", "nombre": "Chimichagua", "dep": "20"}, {"codigo": "20228", "nombre": "Curumaní", "dep": "20"}, {"codigo": "20400", "nombre": "La Jagua de Ibirico", "dep": "20"}, {"codigo": "20517", "nombre": "Pailitas", "dep": "20"}, {"codigo": "20570", "nombre": "Pueblo Bello", "dep": "20"}, {"codigo": "08001", "nombre": "Barranquilla", "dep": "08"}, {"codigo": "08758", "nombre": "Soledad", "dep": "08"}, {"codigo": "08433", "nombre": "Malambo", "dep": "08"}, {"codigo": "08638", "nombre": "Sabanalarga", "dep": "08"}, {"codigo": "08573", "nombre": "Puerto Colombia", "dep": "08"}, {"codigo": "11001", "nombre": "Bogotá D.C.", "dep": "11"}, {"codigo": "68001", "nombre": "Bucaramanga", "dep": "68"}, {"codigo": "68276", "nombre": "Floridablanca", "dep": "68"}, {"codigo": "68298", "nombre": "Girón", "dep": "68"}, {"codigo": "68547", "nombre": "Piedecuesta", "dep": "68"}, {"codigo": "68679", "nombre": "San Gil", "dep": "68"}, {"codigo": "68755", "nombre": "Socorro", "dep": "68"}, {"codigo": "68615", "nombre": "Rionegro", "dep": "68"}, {"codigo": "68406", "nombre": "Lebrija", "dep": "68"}, {"codigo": "05001", "nombre": "Medellín", "dep": "05"}, {"codigo": "05088", "nombre": "Bello", "dep": "05"}, {"codigo": "05266", "nombre": "Envigado", "dep": "05"}, {"codigo": "05318", "nombre": "Itagüí", "dep": "05"}, {"codigo": "05615", "nombre": "Rionegro", "dep": "05"}, {"codigo": "76001", "nombre": "Cali", "dep": "76"}, {"codigo": "76520", "nombre": "Palmira", "dep": "76"}, {"codigo": "76109", "nombre": "Buenaventura", "dep": "76"}, {"codigo": "25175", "nombre": "Chía", "dep": "25"}, {"codigo": "25307", "nombre": "Girardot", "dep": "25"}, {"codigo": "25486", "nombre": "Soacha", "dep": "25"}, {"codigo": "13001", "nombre": "Cartagena", "dep": "13"}, {"codigo": "13300", "nombre": "Magangué", "dep": "13"}, {"codigo": "23001", "nombre": "Montería", "dep": "23"}, {"codigo": "23418", "nombre": "Lorica", "dep": "23"}, {"codigo": "47001", "nombre": "Santa Marta", "dep": "47"}, {"codigo": "47288", "nombre": "Fundación", "dep": "47"}, {"codigo": "44001", "nombre": "Riohacha", "dep": "44"}, {"codigo": "44430", "nombre": "Maicao", "dep": "44"}, {"codigo": "54001", "nombre": "Cúcuta", "dep": "54"}, {"codigo": "54518", "nombre": "Ocaña", "dep": "54"}, {"codigo": "73001", "nombre": "Ibagué", "dep": "73"}, {"codigo": "73268", "nombre": "Espinal", "dep": "73"}, {"codigo": "41001", "nombre": "Neiva", "dep": "41"}, {"codigo": "41298", "nombre": "Garzón", "dep": "41"}, {"codigo": "52001", "nombre": "Pasto", "dep": "52"}, {"codigo": "52835", "nombre": "Tumaco", "dep": "52"}, {"codigo": "66001", "nombre": "Pereira", "dep": "66"}, {"codigo": "66170", "nombre": "Dosquebradas", "dep": "66"}, {"codigo": "63001", "nombre": "Armenia", "dep": "63"}, {"codigo": "17001", "nombre": "Manizales", "dep": "17"}, {"codigo": "17380", "nombre": "La Dorada", "dep": "17"}, {"codigo": "50001", "nombre": "Villavicencio", "dep": "50"}, {"codigo": "19001", "nombre": "Popayán", "dep": "19"}, {"codigo": "70001", "nombre": "Sincelejo", "dep": "70"}, {"codigo": "70215", "nombre": "Corozal", "dep": "70"}, {"codigo": "15001", "nombre": "Tunja", "dep": "15"}, {"codigo": "15238", "nombre": "Duitama", "dep": "15"}, {"codigo": "15572", "nombre": "Sogamoso", "dep": "15"}, {"codigo": "85001", "nombre": "Yopal", "dep": "85"}, {"codigo": "81001", "nombre": "Arauca", "dep": "81"}, {"codigo": "86001", "nombre": "Mocoa", "dep": "86"}, {"codigo": "18001", "nombre": "Florencia", "dep": "18"}, {"codigo": "27001", "nombre": "Quibdó", "dep": "27"}, {"codigo": "95001", "nombre": "San José del Guaviare", "dep": "95"}, {"codigo": "91001", "nombre": "Leticia", "dep": "91"}, {"codigo": "88001", "nombre": "San Andrés", "dep": "88"}];
 
-// ── DATOS ────────────────────────────────────────────────────
+let filtroActivo = "todos";
+let editandoId   = null;
+let tipoActual   = "natural";
+
+// ── DATOS CLIENTES ────────────────────────────────────────────
 function initData(){
-  if(localStorage.getItem("ing_cli_v2")) return;
+  if(localStorage.getItem("ing_cli_v3")) return;
   const clientes = [
-    {
-      id:"CL-001", tipo:"Persona natural", nombre:"María García Pérez",
-      doc:"1065432198", zona:"La Paz", ciudad:"Valledupar",
-      dir:"Cra 15 #22-40 B. La Paz", tel:"312 456 7890", email:"—",
-      pago:"ok", activo:true,
-      equipos:[{nombre:"Concentrador de Oxígeno",marca:"Respironics",modelo:"EverFlo",serial:"0141535",estado:"En préstamo"}],
-      historial:[
-        {evento:"Cliente registrado en el sistema",          fecha:"2023-01-14",tipo:"gris",  badge:"REGISTRO",   doc:null},
-        {evento:"Entrega exitosa — Concentrador EQ-0001 instalado y firma recibida", fecha:"2024-02-10",tipo:"cian",  badge:"ENTREGA",    doc:"Ver constancia"},
-        {evento:"Pago registrado — Recibo #3001 · $280.000 COP",fecha:"2024-03-01",tipo:"verde", badge:"PAGO",       doc:null},
-        {evento:"Pago registrado — Recibo #3045 · $280.000 COP",fecha:"2024-04-01",tipo:"verde", badge:"PAGO",       doc:null},
-        {evento:"Contrato activo — equipo en custodia del cliente",fecha:"2025-01-01",tipo:"azul", badge:"ACTIVO",     doc:null},
-      ]
-    },
-    {
-      id:"CL-002", tipo:"Persona natural", nombre:"Pedro Álvarez Suárez",
-      doc:"1065876543", zona:"Centro", ciudad:"Valledupar",
-      dir:"Cl 8 #5-22 Centro", tel:"315 789 0123", email:"—",
-      pago:"ok", activo:true,
-      equipos:[{nombre:"Colchón antiescaras",marca:"Lumex",modelo:"APP300",serial:"L330021",estado:"En préstamo"}],
-      historial:[
-        {evento:"Cliente registrado",fecha:"2023-07-17",tipo:"gris",badge:"REGISTRO",doc:null},
-        {evento:"Entrega exitosa — Colchón EQ-0007",fecha:"2024-05-22",tipo:"cian",badge:"ENTREGA",doc:"Ver constancia"},
-        {evento:"Pago registrado — Recibo #4010 · $150.000 COP",fecha:"2024-06-01",tipo:"verde",badge:"PAGO",doc:null},
-      ]
-    },
-    {
-      id:"CL-003", tipo:"IPS", nombre:"CAJACOPI ATLÁNTICO",
-      doc:"800.234.567-1", zona:"Centro Histórico", ciudad:"Valledupar",
-      dir:"Calle 15 #8-32 Centro", tel:"605 574 0000", email:"suministros@cajacopi.com",
-      pago:"saldo", activo:true,
-      equipos:[
-        {nombre:"Concentrador de Oxígeno",marca:"Invacare",modelo:"Platinum 10",serial:"PT10-98234",estado:"Con novedad"},
-        {nombre:"Cilindro de Oxígeno",marca:"—",modelo:"6.5 M³",serial:"B241433042",estado:"En préstamo"},
-      ],
-      historial:[
-        {evento:"Cliente registrado",fecha:"2021-03-01",tipo:"gris",badge:"REGISTRO",doc:null},
-        {evento:"Contrato institucional activado — ORD-2021-001",fecha:"2021-03-15",tipo:"cian",badge:"CONTRATO",doc:null},
-        {evento:"Pago registrado — Recibo #1045 · $1.200.000 COP",fecha:"2024-01-05",tipo:"verde",badge:"PAGO",doc:null},
-        {evento:"Saldo pendiente — Factura #INV-2024-089 vencida",fecha:"2024-11-01",tipo:"rojo",badge:"SALDO",doc:"Ver factura"},
-        {evento:"Novedad reportada en equipo PT10-98234",fecha:"2024-11-10",tipo:"rojo",badge:"ALERTA",doc:null},
-      ]
-    },
-    {
-      id:"CL-004", tipo:"IPS", nombre:"Clínica Valledupar S.A.",
-      doc:"890.123.456-7", zona:"Simón Bolívar", ciudad:"Valledupar",
-      dir:"Av. Simón Bolívar #10-45", tel:"605 580 1234", email:"admin@clinicavalledupar.com",
-      pago:"ok", activo:true,
-      equipos:[],
-      historial:[
-        {evento:"Cliente registrado",fecha:"2022-06-10",tipo:"gris",badge:"REGISTRO",doc:null},
-        {evento:"Primer contrato activado — ORD-2022-034",fecha:"2022-07-01",tipo:"cian",badge:"CONTRATO",doc:null},
-        {evento:"Devolución completada — todos los equipos retornados",fecha:"2024-09-30",tipo:"verde",badge:"DEVOLUCIÓN",doc:null},
-      ]
-    },
-    {
-      id:"CL-005", tipo:"Persona natural", nombre:"Rosa Martínez López",
-      doc:"1065111999", zona:"El Recreo", ciudad:"Valledupar",
-      dir:"Cl 22 #14-50 El Recreo", tel:"317 654 3210", email:"—",
-      pago:"sin", activo:true,
-      equipos:[],
-      historial:[
-        {evento:"Cliente registrado",fecha:"2025-03-01",tipo:"gris",badge:"REGISTRO",doc:null},
-      ]
-    },
+    {id:"CL-001",tipo:"natural",nombre:"María García Pérez",doc:"1065432198",dv:null,dep:"20",mun:"20001",dir:"Calle 15 #8-32, La Popa",tel:"301 2345678",email:"maria.garcia@gmail.com",activo:true,historial:[{evento:"Cliente registrado",fecha:"2024-01-15",tipo:"verde",badge:"REGISTRO"}]},
+    {id:"CL-002",tipo:"juridica",nombre:"CAJACOPI ATLÁNTICO",doc:"890100983",dv:"7",dep:"08",mun:"08001",dir:"Carrera 45 #12-67, Centro",tel:"605 3456789",email:"servicios@cajacopi.com.co",activo:true,historial:[{evento:"Cliente registrado",fecha:"2023-08-10",tipo:"verde",badge:"REGISTRO"}]},
+    {id:"CL-003",tipo:"natural",nombre:"Pedro Álvarez Suárez",doc:"1098765432",dv:null,dep:"68",mun:"68001",dir:"Cra 27 #45-12, El Prado",tel:"312 9876543",email:"pedro.alvarez@hotmail.com",activo:true,historial:[{evento:"Cliente registrado",fecha:"2024-03-20",tipo:"verde",badge:"REGISTRO"}]},
+    {id:"CL-004",tipo:"juridica",nombre:"Clínica Valledupar S.A.",doc:"900123456",dv:"3",dep:"20",mun:"20001",dir:"Av. Simón Bolívar #14-55",tel:"605 5804321",email:"admin@clinicavalledupar.com",activo:true,historial:[{evento:"Cliente registrado",fecha:"2023-12-01",tipo:"verde",badge:"REGISTRO"}]},
+    {id:"CL-005",tipo:"natural",nombre:"Rosa Martínez López",doc:"1064567890",dv:null,dep:"20",mun:"20001",dir:"Barrio El Recreo, Calle 22 #5-10",tel:"315 6789012",email:"rosa.martinez@gmail.com",activo:false,historial:[{evento:"Cliente registrado",fecha:"2024-06-15",tipo:"verde",badge:"REGISTRO"},{evento:"Cliente desactivado",fecha:"2024-10-01",tipo:"rojo",badge:"BAJA"}]},
   ];
   localStorage.setItem("ing_clientes", JSON.stringify(clientes));
-  localStorage.setItem("ing_cli_v2","1");
+  localStorage.setItem("ing_cli_v3","1");
 }
 
 const getCli = () => JSON.parse(localStorage.getItem("ing_clientes")||"[]");
-const setCli = v => localStorage.setItem("ing_clientes", JSON.stringify(v));
+const setCli = v  => localStorage.setItem("ing_clientes", JSON.stringify(v));
 
-// ── FILTROS ───────────────────────────────────────────────────
-function setTab(t, el){
-  tabActivo = t;
-  document.querySelectorAll(".tab").forEach(b=>b.classList.remove("active"));
-  el.classList.add("active");
+// ── GEO HELPERS ───────────────────────────────────────────────
+function getNombreDep(codigo){
+  return DEPARTAMENTOS.find(d=>d.codigo===codigo)?.nombre||codigo||"—";
+}
+function getNombreMun(codigo){
+  return MUNICIPIOS.find(m=>m.codigo===codigo)?.nombre||codigo||"—";
+}
+function filtrarMunicipios(){
+  const dep = document.getElementById("f-dep").value;
+  const sel = document.getElementById("f-mun");
+  sel.innerHTML = '<option value="">Todos los municipios</option>' +
+    MUNICIPIOS.filter(m=>!dep||m.dep===dep)
+      .map(m=>`<option value="${m.codigo}">${m.nombre}</option>`).join("");
   render();
 }
+function actualizarMunicipiosModal(){
+  const dep = document.getElementById("c-dep").value;
+  const sel = document.getElementById("c-mun");
+  sel.innerHTML = '<option value="">Seleccionar municipio...</option>' +
+    MUNICIPIOS.filter(m=>m.dep===dep)
+      .map(m=>`<option value="${m.codigo}">${m.nombre}</option>`).join("");
+}
 
-function setFin(f, el){
-  finActivo = f;
+// ── FILTRO ────────────────────────────────────────────────────
+function setFiltro(f,el){
+  filtroActivo=f;
   document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
-  el.classList.add("active");
+  if(el) el.classList.add("active");
   render();
 }
 
 // ── RENDER ────────────────────────────────────────────────────
 function render(){
-  const cli = getCli();
-  const q   = document.getElementById("search").value.toLowerCase();
+  const cli  = getCli();
+  const q    = document.getElementById("search").value.toLowerCase();
+  const dep  = document.getElementById("f-dep").value;
+  const mun  = document.getElementById("f-mun").value;
 
-  // Contadores tabs
-  document.getElementById("tc-todos").textContent    = cli.length;
-  document.getElementById("tc-persona").textContent  = cli.filter(c=>c.tipo==="Persona natural").length;
-  document.getElementById("tc-ips").textContent      = cli.filter(c=>c.tipo==="IPS").length;
-  document.getElementById("tc-empresa").textContent  = cli.filter(c=>c.tipo==="Empresa").length;
-  document.getElementById("cli-count").textContent   = `${cli.length} clientes registrados`;
+  document.getElementById("cnt-total").textContent   = cli.length;
+  document.getElementById("cnt-natural").textContent  = cli.filter(c=>c.tipo==="natural").length;
+  document.getElementById("cnt-juridica").textContent = cli.filter(c=>c.tipo==="juridica").length;
+  document.getElementById("cnt-activo").textContent   = cli.filter(c=>c.activo).length;
+  document.getElementById("cli-sub").textContent      = `${cli.length} cliente${cli.length!==1?"s":""} registrados`;
 
+  const filtros = {
+    "todos":    ()=>true,
+    "natural":  c=>c.tipo==="natural",
+    "juridica": c=>c.tipo==="juridica",
+    "activo":   c=>c.activo,
+    "inactivo": c=>!c.activo,
+  };
   let filtered = cli.filter(c=>{
-    const mt = tabActivo==="todos" || c.tipo===tabActivo;
-    const mf = finActivo==="todos" || c.pago===finActivo;
-    const mq = !q || [c.nombre,c.doc,c.zona,c.tel].some(v=>v.toLowerCase().includes(q));
-    return mt && mf && mq;
+    const mf = filtros[filtroActivo]?.(c)??true;
+    const mq = !q||[c.nombre,c.doc,c.email,c.tel].some(v=>(v||"").toLowerCase().includes(q));
+    const md = !dep||c.dep===dep;
+    const mm = !mun||c.mun===mun;
+    return mf&&mq&&md&&mm;
   });
 
-  const list = document.getElementById("clients-list");
-  if(!filtered.length){
-    list.innerHTML=`<div class="empty-state"><p>No se encontraron clientes</p></div>`;
-    return;
-  }
+  // Activos primero
+  filtered.sort((a,b)=>b.activo-a.activo);
 
-  list.innerHTML = filtered.map(c=>{
-    const esIPS  = c.tipo==="IPS" || c.tipo==="Empresa";
-    const avCls  = esIPS ? "av-ips" : "av-persona";
-    const avLet  = c.nombre.charAt(0).toUpperCase();
-    const saldo  = c.pago==="saldo";
-    const finBadge = c.pago==="ok"
-      ? `<span class="fin-badge fin-ok">🟢 Al día</span>`
-      : c.pago==="saldo"
-        ? `<span class="fin-badge fin-saldo">🔴 Saldo pendiente</span>`
-        : `<span class="fin-badge fin-sin">⚪ Sin historial</span>`;
-    const eqsHTML = c.equipos.length
-      ? c.equipos.slice(0,2).map(e=>`
-          <div class="eq-activo">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--cian)" stroke-width="2.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/></svg>
-            ${e.nombre}
-          </div>
-          <div class="eq-serial">Serie: ${e.serial}</div>`).join("")
-      : `<div class="no-equipos"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--texto-suave)" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Sin equipos activos</div>`;
+  const grid = document.getElementById("clientes-grid");
+  if(!filtered.length){grid.innerHTML=`<div class="empty-state" style="grid-column:1/-1"><p>No se encontraron clientes</p></div>`;return;}
 
-    return `<div class="client-card ${saldo?"saldo-pend":""}" onclick="abrirDrawer('${c.id}')">
-      <div class="client-av ${avCls}">${avLet}</div>
-      <div class="client-info">
-        <div class="client-name">${c.nombre}</div>
-        <div class="client-meta">
-          <span class="client-doc">${c.doc}</span>
-          <span class="client-meta-item">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            ${c.zona}
-          </span>
-          <span class="client-meta-item">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.62 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.53 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8a16 16 0 0 0 7.91 7.91l.61-.61a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            ${c.tel}
-          </span>
+  grid.innerHTML = filtered.map(c=>{
+    const esJ     = c.tipo==="juridica";
+    const depNom  = getNombreDep(c.dep);
+    const munNom  = getNombreMun(c.mun);
+    const docStr  = esJ&&c.dv ? `NIT ${c.doc}-${c.dv}` : `C.C. ${c.doc}`;
+    return `<div class="cli-card${c.activo?"":" inactivo"}" onclick="abrirDrawer('${c.id}')">
+      <div class="cli-card-head">
+        <div class="cli-avatar ${esJ?"av-juridica":"av-natural"}">${esJ?"🏥":"👤"}</div>
+        <div style="flex:1;min-width:0">
+          <div class="cli-nombre">${c.nombre}</div>
+          <div class="cli-doc">${docStr}</div>
+          <span class="cli-tipo ${esJ?"ct-juridica":"ct-natural"}">${esJ?"Persona jurídica":"Persona natural"}</span>
         </div>
       </div>
-      <div class="client-equipos">${eqsHTML}</div>
-      <div class="client-estado">
-        ${finBadge}
-        <button class="btn-perfil" onclick="event.stopPropagation();abrirDrawer('${c.id}')">Ver perfil →</button>
+      <div class="cli-card-body">
+        <div class="cli-info-row">
+          <span class="cli-info-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          ${munNom}${depNom&&depNom!==munNom?`, ${depNom}`:""}
+        </div>
+        ${c.dir?`<div class="cli-info-row">
+          <span class="cli-info-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg></span>
+          <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${c.dir}</span>
+        </div>`:""}
+        ${c.tel?`<div class="cli-info-row">
+          <span class="cli-info-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6 19.79 19.79 0 0 1 1.61 5c-.11-1.17.71-2.16 1.88-2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.09a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          ${c.tel}
+        </div>`:""}
+      </div>
+      <div class="cli-card-foot">
+        <span class="activo-badge ${c.activo?"ab-activo":"ab-inactivo"}">
+          <span class="ab-dot"></span>${c.activo?"Activo":"Inactivo"}
+        </span>
+        <span style="font-size:11.5px;color:var(--texto-suave)">${c.id}</span>
       </div>
     </div>`;
   }).join("");
@@ -633,20 +644,15 @@ function render(){
 
 // ── DRAWER ────────────────────────────────────────────────────
 function abrirDrawer(id){
-  const c = getCli().find(x=>x.id===id); if(!c) return;
-  const esIPS = c.tipo==="IPS"||c.tipo==="Empresa";
-
+  const c=getCli().find(x=>x.id===id); if(!c) return;
+  const esJ    = c.tipo==="juridica";
+  const docStr = esJ&&c.dv?`NIT ${c.doc}-${c.dv}`:`C.C. ${c.doc}`;
   document.getElementById("drawer-title").textContent = c.nombre;
-  document.getElementById("drawer-sub").textContent   = `${c.tipo} · ${c.doc}`;
+  document.getElementById("drawer-sub").textContent   = `${c.id} · ${esJ?"Persona jurídica":"Persona natural"}`;
 
-  // Línea de vida del cliente (más reciente primero)
-  const tlHTML = [...c.historial].reverse().map((h,i,arr)=>{
-    const isLast = i===arr.length-1;
-    const badgeColors = {
-      gris:"gris", cian:"cian", verde:"verde",
-      rojo:"rojo", amarillo:"amarillo", azul:"cian"
-    };
-    const bc = badgeColors[h.tipo]||"gris";
+  const tlHTML = (c.historial||[]).slice().reverse().map((h,i,arr)=>{
+    const isLast=i===arr.length-1;
+    const bc={verde:"verde",cian:"cian",amarillo:"amarillo",rojo:"rojo",gris:"gris"}[h.tipo]||"gris";
     return `<div class="tl-v-item">
       <div class="tl-v-left">
         <div class="tl-v-dot ${bc}"></div>
@@ -656,59 +662,49 @@ function abrirDrawer(id){
         ${h.badge?`<div class="tl-v-badge ${bc}">${h.badge}</div>`:""}
         <div class="tl-v-event">${h.evento}</div>
         <div class="tl-v-meta">${h.fecha}</div>
-        ${h.doc?`<a style="font-size:11.5px;color:var(--cian);font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:4px;margin-top:4px" onclick="toast('Descarga en construcción','')">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          ${h.doc}
-        </a>`:""}
       </div>
     </div>`;
   }).join("");
 
-  // Equipos actuales
-  const eqsHTML = c.equipos.length
-    ? c.equipos.map(e=>`
-        <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #F8FAFC">
-          <div style="width:34px;height:34px;background:var(--cian-suave);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">🫁</div>
-          <div style="flex:1">
-            <div style="font-size:13px;font-weight:600;color:var(--texto)">${e.nombre} — ${e.marca} ${e.modelo}</div>
-            <div style="font-size:11.5px;font-family:monospace;color:var(--gris);margin-top:2px">Serie: ${e.serial}</div>
-          </div>
-          <span style="font-size:11px;font-weight:600;padding:3px 9px;border-radius:99px;background:var(--cian-suave);color:#0E86A0">${e.estado}</span>
-        </div>`).join("")
-    : `<div style="font-size:13px;color:var(--texto-suave);padding:10px 0">Sin equipos activos en este momento.</div>`;
-
-  const finBadge = c.pago==="ok"
-    ? `<span class="fin-badge fin-ok">🟢 Al día</span>`
-    : c.pago==="saldo"
-      ? `<span class="fin-badge fin-saldo">🔴 Saldo pendiente</span>`
-      : `<span class="fin-badge fin-sin">⚪ Sin historial</span>`;
-
   document.getElementById("drawer-body").innerHTML = `
-    <div class="d-section">
-      <div class="d-section-title">Información del cliente</div>
+    <div class="drawer-bloque">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+        <div style="width:48px;height:48px;border-radius:12px;background:${esJ?"var(--azul)":"var(--cian)"};display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0">${esJ?"🏥":"👤"}</div>
+        <div>
+          <span class="cli-tipo ${esJ?"ct-juridica":"ct-natural"}">${esJ?"Persona jurídica":"Persona natural"}</span>
+          <div style="margin-top:4px"><span class="activo-badge ${c.activo?"ab-activo":"ab-inactivo"}"><span class="ab-dot"></span>${c.activo?"Activo":"Inactivo"}</span></div>
+        </div>
+      </div>
       <div class="d-grid">
-        <div class="d-field"><label>Tipo</label><span>${c.tipo}</span></div>
-        <div class="d-field"><label>Estado de pago</label><span>${finBadge}</span></div>
-        <div class="d-field"><label>${esIPS?"NIT":"Cédula"}</label><span class="mono">${c.doc}</span></div>
-        <div class="d-field"><label>Teléfono</label><span>${c.tel}</span></div>
-        <div class="d-field"><label>Zona</label><span>${c.zona}, ${c.ciudad}</span></div>
-        <div class="d-field"><label>Email</label><span style="font-size:12.5px">${c.email||"—"}</span></div>
-        <div class="d-field" style="grid-column:1/-1"><label>Dirección</label><span>${c.dir}</span></div>
+        <div class="d-field" style="grid-column:1/-1"><label>Nombre / Razón social</label><span style="font-size:15px;font-weight:700;color:var(--azul)">${c.nombre}</span></div>
+        <div class="d-field"><label>Documento</label><span class="mono">${docStr}</span></div>
+        ${esJ&&c.dv?`<div class="d-field"><label>Dígito verificación</label><span class="mono" style="font-size:18px;font-weight:800">${c.dv}</span></div>`:""}
       </div>
     </div>
-    <div class="d-section">
-      <div class="d-section-title">Equipos en custodia (${c.equipos.length})</div>
-      ${eqsHTML}
+    <div class="drawer-bloque">
+      <div class="drawer-bloque-title">Ubicación</div>
+      <div class="d-grid">
+        <div class="d-field"><label>Departamento</label><span>${getNombreDep(c.dep)}</span></div>
+        <div class="d-field"><label>Municipio</label><span>${getNombreMun(c.mun)}</span></div>
+        <div class="d-field" style="grid-column:1/-1"><label>Dirección</label><span>${c.dir||"—"}</span></div>
+      </div>
     </div>
-    <div class="d-section">
-      <div class="d-section-title">📋 Expediente del cliente</div>
-      <div class="tl-v" style="padding-top:4px">${tlHTML}</div>
+    <div class="drawer-bloque">
+      <div class="drawer-bloque-title">Contacto</div>
+      <div class="d-grid">
+        <div class="d-field"><label>Teléfono</label><span>${c.tel||"—"}</span></div>
+        <div class="d-field"><label>Email</label><span style="font-size:12.5px;word-break:break-all">${c.email||"—"}</span></div>
+      </div>
+    </div>
+    <div class="drawer-bloque">
+      <div class="drawer-bloque-title">Historial</div>
+      <div class="tl-v">${tlHTML}</div>
     </div>`;
 
   document.getElementById("drawer-foot").innerHTML = `
-    <button class="btn-outline" style="flex:1;justify-content:center" onclick="editarCliente('${c.id}')">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-      Editar datos
+    <button class="btn-outline" style="flex:1;justify-content:center" onclick="editarCliente('${c.id}');closeDrawer()">✎ Editar</button>
+    <button class="btn-outline" style="flex:1;justify-content:center;${c.activo?"border-color:var(--rojo);color:var(--rojo)":"border-color:var(--verde);color:var(--verde)"}" onclick="toggleActivo('${c.id}')">
+      ${c.activo?"⛔ Desactivar":"✅ Activar"}
     </button>`;
 
   document.getElementById("drawer-overlay").classList.add("open");
@@ -720,44 +716,94 @@ function closeDrawer(){
   document.getElementById("drawer").classList.remove("open");
 }
 
-// ── MODAL NUEVO CLIENTE ───────────────────────────────────────
-function abrirModalNuevo(){
-  ["f-nombre","f-doc","f-tel","f-zona","f-dir","f-email"].forEach(id=>document.getElementById(id).value="");
-  document.getElementById("f-ciudad").value="Valledupar";
-  document.getElementById("modal-overlay").classList.add("open");
-}
-function cerrarModal(){document.getElementById("modal-overlay").classList.remove("open");}
-document.getElementById("modal-overlay").addEventListener("click",e=>{if(e.target.id==="modal-overlay")cerrarModal();});
-
-function guardarCliente(){
-  const nombre = document.getElementById("f-nombre").value.trim();
-  if(!nombre){toast("El nombre es requerido","error");return;}
-  const cli = getCli();
-  cli.push({
-    id:`CL-${String(cli.length+1).padStart(3,"0")}`,
-    tipo:document.getElementById("f-tipo").value,
-    nombre, doc:document.getElementById("f-doc").value||"—",
-    zona:document.getElementById("f-zona").value||"—",
-    ciudad:document.getElementById("f-ciudad").value||"Valledupar",
-    dir:document.getElementById("f-dir").value||"—",
-    tel:document.getElementById("f-tel").value||"—",
-    email:document.getElementById("f-email").value||"—",
-    pago:document.getElementById("f-pago").value,
-    activo:true, equipos:[],
-    historial:[{
-      evento:"Cliente registrado en el sistema",
-      fecha:new Date().toISOString().split("T")[0],
-      tipo:"gris", badge:"REGISTRO", doc:null
-    }]
+function toggleActivo(id){
+  const cli=getCli(), i=cli.findIndex(c=>c.id===id);
+  cli[i].activo=!cli[i].activo;
+  cli[i].historial.push({
+    evento:cli[i].activo?"Cliente reactivado":"Cliente desactivado",
+    fecha:new Date().toISOString().split("T")[0],
+    tipo:cli[i].activo?"verde":"rojo",
+    badge:cli[i].activo?"ALTA":"BAJA"
   });
-  setCli(cli);toast("Cliente registrado","success");cerrarModal();render();
+  setCli(cli);
+  toast(cli[i].activo?"Cliente activado":"Cliente desactivado","success");
+  closeDrawer();
+  render();
+}
+
+// ── MODAL ─────────────────────────────────────────────────────
+function selTipo(tipo){
+  tipoActual=tipo;
+  document.getElementById("opt-natural").className  = "tipo-opt"+(tipo==="natural"?" sel-natural":"");
+  document.getElementById("opt-juridica").className = "tipo-opt"+(tipo==="juridica"?" sel-juridica":"");
+  // Mostrar/ocultar dígito verificación y cambiar label doc
+  document.getElementById("c-dv-wrap").style.display   = tipo==="juridica"?"flex":"none";
+  document.getElementById("c-doc-label").textContent   = tipo==="juridica"?"Número de NIT":"Número de documento (C.C.)";
+  document.getElementById("c-doc").placeholder         = tipo==="juridica"?"ej. 900123456":"ej. 1065432198";
+}
+
+function abrirModalNuevo(){
+  editandoId=null;
+  document.getElementById("modal-cli-title").textContent="Nuevo cliente";
+  ["c-nombre","c-doc","c-dv","c-dir","c-tel","c-email"].forEach(id=>document.getElementById(id).value="");
+  document.getElementById("c-dep").value="";
+  document.getElementById("c-mun").innerHTML='<option value="">Seleccionar departamento</option>';
+  selTipo("natural");
+  document.getElementById("modal-cli").classList.add("open");
 }
 
 function editarCliente(id){
-  toast("Editor en construcción — próximamente","");
+  const c=getCli().find(x=>x.id===id); if(!c) return;
+  editandoId=id;
+  document.getElementById("modal-cli-title").textContent="Editar cliente";
+  selTipo(c.tipo);
+  document.getElementById("c-nombre").value = c.nombre||"";
+  document.getElementById("c-doc").value    = c.doc||"";
+  document.getElementById("c-dv").value     = c.dv||"";
+  document.getElementById("c-dir").value    = c.dir||"";
+  document.getElementById("c-tel").value    = c.tel||"";
+  document.getElementById("c-email").value  = c.email||"";
+  document.getElementById("c-dep").value    = c.dep||"";
+  actualizarMunicipiosModal();
+  setTimeout(()=>{ document.getElementById("c-mun").value=c.mun||""; },50);
+  document.getElementById("modal-cli").classList.add("open");
 }
 
-initData();render();
+function cerrarModal(){document.getElementById("modal-cli").classList.remove("open");}
+document.getElementById("modal-cli").addEventListener("click",e=>{if(e.target.id==="modal-cli")cerrarModal();});
+
+function guardarCliente(){
+  const nombre=document.getElementById("c-nombre").value.trim();
+  const doc   =document.getElementById("c-doc").value.trim();
+  if(!nombre){toast("El nombre es requerido","error");return;}
+  if(!doc)   {toast("El documento es requerido","error");return;}
+  const cli=getCli();
+  const datos={
+    tipo:tipoActual, nombre, doc,
+    dv:   document.getElementById("c-dv").value.trim()||null,
+    dep:  document.getElementById("c-dep").value,
+    mun:  document.getElementById("c-mun").value,
+    dir:  document.getElementById("c-dir").value.trim(),
+    tel:  document.getElementById("c-tel").value.trim(),
+    email:document.getElementById("c-email").value.trim(),
+  };
+  if(editandoId){
+    const i=cli.findIndex(c=>c.id===editandoId);
+    Object.assign(cli[i],datos);
+    cli[i].historial.push({evento:"Datos actualizados",fecha:new Date().toISOString().split("T")[0],tipo:"cian",badge:"EDICIÓN"});
+    setCli(cli); toast("Cliente actualizado","success");
+  } else {
+    const n=String(cli.length+1).padStart(3,"0");
+    cli.push({
+      id:`CL-${n}`, ...datos, activo:true,
+      historial:[{evento:"Cliente registrado",fecha:new Date().toISOString().split("T")[0],tipo:"verde",badge:"REGISTRO"}]
+    });
+    setCli(cli); toast("Cliente registrado","success");
+  }
+  cerrarModal(); render();
+}
+
+initData(); render();
 </script>
 </body>
 </html>

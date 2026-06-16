@@ -37,7 +37,7 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
 .nav-item.active .ni,.nav-item:hover .ni{opacity:1}
 .nav-badge{margin-left:auto;background:var(--rojo);color:#fff;font-size:10px;font-weight:700;padding:1px 6px;border-radius:99px;min-width:18px;text-align:center}
 .nav-badge.cian{background:var(--cian)}
-.sidebar-user{padding:14px 18px;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:10px}
+.sidebar-user{margin-top:auto;padding:14px 18px;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:10px}
 .user-avatar{width:32px;height:32px;border-radius:50%;background:var(--cian);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0}
 .user-name{font-size:12.5px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .user-role{font-size:10.5px;color:rgba(255,255,255,.4)}
@@ -162,89 +162,70 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
 ::-webkit-scrollbar-thumb{background:#CBD5E1;border-radius:99px}
 
 
-/* LAYOUT CONFIG */
 .config-layout{flex:1;overflow:hidden;display:flex}
-
-/* SIDEBAR SECUNDARIO */
-.config-nav{width:220px;min-width:220px;background:var(--blanco);border-right:1px solid var(--borde);padding:20px 12px;display:flex;flex-direction:column;gap:2px;overflow-y:auto;flex-shrink:0}
-.config-nav-label{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--texto-suave);padding:0 10px;margin:16px 0 6px}
+.config-nav{width:230px;min-width:230px;background:var(--blanco);border-right:1px solid var(--borde);padding:16px 10px;display:flex;flex-direction:column;gap:2px;overflow-y:auto;flex-shrink:0}
+.config-nav-label{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--texto-suave);padding:0 10px;margin:14px 0 5px}
 .config-nav-label:first-child{margin-top:0}
-.config-nav-item{display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:9px;font-size:13px;font-weight:500;color:var(--texto-med);cursor:pointer;transition:all .15s;user-select:none}
-.config-nav-item:hover{background:#F1F5F9;color:var(--azul)}
-.config-nav-item.active{background:var(--azul);color:#fff;font-weight:600}
-.config-nav-item .cni{width:16px;flex-shrink:0;display:flex;align-items:center;justify-content:center;opacity:.7}
-.config-nav-item.active .cni,.config-nav-item:hover .cni{opacity:1}
+.cfg-nav-item{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:9px;font-size:13px;font-weight:500;color:var(--texto-med);cursor:pointer;transition:all .15s;user-select:none}
+.cfg-nav-item:hover{background:#F1F5F9;color:var(--azul)}
+.cfg-nav-item.active{background:var(--azul);color:#fff;font-weight:600}
+.cfg-nav-item .ni{width:16px;flex-shrink:0;display:flex;align-items:center;justify-content:center;opacity:.7}
+.cfg-nav-item.active .ni{opacity:1}
 
-/* CONTENT CONFIG */
 .config-content{flex:1;overflow-y:auto;padding:28px 32px}
-.config-section{display:none;max-width:820px}
-.config-section.active{display:block}
+.cfg-section{display:none;max-width:860px}
+.cfg-section.active{display:block}
 
-/* HEADER SECCIÓN */
-.sec-header{margin-bottom:24px}
-.sec-title{font-size:22px;font-weight:800;color:var(--azul)}
-.sec-sub{font-size:13.5px;color:var(--texto-suave);margin-top:4px}
+.sec-title{font-size:20px;font-weight:800;color:var(--azul);margin-bottom:4px}
+.sec-sub{font-size:13px;color:var(--texto-suave);margin-bottom:24px}
 
-/* CARD */
 .cfg-card{background:var(--blanco);border-radius:12px;border:1px solid var(--borde);box-shadow:0 1px 4px rgba(0,0,0,.04);overflow:hidden;margin-bottom:20px}
-.cfg-card-head{padding:16px 20px;border-bottom:1px solid var(--borde);display:flex;align-items:center;justify-content:space-between}
+.cfg-card-head{padding:14px 20px;border-bottom:1px solid var(--borde);display:flex;align-items:center;justify-content:space-between}
 .cfg-card-title{font-size:14px;font-weight:700;color:var(--texto)}
 .cfg-card-sub{font-size:12px;color:var(--texto-suave);margin-top:2px}
 
-/* TABLA USUARIOS */
+/* TABLA CONFIG */
 .cfg-table{width:100%;border-collapse:collapse}
-.cfg-table th{padding:10px 16px;text-align:left;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--texto-suave);background:var(--fondo);border-bottom:1px solid var(--borde)}
-.cfg-table td{padding:12px 16px;font-size:13px;color:var(--texto);border-bottom:1px solid #F8FAFC;vertical-align:middle}
+.cfg-table th{padding:9px 16px;text-align:left;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--texto-suave);background:var(--fondo);border-bottom:1px solid var(--borde)}
+.cfg-table td{padding:11px 16px;font-size:13px;color:var(--texto);border-bottom:1px solid #F8FAFC;vertical-align:middle}
 .cfg-table tbody tr:last-child td{border-bottom:none}
 .cfg-table tbody tr:hover td{background:#FAFBFC}
 
-/* USUARIO CELL */
-.u-cell{display:flex;align-items:center;gap:10px}
-.u-av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0}
-
-/* ROL BADGE */
-.rol-badge{display:inline-flex;align-items:center;padding:3px 9px;border-radius:99px;font-size:11px;font-weight:700}
-.rb-admin{background:var(--cian-suave);color:#0E86A0}
-.rb-repartidor{background:var(--verde-suave);color:var(--verde)}
-
-/* ESTADO */
-.est-activo{color:var(--verde);font-size:12px;font-weight:600;display:flex;align-items:center;gap:5px}
-.est-inactivo{color:var(--texto-suave);font-size:12px;font-weight:600}
-.est-dot{width:7px;height:7px;border-radius:50%;background:currentColor}
-
-/* PERMISOS TABLE */
-.perm-table{width:100%;border-collapse:collapse}
-.perm-table th{padding:10px 14px;text-align:center;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--texto-suave);background:var(--fondo);border-bottom:1px solid var(--borde)}
-.perm-table th:first-child{text-align:left}
-.perm-table td{padding:10px 14px;font-size:13px;color:var(--texto);border-bottom:1px solid #F8FAFC;text-align:center;vertical-align:middle}
-.perm-table td:first-child{text-align:left;font-weight:600}
-.perm-table tbody tr:last-child td{border-bottom:none}
-.perm-table tbody tr:hover td{background:#FAFBFC}
-
-/* CHECKBOX */
-.perm-check{width:16px;height:16px;border-radius:4px;border:1.5px solid var(--borde);background:var(--blanco);cursor:pointer;appearance:none;transition:all .15s;display:inline-block;vertical-align:middle;position:relative}
-.perm-check:checked{background:var(--azul);border-color:var(--azul)}
-.perm-check:checked::after{content:"✓";position:absolute;top:-1px;left:2px;font-size:11px;color:#fff;font-weight:700}
-
-/* CATALOGO */
-.cat-list{padding:0}
+/* CATÁLOGO */
 .cat-item{display:flex;align-items:center;gap:12px;padding:11px 20px;border-bottom:1px solid #F8FAFC;transition:background .1s}
 .cat-item:last-child{border-bottom:none}
 .cat-item:hover{background:#FAFBFC}
-.cat-color{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.cat-color-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.cat-emoji-big{font-size:20px;flex-shrink:0;width:28px;text-align:center}
 .cat-nombre{font-size:13px;font-weight:500;color:var(--texto);flex:1}
-.cat-actions{display:flex;gap:6px}
+.cat-sub{font-size:11.5px;color:var(--texto-suave)}
+.cat-actions{display:flex;gap:6px;flex-shrink:0}
 .cat-btn{padding:4px 10px;border-radius:7px;font-family:"Inter",sans-serif;font-size:11.5px;font-weight:600;border:1.5px solid var(--borde);background:var(--blanco);color:var(--texto-med);cursor:pointer;transition:all .15s}
 .cat-btn:hover{border-color:var(--cian);color:var(--cian)}
 .cat-btn.danger:hover{border-color:var(--rojo);color:var(--rojo)}
 
 /* PLANTILLAS */
-.plantilla-card{display:flex;align-items:center;gap:14px;padding:14px 20px;border-bottom:1px solid #F8FAFC;transition:background .1s}
-.plantilla-card:last-child{border-bottom:none}
-.plantilla-card:hover{background:#FAFBFC}
-.plantilla-icon{width:38px;height:38px;border-radius:9px;background:var(--azul-suave,#EEF2FF);display:flex;align-items:center;justify-content:center;color:var(--azul);flex-shrink:0}
-.plantilla-nombre{font-size:13.5px;font-weight:600;color:var(--texto)}
+.plantilla-item{display:flex;align-items:center;gap:14px;padding:13px 20px;border-bottom:1px solid #F8FAFC}
+.plantilla-item:last-child{border-bottom:none}
+.plantilla-item:hover{background:#FAFBFC}
+.plantilla-icon{width:36px;height:36px;border-radius:9px;background:var(--azul-suave,#EEF2FF);display:flex;align-items:center;justify-content:center;color:var(--azul);flex-shrink:0}
+.plantilla-nombre{font-size:13.5px;font-weight:600;color:var(--texto);flex:1}
 .plantilla-sub{font-size:11.5px;color:var(--texto-suave);margin-top:2px}
+
+/* CARGUE MASIVO */
+.upload-zone{border:2px dashed var(--borde);border-radius:12px;padding:32px;text-align:center;cursor:pointer;transition:all .2s;background:var(--fondo)}
+.upload-zone:hover,.upload-zone.drag{border-color:var(--cian);background:var(--cian-suave)}
+.upload-zone input{display:none}
+
+/* PERMISOS */
+.perm-table{width:100%;border-collapse:collapse}
+.perm-table th{padding:9px 12px;text-align:center;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--texto-suave);background:var(--fondo);border-bottom:1px solid var(--borde)}
+.perm-table th:first-child{text-align:left}
+.perm-table td{padding:9px 12px;font-size:13px;border-bottom:1px solid #F8FAFC;text-align:center;vertical-align:middle}
+.perm-table td:first-child{text-align:left;font-weight:600}
+.perm-check{appearance:none;width:16px;height:16px;border-radius:4px;border:1.5px solid var(--borde);background:var(--blanco);cursor:pointer;transition:all .15s;display:inline-block;vertical-align:middle;position:relative}
+.perm-check:checked{background:var(--azul);border-color:var(--azul)}
+.perm-check:checked::after{content:"✓";position:absolute;top:-1px;left:2px;font-size:11px;color:#fff;font-weight:700}
 
 /* EMPRESA FORM */
 .emp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:20px}
@@ -252,27 +233,26 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
 .emp-field.full{grid-column:1/-1}
 .emp-field label{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--texto-med)}
 .emp-field input{padding:9px 12px;border:1.5px solid var(--borde);border-radius:9px;font-family:"Inter",sans-serif;font-size:13.5px;color:var(--texto);background:var(--blanco);outline:none;transition:border-color .15s}
-.emp-field input:focus{border-color:var(--cian);box-shadow:0 0 0 3px rgba(46,181,212,.1)}
+.emp-field input:focus{border-color:var(--cian)}
 
 /* MODAL */
 .modal-overlay{position:fixed;inset:0;background:rgba(15,36,72,.4);z-index:300;display:none;align-items:center;justify-content:center;backdrop-filter:blur(3px)}
 .modal-overlay.open{display:flex}
-.modal{background:var(--blanco);border-radius:16px;width:100%;max-width:460px;display:flex;flex-direction:column;box-shadow:0 24px 64px rgba(0,0,0,.2);overflow:hidden;border:1px solid var(--borde)}
+.modal{background:var(--blanco);border-radius:16px;width:100%;max-width:500px;max-height:92vh;display:flex;flex-direction:column;box-shadow:0 24px 64px rgba(0,0,0,.2);overflow:hidden}
 .modal-head{padding:18px 24px;border-bottom:1px solid var(--borde);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
 .modal-head h3{font-size:15px;font-weight:700;color:var(--azul)}
 .modal-close{background:none;border:none;cursor:pointer;color:var(--texto-suave);width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center}
 .modal-close:hover{background:#F1F5F9}
-.modal-body{padding:22px 24px}
-.modal-foot{padding:14px 24px;border-top:1px solid var(--borde);display:flex;justify-content:flex-end;gap:10px}
-.form-group{display:flex;flex-direction:column;gap:5px;margin-bottom:14px}
-.form-group label{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--texto-med)}
-.form-group input,.form-group select{padding:10px 12px;border:1.5px solid var(--borde);border-radius:9px;font-family:"Inter",sans-serif;font-size:13.5px;color:var(--texto);background:var(--blanco);outline:none;transition:border-color .15s}
-.form-group input:focus,.form-group select:focus{border-color:var(--cian)}
-
-/* COLOR PICKER ROW */
+.modal-body{padding:22px 24px;overflow-y:auto;flex:1}
+.modal-foot{padding:14px 24px;border-top:1px solid var(--borde);display:flex;justify-content:flex-end;gap:10px;flex-shrink:0}
+.form-row{display:grid;gap:14px;margin-bottom:14px}
+.form-row.c2{grid-template-columns:1fr 1fr}
+.form-group{display:flex;flex-direction:column;gap:5px}
+.form-group label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--texto-med)}
+.form-group input,.form-group select,.form-group textarea{padding:10px 12px;border:1.5px solid var(--borde);border-radius:9px;font-family:"Inter",sans-serif;font-size:13.5px;color:var(--texto);background:var(--blanco);outline:none;transition:border-color .15s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--cian)}
 .color-row{display:flex;align-items:center;gap:10px}
 .color-row input[type="color"]{width:36px;height:36px;border-radius:8px;border:1.5px solid var(--borde);cursor:pointer;padding:2px}
-.color-preview{font-size:12px;color:var(--texto-suave)}
 </style>
 </head>
 <body>
@@ -300,9 +280,6 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
     <a class="nav-item" href="ordenes.html">
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>Órdenes de servicio
     </a>
-    <a class="nav-item" href="servicios.html">
-      <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></span>Servicios
-    </a>
     <a class="nav-item" href="clientes.html">
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>Clientes
     </a>
@@ -312,6 +289,9 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
     <a class="nav-item" href="solicitudes.html">
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>Solicitudes<span class="nav-badge">2</span>
     </a>
+    <a class="nav-item" href="servicios.html">
+      <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>Servicios prestados
+    </a>
   </div>
   <div class="nav-group"><div class="nav-group-label">Sistema</div>
     <a class="nav-item" href="bitacora.html">
@@ -319,11 +299,6 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
     </a>
     <a class="nav-item active" href="configuracion.html">
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></span>Configuración
-    </a>
-  </div>
-  <div style="padding:8px 12px;border-top:1px solid rgba(255,255,255,.08);margin-top:0">
-    <a class="nav-item" href="manual_usuario.html" target="_blank">
-      <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M8 7h8M8 11h8M8 15h8"/></svg></span>Manual de usuario
     </a>
   </div>
   <div class="sidebar-user">
@@ -344,174 +319,210 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
   </div>
 
   <div class="config-layout">
-    <!-- Sidebar secundario -->
+    <!-- NAV SECUNDARIO -->
     <aside class="config-nav">
       <div class="config-nav-label">Acceso</div>
-      <div class="config-nav-item active" onclick="setSeccion('usuarios',this)">
-        <span class="cni"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-        Usuarios
+      <div class="cfg-nav-item active" onclick="setSeccion('usuarios',this)">
+        <span class="ni"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span>Usuarios
       </div>
-      <div class="config-nav-item" onclick="setSeccion('roles',this)">
-        <span class="cni"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
-        Roles y permisos
+      <div class="cfg-nav-item" onclick="setSeccion('roles',this)">
+        <span class="ni"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>Roles y permisos
       </div>
 
-      <div class="config-nav-label">Catálogos</div>
-      <div class="config-nav-item" onclick="setSeccion('cat-estados-equipo',this)">
-        <span class="cni"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
-        Estados de equipo
+      <div class="config-nav-label">Inventario</div>
+      <div class="cfg-nav-item" onclick="setSeccion('categorias',this)">
+        <span class="ni"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>Categorías
       </div>
-      <div class="config-nav-item" onclick="setSeccion('cat-tipos-cliente',this)">
-        <span class="cni"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span>
-        Tipos de cliente
+      <div class="cfg-nav-item" onclick="setSeccion('tipos-equipo',this)">
+        <span class="ni"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg></span>Tipos de equipo
       </div>
-      <div class="config-nav-item" onclick="setSeccion('cat-tipos-solicitud',this)">
-        <span class="cni"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg></span>
-        Tipos de solicitud
+      <div class="cfg-nav-item" onclick="setSeccion('campos',this)">
+        <span class="ni"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span>Campos configurables
       </div>
-      <div class="config-nav-item" onclick="setSeccion('cat-estados-mant',this)">
-        <span class="cni"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
-        Estados de mantenimiento
+
+      <div class="config-nav-label">Mantenimientos</div>
+      <div class="cfg-nav-item" onclick="setSeccion('checklist',this)">
+        <span class="ni"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>Checklist actividades
       </div>
 
       <div class="config-nav-label">Sistema</div>
-      <div class="config-nav-item" onclick="setSeccion('empresa',this)">
-        <span class="cni"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
-        Datos de la empresa
+      <div class="cfg-nav-item" onclick="setSeccion('empresa',this)">
+        <span class="ni"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>Datos de la empresa
       </div>
-      <div class="config-nav-item" onclick="setSeccion('plantillas',this)">
-        <span class="cni"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
-        Plantillas de documentos
+      <div class="cfg-nav-item" onclick="setSeccion('plantillas',this)">
+        <span class="ni"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>Plantillas documentos
+      </div>
+      <div class="cfg-nav-item" onclick="setSeccion('cargue',this)">
+        <span class="ni"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></span>Cargue masivo
       </div>
     </aside>
 
-    <!-- Contenido -->
+    <!-- CONTENIDO -->
     <div class="config-content">
 
       <!-- USUARIOS -->
-      <div class="config-section active" id="sec-usuarios">
-        <div class="sec-header">
-          <div class="sec-title">Usuarios</div>
-          <div class="sec-sub">Gestiona quién tiene acceso al sistema y con qué rol.</div>
-        </div>
+      <div class="cfg-section active" id="sec-usuarios">
+        <div class="sec-title">Usuarios</div>
+        <div class="sec-sub">Gestiona quién tiene acceso al sistema.</div>
         <div class="cfg-card">
           <div class="cfg-card-head">
-            <div>
-              <div class="cfg-card-title">Usuarios del sistema</div>
-              <div class="cfg-card-sub" id="usr-count">—</div>
-            </div>
+            <div><div class="cfg-card-title">Usuarios registrados</div><div class="cfg-card-sub" id="usr-count">—</div></div>
             <button class="btn-primary" onclick="abrirModalUsuario()">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              Invitar usuario
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Nuevo usuario
             </button>
           </div>
           <table class="cfg-table">
-            <thead><tr>
-              <th>Nombre</th><th>Correo</th><th>Rol</th><th>Estado</th><th>Acciones</th>
-            </tr></thead>
+            <thead><tr><th>Nombre</th><th>Correo</th><th>Usuario</th><th>Rol</th><th>Estado</th><th>Acciones</th></tr></thead>
             <tbody id="usr-body"></tbody>
           </table>
         </div>
       </div>
 
-      <!-- ROLES Y PERMISOS -->
-      <div class="config-section" id="sec-roles">
-        <div class="sec-header">
-          <div class="sec-title">Roles y permisos</div>
-          <div class="sec-sub">Define qué puede hacer cada rol en cada módulo del sistema.</div>
-        </div>
+      <!-- ROLES -->
+      <div class="cfg-section" id="sec-roles">
+        <div class="sec-title">Roles y permisos</div>
+        <div class="sec-sub">Define qué puede hacer cada rol en cada módulo.</div>
         <div class="cfg-card">
-          <div class="cfg-card-head">
-            <div class="cfg-card-title">Permisos por módulo</div>
-          </div>
+          <div class="cfg-card-head"><div class="cfg-card-title">Permisos por módulo</div></div>
           <div style="overflow-x:auto">
             <table class="perm-table">
-              <thead><tr>
-                <th style="text-align:left">Módulo</th>
-                <th colspan="4" style="color:var(--azul)">Administrador</th>
-                <th colspan="4" style="color:var(--verde)">Repartidor</th>
-              </tr>
-              <tr>
-                <th style="text-align:left">—</th>
-                <th>Ver</th><th>Crear</th><th>Editar</th><th>Eliminar</th>
-                <th>Ver</th><th>Crear</th><th>Editar</th><th>Eliminar</th>
-              </tr></thead>
+              <thead>
+                <tr><th style="text-align:left">Módulo</th><th colspan="4" style="color:var(--azul)">Administrador</th><th colspan="4" style="color:var(--verde)">Repartidor</th></tr>
+                <tr><th style="text-align:left">—</th><th>Ver</th><th>Crear</th><th>Editar</th><th>Eliminar</th><th>Ver</th><th>Crear</th><th>Editar</th><th>Eliminar</th></tr>
+              </thead>
               <tbody id="perm-body"></tbody>
             </table>
           </div>
         </div>
       </div>
 
-      <!-- CATÁLOGOS (template genérico) -->
-      <div class="config-section" id="sec-cat-estados-equipo">
-        <div class="sec-header">
-          <div class="sec-title">Estados de equipo</div>
-          <div class="sec-sub">Los estados que puede tener un equipo en el inventario.</div>
-        </div>
-        <div class="cfg-card" id="cat-estados-equipo-card"></div>
+      <!-- CATEGORÍAS -->
+      <div class="cfg-section" id="sec-categorias">
+        <div class="sec-title">Categorías de equipo</div>
+        <div class="sec-sub">Las categorías agrupan los tipos de equipo en el inventario.</div>
+        <div class="cfg-card" id="cat-categorias-card"></div>
       </div>
 
-      <div class="config-section" id="sec-cat-tipos-cliente">
-        <div class="sec-header">
-          <div class="sec-title">Tipos de cliente</div>
-          <div class="sec-sub">Categorías de clientes configurables desde aquí.</div>
+      <!-- TIPOS EQUIPO -->
+      <div class="cfg-section" id="sec-tipos-equipo">
+        <div class="sec-title">Tipos de equipo</div>
+        <div class="sec-sub">Catálogo de modelos por categoría. El stock se calcula sumando sus unidades.</div>
+        <div class="cfg-card">
+          <div class="cfg-card-head">
+            <div>
+              <div class="cfg-card-title">Filtrar por categoría</div>
+            </div>
+            <select id="filter-cat-tipo" onchange="renderTiposEquipo()" style="padding:8px 12px;border:1.5px solid var(--borde);border-radius:9px;font-family:'Inter',sans-serif;font-size:13px;outline:none">
+              <option value="">Todas las categorías</option>
+            </select>
+          </div>
+          <table class="cfg-table" id="tipos-table">
+            <thead><tr><th>Categoría</th><th>Marca</th><th>Modelo</th><th>INVIMA</th><th>Valor</th><th>Proveedor</th><th>Acciones</th></tr></thead>
+            <tbody id="tipos-body"></tbody>
+          </table>
         </div>
-        <div class="cfg-card" id="cat-tipos-cliente-card"></div>
       </div>
 
-      <div class="config-section" id="sec-cat-tipos-solicitud">
-        <div class="sec-header">
-          <div class="sec-title">Tipos de solicitud</div>
-          <div class="sec-sub">Tipos de novedades que se pueden reportar en el módulo de solicitudes.</div>
-        </div>
-        <div class="cfg-card" id="cat-tipos-solicitud-card"></div>
+      <!-- CAMPOS CONFIGURABLES -->
+      <div class="cfg-section" id="sec-campos">
+        <div class="sec-title">Campos configurables</div>
+        <div class="sec-sub">Define qué campos adicionales tiene cada categoría en el tipo de equipo y en las unidades individuales.</div>
+        <div id="campos-content"></div>
       </div>
 
-      <div class="config-section" id="sec-cat-estados-mant">
-        <div class="sec-header">
-          <div class="sec-title">Estados de mantenimiento</div>
-          <div class="sec-sub">Los estados por los que pasa un mantenimiento.</div>
-        </div>
-        <div class="cfg-card" id="cat-estados-mant-card"></div>
+      <!-- CHECKLIST -->
+      <div class="cfg-section" id="sec-checklist">
+        <div class="sec-title">Checklist de mantenimiento</div>
+        <div class="sec-sub">Actividades predeterminadas que aparecen al cerrar un mantenimiento. El técnico puede marcarlas y agregar actividades libres.</div>
+        <div class="cfg-card" id="checklist-card"></div>
       </div>
 
       <!-- EMPRESA -->
-      <div class="config-section" id="sec-empresa">
-        <div class="sec-header">
-          <div class="sec-title">Datos de la empresa</div>
-          <div class="sec-sub">Información que aparece en los documentos generados por el sistema.</div>
-        </div>
+      <div class="cfg-section" id="sec-empresa">
+        <div class="sec-title">Datos de la empresa</div>
+        <div class="sec-sub">Información que aparece en los documentos generados por el sistema.</div>
         <div class="cfg-card">
-          <div class="cfg-card-head">
-            <div class="cfg-card-title">Ingemedic de Colombia S.A.S.</div>
-          </div>
+          <div class="cfg-card-head"><div class="cfg-card-title">Ingemedic de Colombia S.A.S.</div></div>
           <div class="emp-grid">
-            <div class="emp-field"><label>Razón social</label><input value="Ingemedic de Colombia S.A.S."></div>
-            <div class="emp-field"><label>NIT</label><input value="900.123.456-7"></div>
-            <div class="emp-field"><label>Teléfono</label><input value="605 580 1234"></div>
-            <div class="emp-field"><label>Email</label><input value="info@ingemedic.com.co"></div>
-            <div class="emp-field full"><label>Dirección</label><input value="Calle 15 #8-32, Valledupar, Cesar"></div>
-            <div class="emp-field"><label>Ciudad</label><input value="Valledupar"></div>
-            <div class="emp-field"><label>Departamento</label><input value="Cesar"></div>
+            <div class="emp-field"><label>Razón social</label><input id="e-razon" value="Ingemedic de Colombia S.A.S."></div>
+            <div class="emp-field"><label>NIT</label><input id="e-nit" value="900.662.580-5"></div>
+            <div class="emp-field"><label>Teléfono</label><input id="e-tel" value="310 3636481"></div>
+            <div class="emp-field"><label>Email</label><input id="e-email" value="ingemedisas@hotmail.com"></div>
+            <div class="emp-field full"><label>Dirección</label><input id="e-dir" value="CLL 14C No 20-14 La Popa, Valledupar, Cesar"></div>
+            <div class="emp-field"><label>Representante legal</label><input id="e-rep" value="Johan Rafael Daza Coronado"></div>
+            <div class="emp-field"><label>Página web</label><input id="e-web" value="www.ingemedic.co"></div>
           </div>
-          <div style="padding:0 20px 20px;display:flex;justify-content:flex-end">
-            <button class="btn-primary" onclick="toast('Datos guardados','success')">Guardar cambios</button>
+          <div style="padding:0 20px 20px;display:flex;gap:10px;justify-content:flex-end">
+            <button class="btn-outline" onclick="loadCompanyLogo()">📷 Cambiar logo</button>
+            <button class="btn-primary" onclick="guardarEmpresa()">Guardar cambios</button>
           </div>
+          <input type="file" id="logo-file" accept="image/*" style="display:none" onchange="uploadLogo(event)">
         </div>
       </div>
 
       <!-- PLANTILLAS -->
-      <div class="config-section" id="sec-plantillas">
-        <div class="sec-header">
-          <div class="sec-title">Plantillas de documentos</div>
-          <div class="sec-sub">Documentos legales que el sistema genera automáticamente para cada tipo de orden de servicio.</div>
-        </div>
+      <div class="cfg-section" id="sec-plantillas">
+        <div class="sec-title">Plantillas de documentos</div>
+        <div class="sec-sub">Documentos legales usados en las órdenes de servicio. Se generan automáticamente con los datos del cliente y el equipo.</div>
         <div class="cfg-card">
           <div class="cfg-card-head">
             <div class="cfg-card-title">Documentos configurados</div>
-            <div class="cfg-card-sub">Haz clic en "Previsualizar" para ver el documento base</div>
           </div>
           <div id="plantillas-list"></div>
+        </div>
+      </div>
+
+      <!-- CARGUE MASIVO -->
+      <div class="cfg-section" id="sec-cargue">
+        <div class="sec-title">Cargue masivo</div>
+        <div class="sec-sub">Importa datos desde archivos CSV o Excel para poblar el sistema rápidamente.</div>
+
+        <!-- Equipos -->
+        <div class="cfg-card" style="margin-bottom:20px">
+          <div class="cfg-card-head">
+            <div>
+              <div class="cfg-card-title">📦 Cargue masivo de equipos</div>
+              <div class="cfg-card-sub">Importa unidades de inventario desde un archivo CSV</div>
+            </div>
+            <button class="btn-outline" onclick="descargarPlantillaEquipos()">⬇ Descargar plantilla</button>
+          </div>
+          <div style="padding:20px">
+            <div class="upload-zone" id="zone-equipos"
+              ondragover="event.preventDefault();this.classList.add('drag')"
+              ondragleave="this.classList.remove('drag')"
+              ondrop="event.preventDefault();this.classList.remove('drag');procesarCSV(event.dataTransfer.files[0],'equipos')"
+              onclick="document.getElementById('file-equipos').click()">
+              <input type="file" id="file-equipos" accept=".csv,.xlsx" onchange="procesarCSV(this.files[0],'equipos')">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--texto-suave)" stroke-width="1.5" style="margin:0 auto 10px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <div style="font-size:14px;font-weight:600;color:var(--texto-med)">Arrastra tu CSV aquí o haz clic para seleccionar</div>
+              <div style="font-size:12px;color:var(--texto-suave);margin-top:4px">Columnas: categoria, marca, modelo, serial, lote, fecha_compra</div>
+            </div>
+            <div id="preview-equipos" style="margin-top:14px"></div>
+          </div>
+        </div>
+
+        <!-- Clientes -->
+        <div class="cfg-card">
+          <div class="cfg-card-head">
+            <div>
+              <div class="cfg-card-title">👥 Cargue masivo de clientes</div>
+              <div class="cfg-card-sub">Importa clientes desde un archivo CSV</div>
+            </div>
+            <button class="btn-outline" onclick="descargarPlantillaClientes()">⬇ Descargar plantilla</button>
+          </div>
+          <div style="padding:20px">
+            <div class="upload-zone" id="zone-clientes"
+              ondragover="event.preventDefault();this.classList.add('drag')"
+              ondragleave="this.classList.remove('drag')"
+              ondrop="event.preventDefault();this.classList.remove('drag');procesarCSV(event.dataTransfer.files[0],'clientes')"
+              onclick="document.getElementById('file-clientes').click()">
+              <input type="file" id="file-clientes" accept=".csv,.xlsx" onchange="procesarCSV(this.files[0],'clientes')">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--texto-suave)" stroke-width="1.5" style="margin:0 auto 10px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <div style="font-size:14px;font-weight:600;color:var(--texto-med)">Arrastra tu CSV aquí o haz clic para seleccionar</div>
+              <div style="font-size:12px;color:var(--texto-suave);margin-top:4px">Columnas: tipo, nombre, documento, departamento, municipio, direccion, telefono, email</div>
+            </div>
+            <div id="preview-clientes" style="margin-top:14px"></div>
+          </div>
         </div>
       </div>
 
@@ -520,57 +531,19 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
 </main>
 </div>
 
-<!-- MODAL USUARIO -->
-<div class="modal-overlay" id="modal-usuario">
+<!-- MODAL GENÉRICO -->
+<div class="modal-overlay" id="modal-gen">
   <div class="modal" onclick="event.stopPropagation()">
     <div class="modal-head">
-      <h3 id="modal-usr-title">Nuevo usuario</h3>
-      <button class="modal-close" onclick="cerrarModalUsuario()">
+      <h3 id="modal-gen-title">—</h3>
+      <button class="modal-close" onclick="cerrarModalGen()">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
-    <div class="modal-body">
-      <div class="form-group"><label>Nombre completo</label><input id="u-nombre" placeholder="Nombre del usuario"></div>
-      <div class="form-group"><label>Correo electrónico</label><input id="u-email" type="email" placeholder="correo@ingemedic.co"></div>
-      <div class="form-group"><label>Rol</label>
-        <select id="u-rol">
-          <option value="admin">Administrador</option>
-          <option value="repartidor">Repartidor</option>
-        </select>
-      </div>
-    </div>
+    <div class="modal-body" id="modal-gen-body"></div>
     <div class="modal-foot">
-      <button class="btn-outline" onclick="cerrarModalUsuario()">Cancelar</button>
-      <button class="btn-primary" onclick="guardarUsuario()">Guardar</button>
-    </div>
-  </div>
-</div>
-
-<!-- MODAL CATÁLOGO -->
-<div class="modal-overlay" id="modal-catalogo">
-  <div class="modal" onclick="event.stopPropagation()">
-    <div class="modal-head">
-      <h3 id="modal-cat-title">Nuevo elemento</h3>
-      <button class="modal-close" onclick="cerrarModalCat()">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-    </div>
-    <div class="modal-body">
-      <div class="form-group"><label>Nombre</label><input id="cat-nombre" placeholder="Nombre del elemento"></div>
-      <div class="form-group"><label>Descripción <span style="font-size:10px;font-weight:400;text-transform:none;color:var(--texto-suave)">(opcional)</span></label>
-        <input id="cat-desc" placeholder="Descripción breve">
-      </div>
-      <div class="form-group">
-        <label>Color de etiqueta</label>
-        <div class="color-row">
-          <input type="color" id="cat-color" value="#2EB5D4">
-          <span class="color-preview">Se usa para identificar visualmente este estado en el sistema</span>
-        </div>
-      </div>
-    </div>
-    <div class="modal-foot">
-      <button class="btn-outline" onclick="cerrarModalCat()">Cancelar</button>
-      <button class="btn-primary" onclick="guardarCat()">Guardar</button>
+      <button class="btn-outline" onclick="cerrarModalGen()">Cancelar</button>
+      <button class="btn-primary" id="modal-gen-save">Guardar</button>
     </div>
   </div>
 </div>
@@ -594,132 +567,128 @@ function toast(msg,tipo){
 }
 
 
-let catActual = null;
-
-// ── DATOS ───────────────────────────────────────────────────
-function initData(){
-  if(!localStorage.getItem("ing_cfg_usuarios")){
-    localStorage.setItem("ing_cfg_usuarios", JSON.stringify([
-      {id:1,nombre:"Linda Flórez",  email:"linda@ingemedic.co",  rol:"admin",      activo:true},
-      {id:2,nombre:"Carlos Díaz",   email:"carlos@ingemedic.co", rol:"repartidor", activo:true},
-      {id:3,nombre:"Yesid Romero",  email:"yesid@ingemedic.co",  rol:"repartidor", activo:true},
-      {id:4,nombre:"Miguel Torres", email:"miguel@ingemedic.co", rol:"repartidor", activo:true},
-    ]));
-  }
-  if(!localStorage.getItem("ing_cfg_cat_estados_equipo")){
-    localStorage.setItem("ing_cfg_cat_estados_equipo", JSON.stringify([
-      {id:1,nombre:"Disponible",       desc:"Listo para alquiler",       color:"#0F7B55",activo:true},
-      {id:2,nombre:"En préstamo",      desc:"En casa del cliente",       color:"#2EB5D4",activo:true},
-      {id:3,nombre:"En mantenimiento", desc:"En taller técnico",         color:"#F59E0B",activo:true},
-      {id:4,nombre:"Con novedad",      desc:"Reportó falla en campo",    color:"#C0392B",activo:true},
-      {id:5,nombre:"Baja",             desc:"Retirado del inventario",   color:"#64748B",activo:true},
-    ]));
-  }
-  if(!localStorage.getItem("ing_cfg_cat_tipos_cliente")){
-    localStorage.setItem("ing_cfg_cat_tipos_cliente", JSON.stringify([
-      {id:1,nombre:"IPS",             desc:"Institución Prestadora de Salud",color:"#1B3A6B",activo:true},
-      {id:2,nombre:"Persona natural", desc:"Paciente domiciliario",          color:"#2EB5D4",activo:true},
-      {id:3,nombre:"Empresa",         desc:"Empresa o corporación",          color:"#6D28D9",activo:true},
-    ]));
-  }
-  if(!localStorage.getItem("ing_cfg_cat_tipos_solicitud")){
-    localStorage.setItem("ing_cfg_cat_tipos_solicitud", JSON.stringify([
-      {id:1,nombre:"Daño",             desc:"Falla o daño físico en el equipo",  color:"#C0392B",activo:true},
-      {id:2,nombre:"Baja",             desc:"Solicitud de retiro definitivo",     color:"#7F1D1D",activo:true},
-      {id:3,nombre:"Anomalía",         desc:"Comportamiento inusual sin falla",   color:"#F59E0B",activo:true},
-      {id:4,nombre:"Ingreso de equipo",desc:"Registro de equipo nuevo en sistema",color:"#0F7B55",activo:true},
-    ]));
-  }
-  if(!localStorage.getItem("ing_cfg_cat_estados_mant")){
-    localStorage.setItem("ing_cfg_cat_estados_mant", JSON.stringify([
-      {id:1,nombre:"Abierto",    desc:"Mantenimiento registrado, sin iniciar", color:"#64748B",activo:true},
-      {id:2,nombre:"En proceso", desc:"Técnico trabajando en el equipo",       color:"#2EB5D4",activo:true},
-      {id:3,nombre:"Cerrado",    desc:"Mantenimiento finalizado",              color:"#0F7B55",activo:true},
-    ]));
-  }
-}
-
-// ── NAVEGACIÓN ───────────────────────────────────────────────
+// ── NAVEGACIÓN ────────────────────────────────────────────────
 function setSeccion(id, el){
-  document.querySelectorAll(".config-section").forEach(s=>s.classList.remove("active"));
-  document.querySelectorAll(".config-nav-item").forEach(i=>i.classList.remove("active"));
+  document.querySelectorAll(".cfg-section").forEach(s=>s.classList.remove("active"));
+  document.querySelectorAll(".cfg-nav-item").forEach(i=>i.classList.remove("active"));
   document.getElementById("sec-"+id).classList.add("active");
   if(el) el.classList.add("active");
   renderSeccion(id);
 }
 
 function renderSeccion(id){
-  if(id==="usuarios")         renderUsuarios();
-  if(id==="roles")            renderPermisos();
-  if(id==="plantillas")       renderPlantillas();
-  if(id.startsWith("cat-"))   renderCatalogo(id.replace("cat-",""));
+  const fns = {
+    usuarios:    renderUsuarios,
+    roles:       renderPermisos,
+    categorias:  renderCategorias,
+    "tipos-equipo": renderTiposEquipo,
+    campos:      renderCampos,
+    checklist:   renderChecklist,
+    plantillas:  renderPlantillas,
+  };
+  fns[id]?.();
 }
 
-// ── USUARIOS ─────────────────────────────────────────────────
-const ROL_COLORS = {"admin":"#1B3A6B","repartidor":"#0F7B55"};
+// ── INIT DATA ─────────────────────────────────────────────────
+function initData(){
+  if(!localStorage.getItem("ing_cfg_usuarios")){
+    localStorage.setItem("ing_cfg_usuarios", JSON.stringify([
+      {id:1,nombre:"Linda Flórez",  email:"linda@ingemedic.co",  username:"linda",  rol:"admin",      activo:true},
+      {id:2,nombre:"Carlos Díaz",   email:"carlos@ingemedic.co", username:"carlos", rol:"repartidor", activo:true},
+      {id:3,nombre:"Yesid Romero",  email:"yesid@ingemedic.co",  username:"yesid",  rol:"repartidor", activo:true},
+      {id:4,nombre:"Miguel Torres", email:"miguel@ingemedic.co", username:"miguel", rol:"repartidor", activo:true},
+    ]));
+  }
+  if(!localStorage.getItem("ing_checklist")){
+    localStorage.setItem("ing_checklist", JSON.stringify([
+      "Inspección visual externa",
+      "Limpieza general",
+      "Verificación de funcionamiento",
+      "Revisión de alarmas",
+      "Registro de lectura de horómetro",
+      "Prueba de entrega al cliente",
+    ]));
+  }
+}
+
+// ── USUARIOS ──────────────────────────────────────────────────
+const ROL_COLORS = {admin:"#1B3A6B",repartidor:"#0F7B55"};
+let editandoUsrId = null;
 
 function renderUsuarios(){
-  const usr = JSON.parse(localStorage.getItem("ing_cfg_usuarios")||"[]");
-  document.getElementById("usr-count").textContent = `${usr.length} usuario${usr.length!==1?"s":""} registrado${usr.length!==1?"s":""}`;
-  document.getElementById("usr-body").innerHTML = usr.map(u=>{
-    const rc  = ROL_COLORS[u.rol]||"#64748B";
-    const rl  = u.rol==="admin"?"Admin":"Repartidor";
-    const rcl = u.rol==="admin"?"rb-admin":"rb-repartidor";
+  const usr=JSON.parse(localStorage.getItem("ing_cfg_usuarios")||"[]");
+  document.getElementById("usr-count").textContent=`${usr.length} usuario${usr.length!==1?"s":""} registrado${usr.length!==1?"s":""}`;
+  document.getElementById("usr-body").innerHTML=usr.map(u=>{
+    const rc=ROL_COLORS[u.rol]||"#64748B";
     return `<tr>
-      <td><div class="u-cell">
-        <div class="u-av" style="background:${rc}">${u.nombre.charAt(0)}</div>
+      <td><div style="display:flex;align-items:center;gap:8px">
+        <div style="width:28px;height:28px;border-radius:50%;background:${rc};display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0">${u.nombre.charAt(0)}</div>
         <span style="font-weight:600">${u.nombre}</span>
       </div></td>
       <td style="font-size:12.5px;color:var(--texto-suave)">${u.email}</td>
-      <td><span class="rol-badge ${rcl}">${rl}</span></td>
-      <td><span class="${u.activo?"est-activo":"est-inactivo"}">
-        ${u.activo?'<span class="est-dot"></span>Activo':'Inactivo'}
+      <td style="font-family:monospace;font-size:12.5px;color:var(--texto-suave)">${u.username}</td>
+      <td><span style="padding:2px 9px;border-radius:99px;font-size:11px;font-weight:700;background:${u.rol==="admin"?"var(--cian-suave)":"var(--verde-suave)"};color:${u.rol==="admin"?"#0E86A0":"var(--verde)"}">
+        ${u.rol==="admin"?"Admin":"Repartidor"}
+      </span></td>
+      <td><span style="font-size:12px;font-weight:600;color:${u.activo?"var(--verde)":"var(--gris)"}">
+        ${u.activo?"● Activo":"○ Inactivo"}
       </span></td>
       <td>
         <button class="cat-btn" onclick="editarUsuario(${u.id})">Editar</button>
-        <button class="cat-btn danger" onclick="toggleUsuario(${u.id})">
-          ${u.activo?"Desactivar":"Activar"}
-        </button>
+        <button class="cat-btn danger" onclick="toggleUsuario(${u.id})">${u.activo?"Desactivar":"Activar"}</button>
       </td>
     </tr>`;
   }).join("");
 }
 
-let editandoUsrId = null;
 function abrirModalUsuario(){
   editandoUsrId=null;
-  document.getElementById("modal-usr-title").textContent="Nuevo usuario";
-  ["u-nombre","u-email"].forEach(id=>document.getElementById(id).value="");
-  document.getElementById("u-rol").value="repartidor";
-  document.getElementById("modal-usuario").classList.add("open");
+  document.getElementById("modal-gen-title").textContent="Nuevo usuario";
+  document.getElementById("modal-gen-body").innerHTML=`
+    <div class="form-row"><div class="form-group"><label>Nombre completo</label><input id="u-nombre" placeholder="Nombre del usuario"></div></div>
+    <div class="form-row c2">
+      <div class="form-group"><label>Correo electrónico</label><input id="u-email" type="email" placeholder="correo@ingemedic.co"></div>
+      <div class="form-group"><label>Nombre de usuario</label><input id="u-username" placeholder="ej. linda"></div>
+    </div>
+    <div class="form-row"><div class="form-group"><label>Rol</label>
+      <select id="u-rol"><option value="admin">Administrador</option><option value="repartidor">Repartidor</option></select>
+    </div></div>`;
+  document.getElementById("modal-gen-save").onclick=guardarUsuario;
+  document.getElementById("modal-gen").classList.add("open");
 }
+
 function editarUsuario(id){
   const usr=JSON.parse(localStorage.getItem("ing_cfg_usuarios")||"[]").find(u=>u.id===id);
-  if(!usr) return;
   editandoUsrId=id;
-  document.getElementById("modal-usr-title").textContent="Editar usuario";
-  document.getElementById("u-nombre").value=usr.nombre;
-  document.getElementById("u-email").value=usr.email;
-  document.getElementById("u-rol").value=usr.rol;
-  document.getElementById("modal-usuario").classList.add("open");
+  document.getElementById("modal-gen-title").textContent="Editar usuario";
+  document.getElementById("modal-gen-body").innerHTML=`
+    <div class="form-row"><div class="form-group"><label>Nombre completo</label><input id="u-nombre" value="${usr.nombre}"></div></div>
+    <div class="form-row c2">
+      <div class="form-group"><label>Correo</label><input id="u-email" value="${usr.email}"></div>
+      <div class="form-group"><label>Nombre de usuario</label><input id="u-username" value="${usr.username}"></div>
+    </div>
+    <div class="form-row"><div class="form-group"><label>Rol</label>
+      <select id="u-rol"><option value="admin" ${usr.rol==="admin"?"selected":""}>Administrador</option><option value="repartidor" ${usr.rol==="repartidor"?"selected":""}>Repartidor</option></select>
+    </div></div>`;
+  document.getElementById("modal-gen-save").onclick=guardarUsuario;
+  document.getElementById("modal-gen").classList.add("open");
 }
-function cerrarModalUsuario(){document.getElementById("modal-usuario").classList.remove("open");}
-document.getElementById("modal-usuario").addEventListener("click",e=>{if(e.target.id==="modal-usuario")cerrarModalUsuario();});
 
 function guardarUsuario(){
   const nombre=document.getElementById("u-nombre").value.trim();
   const email =document.getElementById("u-email").value.trim();
-  if(!nombre||!email){toast("Nombre y correo son requeridos","error");return;}
+  const uname =document.getElementById("u-username").value.trim().toLowerCase().replace(/\s+/g,"_");
+  if(!nombre||!email||!uname){toast("Todos los campos son requeridos","error");return;}
   const usr=JSON.parse(localStorage.getItem("ing_cfg_usuarios")||"[]");
   if(editandoUsrId){
     const i=usr.findIndex(u=>u.id===editandoUsrId);
-    usr[i]={...usr[i],nombre,email,rol:document.getElementById("u-rol").value};
+    usr[i]={...usr[i],nombre,email,username:uname,rol:document.getElementById("u-rol").value};
   } else {
-    usr.push({id:usr.length+1,nombre,email,rol:document.getElementById("u-rol").value,activo:true});
+    usr.push({id:usr.length+1,nombre,email,username:uname,rol:document.getElementById("u-rol").value,activo:true});
   }
   localStorage.setItem("ing_cfg_usuarios",JSON.stringify(usr));
   toast(editandoUsrId?"Usuario actualizado":"Usuario creado","success");
-  cerrarModalUsuario();renderUsuarios();
+  cerrarModalGen(); renderUsuarios();
 }
 
 function toggleUsuario(id){
@@ -731,150 +700,421 @@ function toggleUsuario(id){
   renderUsuarios();
 }
 
-// ── PERMISOS ─────────────────────────────────────────────────
-const MODULOS_PERM = [
-  "inventario","clientes","entregas","ordenes_servicio",
-  "mantenimientos","solicitudes","bitacora","configuracion"
+// ── PERMISOS ──────────────────────────────────────────────────
+const MODS=[
+  {id:"inventario",label:"Inventario"},
+  {id:"clientes",label:"Clientes"},
+  {id:"entregas",label:"Entregas"},
+  {id:"ordenes_servicio",label:"Órdenes de servicio"},
+  {id:"mantenimientos",label:"Mantenimientos"},
+  {id:"servicios",label:"Servicios prestados"},
+  {id:"bitacora",label:"Bitácora"},
+  {id:"configuracion",label:"Configuración"},
 ];
-const PERM_LABELS = {
-  "inventario":"Inventario","clientes":"Clientes","entregas":"Entregas",
-  "ordenes_servicio":"Órdenes de servicio","mantenimientos":"Mantenimientos",
-  "solicitudes":"Solicitudes","bitacora":"Bitácora","configuracion":"Configuración"
-};
-const PERM_ADMIN = {inventario:[1,1,1,1],clientes:[1,1,1,1],entregas:[1,1,1,1],ordenes_servicio:[1,1,1,1],mantenimientos:[1,1,1,1],solicitudes:[1,1,1,1],bitacora:[1,0,0,0],configuracion:[1,1,1,1]};
-const PERM_REP   = {inventario:[1,0,0,0],clientes:[1,0,0,0],entregas:[1,1,1,0],ordenes_servicio:[1,0,0,0],mantenimientos:[0,0,0,0],solicitudes:[1,1,0,0],bitacora:[0,0,0,0],configuracion:[0,0,0,0]};
+const PA={inventario:[1,1,1,1],clientes:[1,1,1,1],entregas:[1,1,1,1],ordenes_servicio:[1,1,1,1],mantenimientos:[1,1,1,1],solicitudes:[1,1,1,1],servicios:[1,0,0,0],bitacora:[1,0,0,0],configuracion:[1,1,1,1]};
+const PR={inventario:[1,0,0,0],clientes:[0,0,0,0],entregas:[1,1,1,0],ordenes_servicio:[0,0,0,0],mantenimientos:[0,0,0,0],solicitudes:[1,1,0,0],servicios:[0,0,0,0],bitacora:[0,0,0,0],configuracion:[0,0,0,0]};
 
 function renderPermisos(){
-  document.getElementById("perm-body").innerHTML = MODULOS_PERM.map(m=>{
-    const pa=PERM_ADMIN[m]||[0,0,0,0];
-    const pr=PERM_REP[m]||[0,0,0,0];
-    const cb=(checked,disabled) => `<input type="checkbox" class="perm-check" ${checked?"checked":""} ${disabled?"disabled":""} onchange="toast('Permisos actualizados','success')">`;
+  document.getElementById("perm-body").innerHTML=MODS.map(m=>{
+    const pa=PA[m.id]||[0,0,0,0];
+    const pr=PR[m.id]||[0,0,0,0];
+    const cb=(v)=>`<input type="checkbox" class="perm-check" ${v?"checked":""} onchange="toast('Permisos actualizados','success')">`;
     return `<tr>
-      <td>${PERM_LABELS[m]||m}</td>
-      ${pa.map((v,i)=>`<td style="background:rgba(27,58,107,.03)">${cb(v,false)}</td>`).join("")}
-      ${pr.map((v,i)=>`<td>${cb(v,false)}</td>`).join("")}
+      <td>${m.label}</td>
+      ${pa.map(v=>`<td style="background:rgba(27,58,107,.03)">${cb(v)}</td>`).join("")}
+      ${pr.map(v=>`<td>${cb(v)}</td>`).join("")}
     </tr>`;
   }).join("");
 }
 
-// ── CATÁLOGOS ─────────────────────────────────────────────────
-const CAT_KEYS = {
-  "estados-equipo":    "ing_cfg_cat_estados_equipo",
-  "tipos-cliente":     "ing_cfg_cat_tipos_cliente",
-  "tipos-solicitud":   "ing_cfg_cat_tipos_solicitud",
-  "estados-mant":      "ing_cfg_cat_estados_mant",
-};
-
-function renderCatalogo(catId){
-  const key  = CAT_KEYS[catId];
-  if(!key) return;
-  const items = JSON.parse(localStorage.getItem(key)||"[]");
-  const card  = document.getElementById("cat-"+catId+"-card");
-  if(!card) return;
-
-  card.innerHTML = `
+// ── CATEGORÍAS ────────────────────────────────────────────────
+function renderCategorias(){
+  const cats=JSON.parse(localStorage.getItem("ing_categorias")||"[]");
+  const card=document.getElementById("cat-categorias-card");
+  card.innerHTML=`
     <div class="cfg-card-head">
-      <div class="cfg-card-title">${items.length} elemento${items.length!==1?"s":""} configurado${items.length!==1?"s":""}</div>
-      <button class="btn-primary" onclick="abrirModalCat('${catId}',null)">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-        Nuevo
+      <div><div class="cfg-card-title">${cats.length} categoría${cats.length!==1?"s":""}</div></div>
+      <button class="btn-primary" onclick="abrirModalCat()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Nueva categoría
       </button>
     </div>
-    <div class="cat-list">
-      ${items.map(item=>`
-        <div class="cat-item">
-          <div class="cat-color" style="background:${item.color||"#94A3B8"}"></div>
-          <div class="cat-nombre">${item.nombre}</div>
-          ${item.desc?`<div style="font-size:12px;color:var(--texto-suave);margin-right:8px">${item.desc}</div>`:""}
-          <div class="cat-actions">
-            <button class="cat-btn" onclick="abrirModalCat('${catId}',${item.id})">Editar</button>
-            <button class="cat-btn danger" onclick="eliminarCat('${catId}',${item.id})">Eliminar</button>
-          </div>
-        </div>`).join("")}
+    ${cats.map(c=>`<div class="cat-item">
+      <div class="cat-emoji-big">${c.emoji||"📦"}</div>
+      <div style="flex:1">
+        <div class="cat-nombre">${c.nombre}</div>
+        <div class="cat-sub">${JSON.parse(localStorage.getItem("ing_tipos")||"[]").filter(t=>t.cat_id===c.id).length} tipo${JSON.parse(localStorage.getItem("ing_tipos")||"[]").filter(t=>t.cat_id===c.id).length!==1?"s":""} de equipo</div>
+      </div>
+      <div class="cat-actions">
+        <button class="cat-btn" onclick="editarCat('${c.id}')">Editar</button>
+        <button class="cat-btn danger" onclick="eliminarCat('${c.id}')">Eliminar</button>
+      </div>
+    </div>`).join("")}`;
+}
+
+function abrirModalCat(id){
+  const cats=JSON.parse(localStorage.getItem("ing_categorias")||"[]");
+  const cat=id?cats.find(c=>c.id===id):null;
+  document.getElementById("modal-gen-title").textContent=id?"Editar categoría":"Nueva categoría";
+  document.getElementById("modal-gen-body").innerHTML=`
+    <div class="form-row c2">
+      <div class="form-group"><label>Nombre</label><input id="cat-nombre" value="${cat?.nombre||""}" placeholder="ej. Oxigenoterapia"></div>
+      <div class="form-group"><label>Emoji / Icono</label><input id="cat-emoji" value="${cat?.emoji||"📦"}" placeholder="📦" style="font-size:20px;text-align:center"></div>
     </div>`;
+  document.getElementById("modal-gen-save").onclick=()=>guardarCat(id);
+  document.getElementById("modal-gen").classList.add("open");
 }
-
-let editandoCatId = null;
-function abrirModalCat(catId, itemId){
-  catActual=catId;
-  editandoCatId=itemId;
-  const key=CAT_KEYS[catId];
-  document.getElementById("modal-cat-title").textContent = itemId?"Editar elemento":"Nuevo elemento";
-  if(itemId){
-    const items=JSON.parse(localStorage.getItem(key)||"[]");
-    const item=items.find(i=>i.id===itemId);
-    document.getElementById("cat-nombre").value=item?.nombre||"";
-    document.getElementById("cat-desc").value=item?.desc||"";
-    document.getElementById("cat-color").value=item?.color||"#2EB5D4";
-  } else {
-    document.getElementById("cat-nombre").value="";
-    document.getElementById("cat-desc").value="";
-    document.getElementById("cat-color").value="#2EB5D4";
-  }
-  document.getElementById("modal-catalogo").classList.add("open");
-}
-function cerrarModalCat(){document.getElementById("modal-catalogo").classList.remove("open");catActual=null;editandoCatId=null;}
-document.getElementById("modal-catalogo").addEventListener("click",e=>{if(e.target.id==="modal-catalogo")cerrarModalCat();});
-
-function guardarCat(){
+function editarCat(id){ abrirModalCat(id); }
+function guardarCat(id){
   const nombre=document.getElementById("cat-nombre").value.trim();
   if(!nombre){toast("El nombre es requerido","error");return;}
-  const key=CAT_KEYS[catActual];
-  const items=JSON.parse(localStorage.getItem(key)||"[]");
-  if(editandoCatId){
-    const i=items.findIndex(x=>x.id===editandoCatId);
-    items[i]={...items[i],nombre,desc:document.getElementById("cat-desc").value,color:document.getElementById("cat-color").value};
+  const cats=JSON.parse(localStorage.getItem("ing_categorias")||"[]");
+  if(id){
+    const i=cats.findIndex(c=>c.id===id);
+    cats[i]={...cats[i],nombre,emoji:document.getElementById("cat-emoji").value};
   } else {
-    items.push({id:items.length+1,nombre,desc:document.getElementById("cat-desc").value,color:document.getElementById("cat-color").value,activo:true});
+    cats.push({id:"C"+Date.now(),nombre,emoji:document.getElementById("cat-emoji").value||"📦",campos_tipo:[],campos_unidad:[]});
   }
-  localStorage.setItem(key,JSON.stringify(items));
-  toast(editandoCatId?"Elemento actualizado":"Elemento creado","success");
-  cerrarModalCat();
-  renderCatalogo(catActual);
+  localStorage.setItem("ing_categorias",JSON.stringify(cats));
+  toast(id?"Categoría actualizada":"Categoría creada","success");
+  cerrarModalGen(); renderCategorias();
+}
+function eliminarCat(id){
+  if(!confirm("¿Eliminar esta categoría? Los tipos de equipo asociados quedarán sin categoría.")) return;
+  const cats=JSON.parse(localStorage.getItem("ing_categorias")||"[]").filter(c=>c.id!==id);
+  localStorage.setItem("ing_categorias",JSON.stringify(cats));
+  toast("Categoría eliminada","success"); renderCategorias();
 }
 
-function eliminarCat(catId,itemId){
-  if(!confirm("¿Eliminar este elemento?")) return;
-  const key=CAT_KEYS[catId];
-  const items=JSON.parse(localStorage.getItem(key)||"[]").filter(i=>i.id!==itemId);
-  localStorage.setItem(key,JSON.stringify(items));
-  toast("Elemento eliminado","success");
-  renderCatalogo(catId);
+// ── TIPOS EQUIPO ──────────────────────────────────────────────
+function renderTiposEquipo(){
+  const cats =JSON.parse(localStorage.getItem("ing_categorias")||"[]");
+  const tipos =JSON.parse(localStorage.getItem("ing_tipos")||"[]");
+  const filtCat=document.getElementById("filter-cat-tipo")?.value||"";
+  // Populate cat filter
+  const sel=document.getElementById("filter-cat-tipo");
+  if(sel.options.length<=1){
+    cats.forEach(c=>{ const opt=document.createElement("option"); opt.value=c.id; opt.textContent=c.emoji+" "+c.nombre; sel.appendChild(opt); });
+  }
+  const filtrados=filtCat?tipos.filter(t=>t.cat_id===filtCat):tipos;
+  document.getElementById("tipos-body").innerHTML=filtrados.map(t=>{
+    const cat=cats.find(c=>c.id===t.cat_id);
+    return `<tr>
+      <td><span style="font-size:11px;background:#F1F5F9;padding:2px 8px;border-radius:5px">${cat?.emoji||""} ${cat?.nombre||"—"}</span></td>
+      <td style="font-weight:600">${t.marca}</td>
+      <td>${t.modelo}</td>
+      <td style="font-family:monospace;font-size:12px;color:var(--texto-suave)">${t.invima||"—"}</td>
+      <td style="font-family:monospace;font-size:12px">${t.valor?("$"+parseInt(t.valor).toLocaleString("es-CO")):"—"}</td>
+      <td style="font-size:12.5px;color:var(--texto-suave)">${t.proveedor||"—"}</td>
+      <td>
+        <button class="cat-btn" onclick="editarTipo('${t.id}')">Editar</button>
+        <button class="cat-btn danger" onclick="eliminarTipo('${t.id}')">Eliminar</button>
+      </td>
+    </tr>`;
+  }).join("")||`<tr><td colspan="7" style="text-align:center;color:var(--texto-suave);padding:24px">Sin tipos registrados</td></tr>`;
+}
+
+function editarTipo(id){
+  const tipos=JSON.parse(localStorage.getItem("ing_tipos")||"[]");
+  const cats =JSON.parse(localStorage.getItem("ing_categorias")||"[]");
+  const t=tipos.find(x=>x.id===id);
+  document.getElementById("modal-gen-title").textContent="Editar tipo de equipo";
+  document.getElementById("modal-gen-body").innerHTML=`
+    <div class="form-row"><div class="form-group"><label>Categoría</label>
+      <select id="t-cat">${cats.map(c=>`<option value="${c.id}" ${t.cat_id===c.id?"selected":""}>${c.emoji} ${c.nombre}</option>`).join("")}</select>
+    </div></div>
+    <div class="form-row c2">
+      <div class="form-group"><label>Marca</label><input id="t-marca" value="${t.marca}"></div>
+      <div class="form-group"><label>Modelo</label><input id="t-modelo" value="${t.modelo}"></div>
+    </div>
+    <div class="form-row c2">
+      <div class="form-group"><label>INVIMA</label><input id="t-invima" value="${t.invima||""}"></div>
+      <div class="form-group"><label>Valor</label><input id="t-valor" value="${t.valor||""}" placeholder="ej. 2500000"></div>
+    </div>
+    <div class="form-row"><div class="form-group"><label>Proveedor</label><input id="t-prov" value="${t.proveedor||""}"></div></div>`;
+  document.getElementById("modal-gen-save").onclick=()=>guardarTipo(id);
+  document.getElementById("modal-gen").classList.add("open");
+}
+
+function guardarTipo(id){
+  const tipos=JSON.parse(localStorage.getItem("ing_tipos")||"[]");
+  const i=tipos.findIndex(x=>x.id===id);
+  tipos[i]={...tipos[i],
+    cat_id:document.getElementById("t-cat").value,
+    marca: document.getElementById("t-marca").value.trim(),
+    modelo:document.getElementById("t-modelo").value.trim(),
+    invima:document.getElementById("t-invima").value.trim(),
+    valor: document.getElementById("t-valor").value.trim(),
+    proveedor:document.getElementById("t-prov").value.trim(),
+  };
+  localStorage.setItem("ing_tipos",JSON.stringify(tipos));
+  toast("Tipo actualizado","success"); cerrarModalGen(); renderTiposEquipo();
+}
+
+function eliminarTipo(id){
+  if(!confirm("¿Eliminar este tipo de equipo?")) return;
+  const tipos=JSON.parse(localStorage.getItem("ing_tipos")||"[]").filter(t=>t.id!==id);
+  localStorage.setItem("ing_tipos",JSON.stringify(tipos));
+  toast("Tipo eliminado","success"); renderTiposEquipo();
+}
+
+// ── CAMPOS CONFIGURABLES ──────────────────────────────────────
+function renderCampos(){
+  const cats=JSON.parse(localStorage.getItem("ing_categorias")||"[]");
+  const cont=document.getElementById("campos-content");
+  cont.innerHTML=cats.map(c=>{
+    const camposTipo  = c.campos_tipo||[];
+    const camposUnid  = c.campos_unidad||[];
+    return `<div class="cfg-card" style="margin-bottom:16px">
+      <div class="cfg-card-head">
+        <div><div class="cfg-card-title">${c.emoji} ${c.nombre}</div></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--borde)">
+        <div style="padding:14px 18px;border-right:1px solid var(--borde)">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--texto-suave);margin-bottom:10px">Campos del tipo de equipo</div>
+          ${camposTipo.map((cf,i)=>`<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+            <span style="flex:1;font-size:13px;color:var(--texto)">${cf.nombre}</span>
+            <button class="cat-btn danger" onclick="quitarCampo('${c.id}','tipo',${i})">✕</button>
+          </div>`).join("")||'<span style="font-size:12.5px;color:var(--texto-suave)">Sin campos adicionales</span>'}
+          <button class="cat-btn" style="margin-top:8px;width:100%" onclick="agregarCampo('${c.id}','tipo')">+ Agregar campo</button>
+        </div>
+        <div style="padding:14px 18px">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--texto-suave);margin-bottom:10px">Campos de la unidad individual</div>
+          ${camposUnid.map((cf,i)=>`<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+            <span style="flex:1;font-size:13px;color:var(--texto)">${cf.nombre}</span>
+            <button class="cat-btn danger" onclick="quitarCampo('${c.id}','unidad',${i})">✕</button>
+          </div>`).join("")||'<span style="font-size:12.5px;color:var(--texto-suave)">Sin campos adicionales</span>'}
+          <button class="cat-btn" style="margin-top:8px;width:100%" onclick="agregarCampo('${c.id}','unidad')">+ Agregar campo</button>
+        </div>
+      </div>
+    </div>`;
+  }).join("")||`<div class="empty-state"><p>Primero crea categorías de equipo</p></div>`;
+}
+
+function agregarCampo(catId, nivel){
+  const nombre=prompt(`Nombre del campo para ${nivel==="tipo"?"el tipo de equipo":"la unidad individual"}:`);
+  if(!nombre) return;
+  const cats=JSON.parse(localStorage.getItem("ing_categorias")||"[]");
+  const i=cats.findIndex(c=>c.id===catId);
+  if(!cats[i]["campos_"+nivel]) cats[i]["campos_"+nivel]=[];
+  cats[i]["campos_"+nivel].push({nombre:nombre.trim(),clave:nombre.trim().toLowerCase().replace(/\s+/g,"_")});
+  localStorage.setItem("ing_categorias",JSON.stringify(cats));
+  renderCampos();
+}
+
+function quitarCampo(catId, nivel, idx){
+  const cats=JSON.parse(localStorage.getItem("ing_categorias")||"[]");
+  const i=cats.findIndex(c=>c.id===catId);
+  cats[i]["campos_"+nivel].splice(idx,1);
+  localStorage.setItem("ing_categorias",JSON.stringify(cats));
+  renderCampos();
+}
+
+// ── CHECKLIST ─────────────────────────────────────────────────
+function renderChecklist(){
+  const items=JSON.parse(localStorage.getItem("ing_checklist")||"[]");
+  const card=document.getElementById("checklist-card");
+  card.innerHTML=`
+    <div class="cfg-card-head">
+      <div><div class="cfg-card-title">${items.length} actividad${items.length!==1?"es":""}</div></div>
+      <button class="btn-primary" onclick="agregarChecklistItem()">+ Agregar actividad</button>
+    </div>
+    ${items.map((item,i)=>`<div class="cat-item">
+      <div style="width:24px;height:24px;border-radius:6px;border:2px solid var(--borde);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--texto-suave);flex-shrink:0">${i+1}</div>
+      <div class="cat-nombre">${item}</div>
+      <div class="cat-actions">
+        <button class="cat-btn" onclick="editarChecklistItem(${i})">Editar</button>
+        <button class="cat-btn danger" onclick="eliminarChecklistItem(${i})">Eliminar</button>
+      </div>
+    </div>`).join("")}`;
+}
+
+function agregarChecklistItem(){
+  const nombre=prompt("Nombre de la actividad:");
+  if(!nombre) return;
+  const items=JSON.parse(localStorage.getItem("ing_checklist")||"[]");
+  items.push(nombre.trim());
+  localStorage.setItem("ing_checklist",JSON.stringify(items));
+  toast("Actividad agregada","success"); renderChecklist();
+}
+function editarChecklistItem(i){
+  const items=JSON.parse(localStorage.getItem("ing_checklist")||"[]");
+  const nuevo=prompt("Editar actividad:",items[i]);
+  if(!nuevo) return;
+  items[i]=nuevo.trim();
+  localStorage.setItem("ing_checklist",JSON.stringify(items));
+  toast("Actividad actualizada","success"); renderChecklist();
+}
+function eliminarChecklistItem(i){
+  const items=JSON.parse(localStorage.getItem("ing_checklist")||"[]");
+  items.splice(i,1);
+  localStorage.setItem("ing_checklist",JSON.stringify(items));
+  toast("Actividad eliminada","success"); renderChecklist();
+}
+
+// ── EMPRESA ───────────────────────────────────────────────────
+function guardarEmpresa(){
+  const cfg=JSON.parse(localStorage.getItem("ing_company_config")||"{}");
+  cfg.razon_social=document.getElementById("e-razon").value;
+  cfg.nit         =document.getElementById("e-nit").value;
+  cfg.tel         =document.getElementById("e-tel").value;
+  cfg.email       =document.getElementById("e-email").value;
+  cfg.dir         =document.getElementById("e-dir").value;
+  cfg.rep         =document.getElementById("e-rep").value;
+  cfg.web         =document.getElementById("e-web").value;
+  localStorage.setItem("ing_company_config",JSON.stringify(cfg));
+  toast("Datos guardados","success");
+}
+function loadCompanyLogo(){ document.getElementById("logo-file").click(); }
+function uploadLogo(e){
+  const file=e.target.files[0]; if(!file) return;
+  const r=new FileReader();
+  r.onload=ev=>{
+    const cfg=JSON.parse(localStorage.getItem("ing_company_config")||"{}");
+    cfg.logo=ev.target.result;
+    localStorage.setItem("ing_company_config",JSON.stringify(cfg));
+    toast("Logo actualizado","success");
+  };
+  r.readAsDataURL(file);
 }
 
 // ── PLANTILLAS ────────────────────────────────────────────────
 function renderPlantillas(){
-  const plantillas = [
-    {nombre:"Contrato de arriendo O₂ domiciliario",    archivo:"01_contrato_oxigeno.html",     tipo:"Tipo 1"},
-    {nombre:"Acta de entrega — O₂ domiciliario",       archivo:"02_acta_entrega_oxigeno.html",  tipo:"Tipo 1"},
-    {nombre:"Acta de devolución — O₂ domiciliario",    archivo:"03_acta_devolucion_oxigeno.html",tipo:"Tipo 1"},
-    {nombre:"Declaración de capacitación",             archivo:"04_declaracion_capacitacion.html",tipo:"Tipo 1"},
-    {nombre:"Pagaré",                                  archivo:"05_pagare.html",                tipo:"Tipo 1"},
-    {nombre:"Carta de instrucciones",                  archivo:"06_carta_instrucciones.html",   tipo:"Tipo 1"},
-    {nombre:"Contrato arrendamiento equipo biomédico",  archivo:"07_contrato_ips.html",          tipo:"Tipo 2"},
-    {nombre:"Acta de entrega — equipo biomédico",       archivo:"08_acta_entrega_ips.html",      tipo:"Tipo 2"},
-    {nombre:"Acta de devolución — equipo biomédico",    archivo:"09_acta_devolucion_ips.html",   tipo:"Tipo 2"},
-    {nombre:"Reporte técnico de mantenimiento",         archivo:"10_reporte_mantenimiento.html", tipo:"Mantenimiento"},
+  const plantillas=[
+    {archivo:"01_contrato_oxigeno.html",    nombre:"Contrato de arriendo O₂",          tipo:"Tipo 1"},
+    {archivo:"02_acta_entrega_oxigeno.html",nombre:"Acta de entrega O₂",               tipo:"Tipo 1"},
+    {archivo:"03_acta_devolucion_oxigeno.html",nombre:"Acta de devolución O₂",         tipo:"Tipo 1"},
+    {archivo:"04_declaracion_capacitacion.html",nombre:"Declaración de capacitación",  tipo:"Tipo 1"},
+    {archivo:"05_pagare.html",              nombre:"Pagaré",                           tipo:"Tipo 1"},
+    {archivo:"06_carta_instrucciones.html", nombre:"Carta de instrucciones",           tipo:"Tipo 1"},
+    {archivo:"07_contrato_ips.html",        nombre:"Contrato arrendamiento IPS",       tipo:"Tipo 2"},
+    {archivo:"08_acta_entrega_ips.html",    nombre:"Acta de entrega IPS",             tipo:"Tipo 2"},
+    {archivo:"09_acta_devolucion_ips.html", nombre:"Acta de devolución IPS",          tipo:"Tipo 2"},
+    {archivo:"10_reporte_mantenimiento.html",nombre:"Reporte técnico de mantenimiento",tipo:"Mantenimiento"},
   ];
-  document.getElementById("plantillas-list").innerHTML = plantillas.map(p=>{
-    const tipoCls = p.tipo==="Tipo 1"?"background:var(--cian-suave);color:#0E86A0":p.tipo==="Tipo 2"?"background:var(--purpura-suave,#F5F3FF);color:#6D28D9":"background:var(--amarillo-suave);color:var(--amarillo)";
-    return `<div class="plantilla-card">
+  const tipoCls={
+    "Tipo 1":"background:var(--cian-suave);color:#0E86A0",
+    "Tipo 2":"background:var(--purpura-suave,#F5F3FF);color:#6D28D9",
+    "Mantenimiento":"background:var(--amarillo-suave);color:var(--amarillo)",
+  };
+  document.getElementById("plantillas-list").innerHTML=plantillas.map(p=>`
+    <div class="plantilla-item">
       <div class="plantilla-icon">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
       </div>
       <div style="flex:1">
         <div class="plantilla-nombre">${p.nombre}</div>
-        <div class="plantilla-sub" style="display:flex;align-items:center;gap:8px;margin-top:3px">
-          <span style="display:inline-flex;padding:1px 7px;border-radius:99px;font-size:10.5px;font-weight:700;${tipoCls}">${p.tipo}</span>
+        <div class="plantilla-sub" style="display:flex;align-items:center;gap:7px;margin-top:3px">
+          <span style="display:inline-flex;padding:1px 7px;border-radius:99px;font-size:10.5px;font-weight:700;${tipoCls[p.tipo]||""}">${p.tipo}</span>
           <span style="font-family:monospace;font-size:11px">${p.archivo}</span>
         </div>
       </div>
-      <button class="cat-btn" onclick="window.open('${p.archivo}','_blank')">Previsualizar</button>
-    </div>`;
-  }).join("");
+      <div style="display:flex;gap:6px">
+        <button class="cat-btn" onclick="window.open('${p.archivo}','_blank')">Previsualizar</button>
+        <button class="cat-btn" onclick="toast('Editor de plantillas disponible en producción con TipTap','')">Editar</button>
+        <button class="cat-btn danger" onclick="toast('Eliminación disponible en producción','')">Eliminar</button>
+      </div>
+    </div>`).join("");
 }
 
-// ── INIT ─────────────────────────────────────────────────────
+// ── CARGUE MASIVO ─────────────────────────────────────────────
+function procesarCSV(file, tipo){
+  if(!file) return;
+  const reader=new FileReader();
+  reader.onload=e=>{
+    const text=e.target.result;
+    const lines=text.split("\n").filter(l=>l.trim());
+    const headers=lines[0].split(",").map(h=>h.trim().replace(/"/g,""));
+    const rows=lines.slice(1).map(l=>{
+      const vals=l.split(",").map(v=>v.trim().replace(/"/g,""));
+      const obj={};
+      headers.forEach((h,i)=>obj[h]=vals[i]||"");
+      return obj;
+    }).filter(r=>Object.values(r).some(v=>v));
+
+    const prevId=`preview-${tipo}`;
+    if(!rows.length){document.getElementById(prevId).innerHTML=`<div style="color:var(--rojo);font-size:13px">El archivo está vacío o no tiene el formato correcto.</div>`;return;}
+
+    document.getElementById(prevId).innerHTML=`
+      <div style="background:var(--verde-suave);border:1px solid rgba(15,123,85,.2);border-radius:9px;padding:12px 16px;margin-bottom:12px;font-size:13px;font-weight:600;color:var(--verde)">
+        ✓ ${rows.length} registro${rows.length!==1?"s":""} encontrado${rows.length!==1?"s":""} — listo para importar
+      </div>
+      <div style="overflow-x:auto;border:1px solid var(--borde);border-radius:9px;max-height:200px;overflow-y:auto">
+        <table style="width:100%;border-collapse:collapse;font-size:12.5px">
+          <thead><tr>${headers.map(h=>`<th style="padding:7px 10px;text-align:left;background:var(--fondo);border-bottom:1px solid var(--borde);white-space:nowrap;font-size:10.5px;font-weight:700;text-transform:uppercase;color:var(--texto-suave)">${h}</th>`).join("")}</tr></thead>
+          <tbody>${rows.slice(0,5).map(r=>`<tr>${headers.map(h=>`<td style="padding:7px 10px;border-bottom:1px solid #F8FAFC;color:var(--texto-med)">${r[h]||"—"}</td>`).join("")}</tr>`).join("")}
+          ${rows.length>5?`<tr><td colspan="${headers.length}" style="padding:7px 10px;color:var(--texto-suave);text-align:center">... y ${rows.length-5} registros más</td></tr>`:""}
+          </tbody>
+        </table>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:10px;justify-content:flex-end">
+        <button class="btn-outline" onclick="document.getElementById('${prevId}').innerHTML=''">Cancelar</button>
+        <button class="btn-primary" onclick="importarDatos(${JSON.stringify(rows)},'${tipo}')">✓ Importar ${rows.length} registros</button>
+      </div>`;
+  };
+  reader.readAsText(file);
+}
+
+function importarDatos(rows, tipo){
+  if(tipo==="equipos"){
+    const cats =JSON.parse(localStorage.getItem("ing_categorias")||"[]");
+    const tipos =JSON.parse(localStorage.getItem("ing_tipos")||"[]");
+    const unids =JSON.parse(localStorage.getItem("ing_unidades")||"[]");
+    let creados=0;
+    rows.forEach(r=>{
+      if(!r.serial||unids.find(u=>u.serial===r.serial)) return;
+      const cat  = cats.find(c=>c.nombre.toLowerCase()===r.categoria?.toLowerCase());
+      const tipo = tipos.find(t=>t.marca?.toLowerCase()===r.marca?.toLowerCase()&&t.modelo?.toLowerCase()===r.modelo?.toLowerCase());
+      const n=String(unids.length+1).padStart(4,"0");
+      unids.push({
+        id:`EQ-${n}`, tipo_id:tipo?.id||"", serial:r.serial,
+        lote:r.lote||"", ubicacion:"Bodega Ingemedic", arrendatario:"—",
+        estado:"Disponible", fecha_compra:r.fecha_compra||"",
+        extras:{},
+        historial:[{evento:"Importado vía cargue masivo",fecha:new Date().toISOString().split("T")[0],tipo:"verde",badge:"INGRESO"}]
+      });
+      creados++;
+    });
+    localStorage.setItem("ing_unidades",JSON.stringify(unids));
+    document.getElementById("preview-equipos").innerHTML=`<div style="color:var(--verde);font-size:13px;font-weight:600;padding:10px 0">✓ ${creados} equipo${creados!==1?"s":""} importado${creados!==1?"s":""}</div>`;
+    toast(`${creados} equipos importados`,"success");
+  } else if(tipo==="clientes"){
+    const clis=JSON.parse(localStorage.getItem("ing_clientes")||"[]");
+    let creados=0;
+    rows.forEach(r=>{
+      if(!r.nombre) return;
+      const n=String(clis.length+1).padStart(3,"0");
+      clis.push({
+        id:`CL-${n}`, tipo:r.tipo||"natural", nombre:r.nombre,
+        doc:r.documento||"", dv:null, dep:"", mun:"",
+        dir:r.direccion||"", tel:r.telefono||"", email:r.email||"",
+        activo:true,
+        historial:[{evento:"Importado vía cargue masivo",fecha:new Date().toISOString().split("T")[0],tipo:"verde",badge:"REGISTRO"}]
+      });
+      creados++;
+    });
+    localStorage.setItem("ing_clientes",JSON.stringify(clis));
+    document.getElementById("preview-clientes").innerHTML=`<div style="color:var(--verde);font-size:13px;font-weight:600;padding:10px 0">✓ ${creados} cliente${creados!==1?"s":""} importado${creados!==1?"s":""}</div>`;
+    toast(`${creados} clientes importados`,"success");
+  }
+}
+
+function descargarPlantillaEquipos(){
+  const csv="\uFEFFcategoria,marca,modelo,serial,lote,fecha_compra\nOxigenoterapia,Respironics,EverFlo,SERIAL001,L2024-001,2024-01-15\n";
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8;"}));
+  a.download="plantilla_equipos.csv"; a.click();
+}
+function descargarPlantillaClientes(){
+  const csv="\uFEFFtipo,nombre,documento,departamento,municipio,direccion,telefono,email\nnatural,Juan García,1065432198,Cesar,Valledupar,Calle 15 #8-32,3001234567,juan@email.com\n";
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8;"}));
+  a.download="plantilla_clientes.csv"; a.click();
+}
+
+// ── MODAL GENÉRICO ────────────────────────────────────────────
+function cerrarModalGen(){ document.getElementById("modal-gen").classList.remove("open"); }
+document.getElementById("modal-gen").addEventListener("click",e=>{if(e.target.id==="modal-gen")cerrarModalGen();});
+
 initData();
 renderUsuarios();
 </script>

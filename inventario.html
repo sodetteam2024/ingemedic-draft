@@ -37,7 +37,7 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
 .nav-item.active .ni,.nav-item:hover .ni{opacity:1}
 .nav-badge{margin-left:auto;background:var(--rojo);color:#fff;font-size:10px;font-weight:700;padding:1px 6px;border-radius:99px;min-width:18px;text-align:center}
 .nav-badge.cian{background:var(--cian)}
-.sidebar-user{padding:14px 18px;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:10px}
+.sidebar-user{margin-top:auto;padding:14px 18px;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:10px}
 .user-avatar{width:32px;height:32px;border-radius:50%;background:var(--cian);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0}
 .user-name{font-size:12.5px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .user-role{font-size:10.5px;color:rgba(255,255,255,.4)}
@@ -161,76 +161,132 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
 ::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-thumb{background:#CBD5E1;border-radius:99px}
 
-.content{flex:1;overflow:hidden;display:flex;flex-direction:column;padding:20px 24px;gap:14px}
-/* FILTROS */
-.filters-bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;flex-shrink:0}
-.filter-tabs{display:flex;gap:4px;background:#F1F5F9;border-radius:10px;padding:4px}
-.tab-pill{padding:7px 16px;border-radius:7px;font-size:13px;font-weight:500;cursor:pointer;transition:all .15s;color:var(--texto-med);border:none;background:none;font-family:"Inter",sans-serif;white-space:nowrap;display:flex;align-items:center;gap:6px}
-.tab-pill.active{background:var(--blanco);color:var(--azul);font-weight:600;box-shadow:0 1px 4px rgba(0,0,0,.08)}
-.tab-count{font-size:10px;font-weight:700;padding:1px 6px;border-radius:99px}
-.tc-verde{background:var(--verde-suave);color:var(--verde)}
-.tc-cian{background:var(--cian-suave);color:var(--cian)}
-.tc-amarillo{background:var(--amarillo-suave);color:var(--amarillo)}
-.tc-rojo{background:var(--rojo-suave);color:var(--rojo)}
-.tc-gris{background:#F1F5F9;color:var(--gris)}
-.search-wrap{position:relative;flex:1;max-width:320px}
-.search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--texto-suave);display:flex;pointer-events:none}
-.search-input{width:100%;padding:9px 12px 9px 36px;border:1.5px solid var(--borde);border-radius:9px;font-family:"Inter",sans-serif;font-size:13px;color:var(--texto);background:var(--blanco);outline:none;transition:border-color .15s}
+
+/* BREADCRUMB */
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--texto-suave);flex-shrink:0;margin-bottom:4px}
+.breadcrumb span{color:var(--texto-suave)}
+.breadcrumb a{color:var(--cian);cursor:pointer;font-weight:500;text-decoration:none}
+.breadcrumb a:hover{text-decoration:underline}
+.bc-sep{color:var(--borde)}
+
+/* CONTENT */
+.content{flex:1;overflow-y:auto;padding:20px 24px;display:flex;flex-direction:column;gap:16px}
+
+/* VISTA CATEGORÍAS */
+.cats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.cat-card{background:var(--blanco);border:1px solid var(--borde);border-radius:14px;padding:20px;cursor:pointer;transition:all .18s;box-shadow:0 1px 4px rgba(0,0,0,.04);display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}
+.cat-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;border-radius:14px 14px 0 0;background:var(--cian)}
+.cat-card:hover{border-color:var(--cian);box-shadow:0 6px 20px rgba(27,58,107,.1);transform:translateY(-2px)}
+.cat-emoji{font-size:36px;line-height:1}
+.cat-name{font-size:15px;font-weight:700;color:var(--azul)}
+.cat-stats{display:flex;gap:8px;flex-wrap:wrap}
+.cat-stat{font-size:11px;font-weight:600;padding:2px 8px;border-radius:99px}
+.cs-disp{background:var(--verde-suave);color:var(--verde)}
+.cs-prest{background:var(--cian-suave);color:#0E86A0}
+.cs-mant{background:var(--amarillo-suave);color:var(--amarillo)}
+.cs-total{background:#F1F5F9;color:var(--gris)}
+
+/* VISTA TIPOS */
+.tipos-header{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.tipos-emoji{font-size:28px}
+.tipos-title{font-size:20px;font-weight:800;color:var(--azul)}
+.tipos-sub{font-size:13px;color:var(--texto-suave);margin-top:2px}
+
+.tipos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.tipo-card{background:var(--blanco);border:1px solid var(--borde);border-radius:12px;padding:16px 18px;cursor:pointer;transition:all .18s;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.tipo-card:hover{border-color:var(--cian);box-shadow:0 4px 14px rgba(27,58,107,.1);transform:translateY(-1px)}
+.tipo-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px}
+.tipo-nombre{font-size:14px;font-weight:700;color:var(--azul)}
+.tipo-sub{font-size:12px;color:var(--texto-suave);margin-top:2px}
+.stock-badge{font-size:20px;font-weight:800;color:var(--azul);line-height:1}
+.stock-label{font-size:10px;color:var(--texto-suave);margin-top:2px;text-align:right}
+.tipo-card-stats{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.tipo-card-meta{font-size:11.5px;color:var(--texto-suave);display:flex;gap:12px;border-top:1px solid #F8FAFC;padding-top:10px}
+.tm-item{display:flex;align-items:center;gap:4px}
+
+/* VISTA UNIDADES */
+.unidades-header{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.unidades-title{font-size:18px;font-weight:800;color:var(--azul)}
+.unidades-sub{font-size:12.5px;color:var(--texto-suave);margin-top:2px}
+
+.filters-bar{display:flex;align-items:center;gap:10px;flex-shrink:0;flex-wrap:wrap}
+.search-wrap{position:relative;flex:1;max-width:300px}
+.search-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--texto-suave);display:flex;pointer-events:none}
+.search-input{width:100%;padding:9px 12px 9px 34px;border:1.5px solid var(--borde);border-radius:9px;font-family:"Inter",sans-serif;font-size:13px;color:var(--texto);background:var(--blanco);outline:none;transition:border-color .15s}
 .search-input:focus{border-color:var(--cian)}
 .search-input::placeholder{color:var(--texto-suave)}
-.cat-select{padding:9px 12px;border:1.5px solid var(--borde);border-radius:9px;font-family:"Inter",sans-serif;font-size:13px;color:var(--texto-med);background:var(--blanco);outline:none;cursor:pointer}
-/* TABLA */
-.table-wrap{flex:1;overflow-y:auto;background:var(--blanco);border-radius:12px;border:1px solid var(--borde);box-shadow:0 1px 4px rgba(0,0,0,.04)}
-table{width:100%;border-collapse:collapse}
+.filter-btn{padding:8px 14px;border:1.5px solid var(--borde);border-radius:9px;background:var(--blanco);font-family:"Inter",sans-serif;font-size:12.5px;font-weight:500;color:var(--texto-med);cursor:pointer;transition:all .15s}
+.filter-btn:hover{border-color:var(--cian);color:var(--cian)}
+.filter-btn.active{background:var(--azul);color:#fff;border-color:var(--azul)}
+
+/* TABLA UNIDADES */
+.table-wrap{flex:1;background:var(--blanco);border-radius:12px;border:1px solid var(--borde);box-shadow:0 1px 4px rgba(0,0,0,.04);overflow:hidden}
+.table-scroll{overflow:auto}
+table{width:100%;border-collapse:collapse;min-width:600px}
 thead{position:sticky;top:0;z-index:10;background:var(--blanco)}
 thead tr{border-bottom:1px solid var(--borde)}
-th{padding:11px 16px;text-align:left;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--texto-suave);white-space:nowrap;background:var(--blanco)}
-td{padding:11px 16px;font-size:13px;color:var(--texto);border-bottom:1px solid #F8FAFC;vertical-align:middle}
+th{padding:10px 14px;text-align:left;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--texto-suave);white-space:nowrap;background:var(--blanco)}
+td{padding:11px 14px;font-size:13px;color:var(--texto);border-bottom:1px solid #F8FAFC;vertical-align:middle}
 tbody tr:last-child td{border-bottom:none}
 tbody tr:hover td{background:#F8FAFC;cursor:pointer}
-.eq-avatar{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
-.serial{font-family:"Courier New",monospace;font-size:12.5px;font-weight:600;color:var(--azul);letter-spacing:.04em;background:#F1F5F9;padding:3px 8px;border-radius:5px}
+.serial-code{font-family:monospace;font-size:12.5px;font-weight:700;background:#F1F5F9;color:var(--azul);padding:2px 8px;border-radius:5px}
+
 /* ESTADO BADGE */
-.estado-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:99px;font-size:11.5px;font-weight:600;white-space:nowrap}
-.led{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-.estado-disponible{background:var(--verde-suave);color:var(--verde)}
-.estado-disponible .led{background:var(--verde);animation:blink 2s infinite}
-.estado-prestamo{background:var(--cian-suave);color:#0E86A0}
-.estado-prestamo .led{background:var(--cian)}
-.estado-mantenimiento{background:var(--amarillo-suave);color:var(--amarillo)}
-.estado-mantenimiento .led{background:#F59E0B;animation:blink 1.5s infinite}
-.estado-novedad{background:var(--rojo-suave);color:var(--rojo)}
-.estado-novedad .led{background:var(--rojo);animation:blink .8s infinite}
-.estado-baja{background:#F1F5F9;color:var(--gris)}
-.estado-baja .led{background:var(--gris)}
+.est-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:99px;font-size:11px;font-weight:700}
+.led{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.eb-disp{background:var(--verde-suave);color:var(--verde)}
+.eb-disp .led{background:var(--verde);animation:blink 2s infinite}
+.eb-prest{background:var(--cian-suave);color:#0E86A0}
+.eb-prest .led{background:var(--cian)}
+.eb-mant{background:var(--amarillo-suave);color:var(--amarillo)}
+.eb-mant .led{background:#F59E0B;animation:blink 1.5s infinite}
+.eb-nov{background:var(--rojo-suave);color:var(--rojo)}
+.eb-nov .led{background:var(--rojo);animation:blink .8s infinite}
+.eb-baja{background:#F1F5F9;color:var(--gris)}
+.eb-baja .led{background:var(--gris)}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
-/* ACCIÓN BTN */
-.btn-accion{padding:5px 13px;border-radius:7px;font-family:"Inter",sans-serif;font-size:12px;font-weight:600;border:none;cursor:pointer;transition:all .15s;white-space:nowrap}
-.btn-accion.rentar{background:var(--cian-suave);color:var(--cian)}
-.btn-accion.rentar:hover{background:var(--cian);color:#fff}
-.btn-accion.recibir{background:var(--verde-suave);color:var(--verde)}
-.btn-accion.recibir:hover{background:var(--verde);color:#fff}
-.btn-accion.mantener{background:var(--amarillo-suave);color:var(--amarillo)}
-.btn-accion.mantener:hover{background:#F59E0B;color:#fff}
-.btn-accion.ver{background:#F1F5F9;color:var(--gris)}
-.btn-accion.ver:hover{background:#E2E8F0;color:var(--texto)}
+
+/* DRAWER */
+.drawer-overlay{position:fixed;inset:0;background:rgba(15,36,72,.3);z-index:200;opacity:0;pointer-events:none;transition:opacity .25s;backdrop-filter:blur(2px)}
+.drawer-overlay.open{opacity:1;pointer-events:all}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:480px;background:var(--blanco);z-index:201;transform:translateX(100%);transition:transform .28s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(0,0,0,.12)}
+.drawer.open{transform:translateX(0)}
+.drawer-head{padding:18px 22px;border-bottom:1px solid var(--borde);display:flex;align-items:flex-start;justify-content:space-between;flex-shrink:0;background:var(--azul)}
+.drawer-title{font-size:15px;font-weight:700;color:#fff}
+.drawer-sub{font-size:12px;color:rgba(255,255,255,.55);margin-top:3px}
+.drawer-close{background:rgba(255,255,255,.1);border:none;cursor:pointer;color:#fff;width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;transition:background .15s;flex-shrink:0}
+.drawer-close:hover{background:rgba(255,255,255,.2)}
+.drawer-body{flex:1;overflow-y:auto}
+.d-section{padding:16px 22px;border-bottom:1px solid #F1F5F9}
+.d-section:last-child{border-bottom:none}
+.d-section-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--texto-suave);margin-bottom:12px}
+.d-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.d-field label{font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--texto-suave);display:block;margin-bottom:4px}
+.d-field span{font-size:13.5px;font-weight:500;color:var(--texto)}
+.d-field span.mono{font-family:monospace;font-size:13px;background:#F1F5F9;padding:2px 8px;border-radius:5px;color:var(--azul)}
+.drawer-foot{padding:14px 22px;border-top:1px solid var(--borde);display:flex;gap:8px;flex-shrink:0}
+
 /* MODAL */
 .modal-overlay{position:fixed;inset:0;background:rgba(15,36,72,.4);z-index:300;display:none;align-items:center;justify-content:center;backdrop-filter:blur(3px)}
 .modal-overlay.open{display:flex}
-.modal{background:var(--blanco);border-radius:16px;width:100%;max-width:540px;max-height:90vh;display:flex;flex-direction:column;box-shadow:0 24px 64px rgba(0,0,0,.2);overflow:hidden}
+.modal{background:var(--blanco);border-radius:16px;width:100%;max-width:540px;max-height:92vh;display:flex;flex-direction:column;box-shadow:0 24px 64px rgba(0,0,0,.2);overflow:hidden}
 .modal-head{padding:18px 24px;border-bottom:1px solid var(--borde);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
 .modal-head h3{font-size:15px;font-weight:700;color:var(--azul)}
-.modal-close{background:none;border:none;cursor:pointer;color:var(--texto-suave);width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;transition:background .15s}
+.modal-close{background:none;border:none;cursor:pointer;color:var(--texto-suave);width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center}
 .modal-close:hover{background:#F1F5F9}
 .modal-body{padding:22px 24px;overflow-y:auto;flex:1}
 .modal-foot{padding:14px 24px;border-top:1px solid var(--borde);display:flex;justify-content:flex-end;gap:10px;flex-shrink:0}
 .form-row{display:grid;gap:14px;margin-bottom:14px}
 .form-row.c2{grid-template-columns:1fr 1fr}
+.form-row.c3{grid-template-columns:1fr 1fr 1fr}
 .form-group{display:flex;flex-direction:column;gap:5px}
 .form-group label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--texto-med)}
 .form-group input,.form-group select,.form-group textarea{padding:9px 12px;border:1.5px solid var(--borde);border-radius:9px;font-family:"Inter",sans-serif;font-size:13.5px;color:var(--texto);background:var(--blanco);outline:none;transition:border-color .15s}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--cian)}
-.empty-state{text-align:center;padding:56px 24px;color:var(--texto-suave)}
+.form-group input:focus,.form-group select:focus{border-color:var(--cian)}
+
+.empty-state{text-align:center;padding:48px 24px;color:var(--texto-suave)}
+.btn-back{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border:1.5px solid var(--borde);border-radius:9px;background:var(--blanco);font-family:"Inter",sans-serif;font-size:13px;font-weight:500;color:var(--texto-med);cursor:pointer;transition:all .15s}
+.btn-back:hover{border-color:var(--cian);color:var(--cian)}
 </style>
 </head>
 <body>
@@ -258,9 +314,6 @@ tbody tr:hover td{background:#F8FAFC;cursor:pointer}
     <a class="nav-item" href="ordenes.html">
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>Órdenes de servicio
     </a>
-    <a class="nav-item" href="servicios.html">
-      <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></span>Servicios
-    </a>
     <a class="nav-item" href="clientes.html">
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>Clientes
     </a>
@@ -270,6 +323,9 @@ tbody tr:hover td{background:#F8FAFC;cursor:pointer}
     <a class="nav-item" href="solicitudes.html">
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>Solicitudes<span class="nav-badge">2</span>
     </a>
+    <a class="nav-item" href="servicios.html">
+      <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>Servicios prestados
+    </a>
   </div>
   <div class="nav-group"><div class="nav-group-label">Sistema</div>
     <a class="nav-item" href="bitacora.html">
@@ -277,11 +333,6 @@ tbody tr:hover td{background:#F8FAFC;cursor:pointer}
     </a>
     <a class="nav-item" href="configuracion.html">
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></span>Configuración
-    </a>
-  </div>
-  <div style="padding:8px 12px;border-top:1px solid rgba(255,255,255,.08);margin-top:0">
-    <a class="nav-item" href="manual_usuario.html" target="_blank">
-      <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M8 7h8M8 11h8M8 15h8"/></svg></span>Manual de usuario
     </a>
   </div>
   <div class="sidebar-user">
@@ -296,64 +347,34 @@ tbody tr:hover td{background:#F8FAFC;cursor:pointer}
 <main class="main">
   <div class="topbar">
     <div>
-      <div class="topbar-title">Inventario de equipos</div>
-      <div class="topbar-sub" id="inv-count">Cargando...</div>
+      <div class="topbar-title" id="topbar-title">Inventario de equipos</div>
+      <div class="topbar-sub" id="topbar-sub">Selecciona una categoría para ver los equipos</div>
     </div>
-    <div class="topbar-right">
-      <button class="btn-outline" onclick="exportar()">
+    <div class="topbar-right" id="topbar-actions">
+      <button class="btn-outline" id="btn-export" onclick="exportarActual()">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Exportar
+        <span id="btn-export-label">Exportar</span>
       </button>
-      <button class="btn-primary" onclick="abrirModalNuevo()">
+      <button class="btn-primary" id="btn-nuevo" onclick="abrirModalNuevo()" style="display:none">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-        Nuevo equipo
+        <span id="btn-nuevo-label">Nueva unidad</span>
       </button>
     </div>
   </div>
-  <div class="content">
-    <div class="filters-bar">
-      <div class="filter-tabs">
-        <button class="tab-pill active" onclick="filtrarTab(this,'todos')">Todos <span class="tab-count tc-gris" id="cnt-todos">0</span></button>
-        <button class="tab-pill" onclick="filtrarTab(this,'Disponible')">Disponibles <span class="tab-count tc-verde" id="cnt-disp">0</span></button>
-        <button class="tab-pill" onclick="filtrarTab(this,'En préstamo')">En préstamo <span class="tab-count tc-cian" id="cnt-prest">0</span></button>
-        <button class="tab-pill" onclick="filtrarTab(this,'En mantenimiento')">Mantenimiento <span class="tab-count tc-amarillo" id="cnt-mant">0</span></button>
-        <button class="tab-pill" onclick="filtrarTab(this,'Con novedad')">Con novedad <span class="tab-count tc-rojo" id="cnt-nov">0</span></button>
-      </div>
-      <div class="search-wrap">
-        <span class="search-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
-        <input class="search-input" id="search-input" placeholder="Serial, marca, modelo o cliente..." oninput="renderTabla()">
-      </div>
-      <select class="cat-select" id="cat-select" onchange="renderTabla()">
-        <option value="">Todas las categorías</option>
-        <option>Concentrador de oxígeno</option><option>Cilindro de oxígeno</option>
-        <option>Regulador de oxígeno</option><option>CPAP / BPAP</option>
-        <option>Aspirador de secreciones</option><option>Colchón antiescaras</option>
-        <option>Cama hospitalaria</option><option>Ventilador mecánico</option>
-        <option>Nebulizador</option><option>Otro</option>
-      </select>
-    </div>
-    <div class="table-wrap">
-      <table>
-        <thead><tr>
-          <th style="width:40px"></th>
-          <th>Equipo</th><th>Serial</th><th>Categoría</th>
-          <th>Estado</th><th>Ubicación / Cliente</th><th>Ingreso</th>
-          <th style="width:110px">Acción</th>
-        </tr></thead>
-        <tbody id="tabla-body"></tbody>
-      </table>
-    </div>
+
+  <div class="content" id="main-content">
+    <!-- Se renderiza dinámicamente -->
   </div>
 </main>
 </div>
 
-<!-- DRAWER -->
+<!-- DRAWER UNIDAD -->
 <div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()"></div>
 <div class="drawer" id="drawer">
   <div class="drawer-head">
     <div>
-      <div class="drawer-title" id="drawer-title">Equipo</div>
-      <div class="drawer-sub"  id="drawer-sub">—</div>
+      <div class="drawer-title" id="drawer-title">Unidad</div>
+      <div class="drawer-sub"  id="drawer-sub-text">—</div>
     </div>
     <button class="drawer-close" onclick="closeDrawer()">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -363,178 +384,363 @@ tbody tr:hover td{background:#F8FAFC;cursor:pointer}
   <div class="drawer-foot" id="drawer-foot"></div>
 </div>
 
-<!-- MODAL -->
+<!-- MODAL NUEVO -->
 <div class="modal-overlay" id="modal-overlay">
   <div class="modal" onclick="event.stopPropagation()">
     <div class="modal-head">
-      <h3>Nuevo equipo</h3>
-      <button class="modal-close" onclick="cerrarModal()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+      <h3 id="modal-title">Nueva unidad</h3>
+      <button class="modal-close" onclick="cerrarModal()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
     </div>
-    <div class="modal-body">
-      <div class="form-row c2">
-        <div class="form-group"><label>Categoría</label>
-          <select id="f-cat">
-            <option>Concentrador de oxígeno</option><option>Cilindro de oxígeno</option>
-            <option>Regulador de oxígeno</option><option>CPAP / BPAP</option>
-            <option>Aspirador de secreciones</option><option>Colchón antiescaras</option>
-            <option>Cama hospitalaria</option><option>Ventilador mecánico</option>
-            <option>Nebulizador</option><option>Otro</option>
-          </select>
-        </div>
-        <div class="form-group"><label>Marca</label><input id="f-marca" placeholder="ej. Respironics"></div>
-      </div>
-      <div class="form-row c2">
-        <div class="form-group"><label>Modelo</label><input id="f-modelo" placeholder="ej. EverFlo"></div>
-        <div class="form-group"><label>Serial</label><input id="f-serial" placeholder="Número de serie"></div>
-      </div>
-      <div class="form-row c2">
-        <div class="form-group"><label>Registro INVIMA</label><input id="f-invima"></div>
-        <div class="form-group"><label>Fecha de ingreso</label><input type="date" id="f-fecha"></div>
-      </div>
-      <div class="form-row"><div class="form-group"><label>Observaciones</label><textarea id="f-obs" rows="2"></textarea></div></div>
-    </div>
+    <div class="modal-body" id="modal-body"></div>
     <div class="modal-foot">
       <button class="btn-outline" onclick="cerrarModal()">Cancelar</button>
-      <button class="btn-primary" onclick="guardarEquipo()">Guardar equipo</button>
+      <button class="btn-primary" id="modal-save-btn">Guardar</button>
     </div>
   </div>
 </div>
+
 <div class="toast" id="toast"></div>
 
 <script>
 
 const _s = JSON.parse(localStorage.getItem("ing_session")||"null");
-if(!_s) window.location.href="index.html";
+if(!_s) window.location.href="login.html";
 else {
   document.getElementById("user-name").textContent   = _s.nombre;
   document.getElementById("user-role").textContent   = _s.rol==="admin"?"Administrador":"Repartidor";
   document.getElementById("user-avatar").textContent = _s.nombre.charAt(0).toUpperCase();
 }
-function logout(){ localStorage.removeItem("ing_session"); window.location.href="index.html"; }
+function logout(){ localStorage.removeItem("ing_session"); window.location.href="login.html"; }
 function toast(msg,tipo){
   const t=document.getElementById("toast");
   t.textContent=msg; t.className="toast show"+(tipo?" "+tipo:"");
   setTimeout(()=>t.className="toast",3000);
 }
 
-// ── DATOS ────────────────────────────────────────────────
+
+
+// ── IMAGEN TIPO EQUIPO ────────────────────────────────────────
+let _imgTipoId = null;
+let _nuevaImgUrl = null;
+const _imgInput = document.createElement("input");
+_imgInput.type="file"; _imgInput.accept="image/*"; _imgInput.style.display="none";
+document.body.appendChild(_imgInput);
+_imgInput.onchange = function(e){
+  const file=e.target.files[0]; if(!file) return;
+  const r=new FileReader();
+  r.onload=ev=>{
+    const tipos=getTipos(), i=tipos.findIndex(t=>t.id===_imgTipoId);
+    if(i>=0){ tipos[i].imagen_url=ev.target.result; localStorage.setItem("ing_tipos",JSON.stringify(tipos)); toast("Imagen actualizada","success"); renderTipos(catActual); }
+  };
+  r.readAsDataURL(file); _imgInput.value="";
+};
+function cambiarImagenTipo(tipoId){ _imgTipoId=tipoId; _imgInput.click(); }
+function quitarImagenTipo(tipoId){
+  if(!confirm("¿Quitar la imagen de este equipo?")) return;
+  const tipos=getTipos(), i=tipos.findIndex(t=>t.id===tipoId);
+  if(i>=0){ tipos[i].imagen_url=null; localStorage.setItem("ing_tipos",JSON.stringify(tipos)); toast("Imagen eliminada","success"); renderTipos(catActual); }
+}
+
+function previewImgTipo(e){
+  const file=e.target.files[0]; if(!file) return;
+  const r=new FileReader();
+  r.onload=ev=>{
+    _nuevaImgUrl=ev.target.result;
+    const prev=document.getElementById("img-preview");
+    if(prev) prev.innerHTML=`<img src="${ev.target.result}" style="max-width:100%;max-height:76px;object-fit:contain;border-radius:6px">`;
+  };
+  r.readAsDataURL(file);
+}
+
+// ── ESTADO DE NAVEGACIÓN ─────────────────────────────────────
+let vista = "categorias"; // categorias | tipos | unidades
+let catActual  = null;
+let tipoActual = null;
+
+// ── DATOS ────────────────────────────────────────────────────
 function initData(){
-  if(localStorage.getItem("ing_inv_v2")) return;
-  const equipos=[
-    {id:"EQ-0001",cat:"Concentrador de oxígeno",marca:"Respironics",modelo:"EverFlo",serial:"0141535",invima:"2010DM-007934",estado:"En préstamo",ubicacion:"Cra 15 #22-40 B. La Paz",arrendatario:"María García Pérez",fechaIngreso:"2023-01-15",obs:"",historial:[
-      {evento:"Ingreso al inventario",fecha:"2023-01-15",tipo:"verde",badge:"INGRESO"},
-      {evento:"Entregado a María García Pérez — ORD-2024-001",fecha:"2024-02-10",tipo:"cian",badge:"ALQUILER"}
-    ]},
-    {id:"EQ-0002",cat:"Concentrador de oxígeno",marca:"DeVilbiss",modelo:"525KS",serial:"F2201445",invima:"2010DM-008012",estado:"Disponible",ubicacion:"Bodega Ingemedic",arrendatario:"—",fechaIngreso:"2022-11-08",obs:"",historial:[
-      {evento:"Ingreso al inventario",fecha:"2022-11-08",tipo:"verde",badge:"INGRESO"},
-      {evento:"Alquilado — ORD-2023-045",fecha:"2023-03-10",tipo:"cian",badge:"ALQUILER"},
-      {evento:"Devolución recibida en buen estado",fecha:"2024-01-20",tipo:"verde",badge:"DEVOLUCIÓN"}
-    ]},
-    {id:"EQ-0003",cat:"Cilindro de oxígeno",marca:"—",modelo:"6.5 M³",serial:"B241433042",invima:"",estado:"En préstamo",ubicacion:"Cra 15 #22-40 B. La Paz",arrendatario:"María García Pérez",fechaIngreso:"2021-06-20",obs:"",historial:[
-      {evento:"Ingreso al inventario",fecha:"2021-06-20",tipo:"verde",badge:"INGRESO"},
-      {evento:"Entregado a María García Pérez",fecha:"2024-02-10",tipo:"cian",badge:"ALQUILER"}
-    ]},
-    {id:"EQ-0004",cat:"Cilindro de oxígeno",marca:"—",modelo:"Portátil",serial:"C112200874",invima:"",estado:"Disponible",ubicacion:"Bodega Ingemedic",arrendatario:"—",fechaIngreso:"2021-06-20",obs:"",historial:[
-      {evento:"Ingreso al inventario",fecha:"2021-06-20",tipo:"verde",badge:"INGRESO"}
-    ]},
-    {id:"EQ-0005",cat:"CPAP / BPAP",marca:"ResMed",modelo:"AirSense 10",serial:"23191012345",invima:"2018DM-011234",estado:"En mantenimiento",ubicacion:"Taller Ingemedic",arrendatario:"—",fechaIngreso:"2022-03-10",obs:"Revisión preventiva",historial:[
-      {evento:"Ingreso al inventario",fecha:"2022-03-10",tipo:"verde",badge:"INGRESO"},
-      {evento:"Alquilado — ORD-2023-078",fecha:"2023-06-01",tipo:"cian",badge:"ALQUILER"},
-      {evento:"Devolución recibida",fecha:"2024-10-15",tipo:"verde",badge:"DEVOLUCIÓN"},
-      {evento:"Ingresado a mantenimiento preventivo",fecha:"2024-11-15",tipo:"amarillo",badge:"MANTENIMIENTO"}
-    ]},
-    {id:"EQ-0006",cat:"Regulador de oxígeno",marca:"MCare",modelo:"Fijo",serial:"220103092",invima:"",estado:"Disponible",ubicacion:"Bodega Ingemedic",arrendatario:"—",fechaIngreso:"2023-04-05",obs:"",historial:[
-      {evento:"Ingreso al inventario",fecha:"2023-04-05",tipo:"verde",badge:"INGRESO"}
-    ]},
-    {id:"EQ-0007",cat:"Colchón antiescaras",marca:"Lumex",modelo:"APP300",serial:"L330021",invima:"",estado:"En préstamo",ubicacion:"Cl 8 #5-22 Centro",arrendatario:"Pedro Álvarez Suárez",fechaIngreso:"2023-07-18",obs:"",historial:[
-      {evento:"Ingreso al inventario",fecha:"2023-07-18",tipo:"verde",badge:"INGRESO"},
-      {evento:"Entregado a Pedro Álvarez Suárez",fecha:"2024-05-22",tipo:"cian",badge:"ALQUILER"}
-    ]},
-    {id:"EQ-0008",cat:"Aspirador de secreciones",marca:"Medela",modelo:"Basic",serial:"MD990123",invima:"2015DM-005678",estado:"Disponible",ubicacion:"Bodega Ingemedic",arrendatario:"—",fechaIngreso:"2022-09-01",obs:"",historial:[
-      {evento:"Ingreso al inventario",fecha:"2022-09-01",tipo:"verde",badge:"INGRESO"}
-    ]},
-    {id:"EQ-0009",cat:"Concentrador de oxígeno",marca:"Invacare",modelo:"Platinum 10",serial:"PT10-98234",invima:"2012DM-009001",estado:"Con novedad",ubicacion:"Cl 14 #8-22",arrendatario:"CAJACOPI",fechaIngreso:"2021-11-30",obs:"Daño en manguera",historial:[
-      {evento:"Ingreso al inventario",fecha:"2021-11-30",tipo:"verde",badge:"INGRESO"},
-      {evento:"Alquilado a CAJACOPI — ORD-2023-012",fecha:"2023-08-10",tipo:"cian",badge:"ALQUILER"},
-      {evento:"Novedad reportada — daño en manguera",fecha:"2024-11-10",tipo:"rojo",badge:"ALERTA"}
-    ]},
-    {id:"EQ-0010",cat:"Ventilador mecánico",marca:"Dräger",modelo:"Evita V300",serial:"EVT-00341",invima:"2016DM-014500",estado:"Disponible",ubicacion:"Bodega Ingemedic",arrendatario:"—",fechaIngreso:"2024-01-10",obs:"",historial:[
-      {evento:"Ingreso al inventario",fecha:"2024-01-10",tipo:"verde",badge:"INGRESO"}
-    ]},
+  if(localStorage.getItem("ing_inv2_v1")) return;
+
+  const categorias = [
+    {id:"C1",nombre:"Oxigenoterapia",emoji:"🫁",color:"#2EB5D4",campos_tipo:[{nombre:"INVIMA",clave:"invima"},{nombre:"Valor",clave:"valor"},{nombre:"Proveedor",clave:"proveedor"}],campos_unidad:[{nombre:"Lote",clave:"lote"},{nombre:"Fecha compra",clave:"fecha_compra"}]},
+    {id:"C2",nombre:"Camas y camillas",emoji:"🛏️",color:"#1B3A6B",campos_tipo:[{nombre:"INVIMA",clave:"invima"},{nombre:"Valor",clave:"valor"},{nombre:"Proveedor",clave:"proveedor"}],campos_unidad:[{nombre:"Lote",clave:"lote"},{nombre:"Fecha compra",clave:"fecha_compra"}]},
+    {id:"C3",nombre:"Monitoreo",emoji:"📊",color:"#6D28D9",campos_tipo:[{nombre:"INVIMA",clave:"invima"},{nombre:"Valor",clave:"valor"},{nombre:"Proveedor",clave:"proveedor"}],campos_unidad:[{nombre:"Lote",clave:"lote"},{nombre:"Fecha compra",clave:"fecha_compra"}]},
+    {id:"C4",nombre:"Ventilación mecánica",emoji:"🌬️",color:"#C0392B",campos_tipo:[{nombre:"INVIMA",clave:"invima"},{nombre:"Valor",clave:"valor"},{nombre:"Proveedor",clave:"proveedor"}],campos_unidad:[{nombre:"Lote",clave:"lote"},{nombre:"Fecha compra",clave:"fecha_compra"}]},
+    {id:"C5",nombre:"Aspiración",emoji:"💨",color:"#F59E0B",campos_tipo:[{nombre:"INVIMA",clave:"invima"},{nombre:"Valor",clave:"valor"},{nombre:"Proveedor",clave:"proveedor"}],campos_unidad:[{nombre:"Lote",clave:"lote"},{nombre:"Fecha compra",clave:"fecha_compra"}]},
   ];
-  localStorage.setItem("ing_inventario",JSON.stringify(equipos));
-  localStorage.setItem("ing_inv_v2","1");
-}
-const getInv=()=>JSON.parse(localStorage.getItem("ing_inventario")||"[]");
-const setInv=v=>localStorage.setItem("ing_inventario",JSON.stringify(v));
 
-let filtroEstado="todos";
-function filtrarTab(el,estado){
-  document.querySelectorAll(".tab-pill").forEach(t=>t.classList.remove("active"));
-  el.classList.add("active"); filtroEstado=estado; renderTabla();
-}
+  const tipos = [
+    {id:"T1",cat_id:"C1",marca:"Respironics",modelo:"EverFlo",invima:"2010DM-007934",valor:"2500000",proveedor:"MedTech Colombia",extras:{}},
+    {id:"T2",cat_id:"C1",marca:"DeVilbiss",modelo:"525KS",invima:"2010DM-008012",valor:"2200000",proveedor:"MedTech Colombia",extras:{}},
+    {id:"T3",cat_id:"C1",marca:"Invacare",modelo:"Platinum 10",invima:"2012DM-009001",valor:"3100000",proveedor:"Invacare Colombia",extras:{}},
+    {id:"T4",cat_id:"C1",marca:"ResMed",modelo:"AirSense 10",invima:"2018DM-011234",valor:"4500000",proveedor:"ResMed",extras:{}},
+    {id:"T5",cat_id:"C2",marca:"Lumex",modelo:"APP300",invima:"",valor:"1800000",proveedor:"Lumex Médica",extras:{}},
+    {id:"T6",cat_id:"C4",marca:"Dräger",modelo:"Evita V300",invima:"2016DM-014500",valor:"28000000",proveedor:"Dräger Colombia",extras:{}},
+  ];
 
-const CAT_COLORS={"Concentrador":["#E8F7FB","#2EB5D4","🫁"],"Cilindro":["#EEF2FF","#4F46E5","🔵"],"Regulador":["#F0FDF4","#16A34A","⚙️"],"CPAP":["#F5F3FF","#7C3AED","😮"],"Aspirador":["#FFF7ED","#C2410C","💨"],"Colchón":["#F0FDF4","#15803D","🛏"],"Cama":["#EFF6FF","#1D4ED8","🏥"],"Ventilador":["#FFF1F2","#BE123C","🌬"],"Nebulizador":["#F7FEE7","#4D7C0F","💧"]};
-function getAvatar(cat){for(const[k,v] of Object.entries(CAT_COLORS)){if(cat.toLowerCase().includes(k.toLowerCase()))return v;}return["#F1F5F9","#64748B","📦"];}
+  const unidades = [
+    {id:"EQ-0001",tipo_id:"T1",serial:"0141535",lote:"L2023-001",ubicacion:"CAJACOPI ATLÁNTICO",arrendatario:"CAJACOPI ATLÁNTICO",estado:"En préstamo",fecha_compra:"2023-01-15",extras:{},historial:[{evento:"Ingreso al inventario",fecha:"2023-01-15",tipo:"verde",badge:"INGRESO"},{evento:"Entregado a CAJACOPI",fecha:"2024-02-10",tipo:"cian",badge:"ALQUILER"}]},
+    {id:"EQ-0002",tipo_id:"T2",serial:"F2201445",lote:"L2022-008",ubicacion:"Bodega Ingemedic",arrendatario:"—",estado:"Disponible",fecha_compra:"2022-11-08",extras:{},historial:[{evento:"Ingreso al inventario",fecha:"2022-11-08",tipo:"verde",badge:"INGRESO"},{evento:"Devolución recibida",fecha:"2024-01-20",tipo:"verde",badge:"DEVOLUCIÓN"}]},
+    {id:"EQ-0003",tipo_id:"T1",serial:"B241433042",lote:"L2021-003",ubicacion:"María García Pérez",arrendatario:"María García Pérez",estado:"En préstamo",fecha_compra:"2021-06-20",extras:{},historial:[{evento:"Ingreso al inventario",fecha:"2021-06-20",tipo:"verde",badge:"INGRESO"},{evento:"Entregado a María García",fecha:"2024-02-10",tipo:"cian",badge:"ALQUILER"}]},
+    {id:"EQ-0004",tipo_id:"T1",serial:"C112200874",lote:"L2021-004",ubicacion:"Bodega Ingemedic",arrendatario:"—",estado:"Disponible",fecha_compra:"2021-06-20",extras:{},historial:[{evento:"Ingreso al inventario",fecha:"2021-06-20",tipo:"verde",badge:"INGRESO"}]},
+    {id:"EQ-0005",tipo_id:"T4",serial:"23191012345",lote:"L2022-012",ubicacion:"Taller Ingemedic",arrendatario:"—",estado:"En mantenimiento",fecha_compra:"2022-03-10",extras:{},historial:[{evento:"Ingreso al inventario",fecha:"2022-03-10",tipo:"verde",badge:"INGRESO"},{evento:"Ingresado a mantenimiento preventivo",fecha:"2024-11-15",tipo:"amarillo",badge:"MANTENIMIENTO"}]},
+    {id:"EQ-0006",tipo_id:"T2",serial:"F9901122",lote:"L2023-005",ubicacion:"Bodega Ingemedic",arrendatario:"—",estado:"Disponible",fecha_compra:"2023-04-05",extras:{},historial:[{evento:"Ingreso al inventario",fecha:"2023-04-05",tipo:"verde",badge:"INGRESO"}]},
+    {id:"EQ-0007",tipo_id:"T5",serial:"L330021",lote:"L2023-007",ubicacion:"Pedro Álvarez Suárez",arrendatario:"Pedro Álvarez Suárez",estado:"En préstamo",fecha_compra:"2023-07-18",extras:{},historial:[{evento:"Ingreso al inventario",fecha:"2023-07-18",tipo:"verde",badge:"INGRESO"},{evento:"Entregado a Pedro Álvarez",fecha:"2024-05-22",tipo:"cian",badge:"ALQUILER"}]},
+    {id:"EQ-0008",tipo_id:"T3",serial:"PT10-98234",lote:"L2021-009",ubicacion:"CAJACOPI",arrendatario:"CAJACOPI ATLÁNTICO",estado:"Con novedad",fecha_compra:"2021-11-30",extras:{},historial:[{evento:"Ingreso al inventario",fecha:"2021-11-30",tipo:"verde",badge:"INGRESO"},{evento:"Entregado a CAJACOPI",fecha:"2023-08-10",tipo:"cian",badge:"ALQUILER"},{evento:"Novedad — daño en manguera",fecha:"2024-11-10",tipo:"rojo",badge:"ALERTA"}]},
+    {id:"EQ-0009",tipo_id:"T6",serial:"EVT-00341",lote:"L2024-001",ubicacion:"Bodega Ingemedic",arrendatario:"—",estado:"Disponible",fecha_compra:"2024-01-10",extras:{},historial:[{evento:"Ingreso al inventario",fecha:"2024-01-10",tipo:"verde",badge:"INGRESO"}]},
+  ];
 
-function badgeEstado(estado){
-  const m={"Disponible":["estado-disponible","Disponible"],"En préstamo":["estado-prestamo","En préstamo"],"En mantenimiento":["estado-mantenimiento","Mantenimiento"],"Con novedad":["estado-novedad","Con novedad"],"Baja":["estado-baja","Baja"]};
-  const[cls,label]=m[estado]||["estado-baja",estado];
-  return `<span class="estado-badge ${cls}"><span class="led"></span>${label}</span>`;
-}
-
-function btnAccion(eq){
-  if(eq.estado==="Disponible") return `<button class="btn-accion rentar" onclick="event.stopPropagation();window.location.href='ordenes.html'">Rentar</button>`;
-  if(eq.estado==="En préstamo") return `<button class="btn-accion recibir" onclick="event.stopPropagation();toast('Registrando devolución...','success')">Recibir</button>`;
-  if(eq.estado==="En mantenimiento") return `<button class="btn-accion mantener" onclick="event.stopPropagation();window.location.href='mantenimientos.html'">Ver mant.</button>`;
-  return `<button class="btn-accion ver" onclick="event.stopPropagation();abrirDrawer('${eq.id}')">Ver</button>`;
-}
-
-function renderTabla(){
-  const inv=getInv();
-  const q=document.getElementById("search-input").value.toLowerCase();
-  const cat=document.getElementById("cat-select").value;
-  document.getElementById("cnt-todos").textContent=inv.length;
-  document.getElementById("cnt-disp").textContent=inv.filter(e=>e.estado==="Disponible").length;
-  document.getElementById("cnt-prest").textContent=inv.filter(e=>e.estado==="En préstamo").length;
-  document.getElementById("cnt-mant").textContent=inv.filter(e=>e.estado==="En mantenimiento").length;
-  document.getElementById("cnt-nov").textContent=inv.filter(e=>e.estado==="Con novedad").length;
-  let filtered=inv.filter(e=>{
-    const mE=filtroEstado==="todos"||e.estado===filtroEstado;
-    const mC=!cat||e.cat===cat;
-    const mQ=!q||[e.serial,e.marca,e.modelo,e.cat,e.arrendatario,e.ubicacion].some(v=>v.toLowerCase().includes(q));
-    return mE&&mC&&mQ;
-  });
-  document.getElementById("inv-count").textContent=`${filtered.length} de ${inv.length} equipos`;
-  const tbody=document.getElementById("tabla-body");
-  if(!filtered.length){tbody.innerHTML=`<tr><td colspan="8"><div class="empty-state"><p>No se encontraron equipos</p></div></td></tr>`;return;}
-  tbody.innerHTML=filtered.map(e=>{
-    const[bg,color,emoji]=getAvatar(e.cat);
-    return `<tr onclick="abrirDrawer('${e.id}')">
-      <td><div class="eq-avatar" style="background:${bg};color:${color}">${emoji}</div></td>
-      <td><div style="font-size:13.5px;font-weight:600">${e.marca} ${e.modelo}</div><div style="font-size:11.5px;color:var(--texto-suave)">${e.cat}</div></td>
-      <td><span class="serial">${e.serial}</span></td>
-      <td style="font-size:12.5px;color:var(--texto-med)">${e.cat}</td>
-      <td>${badgeEstado(e.estado)}</td>
-      <td><div style="font-size:13px;font-weight:500">${e.arrendatario!=="—"?e.arrendatario:'<span style="color:var(--texto-suave)">Bodega</span>'}</div><div style="font-size:11.5px;color:var(--texto-suave)">${e.ubicacion}</div></td>
-      <td style="font-size:12px;color:var(--texto-suave);font-family:monospace">${e.fechaIngreso}</td>
-      <td onclick="event.stopPropagation()">${btnAccion(e)}</td>
-    </tr>`;
-  }).join("");
+  localStorage.setItem("ing_categorias",  JSON.stringify(categorias));
+  localStorage.setItem("ing_tipos",       JSON.stringify(tipos));
+  localStorage.setItem("ing_unidades",    JSON.stringify(unidades));
+  localStorage.setItem("ing_inv2_v1","1");
 }
 
-// ── DRAWER CON TIMELINE MEJORADO ─────────────────────────
+const getCats  = () => JSON.parse(localStorage.getItem("ing_categorias")||"[]");
+const getTipos = () => JSON.parse(localStorage.getItem("ing_tipos")||"[]");
+const getUnids = () => JSON.parse(localStorage.getItem("ing_unidades")||"[]");
+const setUnids = v => localStorage.setItem("ing_unidades",JSON.stringify(v));
+
+// ── STATS HELPERS ────────────────────────────────────────────
+function statsUnidades(unidades){
+  return {
+    total:  unidades.length,
+    disp:   unidades.filter(u=>u.estado==="Disponible").length,
+    prest:  unidades.filter(u=>u.estado==="En préstamo").length,
+    mant:   unidades.filter(u=>u.estado==="En mantenimiento").length,
+    nov:    unidades.filter(u=>u.estado==="Con novedad").length,
+  };
+}
+
+// ── ESTADO BADGE ─────────────────────────────────────────────
+function estBadge(estado){
+  const m={
+    "Disponible":       ["eb-disp","Disponible"],
+    "En préstamo":      ["eb-prest","En préstamo"],
+    "En mantenimiento": ["eb-mant","Mantenimiento"],
+    "Con novedad":      ["eb-nov","Con novedad"],
+    "Baja":             ["eb-baja","Baja"],
+  };
+  const[cls,lbl]=m[estado]||["eb-baja",estado];
+  return `<span class="est-badge ${cls}"><span class="led"></span>${lbl}</span>`;
+}
+
+// ════════════════════════════════════════════════════════════
+//  VISTAS
+// ════════════════════════════════════════════════════════════
+
+// ── VISTA 1: CATEGORÍAS ──────────────────────────────────────
+function renderCategorias(){
+  vista="categorias"; catActual=null; tipoActual=null;
+  document.getElementById("topbar-title").textContent = "Inventario de equipos";
+  document.getElementById("topbar-sub").textContent   = "Selecciona una categoría";
+  document.getElementById("btn-nuevo").style.display  = "none";
+
+  const cats  = getCats();
+  const tipos = getTipos();
+  const unids = getUnids();
+
+  document.getElementById("main-content").innerHTML = `
+    <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--texto-suave);flex-shrink:0">
+      ${cats.length} categoría${cats.length!==1?"s":""} configuradas
+    </div>
+    <div class="cats-grid">
+      ${cats.map(c=>{
+        const tiposCat = tipos.filter(t=>t.cat_id===c.id);
+        const unidsCat = unids.filter(u=>tiposCat.some(t=>t.id===u.tipo_id));
+        const s = statsUnidades(unidsCat);
+        return `<div class="cat-card" onclick="renderTipos('${c.id}')">
+          <div style="font-size:40px;line-height:1">${c.emoji}</div>
+          <div>
+            <div class="cat-name">${c.nombre}</div>
+            <div style="font-size:12px;color:var(--texto-suave);margin-top:2px">${tiposCat.length} tipo${tiposCat.length!==1?"s":""} de equipo</div>
+          </div>
+          <div class="cat-stats">
+            <span class="cat-stat cs-total">${s.total} total</span>
+            ${s.disp?`<span class="cat-stat cs-disp">${s.disp} disp.</span>`:""}
+            ${s.prest?`<span class="cat-stat cs-prest">${s.prest} prest.</span>`:""}
+            ${s.mant?`<span class="cat-stat cs-mant">${s.mant} mant.</span>`:""}
+          </div>
+        </div>`;
+      }).join("")}
+    </div>`;
+}
+
+// ── VISTA 2: TIPOS DE EQUIPO ─────────────────────────────────
+function renderTipos(catId){
+  vista="tipos"; catActual=catId; tipoActual=null;
+  const cat   = getCats().find(c=>c.id===catId);
+  const tipos = getTipos().filter(t=>t.cat_id===catId);
+  const unids = getUnids();
+
+  document.getElementById("topbar-title").textContent = cat.nombre;
+  document.getElementById("topbar-sub").textContent   = `${cat.emoji} ${tipos.length} tipo${tipos.length!==1?"s":""} de equipo`;
+  document.getElementById("btn-nuevo").style.display  = "flex";
+  document.getElementById("btn-nuevo-label").textContent = "Nuevo tipo de equipo";
+
+  document.getElementById("main-content").innerHTML = `
+    <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
+      <button class="btn-back" onclick="renderCategorias()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        Categorías
+      </button>
+      <span style="color:var(--borde)">›</span>
+      <span style="font-size:14px;font-weight:600;color:var(--azul)">${cat.emoji} ${cat.nombre}</span>
+    </div>
+    <div class="tipos-grid">
+      ${tipos.map(t=>{
+        const unidsTipo = unids.filter(u=>u.tipo_id===t.id);
+        const s = statsUnidades(unidsTipo);
+        const imgSrc = t.imagen_url || null;
+        return `<div class="tipo-card" onclick="renderUnidades('${t.id}')">
+          ${imgSrc
+            ? `<div style="width:100%;height:110px;border-radius:9px;overflow:hidden;margin-bottom:12px;border:1px solid var(--borde);background:var(--fondo);display:flex;align-items:center;justify-content:center;position:relative">
+                <img src="${imgSrc}" style="max-width:100%;max-height:100%;object-fit:contain;padding:8px">
+                <div style="position:absolute;top:6px;right:6px;display:flex;gap:4px">
+                  <button onclick="event.stopPropagation();cambiarImagenTipo('${t.id}')" title="Cambiar imagen" style="background:rgba(255,255,255,.9);border:1px solid var(--borde);border-radius:6px;width:26px;height:26px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--gris);transition:all .15s" onmouseover="this.style.color='var(--cian)'" onmouseout="this.style.color='var(--gris)'">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  </button>
+                  <button onclick="event.stopPropagation();quitarImagenTipo('${t.id}')" title="Quitar imagen" style="background:rgba(255,255,255,.9);border:1px solid var(--borde);border-radius:6px;width:26px;height:26px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--gris);transition:all .15s" onmouseover="this.style.color='var(--rojo)'" onmouseout="this.style.color='var(--gris)'">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  </button>
+                </div>
+               </div>`
+            : ""
+          }
+          <div class="tipo-card-head" style="position:relative">
+            <div>
+              <div class="tipo-nombre">${t.marca} ${t.modelo}</div>
+              <div class="tipo-sub">${cat.nombre}</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0">
+              <div style="text-align:right">
+                <div class="stock-badge">${s.total}</div>
+                <div class="stock-label">unidades</div>
+              </div>
+              ${!imgSrc ? `<button onclick="event.stopPropagation();cambiarImagenTipo('${t.id}')" title="Agregar imagen" style="background:none;border:1px solid var(--borde);border-radius:6px;width:24px;height:24px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--texto-suave);transition:all .15s;flex-shrink:0" onmouseover="this.style.borderColor='var(--cian)';this.style.color='var(--cian)'" onmouseout="this.style.borderColor='var(--borde)';this.style.color='var(--texto-suave)'">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              </button>` : ""}
+            </div>
+          </div>
+          <div class="tipo-card-stats">
+            ${s.disp?`<span class="cat-stat cs-disp">${s.disp} disp.</span>`:""}
+            ${s.prest?`<span class="cat-stat cs-prest">${s.prest} prest.</span>`:""}
+            ${s.mant?`<span class="cat-stat cs-mant">${s.mant} mant.</span>`:""}
+            ${s.nov?`<span class="cat-stat" style="background:var(--rojo-suave);color:var(--rojo)">${s.nov} novedad</span>`:""}
+            ${!s.total?`<span class="cat-stat cs-total">Sin unidades</span>`:""}
+          </div>
+          <div class="tipo-card-meta">
+            ${t.invima?`<div class="tm-item"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg> ${t.invima}</div>`:""}
+            ${t.valor?`<div class="tm-item"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> $${parseInt(t.valor).toLocaleString("es-CO")}</div>`:""}
+          </div>
+        </div>`;
+      }).join("")}
+      ${!tipos.length?`<div class="empty-state" style="grid-column:1/-1"><p>No hay tipos de equipo en esta categoría</p></div>`:""}
+    </div>`;
+}
+
+// ── VISTA 3: UNIDADES ─────────────────────────────────────────
+let filtroEstado = "todos";
+
+function renderUnidades(tipoId){
+  vista="unidades"; tipoActual=tipoId;
+  const cat   = getCats().find(c=>c.id===catActual);
+  const tipo  = getTipos().find(t=>t.id===tipoId);
+  const unids = getUnids();
+  filtroEstado = "todos";
+
+  document.getElementById("topbar-title").textContent = `${tipo.marca} ${tipo.modelo}`;
+  document.getElementById("topbar-sub").textContent   = cat.nombre;
+  document.getElementById("btn-nuevo").style.display  = "flex";
+  document.getElementById("btn-nuevo-label").textContent = "Nueva unidad";
+
+  renderTablaUnidades(tipoId, cat, tipo, unids);
+}
+
+function renderTablaUnidades(tipoId, cat, tipo, unids){
+  const q = document.getElementById("search-unidades")?.value.toLowerCase()||"";
+  let filtered = unids.filter(u=>u.tipo_id===tipoId);
+
+  const s = statsUnidades(filtered);
+
+  if(filtroEstado!=="todos") filtered = filtered.filter(u=>u.estado===filtroEstado);
+  if(q) filtered = filtered.filter(u=>[u.serial,u.id,u.arrendatario,u.ubicacion,u.lote].some(v=>(v||"").toLowerCase().includes(q)));
+
+  document.getElementById("main-content").innerHTML = `
+    <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
+      <button class="btn-back" onclick="renderCategorias()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        Categorías
+      </button>
+      <span style="color:var(--borde)">›</span>
+      <span style="font-size:13px;color:var(--texto-suave);cursor:pointer" onclick="renderTipos('${cat.id}')">${cat.emoji} ${cat.nombre}</span>
+      <span style="color:var(--borde)">›</span>
+      <span style="font-size:13px;font-weight:600;color:var(--azul)">${tipo.marca} ${tipo.modelo}</span>
+    </div>
+
+    <div class="filters-bar">
+      <div class="search-wrap">
+        <span class="search-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
+        <input class="search-input" id="search-unidades" placeholder="Buscar serial, lote o cliente..." oninput="renderTablaUnidades('${tipoId}',getCats().find(c=>c.id==='${cat.id}'),getTipos().find(t=>t.id==='${tipoId}'),getUnids())">
+      </div>
+      <button class="filter-btn ${filtroEstado==="todos"?"active":""}"         onclick="setFiltroUnd('todos',        '${tipoId}','${cat.id}')">Todas (${s.total})</button>
+      <button class="filter-btn ${filtroEstado==="Disponible"?"active":""}"    onclick="setFiltroUnd('Disponible',   '${tipoId}','${cat.id}')">Disponibles (${s.disp})</button>
+      <button class="filter-btn ${filtroEstado==="En préstamo"?"active":""}"   onclick="setFiltroUnd('En préstamo',  '${tipoId}','${cat.id}')">En préstamo (${s.prest})</button>
+      ${s.mant?`<button class="filter-btn ${filtroEstado==="En mantenimiento"?"active":""}" onclick="setFiltroUnd('En mantenimiento','${tipoId}','${cat.id}')">Mant. (${s.mant})</button>`:"" }
+    </div>
+
+    <div class="table-wrap">
+      <div class="table-scroll">
+        <table>
+          <thead><tr>
+            <th>Código</th>
+            <th>Serial</th>
+            ${cat.campos_unidad?.map(c=>`<th>${c.nombre}</th>`).join("")||""}
+            <th>Estado</th>
+            <th>Ubicación / Cliente</th>
+            <th>Fecha compra</th>
+          </tr></thead>
+          <tbody>
+            ${filtered.map(u=>`
+              <tr onclick="abrirDrawer('${u.id}')">
+                <td><span class="serial-code">${u.id}</span></td>
+                <td><span class="serial-code" style="background:#F5F3FF;color:#6D28D9">${u.serial}</span></td>
+                ${cat.campos_unidad?.map(c=>`<td style="font-size:12.5px;color:var(--texto-med)">${u[c.clave]||u.extras?.[c.clave]||"—"}</td>`).join("")||""}
+                <td>${estBadge(u.estado)}</td>
+                <td>
+                  <div style="font-size:13px;font-weight:500">${u.arrendatario!=="—"?u.arrendatario:'<span style="color:var(--texto-suave)">Bodega</span>'}</div>
+                  <div style="font-size:11.5px;color:var(--texto-suave)">${u.ubicacion}</div>
+                </td>
+                <td style="font-size:12px;color:var(--texto-suave);font-family:monospace">${u.fecha_compra||"—"}</td>
+              </tr>`).join("")}
+            ${!filtered.length?`<tr><td colspan="10"><div class="empty-state"><p>No hay unidades que coincidan</p></div></td></tr>`:""}
+          </tbody>
+        </table>
+      </div>
+    </div>`;
+}
+
+function setFiltroUnd(estado, tipoId, catId){
+  filtroEstado=estado;
+  const cat  = getCats().find(c=>c.id===catId);
+  const tipo = getTipos().find(t=>t.id===tipoId);
+  renderTablaUnidades(tipoId, cat, tipo, getUnids());
+}
+
+// ── DRAWER UNIDAD ─────────────────────────────────────────────
 function abrirDrawer(id){
-  const e=getInv().find(x=>x.id===id); if(!e) return;
-  const[bg,color,emoji]=getAvatar(e.cat);
-  document.getElementById("drawer-title").textContent=`${e.marca} ${e.modelo}`;
-  document.getElementById("drawer-sub").textContent=`${e.id} · ${e.cat}`;
+  const u    = getUnids().find(x=>x.id===id); if(!u) return;
+  const tipo = getTipos().find(t=>t.id===u.tipo_id);
+  const cat  = getCats().find(c=>c.id===tipo?.cat_id);
 
-  // Timeline "Línea de Vida" mejorada
-  const tlHTML=(e.historial||[]).slice().reverse().map((h,i,arr)=>{
+  document.getElementById("drawer-title").textContent    = `${tipo?.marca} ${tipo?.modelo}`;
+  document.getElementById("drawer-sub-text").textContent = `${u.id} · ${cat?.nombre||""}`;
+
+  const tlHTML = (u.historial||[]).slice().reverse().map((h,i,arr)=>{
     const isLast=i===arr.length-1;
-    const badgeColors={verde:"verde",cian:"cian",amarillo:"amarillo",rojo:"rojo",gris:"gris",purpura:"purpura"};
-    const bc=badgeColors[h.tipo]||"gris";
+    const bc={verde:"verde",cian:"cian",amarillo:"amarillo",rojo:"rojo",gris:"gris"}[h.tipo]||"gris";
     return `<div class="tl-v-item">
       <div class="tl-v-left">
         <div class="tl-v-dot ${bc}"></div>
@@ -548,37 +754,40 @@ function abrirDrawer(id){
     </div>`;
   }).join("");
 
-  document.getElementById("drawer-body").innerHTML=`
+  document.getElementById("drawer-body").innerHTML = `
     <div class="d-section">
-      <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px">
-        <div class="eq-avatar" style="background:${bg};color:${color};width:48px;height:48px;border-radius:12px;font-size:22px">${emoji}</div>
-        <div>${badgeEstado(e.estado)}<div style="font-size:12px;color:var(--texto-suave);margin-top:4px">${e.cat}</div></div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+        <div style="font-size:36px">${cat?.emoji||"📦"}</div>
+        <div>${estBadge(u.estado)}<div style="font-size:12px;color:var(--texto-suave);margin-top:4px">${cat?.nombre} · ${tipo?.marca} ${tipo?.modelo}</div></div>
       </div>
       <div class="d-grid">
-        <div class="d-field"><label>Código</label><span class="mono">${e.id}</span></div>
-        <div class="d-field"><label>Serial</label><span class="mono">${e.serial}</span></div>
-        <div class="d-field"><label>Marca</label><span>${e.marca}</span></div>
-        <div class="d-field"><label>Modelo</label><span>${e.modelo}</span></div>
-        <div class="d-field"><label>INVIMA</label><span>${e.invima||"—"}</span></div>
-        <div class="d-field"><label>Ingreso</label><span>${e.fechaIngreso}</span></div>
+        <div class="d-field"><label>Código</label><span class="mono">${u.id}</span></div>
+        <div class="d-field"><label>Serial</label><span class="mono">${u.serial}</span></div>
+        ${cat?.campos_unidad?.map(c=>`<div class="d-field"><label>${c.nombre}</label><span>${u[c.clave]||u.extras?.[c.clave]||"—"}</span></div>`).join("")||""}
+        <div class="d-field"><label>Fecha compra</label><span>${u.fecha_compra||"—"}</span></div>
       </div>
     </div>
     <div class="d-section">
       <div class="d-section-title">Ubicación actual</div>
       <div class="d-grid">
-        <div class="d-field"><label>Arrendatario</label><span>${e.arrendatario}</span></div>
-        <div class="d-field"><label>Dirección</label><span>${e.ubicacion}</span></div>
+        <div class="d-field"><label>Cliente</label><span>${u.arrendatario}</span></div>
+        <div class="d-field"><label>Dirección</label><span>${u.ubicacion}</span></div>
+      </div>
+    </div>
+    <div class="d-section">
+      <div class="d-section-title">Datos del tipo de equipo</div>
+      <div class="d-grid">
+        ${cat?.campos_tipo?.map(c=>`<div class="d-field"><label>${c.nombre}</label><span>${tipo?.[c.clave]||tipo?.extras?.[c.clave]||"—"}</span></div>`).join("")||""}
       </div>
     </div>
     <div class="d-section">
       <div class="d-section-title">🩺 Línea de vida del equipo</div>
-      <div class="tl-v" style="padding:4px 0 0">${tlHTML}</div>
+      <div class="tl-v" style="padding-top:4px">${tlHTML}</div>
     </div>`;
 
-  document.getElementById("drawer-foot").innerHTML=`
-    <button class="btn-outline" style="flex:1;justify-content:center" onclick="editarEstado('${e.id}')">Cambiar estado</button>
-    ${e.estado==="Disponible"?`<button class="btn-primary" style="flex:1;justify-content:center" onclick="window.location.href='ordenes.html'">Rentar equipo</button>`:""}
-    ${e.estado==="En préstamo"?`<button class="btn-primary" style="flex:1;justify-content:center" onclick="toast('Registrando devolución...','success')">Registrar devolución</button>`:""}`;
+  document.getElementById("drawer-foot").innerHTML = `
+    <button class="btn-outline" style="flex:1;justify-content:center" onclick="cambiarEstado('${u.id}')">Cambiar estado</button>
+    ${u.estado==="Disponible"?`<button class="btn-primary" style="flex:1;justify-content:center" onclick="toast('Ir a órdenes de servicio','success');closeDrawer()">Rentar equipo</button>`:""}`;
 
   document.getElementById("drawer-overlay").classList.add("open");
   document.getElementById("drawer").classList.add("open");
@@ -589,48 +798,102 @@ function closeDrawer(){
   document.getElementById("drawer").classList.remove("open");
 }
 
-function editarEstado(id){
-  const e=getInv().find(x=>x.id===id); if(!e) return;
-  const nuevo=prompt(`Estado actual: ${e.estado}\n\n1. Disponible\n2. En préstamo\n3. En mantenimiento\n4. Con novedad\n5. Baja\n\nEscribe el número:`);
+function cambiarEstado(id){
+  const u=getUnids().find(x=>x.id===id); if(!u) return;
+  const nuevo=prompt(`Estado actual: ${u.estado}\n\n1. Disponible\n2. En préstamo\n3. En mantenimiento\n4. Con novedad\n5. Baja\n\nEscribe el número:`);
   const map={"1":"Disponible","2":"En préstamo","3":"En mantenimiento","4":"Con novedad","5":"Baja"};
   if(!map[nuevo]) return;
-  const motivo=prompt("Motivo del cambio (requerido):"); if(!motivo) return;
-  const inv=getInv(),i=inv.findIndex(x=>x.id===id);
-  inv[i].estado=map[nuevo];
-  inv[i].historial.push({evento:`Estado cambiado a "${map[nuevo]}" — ${motivo}`,fecha:new Date().toISOString().split("T")[0],tipo:"cian",badge:"CAMBIO"});
-  setInv(inv); toast("Estado actualizado","success"); closeDrawer(); renderTabla();
+  const motivo=prompt("Motivo del cambio:"); if(!motivo) return;
+  const unids=getUnids(),i=unids.findIndex(x=>x.id===id);
+  unids[i].estado=map[nuevo];
+  unids[i].historial.push({evento:`Estado → "${map[nuevo]}" — ${motivo}`,fecha:new Date().toISOString().split("T")[0],tipo:"cian",badge:"CAMBIO"});
+  setUnids(unids);
+  toast("Estado actualizado","success");
+  closeDrawer();
+  if(vista==="unidades") renderTablaUnidades(tipoActual,getCats().find(c=>c.id===catActual),getTipos().find(t=>t.id===tipoActual),getUnids());
 }
 
+// ── MODAL NUEVO ───────────────────────────────────────────────
 function abrirModalNuevo(){
-  ["f-marca","f-modelo","f-serial","f-invima","f-obs"].forEach(id=>document.getElementById(id).value="");
-  document.getElementById("f-fecha").value=new Date().toISOString().split("T")[0];
+  if(vista==="tipos"){
+    const cat = getCats().find(c=>c.id===catActual);
+    document.getElementById("modal-title").textContent = `Nuevo tipo de equipo — ${cat.nombre}`;
+    document.getElementById("modal-body").innerHTML = `
+      <div class="form-row c2">
+        <div class="form-group"><label>Marca</label><input id="n-marca" placeholder="ej. Respironics"></div>
+        <div class="form-group"><label>Modelo</label><input id="n-modelo" placeholder="ej. EverFlo"></div>
+      </div>
+      ${cat.campos_tipo?.map(c=>`
+        <div class="form-row"><div class="form-group"><label>${c.nombre}</label><input id="n-${c.clave}" placeholder="${c.nombre}"></div></div>
+      `).join("")||""}
+      <div class="form-row"><div class="form-group">
+        <label>Imagen del modelo <span style="font-size:10px;font-weight:400;text-transform:none;color:var(--texto-suave)">(opcional)</span></label>
+        <div id="img-preview" onclick="document.getElementById('n-img-file').click()" style="width:100%;height:80px;border:2px dashed var(--borde);border-radius:9px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;color:var(--texto-suave);font-size:12px;transition:all .15s" onmouseover="this.style.borderColor='var(--cian)'" onmouseout="this.style.borderColor='var(--borde)'">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          Clic para subir imagen
+        </div>
+        <input type="file" id="n-img-file" accept="image/*" style="display:none" onchange="previewImgTipo(event)">
+      </div></div>`;
+    document.getElementById("modal-save-btn").onclick = guardarTipo;
+  } else if(vista==="unidades"){
+    const cat  = getCats().find(c=>c.id===catActual);
+    document.getElementById("modal-title").textContent = "Nueva unidad";
+    document.getElementById("modal-body").innerHTML = `
+      <div class="form-row c2">
+        <div class="form-group"><label>Serial</label><input id="n-serial" placeholder="Número de serie único"></div>
+        <div class="form-group"><label>Fecha de compra</label><input type="date" id="n-fecha" value="${new Date().toISOString().split("T")[0]}"></div>
+      </div>
+      ${cat.campos_unidad?.map(c=>`
+        <div class="form-row"><div class="form-group"><label>${c.nombre}</label><input id="n-${c.clave}" placeholder="${c.nombre}"></div></div>
+      `).join("")||""}`;
+    document.getElementById("modal-save-btn").onclick = guardarUnidad;
+  }
   document.getElementById("modal-overlay").classList.add("open");
 }
+
 function cerrarModal(){document.getElementById("modal-overlay").classList.remove("open");}
 document.getElementById("modal-overlay").addEventListener("click",e=>{if(e.target.id==="modal-overlay")cerrarModal();});
 
-function guardarEquipo(){
-  const inv=getInv();
-  const serial=document.getElementById("f-serial").value.trim();
-  if(!serial){toast("El serial es requerido","error");return;}
-  if(inv.find(e=>e.serial===serial)){toast("Ya existe un equipo con ese serial","error");return;}
-  inv.push({
-    id:"EQ-"+String(inv.length+1).padStart(4,"0"),
-    cat:document.getElementById("f-cat").value,
-    marca:document.getElementById("f-marca").value||"—",
-    modelo:document.getElementById("f-modelo").value||"—",
-    serial,invima:document.getElementById("f-invima").value||"",
-    estado:"Disponible",ubicacion:"Bodega Ingemedic",arrendatario:"—",
-    fechaIngreso:document.getElementById("f-fecha").value,
-    obs:document.getElementById("f-obs").value||"",
-    historial:[{evento:"Ingreso al inventario",fecha:new Date().toISOString().split("T")[0],tipo:"verde",badge:"INGRESO"}]
-  });
-  setInv(inv); toast("Equipo registrado","success"); cerrarModal(); renderTabla();
+function guardarTipo(){
+  const marca=document.getElementById("n-marca")?.value.trim();
+  const modelo=document.getElementById("n-modelo")?.value.trim();
+  if(!marca||!modelo){toast("Marca y modelo son requeridos","error");return;}
+  const cat=getCats().find(c=>c.id===catActual);
+  const tipos=getTipos();
+  const extras={};
+  cat.campos_tipo?.forEach(c=>{ extras[c.clave]=document.getElementById(`n-${c.clave}`)?.value||""; });
+  tipos.push({id:`T${tipos.length+1}`,cat_id:catActual,marca,modelo,imagen_url:_nuevaImgUrl||null,...extras,extras:{}}); _nuevaImgUrl=null;
+  localStorage.setItem("ing_tipos",JSON.stringify(tipos));
+  toast("Tipo de equipo registrado","success");
+  cerrarModal();
+  renderTipos(catActual);
 }
 
-function exportar(){toast("Exportación en desarrollo","");}
+function guardarUnidad(){
+  const serial=document.getElementById("n-serial")?.value.trim();
+  if(!serial){toast("El serial es requerido","error");return;}
+  const unids=getUnids();
+  if(unids.find(u=>u.serial===serial)){toast("Ya existe una unidad con ese serial","error");return;}
+  const cat=getCats().find(c=>c.id===catActual);
+  const extras={};
+  cat.campos_unidad?.forEach(c=>{ extras[c.clave]=document.getElementById(`n-${c.clave}`)?.value||""; });
+  const n=String(unids.length+1).padStart(4,"0");
+  unids.push({
+    id:`EQ-${n}`,tipo_id:tipoActual,serial,
+    lote:extras.lote||"",ubicacion:"Bodega Ingemedic",arrendatario:"—",
+    estado:"Disponible",fecha_compra:document.getElementById("n-fecha")?.value||"",
+    extras,
+    historial:[{evento:"Ingreso al inventario",fecha:new Date().toISOString().split("T")[0],tipo:"verde",badge:"INGRESO"}]
+  });
+  setUnids(unids);
+  toast("Unidad registrada","success");
+  cerrarModal();
+  renderTablaUnidades(tipoActual,getCats().find(c=>c.id===catActual),getTipos().find(t=>t.id===tipoActual),getUnids());
+}
 
-initData(); renderTabla();
+// ── INIT ──────────────────────────────────────────────────────
+initData();
+renderCategorias();
 </script>
 </body>
 </html>

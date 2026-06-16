@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ingemedic — Servicios Prestados</title>
+<title>Ingemedic — Servicios prestados</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 
@@ -37,7 +37,7 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
 .nav-item.active .ni,.nav-item:hover .ni{opacity:1}
 .nav-badge{margin-left:auto;background:var(--rojo);color:#fff;font-size:10px;font-weight:700;padding:1px 6px;border-radius:99px;min-width:18px;text-align:center}
 .nav-badge.cian{background:var(--cian)}
-.sidebar-user{padding:14px 18px;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:10px}
+.sidebar-user{margin-top:auto;padding:14px 18px;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:10px}
 .user-avatar{width:32px;height:32px;border-radius:50%;background:var(--cian);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0}
 .user-name{font-size:12.5px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .user-role{font-size:10.5px;color:rgba(255,255,255,.4)}
@@ -161,77 +161,60 @@ html,body{height:100%;font-family:"Inter",sans-serif;background:var(--fondo);col
 ::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-thumb{background:#CBD5E1;border-radius:99px}
 
-.content{flex:1;overflow-y:auto;padding:20px 24px;display:flex;flex-direction:column;gap:16px}
-
-/* MÉTRICAS */
-.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;flex-shrink:0}
-.metric-card{background:var(--blanco);border:1px solid var(--borde);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.metric-label{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--texto-suave);display:flex;align-items:center;gap:7px}
-.metric-val{font-size:28px;font-weight:800;color:var(--azul);line-height:1;font-variant-numeric:tabular-nums}
-.metric-sub{font-size:12px;color:var(--texto-suave)}
-.pulse-dot{width:8px;height:8px;border-radius:50%;background:var(--cian);animation:mdPulse 2s ease-in-out infinite;flex-shrink:0}
-@keyframes mdPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+.content{flex:1;overflow:hidden;display:flex;flex-direction:column;padding:20px 24px;gap:14px}
 
 /* CONTROLES */
 .controls-bar{background:var(--blanco);border:1px solid var(--borde);border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;flex-shrink:0;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.search-wrap{position:relative;flex:1;min-width:220px;max-width:280px}
+.search-wrap{position:relative;flex:1;min-width:200px;max-width:260px}
 .search-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--texto-suave);display:flex;pointer-events:none}
 .search-input{width:100%;padding:8px 12px 8px 34px;border:1.5px solid var(--borde);border-radius:9px;font-family:"Inter",sans-serif;font-size:13px;color:var(--texto);background:var(--fondo);outline:none;transition:border-color .15s}
 .search-input:focus{border-color:var(--cian);background:var(--blanco)}
 .search-input::placeholder{color:var(--texto-suave)}
-
-/* SEGMENTED CONTROL */
+.ctrl-label{font-size:11.5px;font-weight:600;color:var(--texto-med);white-space:nowrap}
+.ctrl-input{padding:8px 12px;border:1.5px solid var(--borde);border-radius:9px;font-family:"Inter",sans-serif;font-size:13px;color:var(--texto-med);background:var(--blanco);outline:none;cursor:pointer;transition:border-color .15s}
+.ctrl-input:focus{border-color:var(--cian)}
 .seg-ctrl{display:flex;background:#F1F5F9;border-radius:8px;padding:3px;gap:2px}
-.seg-btn{padding:6px 14px;border-radius:6px;font-family:"Inter",sans-serif;font-size:12.5px;font-weight:500;color:var(--texto-med);cursor:pointer;transition:all .15s;border:none;background:none}
-.seg-btn.active{background:var(--azul);color:#fff;font-weight:600}
-.seg-btn:not(.active):hover{color:var(--azul)}
-
-.period-select{padding:8px 12px;border:1.5px solid var(--borde);border-radius:9px;font-family:"Inter",sans-serif;font-size:13px;color:var(--texto-med);background:var(--blanco);outline:none;cursor:pointer;transition:border-color .15s}
-.period-select:focus{border-color:var(--cian)}
-
-/* TOGGLE AGRUPACIÓN */
-.toggle-wrap{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--texto-med);cursor:pointer;user-select:none}
-.toggle{width:36px;height:20px;border-radius:99px;background:#E2E8F0;position:relative;transition:background .2s;flex-shrink:0}
+.seg-btn{padding:6px 12px;border-radius:6px;font-family:"Inter",sans-serif;font-size:12px;font-weight:500;color:var(--texto-med);cursor:pointer;transition:all .15s;border:none;background:none;white-space:nowrap}
+.seg-btn.active{background:var(--blanco);color:var(--azul);font-weight:700;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.toggle-wrap{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--texto-med);cursor:pointer;user-select:none;white-space:nowrap}
+.toggle{width:34px;height:19px;border-radius:99px;background:#E2E8F0;position:relative;transition:background .2s;flex-shrink:0}
 .toggle.on{background:var(--cian)}
-.toggle::after{content:"";position:absolute;top:3px;left:3px;width:14px;height:14px;border-radius:50%;background:#fff;transition:transform .2s;box-shadow:0 1px 3px rgba(0,0,0,.15)}
-.toggle.on::after{transform:translateX(16px)}
-
-/* BTN EXPORTAR */
-.btn-export{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:#059669;color:#fff;border:none;border-radius:9px;font-family:"Inter",sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .15s;margin-left:auto}
+.toggle::after{content:"";position:absolute;top:3px;left:3px;width:13px;height:13px;border-radius:50%;background:#fff;transition:transform .2s;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.toggle.on::after{transform:translateX(15px)}
+.btn-export{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:#059669;color:#fff;border:none;border-radius:9px;font-family:"Inter",sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap;margin-left:auto}
 .btn-export:hover{background:#047857;box-shadow:0 4px 12px rgba(5,150,105,.25)}
 
+/* MÉTRICAS */
+.metrics-row{display:flex;gap:10px;flex-shrink:0}
+.metric-card{background:var(--blanco);border:1px solid var(--borde);border-radius:10px;padding:12px 16px;flex:1;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.metric-label{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--texto-suave);display:flex;align-items:center;gap:6px;margin-bottom:6px}
+.metric-val{font-size:24px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.metric-sub{font-size:11.5px;color:var(--texto-suave);margin-top:3px}
+.pulse-dot{width:7px;height:7px;border-radius:50%;background:var(--cian);animation:pulse 2s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
 /* TABLA */
-.table-wrap{flex:1;background:var(--blanco);border-radius:12px;border:1px solid var(--borde);box-shadow:0 1px 4px rgba(0,0,0,.04);overflow:hidden}
-.table-scroll{overflow:auto;max-height:calc(100vh - 340px)}
-table{width:100%;border-collapse:collapse;min-width:780px}
-thead{position:sticky;top:0;z-index:10;background:var(--fondo)}
-thead tr{border-bottom:1px solid var(--borde)}
-th{padding:10px 14px;text-align:left;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--texto-suave);white-space:nowrap}
+.table-wrap{flex:1;background:var(--blanco);border-radius:12px;border:1px solid var(--borde);box-shadow:0 1px 4px rgba(0,0,0,.04);overflow:hidden;display:flex;flex-direction:column}
+.table-scroll{overflow:auto;flex:1}
+table{width:100%;border-collapse:collapse;min-width:750px}
+thead{position:sticky;top:0;z-index:10}
+thead tr{border-bottom:2px solid var(--borde)}
+th{padding:10px 14px;text-align:left;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--texto-suave);white-space:nowrap;background:var(--fondo)}
 th.right{text-align:right}
-
-/* FILA ACTIVA */
-.row-activa td{background:rgba(46,181,212,.04)}
-.row-activa{border-left:3px solid var(--cian)}
-.row-activa:hover td{background:rgba(46,181,212,.08)}
-.row-finalizada{border-left:3px solid transparent}
-tbody tr:hover td{background:#F8FAFC}
-
 td{padding:10px 14px;font-size:13px;color:var(--texto);border-bottom:1px solid #F8FAFC;vertical-align:middle}
 tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:#FAFBFC}
+tbody tr.grupo-row td{background:#F8FAFC;font-weight:700;color:var(--azul);font-size:13px;border-bottom:1px solid var(--borde);border-top:2px solid var(--borde)}
+tbody tr.grupo-row:first-child td{border-top:none}
 
-/* BADGE EN CLINICA */
-.badge-activo{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:99px;font-size:11px;font-weight:700;background:var(--cian-suave);color:#0E86A0;white-space:nowrap}
-.badge-activo-dot{width:6px;height:6px;border-radius:50%;background:var(--cian);animation:mdPulse 2s ease-in-out infinite}
+/* ESTADO SERVICIO */
+.srv-activo{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:99px;font-size:11px;font-weight:700;background:var(--cian-suave);color:#0E86A0;white-space:nowrap}
+.srv-activo-dot{width:6px;height:6px;border-radius:50%;background:var(--cian);animation:pulse 1.5s ease-in-out infinite}
+.srv-final{font-size:12.5px;color:var(--texto-suave);font-family:monospace}
+.dias-activo{font-size:14px;font-weight:800;color:var(--azul);font-family:monospace;font-variant-numeric:tabular-nums}
+.dias-final{font-size:13px;color:var(--texto-suave);font-family:monospace}
 
-/* DIAS ACTIVOS */
-.dias-activo{font-family:monospace;font-weight:800;color:var(--azul);font-size:14px}
-.dias-final{font-family:monospace;color:var(--texto-suave);font-size:13px}
-
-/* GRUPO CLIENTE */
-.grupo-header td{background:#F1F5F9;padding:9px 14px;font-size:11.5px;font-weight:700;color:var(--azul);border-bottom:1px solid var(--borde)}
-
-/* EMPTY */
-.empty-state{text-align:center;padding:56px 24px;color:var(--texto-suave)}
+.empty-state{text-align:center;padding:48px 24px;color:var(--texto-suave)}
 </style>
 </head>
 <body>
@@ -259,9 +242,6 @@ tbody tr:last-child td{border-bottom:none}
     <a class="nav-item" href="ordenes.html">
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>Órdenes de servicio
     </a>
-    <a class="nav-item active" href="servicios.html">
-      <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></span>Servicios
-    </a>
     <a class="nav-item" href="clientes.html">
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>Clientes
     </a>
@@ -271,6 +251,9 @@ tbody tr:last-child td{border-bottom:none}
     <a class="nav-item" href="solicitudes.html">
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>Solicitudes<span class="nav-badge">2</span>
     </a>
+    <a class="nav-item active" href="servicios.html">
+      <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>Servicios prestados
+    </a>
   </div>
   <div class="nav-group"><div class="nav-group-label">Sistema</div>
     <a class="nav-item" href="bitacora.html">
@@ -278,11 +261,6 @@ tbody tr:last-child td{border-bottom:none}
     </a>
     <a class="nav-item" href="configuracion.html">
       <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></span>Configuración
-    </a>
-  </div>
-  <div style="padding:8px 12px;border-top:1px solid rgba(255,255,255,.08);margin-top:0">
-    <a class="nav-item" href="manual_usuario.html" target="_blank">
-      <span class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M8 7h8M8 11h8M8 15h8"/></svg></span>Manual de usuario
     </a>
   </div>
   <div class="sidebar-user">
@@ -298,41 +276,23 @@ tbody tr:last-child td{border-bottom:none}
   <div class="topbar">
     <div>
       <div class="topbar-title">Servicios prestados</div>
-      <div class="topbar-sub">Datos de equipos en campo para facturación y análisis</div>
+      <div class="topbar-sub">Datos para facturación por cliente y período</div>
     </div>
   </div>
 
   <div class="content">
-    <!-- Métricas -->
-    <div class="metrics-grid">
-      <div class="metric-card">
-        <div class="metric-label"><span class="pulse-dot"></span>Servicios activos</div>
-        <div class="metric-val" id="m-activos">—</div>
-        <div class="metric-sub">Equipos en campo ahora</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-label">Clientes activos</div>
-        <div class="metric-val" id="m-clientes">—</div>
-        <div class="metric-sub">Con equipos activos</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-label">Mayor permanencia</div>
-        <div class="metric-val" id="m-max-dias" style="font-size:20px">—</div>
-        <div class="metric-sub" id="m-max-eq">—</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-label">Período consultado</div>
-        <div class="metric-val" id="m-periodo" style="font-size:16px;color:var(--texto-med)">Todos</div>
-        <div class="metric-sub" id="m-total-registros">— registros</div>
-      </div>
-    </div>
-
     <!-- Controles -->
     <div class="controls-bar">
       <div class="search-wrap">
         <span class="search-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
-        <input class="search-input" id="search" placeholder="Buscar por cliente o código EQ..." oninput="render()">
+        <input class="search-input" id="search" placeholder="Buscar cliente o equipo..." oninput="render()">
       </div>
+
+      <span class="ctrl-label">Desde</span>
+      <input type="date" id="f-desde" class="ctrl-input" onchange="render()">
+
+      <span class="ctrl-label">Hasta</span>
+      <input type="date" id="f-hasta" class="ctrl-input" onchange="render()">
 
       <div class="seg-ctrl">
         <button class="seg-btn active" onclick="setEstado('todos',this)">Todos</button>
@@ -340,26 +300,39 @@ tbody tr:last-child td{border-bottom:none}
         <button class="seg-btn"        onclick="setEstado('finalizado',this)">✅ Finalizados</button>
       </div>
 
-      <select class="period-select" id="period-select" onchange="render()">
-        <option value="">Todos los períodos</option>
-        <option value="2026-06">Junio 2026</option>
-        <option value="2026-05">Mayo 2026</option>
-        <option value="2026-04">Abril 2026</option>
-        <option value="2026-01">Enero 2026</option>
-        <option value="2025-11">Noviembre 2025</option>
-        <option value="2024-02">Febrero 2024</option>
-        <option value="2024-05">Mayo 2024</option>
-      </select>
-
       <label class="toggle-wrap" onclick="toggleAgrup()">
         <div class="toggle" id="toggle-agrup"></div>
-        <span>Agrupar por cliente</span>
+        Agrupar por cliente
       </label>
 
       <button class="btn-export" id="btn-export" onclick="exportarCSV()">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Exportar CSV
       </button>
+    </div>
+
+    <!-- Métricas -->
+    <div class="metrics-row">
+      <div class="metric-card">
+        <div class="metric-label"><span class="pulse-dot"></span>Equipos en campo</div>
+        <div class="metric-val" id="m-activos" style="color:var(--cian)">—</div>
+        <div class="metric-sub">Servicios activos ahora</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Clientes activos</div>
+        <div class="metric-val" id="m-clientes" style="color:var(--azul)">—</div>
+        <div class="metric-sub">Con equipos en campo</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Mayor permanencia</div>
+        <div class="metric-val" id="m-max" style="color:var(--azul);font-size:18px">—</div>
+        <div class="metric-sub" id="m-max-sub">—</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Total días (período)</div>
+        <div class="metric-val" id="m-total-dias" style="color:var(--texto-med)">—</div>
+        <div class="metric-sub" id="m-periodo-label">Suma de todos los servicios</div>
+      </div>
     </div>
 
     <!-- Tabla -->
@@ -368,18 +341,19 @@ tbody tr:last-child td{border-bottom:none}
         <table>
           <thead>
             <tr>
-              <th>Orden</th>
               <th>Cliente</th>
               <th>Equipo</th>
               <th>Código</th>
+              <th>Serial</th>
               <th>Fecha entrega</th>
               <th>Devolución</th>
               <th class="right">Días activos</th>
             </tr>
           </thead>
-          <tbody id="tabla-body"></tbody>
+          <tbody id="srv-body"></tbody>
         </table>
       </div>
+      <div id="tabla-footer" style="padding:10px 16px;border-top:1px solid var(--borde);font-size:12px;color:var(--texto-suave);background:var(--fondo);flex-shrink:0"></div>
     </div>
   </div>
 </main>
@@ -407,42 +381,41 @@ function toast(msg,tipo){
 let estadoFiltro = "todos";
 let agrupado     = false;
 
-// ── DATOS SIMULADOS (espejo de la vista servicios_prestados) ─
+// ── DATOS ────────────────────────────────────────────────────
 function initData(){
-  if(localStorage.getItem("ing_srv_v1")) return;
+  if(localStorage.getItem("ing_srv_v2")) return;
   const servicios = [
-    {orden:"ORD-2024-001",cliente:"María García Pérez",    equipo:"Concentrador Respironics EverFlo", codigo:"EQ-0001",serial:"0141535",   fechaEntrega:"2024-02-10",fechaDevolucion:null},
-    {orden:"ORD-2024-001",cliente:"María García Pérez",    equipo:"Cilindro de Oxígeno 6.5 M³",      codigo:"EQ-0003",serial:"B241433042",fechaEntrega:"2024-02-10",fechaDevolucion:null},
-    {orden:"ORD-2024-002",cliente:"CAJACOPI ATLÁNTICO",    equipo:"Concentrador Invacare Platinum 10",codigo:"EQ-0009",serial:"PT10-98234",fechaEntrega:"2023-08-10",fechaDevolucion:null},
-    {orden:"ORD-2024-003",cliente:"Pedro Álvarez Suárez",  equipo:"Colchón Lumex APP300",            codigo:"EQ-0007",serial:"L330021",   fechaEntrega:"2024-05-22",fechaDevolucion:null},
-    {orden:"ORD-2023-089",cliente:"Pedro Álvarez Suárez",  equipo:"Concentrador DeVilbiss 525KS",    codigo:"EQ-0002",serial:"F2201445",  fechaEntrega:"2023-03-10",fechaDevolucion:"2024-01-20"},
-    {orden:"ORD-2022-034",cliente:"Clínica Valledupar S.A.",equipo:"Concentrador Respironics EverFlo",codigo:"EQ-0001",serial:"0141535",  fechaEntrega:"2022-07-01",fechaDevolucion:"2024-09-30"},
-    {orden:"ORD-2024-004",cliente:"IPS Saludcoop",         equipo:"Ventilador Dräger Evita V300",    codigo:"EQ-0010",serial:"EVT-00341", fechaEntrega:"2024-01-15",fechaDevolucion:"2024-06-30"},
+    {orden:"OS-2024-001",cliente:"María García Pérez",    equipo:"Concentrador Respironics EverFlo",  codigo:"EQ-0001",serial:"0141535",    fechaEntrega:"2024-02-10",fechaDevolucion:null},
+    {orden:"OS-2024-001",cliente:"María García Pérez",    equipo:"Cilindro de Oxígeno 6.5 M³",       codigo:"EQ-0003",serial:"B241433042", fechaEntrega:"2024-02-10",fechaDevolucion:null},
+    {orden:"OS-2024-002",cliente:"CAJACOPI ATLÁNTICO",    equipo:"Concentrador Invacare Platinum 10", codigo:"EQ-0008",serial:"PT10-98234", fechaEntrega:"2023-08-10",fechaDevolucion:null},
+    {orden:"OS-2024-002",cliente:"CAJACOPI ATLÁNTICO",    equipo:"Concentrador Respironics EverFlo",  codigo:"EQ-0004",serial:"C112200874", fechaEntrega:"2023-08-10",fechaDevolucion:null},
+    {orden:"OS-2024-003",cliente:"Pedro Álvarez Suárez",  equipo:"Colchón Lumex APP300",             codigo:"EQ-0007",serial:"L330021",    fechaEntrega:"2024-05-22",fechaDevolucion:null},
+    {orden:"OS-2023-089",cliente:"Pedro Álvarez Suárez",  equipo:"Concentrador DeVilbiss 525KS",     codigo:"EQ-0002",serial:"F2201445",   fechaEntrega:"2023-03-10",fechaDevolucion:"2024-01-20"},
+    {orden:"OS-2022-034",cliente:"Clínica Valledupar S.A.",equipo:"Ventilador Dräger Evita V300",    codigo:"EQ-0009",serial:"EVT-00341",  fechaEntrega:"2022-07-01",fechaDevolucion:"2024-09-30"},
+    {orden:"OS-2024-004",cliente:"Clínica Valledupar S.A.",equipo:"CPAP ResMed AirSense 10",        codigo:"EQ-0005",serial:"23191012345", fechaEntrega:"2024-04-15",fechaDevolucion:null},
   ];
   localStorage.setItem("ing_servicios", JSON.stringify(servicios));
-  localStorage.setItem("ing_srv_v1","1");
+  localStorage.setItem("ing_srv_v2","1");
 }
 
 const getSrv = () => JSON.parse(localStorage.getItem("ing_servicios")||"[]");
 
-// ── CALCULAR DÍAS ────────────────────────────────────────────
 function calcDias(srv){
   const inicio = new Date(srv.fechaEntrega);
   const fin    = srv.fechaDevolucion ? new Date(srv.fechaDevolucion) : new Date();
-  return Math.max(0, Math.round((fin - inicio) / (1000*60*60*24)));
+  return Math.max(0, Math.round((fin-inicio)/(1000*60*60*24)));
 }
 
-function fmtFecha(f){
+function fmtF(f){
   if(!f) return null;
   const[y,m,d]=f.split("-");
   return `${d}/${m}/${y}`;
 }
 
-// ── FILTROS ──────────────────────────────────────────────────
-function setEstado(e, el){
+function setEstado(e,el){
   estadoFiltro=e;
   document.querySelectorAll(".seg-btn").forEach(b=>b.classList.remove("active"));
-  el.classList.add("active");
+  if(el) el.classList.add("active");
   render();
 }
 
@@ -452,36 +425,68 @@ function toggleAgrup(){
   render();
 }
 
-// ── RENDER ───────────────────────────────────────────────────
-function render(){
-  const srv    = getSrv();
-  const q      = document.getElementById("search").value.toLowerCase();
-  const period = document.getElementById("period-select").value;
+// Inicializar fechas por defecto (mes actual)
+function initFechas(){
+  const hoy   = new Date();
+  const desde = new Date(hoy.getFullYear(), hoy.getMonth(), 1);
+  document.getElementById("f-desde").value = desde.toISOString().split("T")[0];
+  document.getElementById("f-hasta").value = hoy.toISOString().split("T")[0];
+}
 
-  let filtered = srv.filter(s=>{
-    const mq = !q || [s.cliente,s.codigo,s.equipo,s.orden].some(v=>v.toLowerCase().includes(q));
-    const me = estadoFiltro==="todos" || (estadoFiltro==="activo"&&!s.fechaDevolucion) || (estadoFiltro==="finalizado"&&s.fechaDevolucion);
-    const mp = !period || s.fechaEntrega.startsWith(period) || (s.fechaDevolucion&&s.fechaDevolucion.startsWith(period));
+// ── FILTRAR ───────────────────────────────────────────────────
+function filtrar(srv){
+  const q     = document.getElementById("search").value.toLowerCase();
+  const desde = document.getElementById("f-desde").value;
+  const hasta = document.getElementById("f-hasta").value;
+
+  return srv.filter(s=>{
+    // Filtro texto
+    const mq = !q||[s.cliente,s.equipo,s.codigo,s.serial,s.orden].some(v=>(v||"").toLowerCase().includes(q));
+    // Filtro estado
+    const me = estadoFiltro==="todos"
+      ||(estadoFiltro==="activo"&&!s.fechaDevolucion)
+      ||(estadoFiltro==="finalizado"&&s.fechaDevolucion);
+    // Filtro período — servicio activo durante el rango
+    let mp = true;
+    if(desde||hasta){
+      const ini = new Date(s.fechaEntrega);
+      const fin = s.fechaDevolucion ? new Date(s.fechaDevolucion) : new Date();
+      const dsd = desde ? new Date(desde) : new Date("2000-01-01");
+      const hst = hasta ? new Date(hasta) : new Date("2099-01-01");
+      // El servicio se solapa con el rango si inicio <= hasta Y fin >= desde
+      mp = ini<=hst && fin>=dsd;
+    }
     return mq&&me&&mp;
   });
+}
 
-  // Métricas
-  const activos   = filtered.filter(s=>!s.fechaDevolucion);
-  const cliActivos= [...new Set(activos.map(s=>s.cliente))];
-  const maxSrv    = activos.reduce((max,s)=>calcDias(s)>calcDias(max)?s:max, activos[0]||{fechaEntrega:new Date().toISOString().split("T")[0]});
+// ── RENDER ────────────────────────────────────────────────────
+function render(){
+  const srv      = getSrv();
+  const filtered = filtrar(srv);
 
-  document.getElementById("m-activos").textContent   = activos.length;
-  document.getElementById("m-clientes").textContent  = cliActivos.length;
-  document.getElementById("m-max-dias").textContent  = activos.length ? calcDias(maxSrv)+" días" : "—";
-  document.getElementById("m-max-eq").textContent    = activos.length ? maxSrv.codigo+" · "+maxSrv.cliente : "Sin servicios activos";
-  document.getElementById("m-periodo").textContent   = period ? period.split("-").reverse().join("/") : "Todos";
-  document.getElementById("m-total-registros").textContent = `${filtered.length} registro${filtered.length!==1?"s":""}`;
+  // Métricas sobre datos filtrados
+  const activos     = filtered.filter(s=>!s.fechaDevolucion);
+  const cliActivos  = [...new Set(activos.map(s=>s.cliente))];
+  const maxSrv      = activos.length ? activos.reduce((mx,s)=>calcDias(s)>calcDias(mx)?s:mx, activos[0]) : null;
+  const totalDias   = filtered.reduce((sum,s)=>sum+calcDias(s),0);
+  const desde       = document.getElementById("f-desde").value;
+  const hasta       = document.getElementById("f-hasta").value;
 
-  const tbody = document.getElementById("tabla-body");
-  if(!filtered.length){
-    tbody.innerHTML=`<tr><td colspan="7"><div class="empty-state"><p>No hay servicios que coincidan</p></div></td></tr>`;
-    return;
-  }
+  document.getElementById("m-activos").textContent  = activos.length;
+  document.getElementById("m-clientes").textContent = cliActivos.length;
+  document.getElementById("m-max").textContent      = maxSrv ? calcDias(maxSrv)+" días" : "—";
+  document.getElementById("m-max-sub").textContent  = maxSrv ? maxSrv.codigo+" · "+maxSrv.cliente.split(" ")[0] : "Sin servicios activos";
+  document.getElementById("m-total-dias").textContent = totalDias.toLocaleString("es-CO");
+  document.getElementById("m-periodo-label").textContent = desde&&hasta
+    ? `Del ${fmtF(desde)} al ${fmtF(hasta)}`
+    : "Todos los períodos";
+
+  document.getElementById("tabla-footer").textContent =
+    `${filtered.length} registro${filtered.length!==1?"s":""} · ${totalDias} días totales`;
+
+  const tbody = document.getElementById("srv-body");
+  if(!filtered.length){tbody.innerHTML=`<tr><td colspan="7"><div class="empty-state"><p>No hay servicios que coincidan con los filtros</p></div></td></tr>`;return;}
 
   if(agrupado){
     // Agrupar por cliente
@@ -490,84 +495,104 @@ function render(){
       if(!grupos[s.cliente]) grupos[s.cliente]=[];
       grupos[s.cliente].push(s);
     });
-    tbody.innerHTML = Object.entries(grupos).map(([cliente,items])=>{
-      const actCli = items.filter(s=>!s.fechaDevolucion).length;
-      const header = `<tr class="grupo-header">
-        <td colspan="7">
+    // Ordenar clientes por días totales desc
+    const clientesOrdenados = Object.entries(grupos).sort((a,b)=>{
+      const da=a[1].reduce((s,x)=>s+calcDias(x),0);
+      const db=b[1].reduce((s,x)=>s+calcDias(x),0);
+      return db-da;
+    });
+
+    tbody.innerHTML = clientesOrdenados.map(([cliente,items])=>{
+      const diasCliente = items.reduce((s,x)=>s+calcDias(x),0);
+      const actCli      = items.filter(s=>!s.fechaDevolucion).length;
+      const header      = `<tr class="grupo-row">
+        <td colspan="5">
           👤 ${cliente}
-          <span style="font-weight:400;color:var(--texto-med);margin-left:8px">— ${items.length} servicio${items.length!==1?"s":""}${actCli?` · <span style="color:var(--cian)">${actCli} activo${actCli!==1?"s":""}</span>`:""}</span>
+          <span style="font-size:11.5px;font-weight:400;color:var(--texto-med);margin-left:8px">
+            ${items.length} equipo${items.length!==1?"s":""}
+            ${actCli?`· <span style="color:var(--cian)">${actCli} activo${actCli!==1?"s":""}</span>`:""}
+          </span>
+        </td>
+        <td></td>
+        <td style="text-align:right">
+          <span style="font-size:13px;font-weight:800;font-family:monospace;color:var(--azul)">${diasCliente}</span>
+          <span style="font-size:11px;color:var(--texto-suave)"> días</span>
         </td>
       </tr>`;
       const rows = items.map(s=>buildRow(s,true)).join("");
       return header+rows;
     }).join("");
   } else {
-    tbody.innerHTML = filtered.map(s=>buildRow(s,false)).join("");
+    // Activos primero, luego por cliente
+    const sorted = [...filtered].sort((a,b)=>{
+      if(!a.fechaDevolucion&&b.fechaDevolucion) return -1;
+      if(a.fechaDevolucion&&!b.fechaDevolucion) return 1;
+      return calcDias(b)-calcDias(a);
+    });
+    tbody.innerHTML = sorted.map(s=>buildRow(s,false)).join("");
   }
 }
 
 function buildRow(s, indent){
   const activo = !s.fechaDevolucion;
   const dias   = calcDias(s);
-  const rowCls = activo?"row-activa":"row-finalizada";
-  const devHTML = activo
-    ? `<td><span class="badge-activo"><span class="badge-activo-dot"></span>En campo</span></td>`
-    : `<td><span style="font-family:monospace;font-size:12.5px;color:var(--texto-suave)">${fmtFecha(s.fechaDevolucion)}</span></td>`;
-  const diasHTML = activo
-    ? `<td style="text-align:right"><span class="dias-activo">${dias}</span> <span style="font-size:11px;color:var(--texto-suave)">días</span></td>`
-    : `<td style="text-align:right"><span class="dias-final">${dias} días</span></td>`;
-  const pl = indent?"padding-left:24px":"";
-  return `<tr class="${rowCls}">
-    <td style="${pl}"><span style="font-family:monospace;font-size:12px;font-weight:700;color:${activo?"var(--azul)":"var(--texto-suave)"}">${s.orden}</span></td>
-    <td style="font-weight:${activo?"600":"400"};color:${activo?"var(--texto)":"var(--texto-med)"}">${activo?s.cliente:`<span style="color:var(--texto-suave)">${s.cliente}</span>`}</td>
+  const pl     = indent?"padding-left:24px":"";
+
+  return `<tr style="border-left:3px solid ${activo?"var(--cian)":"transparent"}">
+    <td style="${pl};font-weight:${activo?"600":"400"};color:${activo?"var(--texto)":"var(--texto-med)"}">${agrupado?"":s.cliente}</td>
     <td>
-      <div style="font-size:13px;font-weight:${activo?"600":"400"};color:${activo?"var(--texto)":"var(--texto-med)"}">${s.equipo}</div>
-      <div style="font-size:11px;font-family:monospace;color:var(--texto-suave);margin-top:1px">${s.serial}</div>
+      <div style="font-size:13px;font-weight:${activo?"500":"400"};color:${activo?"var(--texto)":"var(--texto-med)"}">${s.equipo}</div>
+      <div style="font-size:10.5px;font-family:monospace;color:var(--texto-suave);margin-top:1px">${s.orden}</div>
     </td>
-    <td><span style="font-family:monospace;font-size:12px;font-weight:700;background:#F1F5F9;color:var(--azul);padding:2px 7px;border-radius:5px">${s.codigo}</span></td>
-    <td><span style="font-family:monospace;font-size:12.5px;color:${activo?"var(--texto-med)":"var(--texto-suave)"}">${fmtFecha(s.fechaEntrega)}</span></td>
-    ${devHTML}
-    ${diasHTML}
+    <td><span style="font-family:monospace;font-size:12px;font-weight:700;background:#F1F5F9;color:var(--azul);padding:1px 6px;border-radius:4px">${s.codigo}</span></td>
+    <td style="font-family:monospace;font-size:12px;color:var(--texto-suave)">${s.serial}</td>
+    <td style="font-family:monospace;font-size:12.5px;color:${activo?"var(--texto-med)":"var(--texto-suave)"}">${fmtF(s.fechaEntrega)}</td>
+    <td>
+      ${activo
+        ?`<span class="srv-activo"><span class="srv-activo-dot"></span>En campo</span>`
+        :`<span class="srv-final">${fmtF(s.fechaDevolucion)}</span>`
+      }
+    </td>
+    <td style="text-align:right">
+      ${activo
+        ?`<span class="dias-activo">${dias}</span> <span style="font-size:11px;color:var(--texto-suave)">días</span>`
+        :`<span class="dias-final">${dias} días</span>`
+      }
+    </td>
   </tr>`;
 }
 
-// ── EXPORTAR CSV ─────────────────────────────────────────────
+// ── EXPORTAR CSV ──────────────────────────────────────────────
 function exportarCSV(){
-  const btn = document.getElementById("btn-export");
-  btn.textContent = "Generando...";
-  btn.disabled    = true;
-
+  const btn=document.getElementById("btn-export");
+  btn.textContent="Generando..."; btn.disabled=true;
   setTimeout(()=>{
-    const srv    = getSrv();
-    const q      = document.getElementById("search").value.toLowerCase();
-    const period = document.getElementById("period-select").value;
-    let filtered = srv.filter(s=>{
-      const mq = !q || [s.cliente,s.codigo,s.equipo,s.orden].some(v=>v.toLowerCase().includes(q));
-      const me = estadoFiltro==="todos"||(estadoFiltro==="activo"&&!s.fechaDevolucion)||(estadoFiltro==="finalizado"&&s.fechaDevolucion);
-      const mp = !period||s.fechaEntrega.startsWith(period)||(s.fechaDevolucion&&s.fechaDevolucion.startsWith(period));
-      return mq&&me&&mp;
-    });
-
-    const header = ["Orden","Cliente","Equipo","Código","Serial","Fecha Entrega","Fecha Devolución","Días Activos","Estado"];
-    const rows   = filtered.map(s=>[
+    const filtered = filtrar(getSrv());
+    const desde    = document.getElementById("f-desde").value;
+    const hasta    = document.getElementById("f-hasta").value;
+    const header   = ["Orden","Cliente","Equipo","Código","Serial","Fecha entrega","Fecha devolución","Días activos","Estado"];
+    const rows     = filtered.map(s=>[
       s.orden, s.cliente, s.equipo, s.codigo, s.serial,
-      s.fechaEntrega, s.fechaDevolucion||"", calcDias(s),
+      s.fechaEntrega, s.fechaDevolucion||"",
+      calcDias(s),
       s.fechaDevolucion?"Finalizado":"Activo"
     ]);
-    const csv    = [header,...rows].map(r=>r.map(v=>`"${v}"`).join(",")).join("\n");
-    const blob   = new Blob([csv],{type:"text/csv;charset=utf-8;"});
-    const url    = URL.createObjectURL(blob);
-    const a      = document.createElement("a");
-    a.href=url; a.download=`servicios_prestados_${new Date().toISOString().split("T")[0]}.csv`;
+    const bom = "\uFEFF";
+    const csv = bom+[header,...rows].map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(",")).join("\n");
+    const blob= new Blob([csv],{type:"text/csv;charset=utf-8;"});
+    const url = URL.createObjectURL(blob);
+    const a   = document.createElement("a");
+    a.href=url;
+    const periodoStr = desde&&hasta ? `_${desde}_${hasta}` : "";
+    a.download=`servicios_prestados${periodoStr}_${new Date().toISOString().split("T")[0]}.csv`;
     a.click(); URL.revokeObjectURL(url);
-
-    btn.innerHTML=`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Exportar CSV`;
+    btn.innerHTML=`<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Exportar CSV`;
     btn.disabled=false;
-    toast("CSV descargado","success");
-  },600);
+    toast(`${filtered.length} registros exportados`,"success");
+  },400);
 }
 
-initData(); render();
+initData(); initFechas(); render();
 </script>
 </body>
 </html>
